@@ -1,5 +1,0 @@
-[[Glossaire]]
-== Glossary
-
-[[MDE]]MDE::
-        _**M**odel **D**riven **E**ngineering_ (IDM^fr^)
