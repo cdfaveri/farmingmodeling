@@ -1,14 +1,6 @@
-idm2014
-=======
+# Farming Modeling
 
-Working project on the IDM'2014 case study.
+## Description
 
-The documentation is available in different format:
 
-- link:main.html[Plain HTML]
-- link:main.slides.html[Slides]
-
-Contact: mailto:jbruel@gmail.com[JM Bruel]
-
-Continuous Integration now works (last status: image:https://travis-ci.org/jmbruel/idm2014.svg?branch=master["Build Status", link="https://travis-ci.org/jmbruel/idm2014"])
-and the outputs are available link:http://jmbruel.github.io/idm2014/[here].
+## Structure
