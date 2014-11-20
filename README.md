@@ -12,3 +12,4 @@ This repository provides modeling languages to model and analyse farms.
 
 * benoit.combemale@irisa.fr
 * thomas.degueule@inria.fr
+* cedric.brun@obeo.fr
