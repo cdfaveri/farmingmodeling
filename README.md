@@ -1,15 +1,21 @@
-# Farming Modeling
+# Description
 
 This repository provides modeling languages to model and analyse farms.
 
-## Description
+# Structure
 
+* ./dev: tool-supported DSLs based on EMF, Sirius, Xtend and Mélange (see README)
+* ./doc: various documents about the project
+* ./protos: some experimental alternatives
 
-## Structure
+# People involved
 
+* Jean-Michel Bruel (IRIT)
+* Cédric Brun (Obeo)
+* Benoit Combemale (Inria and University of Rennes 1)
+* Hélène Raynal (INRA)
 
-## Contact
+# Contact
 
-* benoit.combemale@irisa.fr
-* thomas.degueule@inria.fr
 * cedric.brun@obeo.fr
+* benoit.combemale@irisa.fr 
