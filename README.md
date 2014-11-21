@@ -1,6 +1,6 @@
 # Description
 
-This repository provides modeling languages to model and analyse farms.
+This repository provides related modeling languages to model and analyse farms.
 
 # Structure
 
