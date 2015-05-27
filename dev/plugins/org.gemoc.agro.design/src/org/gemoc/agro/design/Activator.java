@@ -1,4 +1,4 @@
-package defaultpackage;
+package org.gemoc.agro.design;
 
 import java.util.HashSet;
 import java.util.Set;
