@@ -72,29 +72,6 @@ public class SimulationItemProviderAdapterFactory extends SimulationAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.agro.simulation.ClimateDefinition} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ClimateDefinitionItemProvider climateDefinitionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.gemoc.agro.simulation.ClimateDefinition}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createClimateDefinitionAdapter() {
-		if (climateDefinitionItemProvider == null) {
-			climateDefinitionItemProvider = new ClimateDefinitionItemProvider(this);
-		}
-
-		return climateDefinitionItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.gemoc.agro.simulation.Simulation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,29 +115,6 @@ public class SimulationItemProviderAdapterFactory extends SimulationAdapterFacto
 		}
 
 		return activityWorkItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.agro.simulation.Climate} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ClimateItemProvider climateItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.gemoc.agro.simulation.Climate}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createClimateAdapter() {
-		if (climateItemProvider == null) {
-			climateItemProvider = new ClimateItemProvider(this);
-		}
-
-		return climateItemProvider;
 	}
 
 	/**
@@ -285,10 +239,8 @@ public class SimulationItemProviderAdapterFactory extends SimulationAdapterFacto
 	 * @generated
 	 */
 	public void dispose() {
-		if (climateDefinitionItemProvider != null) climateDefinitionItemProvider.dispose();
 		if (simulationItemProvider != null) simulationItemProvider.dispose();
 		if (activityWorkItemProvider != null) activityWorkItemProvider.dispose();
-		if (climateItemProvider != null) climateItemProvider.dispose();
 		if (dayItemProvider != null) dayItemProvider.dispose();
 	}
 

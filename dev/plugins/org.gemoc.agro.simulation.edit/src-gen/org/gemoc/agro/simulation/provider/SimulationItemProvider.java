@@ -126,8 +126,7 @@ public class SimulationItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SimulationPackage.Literals.SIMULATION__CLIMATE);
-			childrenFeatures.add(SimulationPackage.Literals.SIMULATION__PLANNING);
+			childrenFeatures.add(SimulationPackage.Literals.SIMULATION__DAYS);
 		}
 		return childrenFeatures;
 	}
@@ -187,8 +186,7 @@ public class SimulationItemProvider
 			case SimulationPackage.SIMULATION__SCHEDULING_STRATEGY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case SimulationPackage.SIMULATION__CLIMATE:
-			case SimulationPackage.SIMULATION__PLANNING:
+			case SimulationPackage.SIMULATION__DAYS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -208,12 +206,7 @@ public class SimulationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SimulationPackage.Literals.SIMULATION__CLIMATE,
-				 SimulationFactory.eINSTANCE.createClimateDefinition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SimulationPackage.Literals.SIMULATION__PLANNING,
+				(SimulationPackage.Literals.SIMULATION__DAYS,
 				 SimulationFactory.eINSTANCE.createDay()));
 	}
 

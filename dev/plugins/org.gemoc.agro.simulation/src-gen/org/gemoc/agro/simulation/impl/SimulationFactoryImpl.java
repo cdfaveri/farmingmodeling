@@ -57,10 +57,8 @@ public class SimulationFactoryImpl extends EFactoryImpl implements SimulationFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case SimulationPackage.CLIMATE_DEFINITION: return createClimateDefinition();
 			case SimulationPackage.SIMULATION: return createSimulation();
 			case SimulationPackage.ACTIVITY_WORK: return createActivityWork();
-			case SimulationPackage.CLIMATE: return createClimate();
 			case SimulationPackage.DAY: return createDay();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -102,16 +100,6 @@ public class SimulationFactoryImpl extends EFactoryImpl implements SimulationFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ClimateDefinition createClimateDefinition() {
-		ClimateDefinitionImpl climateDefinition = new ClimateDefinitionImpl();
-		return climateDefinition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Simulation createSimulation() {
 		SimulationImpl simulation = new SimulationImpl();
 		return simulation;
@@ -125,16 +113,6 @@ public class SimulationFactoryImpl extends EFactoryImpl implements SimulationFac
 	public ActivityWork createActivityWork() {
 		ActivityWorkImpl activityWork = new ActivityWorkImpl();
 		return activityWork;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Climate createClimate() {
-		ClimateImpl climate = new ClimateImpl();
-		return climate;
 	}
 
 	/**

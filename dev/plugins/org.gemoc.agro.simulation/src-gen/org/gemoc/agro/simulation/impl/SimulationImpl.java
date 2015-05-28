@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.gemoc.agro.exploitation.Exploitation;
 
-import org.gemoc.agro.simulation.ClimateDefinition;
 import org.gemoc.agro.simulation.Day;
 import org.gemoc.agro.simulation.SchedulingStrategy;
 import org.gemoc.agro.simulation.Simulation;
@@ -33,8 +32,7 @@ import org.gemoc.agro.simulation.SimulationPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.gemoc.agro.simulation.impl.SimulationImpl#getClimate <em>Climate</em>}</li>
- *   <li>{@link org.gemoc.agro.simulation.impl.SimulationImpl#getPlanning <em>Planning</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.impl.SimulationImpl#getDays <em>Days</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.SimulationImpl#getExploitation <em>Exploitation</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.SimulationImpl#getSchedulingStrategy <em>Scheduling Strategy</em>}</li>
  * </ul>
@@ -44,24 +42,14 @@ import org.gemoc.agro.simulation.SimulationPackage;
  */
 public class SimulationImpl extends MinimalEObjectImpl.Container implements Simulation {
 	/**
-	 * The cached value of the '{@link #getClimate() <em>Climate</em>}' containment reference list.
+	 * The cached value of the '{@link #getDays() <em>Days</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClimate()
+	 * @see #getDays()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ClimateDefinition> climate;
-
-	/**
-	 * The cached value of the '{@link #getPlanning() <em>Planning</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPlanning()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Day> planning;
+	protected EList<Day> days;
 
 	/**
 	 * The cached value of the '{@link #getExploitation() <em>Exploitation</em>}' reference.
@@ -117,23 +105,11 @@ public class SimulationImpl extends MinimalEObjectImpl.Container implements Simu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ClimateDefinition> getClimate() {
-		if (climate == null) {
-			climate = new EObjectContainmentEList<ClimateDefinition>(ClimateDefinition.class, this, SimulationPackage.SIMULATION__CLIMATE);
+	public EList<Day> getDays() {
+		if (days == null) {
+			days = new EObjectContainmentEList<Day>(Day.class, this, SimulationPackage.SIMULATION__DAYS);
 		}
-		return climate;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Day> getPlanning() {
-		if (planning == null) {
-			planning = new EObjectContainmentEList<Day>(Day.class, this, SimulationPackage.SIMULATION__PLANNING);
-		}
-		return planning;
+		return days;
 	}
 
 	/**
@@ -203,10 +179,8 @@ public class SimulationImpl extends MinimalEObjectImpl.Container implements Simu
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SimulationPackage.SIMULATION__CLIMATE:
-				return ((InternalEList<?>)getClimate()).basicRemove(otherEnd, msgs);
-			case SimulationPackage.SIMULATION__PLANNING:
-				return ((InternalEList<?>)getPlanning()).basicRemove(otherEnd, msgs);
+			case SimulationPackage.SIMULATION__DAYS:
+				return ((InternalEList<?>)getDays()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -219,10 +193,8 @@ public class SimulationImpl extends MinimalEObjectImpl.Container implements Simu
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SimulationPackage.SIMULATION__CLIMATE:
-				return getClimate();
-			case SimulationPackage.SIMULATION__PLANNING:
-				return getPlanning();
+			case SimulationPackage.SIMULATION__DAYS:
+				return getDays();
 			case SimulationPackage.SIMULATION__EXPLOITATION:
 				if (resolve) return getExploitation();
 				return basicGetExploitation();
@@ -241,13 +213,9 @@ public class SimulationImpl extends MinimalEObjectImpl.Container implements Simu
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SimulationPackage.SIMULATION__CLIMATE:
-				getClimate().clear();
-				getClimate().addAll((Collection<? extends ClimateDefinition>)newValue);
-				return;
-			case SimulationPackage.SIMULATION__PLANNING:
-				getPlanning().clear();
-				getPlanning().addAll((Collection<? extends Day>)newValue);
+			case SimulationPackage.SIMULATION__DAYS:
+				getDays().clear();
+				getDays().addAll((Collection<? extends Day>)newValue);
 				return;
 			case SimulationPackage.SIMULATION__EXPLOITATION:
 				setExploitation((Exploitation)newValue);
@@ -267,11 +235,8 @@ public class SimulationImpl extends MinimalEObjectImpl.Container implements Simu
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SimulationPackage.SIMULATION__CLIMATE:
-				getClimate().clear();
-				return;
-			case SimulationPackage.SIMULATION__PLANNING:
-				getPlanning().clear();
+			case SimulationPackage.SIMULATION__DAYS:
+				getDays().clear();
 				return;
 			case SimulationPackage.SIMULATION__EXPLOITATION:
 				setExploitation((Exploitation)null);
@@ -291,10 +256,8 @@ public class SimulationImpl extends MinimalEObjectImpl.Container implements Simu
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SimulationPackage.SIMULATION__CLIMATE:
-				return climate != null && !climate.isEmpty();
-			case SimulationPackage.SIMULATION__PLANNING:
-				return planning != null && !planning.isEmpty();
+			case SimulationPackage.SIMULATION__DAYS:
+				return days != null && !days.isEmpty();
 			case SimulationPackage.SIMULATION__EXPLOITATION:
 				return exploitation != null;
 			case SimulationPackage.SIMULATION__SCHEDULING_STRATEGY:

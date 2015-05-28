@@ -67,6 +67,10 @@ public class DayItemProvider
 
 			addMonthPropertyDescriptor(object);
 			addDayPropertyDescriptor(object);
+			addRainPropertyDescriptor(object);
+			addRayPropertyDescriptor(object);
+			addETpPropertyDescriptor(object);
+			addTemperaturePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -116,6 +120,94 @@ public class DayItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Rain feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRainPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Day_rain_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Day_rain_feature", "_UI_Day_type"),
+				 SimulationPackage.Literals.DAY__RAIN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Ray feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRayPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Day_ray_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Day_ray_feature", "_UI_Day_type"),
+				 SimulationPackage.Literals.DAY__RAY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the ETp feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addETpPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Day_ETp_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Day_ETp_feature", "_UI_Day_type"),
+				 SimulationPackage.Literals.DAY__ETP,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Temperature feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTemperaturePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Day_temperature_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Day_temperature_feature", "_UI_Day_type"),
+				 SimulationPackage.Literals.DAY__TEMPERATURE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -128,7 +220,6 @@ public class DayItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(SimulationPackage.Literals.DAY__ACTIVITIES_WORK);
-			childrenFeatures.add(SimulationPackage.Literals.DAY__CLIMATE);
 		}
 		return childrenFeatures;
 	}
@@ -187,10 +278,13 @@ public class DayItemProvider
 		switch (notification.getFeatureID(Day.class)) {
 			case SimulationPackage.DAY__MONTH:
 			case SimulationPackage.DAY__DAY:
+			case SimulationPackage.DAY__RAIN:
+			case SimulationPackage.DAY__RAY:
+			case SimulationPackage.DAY__ETP:
+			case SimulationPackage.DAY__TEMPERATURE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SimulationPackage.DAY__ACTIVITIES_WORK:
-			case SimulationPackage.DAY__CLIMATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -212,11 +306,6 @@ public class DayItemProvider
 			(createChildParameter
 				(SimulationPackage.Literals.DAY__ACTIVITIES_WORK,
 				 SimulationFactory.eINSTANCE.createActivityWork()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SimulationPackage.Literals.DAY__CLIMATE,
-				 SimulationFactory.eINSTANCE.createClimate()));
 	}
 
 	/**

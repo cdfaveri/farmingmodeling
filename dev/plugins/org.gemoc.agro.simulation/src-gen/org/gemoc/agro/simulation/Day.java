@@ -19,7 +19,10 @@ import org.gemoc.agro.activitiesDSL.Month;
  *   <li>{@link org.gemoc.agro.simulation.Day#getActivitiesWork <em>Activities Work</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Day#getMonth <em>Month</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Day#getDay <em>Day</em>}</li>
- *   <li>{@link org.gemoc.agro.simulation.Day#getClimate <em>Climate</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.Day#getRain <em>Rain</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.Day#getRay <em>Ray</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.Day#getETp <em>ETp</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.Day#getTemperature <em>Temperature</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,29 +104,107 @@ public interface Day extends EObject {
 	void setDay(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Climate</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Rain</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Climate</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Rain</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Climate</em>' containment reference.
-	 * @see #setClimate(Climate)
-	 * @see org.gemoc.agro.simulation.SimulationPackage#getDay_Climate()
-	 * @model containment="true" required="true"
+	 * @return the value of the '<em>Rain</em>' attribute.
+	 * @see #setRain(float)
+	 * @see org.gemoc.agro.simulation.SimulationPackage#getDay_Rain()
+	 * @model
 	 * @generated
 	 */
-	Climate getClimate();
+	float getRain();
 
 	/**
-	 * Sets the value of the '{@link org.gemoc.agro.simulation.Day#getClimate <em>Climate</em>}' containment reference.
+	 * Sets the value of the '{@link org.gemoc.agro.simulation.Day#getRain <em>Rain</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Climate</em>' containment reference.
-	 * @see #getClimate()
+	 * @param value the new value of the '<em>Rain</em>' attribute.
+	 * @see #getRain()
 	 * @generated
 	 */
-	void setClimate(Climate value);
+	void setRain(float value);
+
+	/**
+	 * Returns the value of the '<em><b>Ray</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Ray</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Ray</em>' attribute.
+	 * @see #setRay(float)
+	 * @see org.gemoc.agro.simulation.SimulationPackage#getDay_Ray()
+	 * @model
+	 * @generated
+	 */
+	float getRay();
+
+	/**
+	 * Sets the value of the '{@link org.gemoc.agro.simulation.Day#getRay <em>Ray</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Ray</em>' attribute.
+	 * @see #getRay()
+	 * @generated
+	 */
+	void setRay(float value);
+
+	/**
+	 * Returns the value of the '<em><b>ETp</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>ETp</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>ETp</em>' attribute.
+	 * @see #setETp(int)
+	 * @see org.gemoc.agro.simulation.SimulationPackage#getDay_ETp()
+	 * @model
+	 * @generated
+	 */
+	int getETp();
+
+	/**
+	 * Sets the value of the '{@link org.gemoc.agro.simulation.Day#getETp <em>ETp</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>ETp</em>' attribute.
+	 * @see #getETp()
+	 * @generated
+	 */
+	void setETp(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Temperature</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Temperature</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Temperature</em>' attribute.
+	 * @see #setTemperature(float)
+	 * @see org.gemoc.agro.simulation.SimulationPackage#getDay_Temperature()
+	 * @model
+	 * @generated
+	 */
+	float getTemperature();
+
+	/**
+	 * Sets the value of the '{@link org.gemoc.agro.simulation.Day#getTemperature <em>Temperature</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Temperature</em>' attribute.
+	 * @see #getTemperature()
+	 * @generated
+	 */
+	void setTemperature(float value);
 
 } // Day

@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.gemoc.agro.activitiesDSL.Month;
 
 import org.gemoc.agro.simulation.ActivityWork;
-import org.gemoc.agro.simulation.Climate;
 import org.gemoc.agro.simulation.Day;
 import org.gemoc.agro.simulation.SimulationPackage;
 
@@ -35,7 +34,10 @@ import org.gemoc.agro.simulation.SimulationPackage;
  *   <li>{@link org.gemoc.agro.simulation.impl.DayImpl#getActivitiesWork <em>Activities Work</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.DayImpl#getMonth <em>Month</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.DayImpl#getDay <em>Day</em>}</li>
- *   <li>{@link org.gemoc.agro.simulation.impl.DayImpl#getClimate <em>Climate</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.impl.DayImpl#getRain <em>Rain</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.impl.DayImpl#getRay <em>Ray</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.impl.DayImpl#getETp <em>ETp</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.impl.DayImpl#getTemperature <em>Temperature</em>}</li>
  * </ul>
  * </p>
  *
@@ -93,14 +95,84 @@ public class DayImpl extends MinimalEObjectImpl.Container implements Day {
 	protected int day = DAY_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getClimate() <em>Climate</em>}' containment reference.
+	 * The default value of the '{@link #getRain() <em>Rain</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getClimate()
+	 * @see #getRain()
 	 * @generated
 	 * @ordered
 	 */
-	protected Climate climate;
+	protected static final float RAIN_EDEFAULT = 0.0F;
+
+	/**
+	 * The cached value of the '{@link #getRain() <em>Rain</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRain()
+	 * @generated
+	 * @ordered
+	 */
+	protected float rain = RAIN_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRay() <em>Ray</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRay()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float RAY_EDEFAULT = 0.0F;
+
+	/**
+	 * The cached value of the '{@link #getRay() <em>Ray</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRay()
+	 * @generated
+	 * @ordered
+	 */
+	protected float ray = RAY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getETp() <em>ETp</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getETp()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ETP_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getETp() <em>ETp</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getETp()
+	 * @generated
+	 * @ordered
+	 */
+	protected int eTp = ETP_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getTemperature() <em>Temperature</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTemperature()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final float TEMPERATURE_EDEFAULT = 0.0F;
+
+	/**
+	 * The cached value of the '{@link #getTemperature() <em>Temperature</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTemperature()
+	 * @generated
+	 * @ordered
+	 */
+	protected float temperature = TEMPERATURE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -180,8 +252,8 @@ public class DayImpl extends MinimalEObjectImpl.Container implements Day {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Climate getClimate() {
-		return climate;
+	public float getRain() {
+		return rain;
 	}
 
 	/**
@@ -189,14 +261,11 @@ public class DayImpl extends MinimalEObjectImpl.Container implements Day {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetClimate(Climate newClimate, NotificationChain msgs) {
-		Climate oldClimate = climate;
-		climate = newClimate;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimulationPackage.DAY__CLIMATE, oldClimate, newClimate);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public void setRain(float newRain) {
+		float oldRain = rain;
+		rain = newRain;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.DAY__RAIN, oldRain, rain));
 	}
 
 	/**
@@ -204,18 +273,62 @@ public class DayImpl extends MinimalEObjectImpl.Container implements Day {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setClimate(Climate newClimate) {
-		if (newClimate != climate) {
-			NotificationChain msgs = null;
-			if (climate != null)
-				msgs = ((InternalEObject)climate).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SimulationPackage.DAY__CLIMATE, null, msgs);
-			if (newClimate != null)
-				msgs = ((InternalEObject)newClimate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SimulationPackage.DAY__CLIMATE, null, msgs);
-			msgs = basicSetClimate(newClimate, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.DAY__CLIMATE, newClimate, newClimate));
+	public float getRay() {
+		return ray;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRay(float newRay) {
+		float oldRay = ray;
+		ray = newRay;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.DAY__RAY, oldRay, ray));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getETp() {
+		return eTp;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setETp(int newETp) {
+		int oldETp = eTp;
+		eTp = newETp;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.DAY__ETP, oldETp, eTp));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public float getTemperature() {
+		return temperature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTemperature(float newTemperature) {
+		float oldTemperature = temperature;
+		temperature = newTemperature;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.DAY__TEMPERATURE, oldTemperature, temperature));
 	}
 
 	/**
@@ -228,8 +341,6 @@ public class DayImpl extends MinimalEObjectImpl.Container implements Day {
 		switch (featureID) {
 			case SimulationPackage.DAY__ACTIVITIES_WORK:
 				return ((InternalEList<?>)getActivitiesWork()).basicRemove(otherEnd, msgs);
-			case SimulationPackage.DAY__CLIMATE:
-				return basicSetClimate(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -248,8 +359,14 @@ public class DayImpl extends MinimalEObjectImpl.Container implements Day {
 				return getMonth();
 			case SimulationPackage.DAY__DAY:
 				return getDay();
-			case SimulationPackage.DAY__CLIMATE:
-				return getClimate();
+			case SimulationPackage.DAY__RAIN:
+				return getRain();
+			case SimulationPackage.DAY__RAY:
+				return getRay();
+			case SimulationPackage.DAY__ETP:
+				return getETp();
+			case SimulationPackage.DAY__TEMPERATURE:
+				return getTemperature();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -273,8 +390,17 @@ public class DayImpl extends MinimalEObjectImpl.Container implements Day {
 			case SimulationPackage.DAY__DAY:
 				setDay((Integer)newValue);
 				return;
-			case SimulationPackage.DAY__CLIMATE:
-				setClimate((Climate)newValue);
+			case SimulationPackage.DAY__RAIN:
+				setRain((Float)newValue);
+				return;
+			case SimulationPackage.DAY__RAY:
+				setRay((Float)newValue);
+				return;
+			case SimulationPackage.DAY__ETP:
+				setETp((Integer)newValue);
+				return;
+			case SimulationPackage.DAY__TEMPERATURE:
+				setTemperature((Float)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -297,8 +423,17 @@ public class DayImpl extends MinimalEObjectImpl.Container implements Day {
 			case SimulationPackage.DAY__DAY:
 				setDay(DAY_EDEFAULT);
 				return;
-			case SimulationPackage.DAY__CLIMATE:
-				setClimate((Climate)null);
+			case SimulationPackage.DAY__RAIN:
+				setRain(RAIN_EDEFAULT);
+				return;
+			case SimulationPackage.DAY__RAY:
+				setRay(RAY_EDEFAULT);
+				return;
+			case SimulationPackage.DAY__ETP:
+				setETp(ETP_EDEFAULT);
+				return;
+			case SimulationPackage.DAY__TEMPERATURE:
+				setTemperature(TEMPERATURE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -318,8 +453,14 @@ public class DayImpl extends MinimalEObjectImpl.Container implements Day {
 				return month != MONTH_EDEFAULT;
 			case SimulationPackage.DAY__DAY:
 				return day != DAY_EDEFAULT;
-			case SimulationPackage.DAY__CLIMATE:
-				return climate != null;
+			case SimulationPackage.DAY__RAIN:
+				return rain != RAIN_EDEFAULT;
+			case SimulationPackage.DAY__RAY:
+				return ray != RAY_EDEFAULT;
+			case SimulationPackage.DAY__ETP:
+				return eTp != ETP_EDEFAULT;
+			case SimulationPackage.DAY__TEMPERATURE:
+				return temperature != TEMPERATURE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -338,6 +479,14 @@ public class DayImpl extends MinimalEObjectImpl.Container implements Day {
 		result.append(month);
 		result.append(", day: ");
 		result.append(day);
+		result.append(", rain: ");
+		result.append(rain);
+		result.append(", ray: ");
+		result.append(ray);
+		result.append(", ETp: ");
+		result.append(eTp);
+		result.append(", temperature: ");
+		result.append(temperature);
 		result.append(')');
 		return result.toString();
 	}

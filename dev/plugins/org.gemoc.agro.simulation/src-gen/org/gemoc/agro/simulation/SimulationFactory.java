@@ -22,15 +22,6 @@ public interface SimulationFactory extends EFactory {
 	SimulationFactory eINSTANCE = org.gemoc.agro.simulation.impl.SimulationFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Climate Definition</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Climate Definition</em>'.
-	 * @generated
-	 */
-	ClimateDefinition createClimateDefinition();
-
-	/**
 	 * Returns a new object of class '<em>Simulation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -47,15 +38,6 @@ public interface SimulationFactory extends EFactory {
 	 * @generated
 	 */
 	ActivityWork createActivityWork();
-
-	/**
-	 * Returns a new object of class '<em>Climate</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Climate</em>'.
-	 * @generated
-	 */
-	Climate createClimate();
 
 	/**
 	 * Returns a new object of class '<em>Day</em>'.

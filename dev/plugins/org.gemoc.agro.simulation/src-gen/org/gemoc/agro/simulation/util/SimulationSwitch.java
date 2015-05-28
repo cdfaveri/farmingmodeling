@@ -66,12 +66,6 @@ public class SimulationSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case SimulationPackage.CLIMATE_DEFINITION: {
-				ClimateDefinition climateDefinition = (ClimateDefinition)theEObject;
-				T result = caseClimateDefinition(climateDefinition);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SimulationPackage.SIMULATION: {
 				Simulation simulation = (Simulation)theEObject;
 				T result = caseSimulation(simulation);
@@ -84,12 +78,6 @@ public class SimulationSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SimulationPackage.CLIMATE: {
-				Climate climate = (Climate)theEObject;
-				T result = caseClimate(climate);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SimulationPackage.DAY: {
 				Day day = (Day)theEObject;
 				T result = caseDay(day);
@@ -98,21 +86,6 @@ public class SimulationSwitch<T> extends Switch<T> {
 			}
 			default: return defaultCase(theEObject);
 		}
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Climate Definition</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Climate Definition</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseClimateDefinition(ClimateDefinition object) {
-		return null;
 	}
 
 	/**
@@ -142,21 +115,6 @@ public class SimulationSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseActivityWork(ActivityWork object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Climate</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Climate</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseClimate(Climate object) {
 		return null;
 	}
 

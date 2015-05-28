@@ -16,8 +16,7 @@ import org.gemoc.agro.exploitation.Exploitation;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.gemoc.agro.simulation.Simulation#getClimate <em>Climate</em>}</li>
- *   <li>{@link org.gemoc.agro.simulation.Simulation#getPlanning <em>Planning</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.Simulation#getDays <em>Days</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Simulation#getExploitation <em>Exploitation</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Simulation#getSchedulingStrategy <em>Scheduling Strategy</em>}</li>
  * </ul>
@@ -29,36 +28,20 @@ import org.gemoc.agro.exploitation.Exploitation;
  */
 public interface Simulation extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Climate</b></em>' containment reference list.
-	 * The list contents are of type {@link org.gemoc.agro.simulation.ClimateDefinition}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Climate</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Climate</em>' containment reference list.
-	 * @see org.gemoc.agro.simulation.SimulationPackage#getSimulation_Climate()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ClimateDefinition> getClimate();
-
-	/**
-	 * Returns the value of the '<em><b>Planning</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Days</b></em>' containment reference list.
 	 * The list contents are of type {@link org.gemoc.agro.simulation.Day}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Planning</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Days</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Planning</em>' containment reference list.
-	 * @see org.gemoc.agro.simulation.SimulationPackage#getSimulation_Planning()
+	 * @return the value of the '<em>Days</em>' containment reference list.
+	 * @see org.gemoc.agro.simulation.SimulationPackage#getSimulation_Days()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Day> getPlanning();
+	EList<Day> getDays();
 
 	/**
 	 * Returns the value of the '<em><b>Exploitation</b></em>' reference.

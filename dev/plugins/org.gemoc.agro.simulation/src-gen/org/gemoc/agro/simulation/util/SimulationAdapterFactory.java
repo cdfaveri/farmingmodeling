@@ -68,20 +68,12 @@ public class SimulationAdapterFactory extends AdapterFactoryImpl {
 	protected SimulationSwitch<Adapter> modelSwitch =
 		new SimulationSwitch<Adapter>() {
 			@Override
-			public Adapter caseClimateDefinition(ClimateDefinition object) {
-				return createClimateDefinitionAdapter();
-			}
-			@Override
 			public Adapter caseSimulation(Simulation object) {
 				return createSimulationAdapter();
 			}
 			@Override
 			public Adapter caseActivityWork(ActivityWork object) {
 				return createActivityWorkAdapter();
-			}
-			@Override
-			public Adapter caseClimate(Climate object) {
-				return createClimateAdapter();
 			}
 			@Override
 			public Adapter caseDay(Day object) {
@@ -108,20 +100,6 @@ public class SimulationAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.agro.simulation.ClimateDefinition <em>Climate Definition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.gemoc.agro.simulation.ClimateDefinition
-	 * @generated
-	 */
-	public Adapter createClimateDefinitionAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.gemoc.agro.simulation.Simulation <em>Simulation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -146,20 +124,6 @@ public class SimulationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createActivityWorkAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.agro.simulation.Climate <em>Climate</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.gemoc.agro.simulation.Climate
-	 * @generated
-	 */
-	public Adapter createClimateAdapter() {
 		return null;
 	}
 
