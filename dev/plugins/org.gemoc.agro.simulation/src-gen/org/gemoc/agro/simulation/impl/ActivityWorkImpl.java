@@ -3,18 +3,15 @@
 package org.gemoc.agro.simulation.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.gemoc.agro.activitiesDSL.ExploitationActivity;
-
 import org.gemoc.agro.exploitation.Resource;
-
+import org.gemoc.agro.exploitation.Surface;
 import org.gemoc.agro.simulation.ActivityWork;
+import org.gemoc.agro.simulation.Day;
 import org.gemoc.agro.simulation.SimulationPackage;
 
 /**
@@ -26,6 +23,8 @@ import org.gemoc.agro.simulation.SimulationPackage;
  * <ul>
  *   <li>{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl#getActivity <em>Activity</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl#getResourceAllocation <em>Resource Allocation</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl#getScheduledOn <em>Scheduled On</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl#getOnSurface <em>On Surface</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,6 +50,26 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
 	 * @ordered
 	 */
 	protected Resource resourceAllocation;
+
+	/**
+	 * The cached value of the '{@link #getScheduledOn() <em>Scheduled On</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getScheduledOn()
+	 * @generated
+	 * @ordered
+	 */
+	protected Day scheduledOn;
+
+	/**
+	 * The cached value of the '{@link #getOnSurface() <em>On Surface</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnSurface()
+	 * @generated
+	 * @ordered
+	 */
+	protected Surface onSurface;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -152,6 +171,82 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Day getScheduledOn() {
+		if (scheduledOn != null && scheduledOn.eIsProxy()) {
+			InternalEObject oldScheduledOn = (InternalEObject)scheduledOn;
+			scheduledOn = (Day)eResolveProxy(oldScheduledOn);
+			if (scheduledOn != oldScheduledOn) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON, oldScheduledOn, scheduledOn));
+			}
+		}
+		return scheduledOn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Day basicGetScheduledOn() {
+		return scheduledOn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setScheduledOn(Day newScheduledOn) {
+		Day oldScheduledOn = scheduledOn;
+		scheduledOn = newScheduledOn;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON, oldScheduledOn, scheduledOn));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Surface getOnSurface() {
+		if (onSurface != null && onSurface.eIsProxy()) {
+			InternalEObject oldOnSurface = (InternalEObject)onSurface;
+			onSurface = (Surface)eResolveProxy(oldOnSurface);
+			if (onSurface != oldOnSurface) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimulationPackage.ACTIVITY_WORK__ON_SURFACE, oldOnSurface, onSurface));
+			}
+		}
+		return onSurface;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Surface basicGetOnSurface() {
+		return onSurface;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOnSurface(Surface newOnSurface) {
+		Surface oldOnSurface = onSurface;
+		onSurface = newOnSurface;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.ACTIVITY_WORK__ON_SURFACE, oldOnSurface, onSurface));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -161,6 +256,12 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
 			case SimulationPackage.ACTIVITY_WORK__RESOURCE_ALLOCATION:
 				if (resolve) return getResourceAllocation();
 				return basicGetResourceAllocation();
+			case SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON:
+				if (resolve) return getScheduledOn();
+				return basicGetScheduledOn();
+			case SimulationPackage.ACTIVITY_WORK__ON_SURFACE:
+				if (resolve) return getOnSurface();
+				return basicGetOnSurface();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -178,6 +279,12 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
 				return;
 			case SimulationPackage.ACTIVITY_WORK__RESOURCE_ALLOCATION:
 				setResourceAllocation((Resource)newValue);
+				return;
+			case SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON:
+				setScheduledOn((Day)newValue);
+				return;
+			case SimulationPackage.ACTIVITY_WORK__ON_SURFACE:
+				setOnSurface((Surface)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -197,6 +304,12 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
 			case SimulationPackage.ACTIVITY_WORK__RESOURCE_ALLOCATION:
 				setResourceAllocation((Resource)null);
 				return;
+			case SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON:
+				setScheduledOn((Day)null);
+				return;
+			case SimulationPackage.ACTIVITY_WORK__ON_SURFACE:
+				setOnSurface((Surface)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -213,6 +326,10 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
 				return activity != null;
 			case SimulationPackage.ACTIVITY_WORK__RESOURCE_ALLOCATION:
 				return resourceAllocation != null;
+			case SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON:
+				return scheduledOn != null;
+			case SimulationPackage.ACTIVITY_WORK__ON_SURFACE:
+				return onSurface != null;
 		}
 		return super.eIsSet(featureID);
 	}

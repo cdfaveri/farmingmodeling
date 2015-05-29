@@ -13,22 +13,28 @@
       <genEnumLiterals ecoreEnumLiteral="simulation.ecore#//SchedulingStrategy/random"/>
     </genEnums>
     <genClasses ecoreClass="simulation.ecore#//Simulation">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simulation.ecore#//Simulation/days"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//Simulation/exploitation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Simulation/schedulingStrategy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simulation.ecore#//Simulation/workToDo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//Simulation/climateData"/>
     </genClasses>
     <genClasses ecoreClass="simulation.ecore#//ActivityWork">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//ActivityWork/activity"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//ActivityWork/resourceAllocation"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//ActivityWork/scheduledOn"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//ActivityWork/onSurface"/>
     </genClasses>
     <genClasses ecoreClass="simulation.ecore#//Day">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simulation.ecore#//Day/activitiesWork"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Day/month"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Day/day"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Day/rain"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Day/ray"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Day/ETp"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Day/temperature"/>
+    </genClasses>
+    <genClasses ecoreClass="simulation.ecore#//ClimateData">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//ClimateData/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simulation.ecore#//ClimateData/days"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

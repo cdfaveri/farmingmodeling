@@ -33,5 +33,27 @@
             contributorClass="org.gemoc.agro.simulation.presentation.SimulationActionBarContributor">
       </editor>
    </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="org.gemoc.agro.simulation.editor.contribution1"
+            objectClass="org.gemoc.agro.simulation.Simulation">
+         <menu
+               id="org.gemoc.agro.simulation.editor.menu1"
+               label="Planner"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="org.gemoc.agro.simulation.editor.popup.actions.ComputePlanner"
+               enablesFor="1"
+               id="org.gemoc.agro.simulation.editor.newAction"
+               label="Compute Plan"
+               menubarPath="org.gemoc.agro.simulation.editor.menu1/group1">
+         </action>
+      </objectContribution>
+   </extension>
 
 </plugin>

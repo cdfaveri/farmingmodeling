@@ -2,11 +2,9 @@
  */
 package org.gemoc.agro.simulation;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.gemoc.agro.activitiesDSL.Month;
+import org.optaplanner.core.api.domain.entity.PlanningEntity;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,7 +14,6 @@ import org.gemoc.agro.activitiesDSL.Month;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.gemoc.agro.simulation.Day#getActivitiesWork <em>Activities Work</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Day#getMonth <em>Month</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Day#getDay <em>Day</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Day#getRain <em>Rain</em>}</li>
@@ -30,23 +27,9 @@ import org.gemoc.agro.activitiesDSL.Month;
  * @model
  * @generated
  */
-public interface Day extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Activities Work</b></em>' containment reference list.
-	 * The list contents are of type {@link org.gemoc.agro.simulation.ActivityWork}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Activities Work</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Activities Work</em>' containment reference list.
-	 * @see org.gemoc.agro.simulation.SimulationPackage#getDay_ActivitiesWork()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ActivityWork> getActivitiesWork();
 
+@PlanningEntity
+public interface Day extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Month</b></em>' attribute.
 	 * The literals are from the enumeration {@link org.gemoc.agro.activitiesDSL.Month}.

@@ -49,6 +49,15 @@ public interface SimulationFactory extends EFactory {
 	Day createDay();
 
 	/**
+	 * Returns a new object of class '<em>Climate Data</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Climate Data</em>'.
+	 * @generated
+	 */
+	ClimateData createClimateData();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

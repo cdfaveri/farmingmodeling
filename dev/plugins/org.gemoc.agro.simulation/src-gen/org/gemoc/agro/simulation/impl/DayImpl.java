@@ -2,25 +2,11 @@
  */
 package org.gemoc.agro.simulation.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.gemoc.agro.activitiesDSL.Month;
-
-import org.gemoc.agro.simulation.ActivityWork;
 import org.gemoc.agro.simulation.Day;
 import org.gemoc.agro.simulation.SimulationPackage;
 
@@ -31,7 +17,6 @@ import org.gemoc.agro.simulation.SimulationPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.gemoc.agro.simulation.impl.DayImpl#getActivitiesWork <em>Activities Work</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.DayImpl#getMonth <em>Month</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.DayImpl#getDay <em>Day</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.DayImpl#getRain <em>Rain</em>}</li>
@@ -44,16 +29,6 @@ import org.gemoc.agro.simulation.SimulationPackage;
  * @generated
  */
 public class DayImpl extends MinimalEObjectImpl.Container implements Day {
-	/**
-	 * The cached value of the '{@link #getActivitiesWork() <em>Activities Work</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getActivitiesWork()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ActivityWork> activitiesWork;
-
 	/**
 	 * The default value of the '{@link #getMonth() <em>Month</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -198,18 +173,6 @@ public class DayImpl extends MinimalEObjectImpl.Container implements Day {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ActivityWork> getActivitiesWork() {
-		if (activitiesWork == null) {
-			activitiesWork = new EObjectContainmentEList<ActivityWork>(ActivityWork.class, this, SimulationPackage.DAY__ACTIVITIES_WORK);
-		}
-		return activitiesWork;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Month getMonth() {
 		return month;
 	}
@@ -337,24 +300,8 @@ public class DayImpl extends MinimalEObjectImpl.Container implements Day {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SimulationPackage.DAY__ACTIVITIES_WORK:
-				return ((InternalEList<?>)getActivitiesWork()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SimulationPackage.DAY__ACTIVITIES_WORK:
-				return getActivitiesWork();
 			case SimulationPackage.DAY__MONTH:
 				return getMonth();
 			case SimulationPackage.DAY__DAY:
@@ -380,10 +327,6 @@ public class DayImpl extends MinimalEObjectImpl.Container implements Day {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SimulationPackage.DAY__ACTIVITIES_WORK:
-				getActivitiesWork().clear();
-				getActivitiesWork().addAll((Collection<? extends ActivityWork>)newValue);
-				return;
 			case SimulationPackage.DAY__MONTH:
 				setMonth((Month)newValue);
 				return;
@@ -414,9 +357,6 @@ public class DayImpl extends MinimalEObjectImpl.Container implements Day {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SimulationPackage.DAY__ACTIVITIES_WORK:
-				getActivitiesWork().clear();
-				return;
 			case SimulationPackage.DAY__MONTH:
 				setMonth(MONTH_EDEFAULT);
 				return;
@@ -447,8 +387,6 @@ public class DayImpl extends MinimalEObjectImpl.Container implements Day {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SimulationPackage.DAY__ACTIVITIES_WORK:
-				return activitiesWork != null && !activitiesWork.isEmpty();
 			case SimulationPackage.DAY__MONTH:
 				return month != MONTH_EDEFAULT;
 			case SimulationPackage.DAY__DAY:

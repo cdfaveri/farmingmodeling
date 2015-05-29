@@ -2,20 +2,22 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="simulation" nsURI="http://www.gemoc.org/agro/simulation" nsPrefix="simulation">
   <eClassifiers xsi:type="ecore:EClass" name="Simulation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="days" lowerBound="1" upperBound="-1"
-        eType="#//Day" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exploitation" eType="ecore:EClass ../../org.gemoc.agro.exploitation/model/exploitation.ecore#//Exploitation"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="schedulingStrategy" eType="#//SchedulingStrategy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workToDo" upperBound="-1"
+        eType="#//ActivityWork" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="climateData" lowerBound="1"
+        eType="#//ClimateData"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActivityWork">
     <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
         eType="ecore:EClass ../../org.gemoc.agro.activities/model/generated/ActivitiesDSL.ecore#//ExploitationActivity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resourceAllocation" lowerBound="1"
         eType="ecore:EClass ../../org.gemoc.agro.exploitation/model/exploitation.ecore#//Resource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scheduledOn" eType="#//Day"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onSurface" eType="ecore:EClass ../../org.gemoc.agro.exploitation/model/exploitation.ecore#//Surface"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Day">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="activitiesWork" upperBound="-1"
-        eType="#//ActivityWork" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="month" eType="ecore:EEnum ../../org.gemoc.agro.activities/model/generated/ActivitiesDSL.ecore#//Month"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="day" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="1"/>
@@ -26,5 +28,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SchedulingStrategy">
     <eLiterals name="random"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ClimateData">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="days" lowerBound="1" upperBound="-1"
+        eType="#//Day" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

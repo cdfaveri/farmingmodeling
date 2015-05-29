@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.gemoc.agro.activitiesDSL.ActivitiesDSLPackage;
 import org.gemoc.agro.activitiesDSL.Month;
+import org.gemoc.agro.simulation.ClimateData;
 import org.gemoc.agro.simulation.Day;
 import org.gemoc.agro.simulation.Simulation;
 import org.gemoc.agro.simulation.SimulationFactory;
@@ -33,13 +34,15 @@ public class ImportCSV {
 				SimulationPackage.eINSTANCE);
 		set.getPackageRegistry().put(ActivitiesDSLPackage.eINSTANCE.getNsURI(),
 				ActivitiesDSLPackage.eINSTANCE);
+		set.getResourceFactoryRegistry().getExtensionToFactoryMap()
+		.put("simulation", new XMIResourceFactoryImpl());
 
 		List<String> lines = com.google.common.io.Files
 				.readLines(
 						new File(
 								"/home/cedric/src/farmingmodeling/materials/farmManagement_2_INRA_STATION_31035002.csv"),
 						Charsets.US_ASCII);
-		Simulation sim = SimulationFactory.eINSTANCE.createSimulation();
+		ClimateData climate = SimulationFactory.eINSTANCE.createClimateData();
 		for (int i = 0; i < lines.size(); i++) {
 			String line = lines.get(i);
 			if (i >= 12) {
@@ -51,16 +54,14 @@ public class ImportCSV {
 				day.setRain(Float.valueOf(fields.get(5)));
 				day.setTemperature(Float.valueOf(fields.get(6)));
 				day.setRay(Float.valueOf(fields.get(7)));
-				sim.getDays().add(day);
+				climate.getDays().add(day);
 			}
 		}
 
-		set.getResourceFactoryRegistry().getExtensionToFactoryMap()
-				.put("simulation", new XMIResourceFactoryImpl());
 		Resource result = set
 				.createResource(URI
 						.createFileURI("/home/cedric/spaces/farming/modeling-cow/cow/csv.simulation"));
-		result.getContents().add(sim);
+		result.getContents().add(climate);
 		result.save(Collections.EMPTY_MAP);
 	}
 }

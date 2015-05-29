@@ -68,22 +68,13 @@ public interface SimulationPackage extends EPackage {
 	int SIMULATION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Days</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMULATION__DAYS = 0;
-
-	/**
 	 * The feature id for the '<em><b>Exploitation</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMULATION__EXPLOITATION = 1;
+	int SIMULATION__EXPLOITATION = 0;
 
 	/**
 	 * The feature id for the '<em><b>Scheduling Strategy</b></em>' attribute.
@@ -92,7 +83,25 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMULATION__SCHEDULING_STRATEGY = 2;
+	int SIMULATION__SCHEDULING_STRATEGY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Work To Do</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMULATION__WORK_TO_DO = 2;
+
+	/**
+	 * The feature id for the '<em><b>Climate Data</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMULATION__CLIMATE_DATA = 3;
 
 	/**
 	 * The number of structural features of the '<em>Simulation</em>' class.
@@ -101,7 +110,7 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMULATION_FEATURE_COUNT = 3;
+	int SIMULATION_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Simulation</em>' class.
@@ -141,13 +150,31 @@ public interface SimulationPackage extends EPackage {
 	int ACTIVITY_WORK__RESOURCE_ALLOCATION = 1;
 
 	/**
+	 * The feature id for the '<em><b>Scheduled On</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVITY_WORK__SCHEDULED_ON = 2;
+
+	/**
+	 * The feature id for the '<em><b>On Surface</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVITY_WORK__ON_SURFACE = 3;
+
+	/**
 	 * The number of structural features of the '<em>Activity Work</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY_WORK_FEATURE_COUNT = 2;
+	int ACTIVITY_WORK_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Activity Work</em>' class.
@@ -169,22 +196,13 @@ public interface SimulationPackage extends EPackage {
 	int DAY = 2;
 
 	/**
-	 * The feature id for the '<em><b>Activities Work</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DAY__ACTIVITIES_WORK = 0;
-
-	/**
 	 * The feature id for the '<em><b>Month</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DAY__MONTH = 1;
+	int DAY__MONTH = 0;
 
 	/**
 	 * The feature id for the '<em><b>Day</b></em>' attribute.
@@ -193,7 +211,7 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DAY__DAY = 2;
+	int DAY__DAY = 1;
 
 	/**
 	 * The feature id for the '<em><b>Rain</b></em>' attribute.
@@ -202,7 +220,7 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DAY__RAIN = 3;
+	int DAY__RAIN = 2;
 
 	/**
 	 * The feature id for the '<em><b>Ray</b></em>' attribute.
@@ -211,7 +229,7 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DAY__RAY = 4;
+	int DAY__RAY = 3;
 
 	/**
 	 * The feature id for the '<em><b>ETp</b></em>' attribute.
@@ -220,7 +238,7 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DAY__ETP = 5;
+	int DAY__ETP = 4;
 
 	/**
 	 * The feature id for the '<em><b>Temperature</b></em>' attribute.
@@ -229,7 +247,7 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DAY__TEMPERATURE = 6;
+	int DAY__TEMPERATURE = 5;
 
 	/**
 	 * The number of structural features of the '<em>Day</em>' class.
@@ -238,7 +256,7 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DAY_FEATURE_COUNT = 7;
+	int DAY_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Day</em>' class.
@@ -250,6 +268,52 @@ public interface SimulationPackage extends EPackage {
 	int DAY_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.gemoc.agro.simulation.impl.ClimateDataImpl <em>Climate Data</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.gemoc.agro.simulation.impl.ClimateDataImpl
+	 * @see org.gemoc.agro.simulation.impl.SimulationPackageImpl#getClimateData()
+	 * @generated
+	 */
+	int CLIMATE_DATA = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLIMATE_DATA__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Days</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLIMATE_DATA__DAYS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Climate Data</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLIMATE_DATA_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Climate Data</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLIMATE_DATA_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.gemoc.agro.simulation.SchedulingStrategy <em>Scheduling Strategy</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -257,7 +321,7 @@ public interface SimulationPackage extends EPackage {
 	 * @see org.gemoc.agro.simulation.impl.SimulationPackageImpl#getSchedulingStrategy()
 	 * @generated
 	 */
-	int SCHEDULING_STRATEGY = 3;
+	int SCHEDULING_STRATEGY = 4;
 
 
 	/**
@@ -269,17 +333,6 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSimulation();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.gemoc.agro.simulation.Simulation#getDays <em>Days</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Days</em>'.
-	 * @see org.gemoc.agro.simulation.Simulation#getDays()
-	 * @see #getSimulation()
-	 * @generated
-	 */
-	EReference getSimulation_Days();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.gemoc.agro.simulation.Simulation#getExploitation <em>Exploitation</em>}'.
@@ -302,6 +355,28 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSimulation_SchedulingStrategy();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.gemoc.agro.simulation.Simulation#getWorkToDo <em>Work To Do</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Work To Do</em>'.
+	 * @see org.gemoc.agro.simulation.Simulation#getWorkToDo()
+	 * @see #getSimulation()
+	 * @generated
+	 */
+	EReference getSimulation_WorkToDo();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.gemoc.agro.simulation.Simulation#getClimateData <em>Climate Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Climate Data</em>'.
+	 * @see org.gemoc.agro.simulation.Simulation#getClimateData()
+	 * @see #getSimulation()
+	 * @generated
+	 */
+	EReference getSimulation_ClimateData();
 
 	/**
 	 * Returns the meta object for class '{@link org.gemoc.agro.simulation.ActivityWork <em>Activity Work</em>}'.
@@ -336,6 +411,28 @@ public interface SimulationPackage extends EPackage {
 	EReference getActivityWork_ResourceAllocation();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.gemoc.agro.simulation.ActivityWork#getScheduledOn <em>Scheduled On</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Scheduled On</em>'.
+	 * @see org.gemoc.agro.simulation.ActivityWork#getScheduledOn()
+	 * @see #getActivityWork()
+	 * @generated
+	 */
+	EReference getActivityWork_ScheduledOn();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.gemoc.agro.simulation.ActivityWork#getOnSurface <em>On Surface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>On Surface</em>'.
+	 * @see org.gemoc.agro.simulation.ActivityWork#getOnSurface()
+	 * @see #getActivityWork()
+	 * @generated
+	 */
+	EReference getActivityWork_OnSurface();
+
+	/**
 	 * Returns the meta object for class '{@link org.gemoc.agro.simulation.Day <em>Day</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -344,17 +441,6 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDay();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.gemoc.agro.simulation.Day#getActivitiesWork <em>Activities Work</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Activities Work</em>'.
-	 * @see org.gemoc.agro.simulation.Day#getActivitiesWork()
-	 * @see #getDay()
-	 * @generated
-	 */
-	EReference getDay_ActivitiesWork();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.gemoc.agro.simulation.Day#getMonth <em>Month</em>}'.
@@ -423,6 +509,38 @@ public interface SimulationPackage extends EPackage {
 	EAttribute getDay_Temperature();
 
 	/**
+	 * Returns the meta object for class '{@link org.gemoc.agro.simulation.ClimateData <em>Climate Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Climate Data</em>'.
+	 * @see org.gemoc.agro.simulation.ClimateData
+	 * @generated
+	 */
+	EClass getClimateData();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.gemoc.agro.simulation.ClimateData#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.gemoc.agro.simulation.ClimateData#getName()
+	 * @see #getClimateData()
+	 * @generated
+	 */
+	EAttribute getClimateData_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.gemoc.agro.simulation.ClimateData#getDays <em>Days</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Days</em>'.
+	 * @see org.gemoc.agro.simulation.ClimateData#getDays()
+	 * @see #getClimateData()
+	 * @generated
+	 */
+	EReference getClimateData_Days();
+
+	/**
 	 * Returns the meta object for enum '{@link org.gemoc.agro.simulation.SchedulingStrategy <em>Scheduling Strategy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -466,14 +584,6 @@ public interface SimulationPackage extends EPackage {
 		EClass SIMULATION = eINSTANCE.getSimulation();
 
 		/**
-		 * The meta object literal for the '<em><b>Days</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SIMULATION__DAYS = eINSTANCE.getSimulation_Days();
-
-		/**
 		 * The meta object literal for the '<em><b>Exploitation</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -488,6 +598,22 @@ public interface SimulationPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SIMULATION__SCHEDULING_STRATEGY = eINSTANCE.getSimulation_SchedulingStrategy();
+
+		/**
+		 * The meta object literal for the '<em><b>Work To Do</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SIMULATION__WORK_TO_DO = eINSTANCE.getSimulation_WorkToDo();
+
+		/**
+		 * The meta object literal for the '<em><b>Climate Data</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SIMULATION__CLIMATE_DATA = eINSTANCE.getSimulation_ClimateData();
 
 		/**
 		 * The meta object literal for the '{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl <em>Activity Work</em>}' class.
@@ -516,6 +642,22 @@ public interface SimulationPackage extends EPackage {
 		EReference ACTIVITY_WORK__RESOURCE_ALLOCATION = eINSTANCE.getActivityWork_ResourceAllocation();
 
 		/**
+		 * The meta object literal for the '<em><b>Scheduled On</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTIVITY_WORK__SCHEDULED_ON = eINSTANCE.getActivityWork_ScheduledOn();
+
+		/**
+		 * The meta object literal for the '<em><b>On Surface</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTIVITY_WORK__ON_SURFACE = eINSTANCE.getActivityWork_OnSurface();
+
+		/**
 		 * The meta object literal for the '{@link org.gemoc.agro.simulation.impl.DayImpl <em>Day</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -524,14 +666,6 @@ public interface SimulationPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DAY = eINSTANCE.getDay();
-
-		/**
-		 * The meta object literal for the '<em><b>Activities Work</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DAY__ACTIVITIES_WORK = eINSTANCE.getDay_ActivitiesWork();
 
 		/**
 		 * The meta object literal for the '<em><b>Month</b></em>' attribute feature.
@@ -580,6 +714,32 @@ public interface SimulationPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DAY__TEMPERATURE = eINSTANCE.getDay_Temperature();
+
+		/**
+		 * The meta object literal for the '{@link org.gemoc.agro.simulation.impl.ClimateDataImpl <em>Climate Data</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.gemoc.agro.simulation.impl.ClimateDataImpl
+		 * @see org.gemoc.agro.simulation.impl.SimulationPackageImpl#getClimateData()
+		 * @generated
+		 */
+		EClass CLIMATE_DATA = eINSTANCE.getClimateData();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CLIMATE_DATA__NAME = eINSTANCE.getClimateData_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Days</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLIMATE_DATA__DAYS = eINSTANCE.getClimateData_Days();
 
 		/**
 		 * The meta object literal for the '{@link org.gemoc.agro.simulation.SchedulingStrategy <em>Scheduling Strategy</em>}' enum.

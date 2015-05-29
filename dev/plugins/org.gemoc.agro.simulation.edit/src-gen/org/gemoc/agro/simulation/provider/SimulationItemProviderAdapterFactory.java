@@ -141,6 +141,29 @@ public class SimulationItemProviderAdapterFactory extends SimulationAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.gemoc.agro.simulation.ClimateData} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ClimateDataItemProvider climateDataItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.gemoc.agro.simulation.ClimateData}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createClimateDataAdapter() {
+		if (climateDataItemProvider == null) {
+			climateDataItemProvider = new ClimateDataItemProvider(this);
+		}
+
+		return climateDataItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -242,6 +265,7 @@ public class SimulationItemProviderAdapterFactory extends SimulationAdapterFacto
 		if (simulationItemProvider != null) simulationItemProvider.dispose();
 		if (activityWorkItemProvider != null) activityWorkItemProvider.dispose();
 		if (dayItemProvider != null) dayItemProvider.dispose();
+		if (climateDataItemProvider != null) climateDataItemProvider.dispose();
 	}
 
 }

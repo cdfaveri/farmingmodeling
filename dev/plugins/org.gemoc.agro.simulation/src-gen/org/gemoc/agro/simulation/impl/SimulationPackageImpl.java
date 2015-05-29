@@ -15,6 +15,7 @@ import org.gemoc.agro.activitiesDSL.ActivitiesDSLPackage;
 import org.gemoc.agro.exploitation.ExploitationPackage;
 
 import org.gemoc.agro.simulation.ActivityWork;
+import org.gemoc.agro.simulation.ClimateData;
 import org.gemoc.agro.simulation.Day;
 import org.gemoc.agro.simulation.SchedulingStrategy;
 import org.gemoc.agro.simulation.Simulation;
@@ -48,6 +49,13 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * @generated
 	 */
 	private EClass dayEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass climateDataEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -134,7 +142,7 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSimulation_Days() {
+	public EReference getSimulation_Exploitation() {
 		return (EReference)simulationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -143,8 +151,8 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSimulation_Exploitation() {
-		return (EReference)simulationEClass.getEStructuralFeatures().get(1);
+	public EAttribute getSimulation_SchedulingStrategy() {
+		return (EAttribute)simulationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -152,8 +160,17 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSimulation_SchedulingStrategy() {
-		return (EAttribute)simulationEClass.getEStructuralFeatures().get(2);
+	public EReference getSimulation_WorkToDo() {
+		return (EReference)simulationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSimulation_ClimateData() {
+		return (EReference)simulationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -188,6 +205,24 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getActivityWork_ScheduledOn() {
+		return (EReference)activityWorkEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getActivityWork_OnSurface() {
+		return (EReference)activityWorkEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDay() {
 		return dayEClass;
 	}
@@ -197,17 +232,8 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDay_ActivitiesWork() {
-		return (EReference)dayEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getDay_Month() {
-		return (EAttribute)dayEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)dayEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -216,7 +242,7 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * @generated
 	 */
 	public EAttribute getDay_Day() {
-		return (EAttribute)dayEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)dayEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -225,7 +251,7 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * @generated
 	 */
 	public EAttribute getDay_Rain() {
-		return (EAttribute)dayEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)dayEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -234,7 +260,7 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * @generated
 	 */
 	public EAttribute getDay_Ray() {
-		return (EAttribute)dayEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)dayEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -243,7 +269,7 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * @generated
 	 */
 	public EAttribute getDay_ETp() {
-		return (EAttribute)dayEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)dayEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -252,7 +278,34 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * @generated
 	 */
 	public EAttribute getDay_Temperature() {
-		return (EAttribute)dayEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)dayEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getClimateData() {
+		return climateDataEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getClimateData_Name() {
+		return (EAttribute)climateDataEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getClimateData_Days() {
+		return (EReference)climateDataEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -293,22 +346,28 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 
 		// Create classes and their features
 		simulationEClass = createEClass(SIMULATION);
-		createEReference(simulationEClass, SIMULATION__DAYS);
 		createEReference(simulationEClass, SIMULATION__EXPLOITATION);
 		createEAttribute(simulationEClass, SIMULATION__SCHEDULING_STRATEGY);
+		createEReference(simulationEClass, SIMULATION__WORK_TO_DO);
+		createEReference(simulationEClass, SIMULATION__CLIMATE_DATA);
 
 		activityWorkEClass = createEClass(ACTIVITY_WORK);
 		createEReference(activityWorkEClass, ACTIVITY_WORK__ACTIVITY);
 		createEReference(activityWorkEClass, ACTIVITY_WORK__RESOURCE_ALLOCATION);
+		createEReference(activityWorkEClass, ACTIVITY_WORK__SCHEDULED_ON);
+		createEReference(activityWorkEClass, ACTIVITY_WORK__ON_SURFACE);
 
 		dayEClass = createEClass(DAY);
-		createEReference(dayEClass, DAY__ACTIVITIES_WORK);
 		createEAttribute(dayEClass, DAY__MONTH);
 		createEAttribute(dayEClass, DAY__DAY);
 		createEAttribute(dayEClass, DAY__RAIN);
 		createEAttribute(dayEClass, DAY__RAY);
 		createEAttribute(dayEClass, DAY__ETP);
 		createEAttribute(dayEClass, DAY__TEMPERATURE);
+
+		climateDataEClass = createEClass(CLIMATE_DATA);
+		createEAttribute(climateDataEClass, CLIMATE_DATA__NAME);
+		createEReference(climateDataEClass, CLIMATE_DATA__DAYS);
 
 		// Create enums
 		schedulingStrategyEEnum = createEEnum(SCHEDULING_STRATEGY);
@@ -349,22 +408,28 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(simulationEClass, Simulation.class, "Simulation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSimulation_Days(), this.getDay(), null, "days", null, 1, -1, Simulation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSimulation_Exploitation(), theExploitationPackage.getExploitation(), null, "exploitation", null, 0, 1, Simulation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSimulation_SchedulingStrategy(), this.getSchedulingStrategy(), "schedulingStrategy", null, 0, 1, Simulation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSimulation_WorkToDo(), this.getActivityWork(), null, "workToDo", null, 0, -1, Simulation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSimulation_ClimateData(), this.getClimateData(), null, "climateData", null, 1, 1, Simulation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(activityWorkEClass, ActivityWork.class, "ActivityWork", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActivityWork_Activity(), theActivitiesDSLPackage.getExploitationActivity(), null, "activity", null, 1, 1, ActivityWork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getActivityWork_ResourceAllocation(), theExploitationPackage.getResource(), null, "resourceAllocation", null, 1, 1, ActivityWork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActivityWork_ScheduledOn(), this.getDay(), null, "scheduledOn", null, 0, 1, ActivityWork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActivityWork_OnSurface(), theExploitationPackage.getSurface(), null, "onSurface", null, 0, 1, ActivityWork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dayEClass, Day.class, "Day", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDay_ActivitiesWork(), this.getActivityWork(), null, "activitiesWork", null, 0, -1, Day.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDay_Month(), theActivitiesDSLPackage.getMonth(), "month", null, 0, 1, Day.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDay_Day(), ecorePackage.getEInt(), "day", "1", 0, 1, Day.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDay_Rain(), ecorePackage.getEFloat(), "rain", null, 0, 1, Day.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDay_Ray(), ecorePackage.getEFloat(), "ray", null, 0, 1, Day.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDay_ETp(), ecorePackage.getEInt(), "ETp", null, 0, 1, Day.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDay_Temperature(), ecorePackage.getEFloat(), "temperature", null, 0, 1, Day.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(climateDataEClass, ClimateData.class, "ClimateData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getClimateData_Name(), ecorePackage.getEString(), "name", null, 0, 1, ClimateData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClimateData_Days(), this.getDay(), null, "days", null, 1, -1, ClimateData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(schedulingStrategyEEnum, SchedulingStrategy.class, "SchedulingStrategy");

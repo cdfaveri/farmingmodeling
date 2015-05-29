@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="agro" version="8.1.0">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_3="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="agro" version="8.1.0">
   <ownedViewpoints name="Design" modelFileExtension="exploitation">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Structure" domainClass="exploitation.Exploitation" enablePopupBars="true">
       <metamodel href="http://www.gemoc.org/agro/ActivitiesDSL#/"/>
@@ -242,7 +242,7 @@
     </ownedRepresentations>
   </ownedViewpoints>
   <ownedViewpoints name="Simulation" modelFileExtension="simulation">
-    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Climate Data" domainClass="simulation.Simulation">
+    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Climate Data" domainClass="simulation.ClimateData">
       <metamodel href="http://www.gemoc.org/agro/simulation#/"/>
       <ownedLineMappings name="Day Line" domainClass="simulation.Day" headerLabelExpression="[self.month + ' ' + self.day /]"/>
       <ownedColumnMappings name="Rain column" headerLabelExpression="Rain (mm)" featureName="rain" labelExpression="[self.rain/]"/>
@@ -251,16 +251,29 @@
       </ownedColumnMappings>
       <ownedColumnMappings name="Ray column" headerLabelExpression="Ray (Joules/cm²)" featureName="ray" labelExpression="[self.ray/]"/>
     </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_3:TreeDescription" name="Schedule" domainClass="simulation.Simulation">
+      <metamodel href="http://www.gemoc.org/agro/ActivitiesDSL#/"/>
+      <metamodel href="http://www.gemoc.org/agro/simulation#/"/>
+      <subItemMappings name="Work To Do" domainClass="simulation.ActivityWork" semanticCandidatesExpression="feature:workToDo">
+        <defaultStyle labelExpression="[self.activity.eContainer(Culture).name + ' ' + self.activity.name + ' scheduled on ' + self.scheduledOn.day + '/' + self.scheduledOn.month/]">
+          <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+        </defaultStyle>
+        <subItemMappings name="Day" domainClass="Day" semanticCandidatesExpression="feature:scheduledOn">
+          <defaultStyle labelExpression="[self.day + ' ' + self.month/]">
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </defaultStyle>
+        </subItemMappings>
+      </subItemMappings>
+    </ownedRepresentations>
   </ownedViewpoints>
   <userColorsPalettes name="Agro Colors">
     <entries xsi:type="description:InterpolatedColor" name="TemperatureRange" colorValueComputationExpression="[self.temperature.floor()/]">
-      <colorSteps associatedValue="[self.eContainer(Simulation).days.temperature->min().floor()/]">
+      <colorSteps associatedValue="[self.eContainer(ClimateData).days.temperature->min().floor()/]">
         <associatedColor href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
       </colorSteps>
-      <colorSteps associatedValue="[self.eContainer(Simulation).days.temperature->max().floor()/]">
-        <associatedColor href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-      </colorSteps>
-      <colorSteps associatedValue="[self.eContainer(Simulation).days.temperature->max().floor()/]">
+      <colorSteps associatedValue="[self.eContainer(ClimateData).days.temperature->max().floor()/]">
         <associatedColor href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
       </colorSteps>
     </entries>

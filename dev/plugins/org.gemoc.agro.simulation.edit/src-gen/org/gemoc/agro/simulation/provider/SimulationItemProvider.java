@@ -66,6 +66,7 @@ public class SimulationItemProvider
 
 			addExploitationPropertyDescriptor(object);
 			addSchedulingStrategyPropertyDescriptor(object);
+			addClimateDataPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -115,6 +116,28 @@ public class SimulationItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Climate Data feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addClimateDataPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Simulation_climateData_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Simulation_climateData_feature", "_UI_Simulation_type"),
+				 SimulationPackage.Literals.SIMULATION__CLIMATE_DATA,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -126,7 +149,7 @@ public class SimulationItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SimulationPackage.Literals.SIMULATION__DAYS);
+			childrenFeatures.add(SimulationPackage.Literals.SIMULATION__WORK_TO_DO);
 		}
 		return childrenFeatures;
 	}
@@ -186,7 +209,7 @@ public class SimulationItemProvider
 			case SimulationPackage.SIMULATION__SCHEDULING_STRATEGY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case SimulationPackage.SIMULATION__DAYS:
+			case SimulationPackage.SIMULATION__WORK_TO_DO:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -206,8 +229,8 @@ public class SimulationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SimulationPackage.Literals.SIMULATION__DAYS,
-				 SimulationFactory.eINSTANCE.createDay()));
+				(SimulationPackage.Literals.SIMULATION__WORK_TO_DO,
+				 SimulationFactory.eINSTANCE.createActivityWork()));
 	}
 
 	/**

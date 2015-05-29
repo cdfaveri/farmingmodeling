@@ -11,10 +11,10 @@
 		<h1>Simulation results</h1>
         Exploitation : [self.exploitation.name/]
 		<ul>
-		[for (d : Day | self.planning)]
+		[for (d : Day | self.climateData.days)]
 	      <li> [d.day/]/[d.month/] : 
 			<ul>
-  				[for (work : ActivityWork | d.activitiesWork)]
+  				[for (work : ActivityWork | d.scheduledWork)]
 				<li>
  				[work.activity.name/] planned with resources : [work.resourceAllocation.name->sep(',')/]
 				</li>

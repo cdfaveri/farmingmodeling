@@ -59,6 +59,8 @@ public class ActivityWorkItemProvider
 
 			addActivityPropertyDescriptor(object);
 			addResourceAllocationPropertyDescriptor(object);
+			addScheduledOnPropertyDescriptor(object);
+			addOnSurfacePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -99,6 +101,50 @@ public class ActivityWorkItemProvider
 				 getString("_UI_ActivityWork_resourceAllocation_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ActivityWork_resourceAllocation_feature", "_UI_ActivityWork_type"),
 				 SimulationPackage.Literals.ACTIVITY_WORK__RESOURCE_ALLOCATION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Scheduled On feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addScheduledOnPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ActivityWork_scheduledOn_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ActivityWork_scheduledOn_feature", "_UI_ActivityWork_type"),
+				 SimulationPackage.Literals.ACTIVITY_WORK__SCHEDULED_ON,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the On Surface feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOnSurfacePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ActivityWork_onSurface_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ActivityWork_onSurface_feature", "_UI_ActivityWork_type"),
+				 SimulationPackage.Literals.ACTIVITY_WORK__ON_SURFACE,
 				 true,
 				 false,
 				 true,

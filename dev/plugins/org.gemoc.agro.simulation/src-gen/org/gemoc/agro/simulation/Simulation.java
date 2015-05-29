@@ -3,9 +3,7 @@
 package org.gemoc.agro.simulation;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.gemoc.agro.exploitation.Exploitation;
 
 /**
@@ -16,9 +14,10 @@ import org.gemoc.agro.exploitation.Exploitation;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.gemoc.agro.simulation.Simulation#getDays <em>Days</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Simulation#getExploitation <em>Exploitation</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Simulation#getSchedulingStrategy <em>Scheduling Strategy</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.Simulation#getWorkToDo <em>Work To Do</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.Simulation#getClimateData <em>Climate Data</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,23 +25,7 @@ import org.gemoc.agro.exploitation.Exploitation;
  * @model
  * @generated
  */
-public interface Simulation extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Days</b></em>' containment reference list.
-	 * The list contents are of type {@link org.gemoc.agro.simulation.Day}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Days</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Days</em>' containment reference list.
-	 * @see org.gemoc.agro.simulation.SimulationPackage#getSimulation_Days()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	EList<Day> getDays();
-
+public interface Simulation extends EObject  {
 	/**
 	 * Returns the value of the '<em><b>Exploitation</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -97,5 +80,47 @@ public interface Simulation extends EObject {
 	 * @generated
 	 */
 	void setSchedulingStrategy(SchedulingStrategy value);
+
+	/**
+	 * Returns the value of the '<em><b>Work To Do</b></em>' containment reference list.
+	 * The list contents are of type {@link org.gemoc.agro.simulation.ActivityWork}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Work To Do</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Work To Do</em>' containment reference list.
+	 * @see org.gemoc.agro.simulation.SimulationPackage#getSimulation_WorkToDo()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ActivityWork> getWorkToDo();
+
+	/**
+	 * Returns the value of the '<em><b>Climate Data</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Climate Data</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Climate Data</em>' reference.
+	 * @see #setClimateData(ClimateData)
+	 * @see org.gemoc.agro.simulation.SimulationPackage#getSimulation_ClimateData()
+	 * @model required="true"
+	 * @generated
+	 */
+	ClimateData getClimateData();
+
+	/**
+	 * Sets the value of the '{@link org.gemoc.agro.simulation.Simulation#getClimateData <em>Climate Data</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Climate Data</em>' reference.
+	 * @see #getClimateData()
+	 * @generated
+	 */
+	void setClimateData(ClimateData value);
 
 } // Simulation

@@ -60,6 +60,7 @@ public class SimulationFactoryImpl extends EFactoryImpl implements SimulationFac
 			case SimulationPackage.SIMULATION: return createSimulation();
 			case SimulationPackage.ACTIVITY_WORK: return createActivityWork();
 			case SimulationPackage.DAY: return createDay();
+			case SimulationPackage.CLIMATE_DATA: return createClimateData();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -123,6 +124,16 @@ public class SimulationFactoryImpl extends EFactoryImpl implements SimulationFac
 	public Day createDay() {
 		DayImpl day = new DayImpl();
 		return day;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ClimateData createClimateData() {
+		ClimateDataImpl climateData = new ClimateDataImpl();
+		return climateData;
 	}
 
 	/**
