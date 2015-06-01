@@ -67,6 +67,15 @@ public interface SimulationFactory extends EFactory {
 	SchedulingFeedback createSchedulingFeedback();
 
 	/**
+	 * Returns a new object of class '<em>Resource Allocation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Resource Allocation</em>'.
+	 * @generated
+	 */
+	ResourceAllocation createResourceAllocation();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

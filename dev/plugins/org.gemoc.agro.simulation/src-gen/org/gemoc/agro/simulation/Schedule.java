@@ -19,6 +19,7 @@ import org.gemoc.agro.exploitation.Exploitation;
  *   <li>{@link org.gemoc.agro.simulation.Schedule#getWorkToDo <em>Work To Do</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Schedule#getClimateData <em>Climate Data</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Schedule#getSolverSearchSecondsSpentLimit <em>Solver Search Seconds Spent Limit</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.Schedule#getAllocations <em>Allocations</em>}</li>
  * </ul>
  * </p>
  *
@@ -150,5 +151,21 @@ public interface Schedule extends EObject  {
 	 * @generated
 	 */
 	void setSolverSearchSecondsSpentLimit(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Allocations</b></em>' containment reference list.
+	 * The list contents are of type {@link org.gemoc.agro.simulation.ResourceAllocation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Allocations</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Allocations</em>' containment reference list.
+	 * @see org.gemoc.agro.simulation.SimulationPackage#getSchedule_Allocations()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ResourceAllocation> getAllocations();
 
 } // Schedule

@@ -38,162 +38,169 @@ import org.gemoc.agro.activitiesDSL.ResourceKind;
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
-	 * The cached value of the '{@link #getCultures() <em>Cultures</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getCultures() <em>Cultures</em>}' containment reference list.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getCultures()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getCultures()
+   * @generated
+   * @ordered
+   */
   protected EList<Culture> cultures;
 
   /**
-	 * The cached value of the '{@link #getResourceKinds() <em>Resource Kinds</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getResourceKinds() <em>Resource Kinds</em>}' containment reference list.
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @see #getResourceKinds()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getResourceKinds()
+   * @generated
+   * @ordered
+   */
   protected EList<ResourceKind> resourceKinds;
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   protected ModelImpl()
   {
-		super();
-	}
+    super();
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   protected EClass eStaticClass()
   {
-		return ActivitiesDSLPackage.Literals.MODEL;
-	}
+    return ActivitiesDSLPackage.Literals.MODEL;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public EList<Culture> getCultures()
   {
-		if (cultures == null) {
-			cultures = new EObjectContainmentEList<Culture>(Culture.class, this, ActivitiesDSLPackage.MODEL__CULTURES);
-		}
-		return cultures;
-	}
+    if (cultures == null)
+    {
+      cultures = new EObjectContainmentEList<Culture>(Culture.class, this, ActivitiesDSLPackage.MODEL__CULTURES);
+    }
+    return cultures;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   public EList<ResourceKind> getResourceKinds()
   {
-		if (resourceKinds == null) {
-			resourceKinds = new EObjectContainmentEList<ResourceKind>(ResourceKind.class, this, ActivitiesDSLPackage.MODEL__RESOURCE_KINDS);
-		}
-		return resourceKinds;
-	}
+    if (resourceKinds == null)
+    {
+      resourceKinds = new EObjectContainmentEList<ResourceKind>(ResourceKind.class, this, ActivitiesDSLPackage.MODEL__RESOURCE_KINDS);
+    }
+    return resourceKinds;
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-		switch (featureID) {
-			case ActivitiesDSLPackage.MODEL__CULTURES:
-				return ((InternalEList<?>)getCultures()).basicRemove(otherEnd, msgs);
-			case ActivitiesDSLPackage.MODEL__RESOURCE_KINDS:
-				return ((InternalEList<?>)getResourceKinds()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+    switch (featureID)
+    {
+      case ActivitiesDSLPackage.MODEL__CULTURES:
+        return ((InternalEList<?>)getCultures()).basicRemove(otherEnd, msgs);
+      case ActivitiesDSLPackage.MODEL__RESOURCE_KINDS:
+        return ((InternalEList<?>)getResourceKinds()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-		switch (featureID) {
-			case ActivitiesDSLPackage.MODEL__CULTURES:
-				return getCultures();
-			case ActivitiesDSLPackage.MODEL__RESOURCE_KINDS:
-				return getResourceKinds();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    switch (featureID)
+    {
+      case ActivitiesDSLPackage.MODEL__CULTURES:
+        return getCultures();
+      case ActivitiesDSLPackage.MODEL__RESOURCE_KINDS:
+        return getResourceKinds();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
-		switch (featureID) {
-			case ActivitiesDSLPackage.MODEL__CULTURES:
-				getCultures().clear();
-				getCultures().addAll((Collection<? extends Culture>)newValue);
-				return;
-			case ActivitiesDSLPackage.MODEL__RESOURCE_KINDS:
-				getResourceKinds().clear();
-				getResourceKinds().addAll((Collection<? extends ResourceKind>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    switch (featureID)
+    {
+      case ActivitiesDSLPackage.MODEL__CULTURES:
+        getCultures().clear();
+        getCultures().addAll((Collection<? extends Culture>)newValue);
+        return;
+      case ActivitiesDSLPackage.MODEL__RESOURCE_KINDS:
+        getResourceKinds().clear();
+        getResourceKinds().addAll((Collection<? extends ResourceKind>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public void eUnset(int featureID)
   {
-		switch (featureID) {
-			case ActivitiesDSLPackage.MODEL__CULTURES:
-				getCultures().clear();
-				return;
-			case ActivitiesDSLPackage.MODEL__RESOURCE_KINDS:
-				getResourceKinds().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    switch (featureID)
+    {
+      case ActivitiesDSLPackage.MODEL__CULTURES:
+        getCultures().clear();
+        return;
+      case ActivitiesDSLPackage.MODEL__RESOURCE_KINDS:
+        getResourceKinds().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
 
   /**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
   @Override
   public boolean eIsSet(int featureID)
   {
-		switch (featureID) {
-			case ActivitiesDSLPackage.MODEL__CULTURES:
-				return cultures != null && !cultures.isEmpty();
-			case ActivitiesDSLPackage.MODEL__RESOURCE_KINDS:
-				return resourceKinds != null && !resourceKinds.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+    switch (featureID)
+    {
+      case ActivitiesDSLPackage.MODEL__CULTURES:
+        return cultures != null && !cultures.isEmpty();
+      case ActivitiesDSLPackage.MODEL__RESOURCE_KINDS:
+        return resourceKinds != null && !resourceKinds.isEmpty();
+    }
+    return super.eIsSet(featureID);
+  }
 
 } //ModelImpl

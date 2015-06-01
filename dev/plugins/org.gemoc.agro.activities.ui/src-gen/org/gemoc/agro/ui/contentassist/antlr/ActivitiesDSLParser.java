@@ -49,6 +49,9 @@ public class ActivitiesDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExploitationActivityAccess().getGroup_3(), "rule__ExploitationActivity__Group_3__0");
 					put(grammarAccess.getExploitationActivityAccess().getGroup_4(), "rule__ExploitationActivity__Group_4__0");
 					put(grammarAccess.getExploitationActivityAccess().getGroup_4_2(), "rule__ExploitationActivity__Group_4_2__0");
+					put(grammarAccess.getExploitationActivityAccess().getGroup_5(), "rule__ExploitationActivity__Group_5__0");
+					put(grammarAccess.getExploitationActivityAccess().getGroup_5_2(), "rule__ExploitationActivity__Group_5_2__0");
+					put(grammarAccess.getActivityResourceAccess().getGroup(), "rule__ActivityResource__Group__0");
 					put(grammarAccess.getNoRainAccess().getGroup(), "rule__NoRain__Group__0");
 					put(grammarAccess.getTempOfTheDayAccess().getGroup(), "rule__TempOfTheDay__Group__0");
 					put(grammarAccess.getDelaySinceActivyAccess().getGroup(), "rule__DelaySinceActivy__Group__0");
@@ -66,6 +69,10 @@ public class ActivitiesDSLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExploitationActivityAccess().getEndDateAssignment_3_3(), "rule__ExploitationActivity__EndDateAssignment_3_3");
 					put(grammarAccess.getExploitationActivityAccess().getPredicatesAssignment_4_1(), "rule__ExploitationActivity__PredicatesAssignment_4_1");
 					put(grammarAccess.getExploitationActivityAccess().getPredicatesAssignment_4_2_1(), "rule__ExploitationActivity__PredicatesAssignment_4_2_1");
+					put(grammarAccess.getExploitationActivityAccess().getUsesAssignment_5_1(), "rule__ExploitationActivity__UsesAssignment_5_1");
+					put(grammarAccess.getExploitationActivityAccess().getUsesAssignment_5_2_1(), "rule__ExploitationActivity__UsesAssignment_5_2_1");
+					put(grammarAccess.getActivityResourceAccess().getQuantityAssignment_0(), "rule__ActivityResource__QuantityAssignment_0");
+					put(grammarAccess.getActivityResourceAccess().getResourceKindAssignment_1(), "rule__ActivityResource__ResourceKindAssignment_1");
 					put(grammarAccess.getNoRainAccess().getDaysAssignment_1(), "rule__NoRain__DaysAssignment_1");
 					put(grammarAccess.getTempOfTheDayAccess().getComparisonAssignment_1(), "rule__TempOfTheDay__ComparisonAssignment_1");
 					put(grammarAccess.getTempOfTheDayAccess().getLowerTempBoundAssignment_2(), "rule__TempOfTheDay__LowerTempBoundAssignment_2");

@@ -22,6 +22,7 @@ import org.gemoc.agro.exploitation.Exploitation;
 
 import org.gemoc.agro.simulation.ActivityWork;
 import org.gemoc.agro.simulation.ClimateData;
+import org.gemoc.agro.simulation.ResourceAllocation;
 import org.gemoc.agro.simulation.Schedule;
 import org.gemoc.agro.simulation.SchedulingStrategy;
 import org.gemoc.agro.simulation.SimulationPackage;
@@ -38,6 +39,7 @@ import org.gemoc.agro.simulation.SimulationPackage;
  *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getWorkToDo <em>Work To Do</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getClimateData <em>Climate Data</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getSolverSearchSecondsSpentLimit <em>Solver Search Seconds Spent Limit</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getAllocations <em>Allocations</em>}</li>
  * </ul>
  * </p>
  *
@@ -113,6 +115,16 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 	 * @ordered
 	 */
 	protected int solverSearchSecondsSpentLimit = SOLVER_SEARCH_SECONDS_SPENT_LIMIT_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getAllocations() <em>Allocations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAllocations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ResourceAllocation> allocations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -268,11 +280,25 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ResourceAllocation> getAllocations() {
+		if (allocations == null) {
+			allocations = new EObjectContainmentEList<ResourceAllocation>(ResourceAllocation.class, this, SimulationPackage.SCHEDULE__ALLOCATIONS);
+		}
+		return allocations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case SimulationPackage.SCHEDULE__WORK_TO_DO:
 				return ((InternalEList<?>)getWorkToDo()).basicRemove(otherEnd, msgs);
+			case SimulationPackage.SCHEDULE__ALLOCATIONS:
+				return ((InternalEList<?>)getAllocations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -297,6 +323,8 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 				return basicGetClimateData();
 			case SimulationPackage.SCHEDULE__SOLVER_SEARCH_SECONDS_SPENT_LIMIT:
 				return getSolverSearchSecondsSpentLimit();
+			case SimulationPackage.SCHEDULE__ALLOCATIONS:
+				return getAllocations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -326,6 +354,10 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 			case SimulationPackage.SCHEDULE__SOLVER_SEARCH_SECONDS_SPENT_LIMIT:
 				setSolverSearchSecondsSpentLimit((Integer)newValue);
 				return;
+			case SimulationPackage.SCHEDULE__ALLOCATIONS:
+				getAllocations().clear();
+				getAllocations().addAll((Collection<? extends ResourceAllocation>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -353,6 +385,9 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 			case SimulationPackage.SCHEDULE__SOLVER_SEARCH_SECONDS_SPENT_LIMIT:
 				setSolverSearchSecondsSpentLimit(SOLVER_SEARCH_SECONDS_SPENT_LIMIT_EDEFAULT);
 				return;
+			case SimulationPackage.SCHEDULE__ALLOCATIONS:
+				getAllocations().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -375,6 +410,8 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 				return climateData != null;
 			case SimulationPackage.SCHEDULE__SOLVER_SEARCH_SECONDS_SPENT_LIMIT:
 				return solverSearchSecondsSpentLimit != SOLVER_SEARCH_SECONDS_SPENT_LIMIT_EDEFAULT;
+			case SimulationPackage.SCHEDULE__ALLOCATIONS:
+				return allocations != null && !allocations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

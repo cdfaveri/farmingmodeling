@@ -62,6 +62,7 @@ public class SimulationFactoryImpl extends EFactoryImpl implements SimulationFac
 			case SimulationPackage.DAY: return createDay();
 			case SimulationPackage.CLIMATE_DATA: return createClimateData();
 			case SimulationPackage.SCHEDULING_FEEDBACK: return createSchedulingFeedback();
+			case SimulationPackage.RESOURCE_ALLOCATION: return createResourceAllocation();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -149,6 +150,16 @@ public class SimulationFactoryImpl extends EFactoryImpl implements SimulationFac
 	public SchedulingFeedback createSchedulingFeedback() {
 		SchedulingFeedbackImpl schedulingFeedback = new SchedulingFeedbackImpl();
 		return schedulingFeedback;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResourceAllocation createResourceAllocation() {
+		ResourceAllocationImpl resourceAllocation = new ResourceAllocationImpl();
+		return resourceAllocation;
 	}
 
 	/**

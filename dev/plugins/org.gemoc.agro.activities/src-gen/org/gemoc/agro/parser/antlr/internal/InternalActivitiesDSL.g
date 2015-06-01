@@ -379,7 +379,103 @@ ruleExploitationActivity returns [EObject current=null]
     {
     	newLeafNode(otherlv_11, grammarAccess.getExploitationActivityAccess().getRightSquareBracketKeyword_4_3());
     }
-)?)
+)?(	otherlv_12='using' 
+    {
+    	newLeafNode(otherlv_12, grammarAccess.getExploitationActivityAccess().getUsingKeyword_5_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getExploitationActivityAccess().getUsesActivityResourceParserRuleCall_5_1_0()); 
+	    }
+		lv_uses_13_0=ruleActivityResource		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getExploitationActivityRule());
+	        }
+       		add(
+       			$current, 
+       			"uses",
+        		lv_uses_13_0, 
+        		"ActivityResource");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(	otherlv_14='and' 
+    {
+    	newLeafNode(otherlv_14, grammarAccess.getExploitationActivityAccess().getAndKeyword_5_2_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getExploitationActivityAccess().getUsesActivityResourceParserRuleCall_5_2_1_0()); 
+	    }
+		lv_uses_15_0=ruleActivityResource		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getExploitationActivityRule());
+	        }
+       		add(
+       			$current, 
+       			"uses",
+        		lv_uses_15_0, 
+        		"ActivityResource");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))*)?)
+;
+
+
+
+
+
+// Entry rule entryRuleActivityResource
+entryRuleActivityResource returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getActivityResourceRule()); }
+	 iv_ruleActivityResource=ruleActivityResource 
+	 { $current=$iv_ruleActivityResource.current; } 
+	 EOF 
+;
+
+// Rule ActivityResource
+ruleActivityResource returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((
+(
+		lv_quantity_0_0=RULE_INT
+		{
+			newLeafNode(lv_quantity_0_0, grammarAccess.getActivityResourceAccess().getQuantityINTTerminalRuleCall_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getActivityResourceRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"quantity",
+        		lv_quantity_0_0, 
+        		"INT");
+	    }
+
+)
+)(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getActivityResourceRule());
+	        }
+        }
+	otherlv_1=RULE_ID
+	{
+		newLeafNode(otherlv_1, grammarAccess.getActivityResourceAccess().getResourceKindResourceKindCrossReference_1_0()); 
+	}
+
+)
+))
 ;
 
 
@@ -900,7 +996,7 @@ RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
 RULE_INT : ('0'..'9')+;
 
-RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
+RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 

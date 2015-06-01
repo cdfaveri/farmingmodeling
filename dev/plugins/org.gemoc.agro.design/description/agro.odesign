@@ -288,6 +288,12 @@
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               </defaultStyle>
             </subItemMappings>
+            <subItemMappings name="Allocated Resources" domainClass="simulation.ResourceAllocation" semanticCandidatesExpression="[self.eInverse(ResourceAllocation)/]">
+              <defaultStyle labelExpression="[self.kind.name + ' ' + self.resource.name/]">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </defaultStyle>
+            </subItemMappings>
           </subItemMappings>
         </subItemMappings>
       </subItemMappings>

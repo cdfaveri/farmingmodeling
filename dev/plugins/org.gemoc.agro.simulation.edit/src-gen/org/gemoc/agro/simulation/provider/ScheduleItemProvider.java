@@ -173,6 +173,7 @@ public class ScheduleItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(SimulationPackage.Literals.SCHEDULE__WORK_TO_DO);
+			childrenFeatures.add(SimulationPackage.Literals.SCHEDULE__ALLOCATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -234,6 +235,7 @@ public class ScheduleItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SimulationPackage.SCHEDULE__WORK_TO_DO:
+			case SimulationPackage.SCHEDULE__ALLOCATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -255,6 +257,11 @@ public class ScheduleItemProvider
 			(createChildParameter
 				(SimulationPackage.Literals.SCHEDULE__WORK_TO_DO,
 				 SimulationFactory.eINSTANCE.createActivityWork()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SimulationPackage.Literals.SCHEDULE__ALLOCATIONS,
+				 SimulationFactory.eINSTANCE.createResourceAllocation()));
 	}
 
 	/**

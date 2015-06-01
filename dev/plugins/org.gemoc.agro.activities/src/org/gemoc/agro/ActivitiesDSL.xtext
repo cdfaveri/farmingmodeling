@@ -14,7 +14,10 @@ Culture:
 
 ExploitationActivity:
 	'activity' name=ID (frequency=Frequency)? ('from ' startDate=Date 'to' endDate=Date)? ('[' predicates+=Predicate ('&&'
-	predicates+=Predicate)* ']')?;
+	predicates+=Predicate)* ']')? ('using' uses+=ActivityResource ('and' uses+=ActivityResource)*)?;
+
+ActivityResource:
+	quantity=INT resourceKind=[ResourceKind];
 
 Predicate:
 	NoRain | TempOfTheDay | DelaySinceActivy | GrainIs;

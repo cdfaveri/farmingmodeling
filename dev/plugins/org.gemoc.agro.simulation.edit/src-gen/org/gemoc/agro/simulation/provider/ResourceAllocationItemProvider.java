@@ -11,8 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -21,19 +19,16 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.gemoc.agro.simulation.ActivityWork;
-import org.gemoc.agro.simulation.SimulationFactory;
 import org.gemoc.agro.simulation.SimulationPackage;
 
 /**
- * This is the item provider adapter for a {@link org.gemoc.agro.simulation.ActivityWork} object.
+ * This is the item provider adapter for a {@link org.gemoc.agro.simulation.ResourceAllocation} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ActivityWorkItemProvider 
+public class ResourceAllocationItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -47,7 +42,7 @@ public class ActivityWorkItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ActivityWorkItemProvider(AdapterFactory adapterFactory) {
+	public ResourceAllocationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,27 +57,27 @@ public class ActivityWorkItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addActivityPropertyDescriptor(object);
-			addScheduledOnPropertyDescriptor(object);
-			addOnSurfacePropertyDescriptor(object);
+			addWorkPropertyDescriptor(object);
+			addResourcePropertyDescriptor(object);
+			addKindPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Activity feature.
+	 * This adds a property descriptor for the Work feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addActivityPropertyDescriptor(Object object) {
+	protected void addWorkPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ActivityWork_activity_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ActivityWork_activity_feature", "_UI_ActivityWork_type"),
-				 SimulationPackage.Literals.ACTIVITY_WORK__ACTIVITY,
+				 getString("_UI_ResourceAllocation_work_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceAllocation_work_feature", "_UI_ResourceAllocation_type"),
+				 SimulationPackage.Literals.RESOURCE_ALLOCATION__WORK,
 				 true,
 				 false,
 				 true,
@@ -92,19 +87,19 @@ public class ActivityWorkItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Scheduled On feature.
+	 * This adds a property descriptor for the Resource feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addScheduledOnPropertyDescriptor(Object object) {
+	protected void addResourcePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ActivityWork_scheduledOn_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ActivityWork_scheduledOn_feature", "_UI_ActivityWork_type"),
-				 SimulationPackage.Literals.ACTIVITY_WORK__SCHEDULED_ON,
+				 getString("_UI_ResourceAllocation_resource_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceAllocation_resource_feature", "_UI_ResourceAllocation_type"),
+				 SimulationPackage.Literals.RESOURCE_ALLOCATION__RESOURCE,
 				 true,
 				 false,
 				 true,
@@ -114,19 +109,19 @@ public class ActivityWorkItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the On Surface feature.
+	 * This adds a property descriptor for the Kind feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOnSurfacePropertyDescriptor(Object object) {
+	protected void addKindPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ActivityWork_onSurface_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ActivityWork_onSurface_feature", "_UI_ActivityWork_type"),
-				 SimulationPackage.Literals.ACTIVITY_WORK__ON_SURFACE,
+				 getString("_UI_ResourceAllocation_kind_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ResourceAllocation_kind_feature", "_UI_ResourceAllocation_type"),
+				 SimulationPackage.Literals.RESOURCE_ALLOCATION__KIND,
 				 true,
 				 false,
 				 true,
@@ -136,44 +131,14 @@ public class ActivityWorkItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(SimulationPackage.Literals.ACTIVITY_WORK__SCHEDULING_FEEDBACK);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns ActivityWork.gif.
+	 * This returns ResourceAllocation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ActivityWork"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceAllocation"));
 	}
 
 	/**
@@ -184,7 +149,7 @@ public class ActivityWorkItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ActivityWork_type");
+		return getString("_UI_ResourceAllocation_type");
 	}
 	
 
@@ -198,12 +163,6 @@ public class ActivityWorkItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(ActivityWork.class)) {
-			case SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -217,11 +176,6 @@ public class ActivityWorkItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SimulationPackage.Literals.ACTIVITY_WORK__SCHEDULING_FEEDBACK,
-				 SimulationFactory.eINSTANCE.createSchedulingFeedback()));
 	}
 
 	/**

@@ -14,6 +14,7 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.gemoc.agro.activitiesDSL.ActivitiesDSLPackage;
+import org.gemoc.agro.activitiesDSL.ActivityResource;
 import org.gemoc.agro.activitiesDSL.Culture;
 import org.gemoc.agro.activitiesDSL.Date;
 import org.gemoc.agro.activitiesDSL.DelaySinceActivy;
@@ -33,6 +34,12 @@ public class ActivitiesDSLSemanticSequencer extends AbstractDelegatingSemanticSe
 	
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == ActivitiesDSLPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case ActivitiesDSLPackage.ACTIVITY_RESOURCE:
+				if(context == grammarAccess.getActivityResourceRule()) {
+					sequence_ActivityResource(context, (ActivityResource) semanticObject); 
+					return; 
+				}
+				else break;
 			case ActivitiesDSLPackage.CULTURE:
 				if(context == grammarAccess.getCultureRule()) {
 					sequence_Culture(context, (Culture) semanticObject); 
@@ -97,6 +104,25 @@ public class ActivitiesDSLSemanticSequencer extends AbstractDelegatingSemanticSe
 	
 	/**
 	 * Constraint:
+	 *     (quantity=INT resourceKind=[ResourceKind|ID])
+	 */
+	protected void sequence_ActivityResource(EObject context, ActivityResource semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ActivitiesDSLPackage.Literals.ACTIVITY_RESOURCE__QUANTITY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ActivitiesDSLPackage.Literals.ACTIVITY_RESOURCE__QUANTITY));
+			if(transientValues.isValueTransient(semanticObject, ActivitiesDSLPackage.Literals.ACTIVITY_RESOURCE__RESOURCE_KIND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ActivitiesDSLPackage.Literals.ACTIVITY_RESOURCE__RESOURCE_KIND));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getActivityResourceAccess().getQuantityINTTerminalRuleCall_0_0(), semanticObject.getQuantity());
+		feeder.accept(grammarAccess.getActivityResourceAccess().getResourceKindResourceKindIDTerminalRuleCall_1_0_1(), semanticObject.getResourceKind());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=ID activities+=ExploitationActivity*)
 	 */
 	protected void sequence_Culture(EObject context, Culture semanticObject) {
@@ -134,7 +160,13 @@ public class ActivitiesDSLSemanticSequencer extends AbstractDelegatingSemanticSe
 	
 	/**
 	 * Constraint:
-	 *     (name=ID frequency=Frequency? (startDate=Date endDate=Date)? (predicates+=Predicate predicates+=Predicate*)?)
+	 *     (
+	 *         name=ID 
+	 *         frequency=Frequency? 
+	 *         (startDate=Date endDate=Date)? 
+	 *         (predicates+=Predicate predicates+=Predicate*)? 
+	 *         (uses+=ActivityResource uses+=ActivityResource*)?
+	 *     )
 	 */
 	protected void sequence_ExploitationActivity(EObject context, ExploitationActivity semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -3,26 +3,17 @@
 package org.gemoc.agro.simulation.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.gemoc.agro.activitiesDSL.ExploitationActivity;
-
-import org.gemoc.agro.exploitation.Resource;
 import org.gemoc.agro.exploitation.Surface;
-
 import org.gemoc.agro.simulation.ActivityWork;
 import org.gemoc.agro.simulation.Day;
 import org.gemoc.agro.simulation.SchedulingFeedback;
@@ -36,7 +27,6 @@ import org.gemoc.agro.simulation.SimulationPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl#getActivity <em>Activity</em>}</li>
- *   <li>{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl#getResourceAllocation <em>Resource Allocation</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl#getScheduledOn <em>Scheduled On</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl#getOnSurface <em>On Surface</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl#getSchedulingFeedback <em>Scheduling Feedback</em>}</li>
@@ -55,16 +45,6 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
 	 * @ordered
 	 */
 	protected ExploitationActivity activity;
-
-	/**
-	 * The cached value of the '{@link #getResourceAllocation() <em>Resource Allocation</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getResourceAllocation()
-	 * @generated
-	 * @ordered
-	 */
-	protected Resource resourceAllocation;
 
 	/**
 	 * The cached value of the '{@link #getScheduledOn() <em>Scheduled On</em>}' reference.
@@ -151,44 +131,6 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
 		activity = newActivity;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.ACTIVITY_WORK__ACTIVITY, oldActivity, activity));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Resource getResourceAllocation() {
-		if (resourceAllocation != null && resourceAllocation.eIsProxy()) {
-			InternalEObject oldResourceAllocation = (InternalEObject)resourceAllocation;
-			resourceAllocation = (Resource)eResolveProxy(oldResourceAllocation);
-			if (resourceAllocation != oldResourceAllocation) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimulationPackage.ACTIVITY_WORK__RESOURCE_ALLOCATION, oldResourceAllocation, resourceAllocation));
-			}
-		}
-		return resourceAllocation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Resource basicGetResourceAllocation() {
-		return resourceAllocation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setResourceAllocation(Resource newResourceAllocation) {
-		Resource oldResourceAllocation = resourceAllocation;
-		resourceAllocation = newResourceAllocation;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.ACTIVITY_WORK__RESOURCE_ALLOCATION, oldResourceAllocation, resourceAllocation));
 	}
 
 	/**
@@ -304,9 +246,6 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
 			case SimulationPackage.ACTIVITY_WORK__ACTIVITY:
 				if (resolve) return getActivity();
 				return basicGetActivity();
-			case SimulationPackage.ACTIVITY_WORK__RESOURCE_ALLOCATION:
-				if (resolve) return getResourceAllocation();
-				return basicGetResourceAllocation();
 			case SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON:
 				if (resolve) return getScheduledOn();
 				return basicGetScheduledOn();
@@ -330,9 +269,6 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
 		switch (featureID) {
 			case SimulationPackage.ACTIVITY_WORK__ACTIVITY:
 				setActivity((ExploitationActivity)newValue);
-				return;
-			case SimulationPackage.ACTIVITY_WORK__RESOURCE_ALLOCATION:
-				setResourceAllocation((Resource)newValue);
 				return;
 			case SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON:
 				setScheduledOn((Day)newValue);
@@ -359,9 +295,6 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
 			case SimulationPackage.ACTIVITY_WORK__ACTIVITY:
 				setActivity((ExploitationActivity)null);
 				return;
-			case SimulationPackage.ACTIVITY_WORK__RESOURCE_ALLOCATION:
-				setResourceAllocation((Resource)null);
-				return;
 			case SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON:
 				setScheduledOn((Day)null);
 				return;
@@ -385,8 +318,6 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
 		switch (featureID) {
 			case SimulationPackage.ACTIVITY_WORK__ACTIVITY:
 				return activity != null;
-			case SimulationPackage.ACTIVITY_WORK__RESOURCE_ALLOCATION:
-				return resourceAllocation != null;
 			case SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON:
 				return scheduledOn != null;
 			case SimulationPackage.ACTIVITY_WORK__ON_SURFACE:

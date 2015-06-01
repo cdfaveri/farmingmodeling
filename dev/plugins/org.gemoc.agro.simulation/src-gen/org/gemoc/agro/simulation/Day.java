@@ -4,7 +4,6 @@ package org.gemoc.agro.simulation;
 
 import org.eclipse.emf.ecore.EObject;
 import org.gemoc.agro.activitiesDSL.Month;
-import org.optaplanner.core.api.domain.entity.PlanningEntity;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +27,6 @@ import org.optaplanner.core.api.domain.entity.PlanningEntity;
  * @generated
  */
 
-@PlanningEntity
 public interface Day extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Month</b></em>' attribute.

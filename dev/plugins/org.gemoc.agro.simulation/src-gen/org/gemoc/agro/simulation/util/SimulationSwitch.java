@@ -96,6 +96,12 @@ public class SimulationSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SimulationPackage.RESOURCE_ALLOCATION: {
+				ResourceAllocation resourceAllocation = (ResourceAllocation)theEObject;
+				T result = caseResourceAllocation(resourceAllocation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -172,6 +178,21 @@ public class SimulationSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSchedulingFeedback(SchedulingFeedback object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Resource Allocation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Resource Allocation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseResourceAllocation(ResourceAllocation object) {
 		return null;
 	}
 

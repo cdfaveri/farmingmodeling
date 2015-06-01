@@ -187,6 +187,29 @@ public class SimulationItemProviderAdapterFactory extends SimulationAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.gemoc.agro.simulation.ResourceAllocation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ResourceAllocationItemProvider resourceAllocationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.gemoc.agro.simulation.ResourceAllocation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createResourceAllocationAdapter() {
+		if (resourceAllocationItemProvider == null) {
+			resourceAllocationItemProvider = new ResourceAllocationItemProvider(this);
+		}
+
+		return resourceAllocationItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -290,6 +313,7 @@ public class SimulationItemProviderAdapterFactory extends SimulationAdapterFacto
 		if (dayItemProvider != null) dayItemProvider.dispose();
 		if (climateDataItemProvider != null) climateDataItemProvider.dispose();
 		if (schedulingFeedbackItemProvider != null) schedulingFeedbackItemProvider.dispose();
+		if (resourceAllocationItemProvider != null) resourceAllocationItemProvider.dispose();
 	}
 
 }

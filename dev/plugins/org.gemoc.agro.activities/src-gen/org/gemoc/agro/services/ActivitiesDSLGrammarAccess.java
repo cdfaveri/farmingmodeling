@@ -134,14 +134,22 @@ public class ActivitiesDSLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cPredicatesAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
 		private final RuleCall cPredicatesPredicateParserRuleCall_4_2_1_0 = (RuleCall)cPredicatesAssignment_4_2_1.eContents().get(0);
 		private final Keyword cRightSquareBracketKeyword_4_3 = (Keyword)cGroup_4.eContents().get(3);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cUsingKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cUsesAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cUsesActivityResourceParserRuleCall_5_1_0 = (RuleCall)cUsesAssignment_5_1.eContents().get(0);
+		private final Group cGroup_5_2 = (Group)cGroup_5.eContents().get(2);
+		private final Keyword cAndKeyword_5_2_0 = (Keyword)cGroup_5_2.eContents().get(0);
+		private final Assignment cUsesAssignment_5_2_1 = (Assignment)cGroup_5_2.eContents().get(1);
+		private final RuleCall cUsesActivityResourceParserRuleCall_5_2_1_0 = (RuleCall)cUsesAssignment_5_2_1.eContents().get(0);
 		
 		//ExploitationActivity:
 		//	"activity" name=ID frequency=Frequency? ("from " startDate=Date "to" endDate=Date)? ("[" predicates+=Predicate ("&&"
-		//	predicates+=Predicate)* "]")?;
+		//	predicates+=Predicate)* "]")? ("using" uses+=ActivityResource ("and" uses+=ActivityResource)*)?;
 		public ParserRule getRule() { return rule; }
 
 		//"activity" name=ID frequency=Frequency? ("from " startDate=Date "to" endDate=Date)? ("[" predicates+=Predicate ("&&"
-		//predicates+=Predicate)* "]")?
+		//predicates+=Predicate)* "]")? ("using" uses+=ActivityResource ("and" uses+=ActivityResource)*)?
 		public Group getGroup() { return cGroup; }
 
 		//"activity"
@@ -206,6 +214,62 @@ public class ActivitiesDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"]"
 		public Keyword getRightSquareBracketKeyword_4_3() { return cRightSquareBracketKeyword_4_3; }
+
+		//("using" uses+=ActivityResource ("and" uses+=ActivityResource)*)?
+		public Group getGroup_5() { return cGroup_5; }
+
+		//"using"
+		public Keyword getUsingKeyword_5_0() { return cUsingKeyword_5_0; }
+
+		//uses+=ActivityResource
+		public Assignment getUsesAssignment_5_1() { return cUsesAssignment_5_1; }
+
+		//ActivityResource
+		public RuleCall getUsesActivityResourceParserRuleCall_5_1_0() { return cUsesActivityResourceParserRuleCall_5_1_0; }
+
+		//("and" uses+=ActivityResource)*
+		public Group getGroup_5_2() { return cGroup_5_2; }
+
+		//"and"
+		public Keyword getAndKeyword_5_2_0() { return cAndKeyword_5_2_0; }
+
+		//uses+=ActivityResource
+		public Assignment getUsesAssignment_5_2_1() { return cUsesAssignment_5_2_1; }
+
+		//ActivityResource
+		public RuleCall getUsesActivityResourceParserRuleCall_5_2_1_0() { return cUsesActivityResourceParserRuleCall_5_2_1_0; }
+	}
+
+	public class ActivityResourceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ActivityResource");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cQuantityAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cQuantityINTTerminalRuleCall_0_0 = (RuleCall)cQuantityAssignment_0.eContents().get(0);
+		private final Assignment cResourceKindAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cResourceKindResourceKindCrossReference_1_0 = (CrossReference)cResourceKindAssignment_1.eContents().get(0);
+		private final RuleCall cResourceKindResourceKindIDTerminalRuleCall_1_0_1 = (RuleCall)cResourceKindResourceKindCrossReference_1_0.eContents().get(1);
+		
+		//ActivityResource:
+		//	quantity=INT resourceKind=[ResourceKind];
+		public ParserRule getRule() { return rule; }
+
+		//quantity=INT resourceKind=[ResourceKind]
+		public Group getGroup() { return cGroup; }
+
+		//quantity=INT
+		public Assignment getQuantityAssignment_0() { return cQuantityAssignment_0; }
+
+		//INT
+		public RuleCall getQuantityINTTerminalRuleCall_0_0() { return cQuantityINTTerminalRuleCall_0_0; }
+
+		//resourceKind=[ResourceKind]
+		public Assignment getResourceKindAssignment_1() { return cResourceKindAssignment_1; }
+
+		//[ResourceKind]
+		public CrossReference getResourceKindResourceKindCrossReference_1_0() { return cResourceKindResourceKindCrossReference_1_0; }
+
+		//ID
+		public RuleCall getResourceKindResourceKindIDTerminalRuleCall_1_0_1() { return cResourceKindResourceKindIDTerminalRuleCall_1_0_1; }
 	}
 
 	public class PredicateElements extends AbstractParserRuleElementFinder {
@@ -629,30 +693,46 @@ public class ActivitiesDSLGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getYearlyYearlyKeyword_5_0() { return cYearlyYearlyKeyword_5_0; }
 	}
 	
-	private ModelElements pModel;
-	private ResourceKindElements pResourceKind;
-	private CultureElements pCulture;
-	private ExploitationActivityElements pExploitationActivity;
-	private PredicateElements pPredicate;
-	private NoRainElements pNoRain;
-	private TempOfTheDayElements pTempOfTheDay;
-	private DelaySinceActivyElements pDelaySinceActivy;
-	private GrainIsElements pGrainIs;
-	private DateElements pDate;
-	private MonthElements unknownRuleMonth;
-	private CompElements unknownRuleComp;
-	private TempUnitElements unknownRuleTempUnit;
-	private FrequencyElements unknownRuleFrequency;
+	private final ModelElements pModel;
+	private final ResourceKindElements pResourceKind;
+	private final CultureElements pCulture;
+	private final ExploitationActivityElements pExploitationActivity;
+	private final ActivityResourceElements pActivityResource;
+	private final PredicateElements pPredicate;
+	private final NoRainElements pNoRain;
+	private final TempOfTheDayElements pTempOfTheDay;
+	private final DelaySinceActivyElements pDelaySinceActivy;
+	private final GrainIsElements pGrainIs;
+	private final DateElements pDate;
+	private final MonthElements unknownRuleMonth;
+	private final CompElements unknownRuleComp;
+	private final TempUnitElements unknownRuleTempUnit;
+	private final FrequencyElements unknownRuleFrequency;
 	
 	private final Grammar grammar;
 
-	private TerminalsGrammarAccess gaTerminals;
+	private final TerminalsGrammarAccess gaTerminals;
 
 	@Inject
 	public ActivitiesDSLGrammarAccess(GrammarProvider grammarProvider,
 		TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
+		this.pModel = new ModelElements();
+		this.pResourceKind = new ResourceKindElements();
+		this.pCulture = new CultureElements();
+		this.pExploitationActivity = new ExploitationActivityElements();
+		this.pActivityResource = new ActivityResourceElements();
+		this.pPredicate = new PredicateElements();
+		this.pNoRain = new NoRainElements();
+		this.pTempOfTheDay = new TempOfTheDayElements();
+		this.pDelaySinceActivy = new DelaySinceActivyElements();
+		this.pGrainIs = new GrainIsElements();
+		this.pDate = new DateElements();
+		this.unknownRuleMonth = new MonthElements();
+		this.unknownRuleComp = new CompElements();
+		this.unknownRuleTempUnit = new TempUnitElements();
+		this.unknownRuleFrequency = new FrequencyElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -685,7 +765,7 @@ public class ActivitiesDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//Model:
 	//	cultures+=Culture* resourceKinds+=ResourceKind*;
 	public ModelElements getModelAccess() {
-		return (pModel != null) ? pModel : (pModel = new ModelElements());
+		return pModel;
 	}
 	
 	public ParserRule getModelRule() {
@@ -695,7 +775,7 @@ public class ActivitiesDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//ResourceKind:
 	//	"resource" name=ID;
 	public ResourceKindElements getResourceKindAccess() {
-		return (pResourceKind != null) ? pResourceKind : (pResourceKind = new ResourceKindElements());
+		return pResourceKind;
 	}
 	
 	public ParserRule getResourceKindRule() {
@@ -705,7 +785,7 @@ public class ActivitiesDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//Culture:
 	//	"culture" name=ID "{" activities+=ExploitationActivity* "}";
 	public CultureElements getCultureAccess() {
-		return (pCulture != null) ? pCulture : (pCulture = new CultureElements());
+		return pCulture;
 	}
 	
 	public ParserRule getCultureRule() {
@@ -714,19 +794,29 @@ public class ActivitiesDSLGrammarAccess extends AbstractGrammarElementFinder {
 
 	//ExploitationActivity:
 	//	"activity" name=ID frequency=Frequency? ("from " startDate=Date "to" endDate=Date)? ("[" predicates+=Predicate ("&&"
-	//	predicates+=Predicate)* "]")?;
+	//	predicates+=Predicate)* "]")? ("using" uses+=ActivityResource ("and" uses+=ActivityResource)*)?;
 	public ExploitationActivityElements getExploitationActivityAccess() {
-		return (pExploitationActivity != null) ? pExploitationActivity : (pExploitationActivity = new ExploitationActivityElements());
+		return pExploitationActivity;
 	}
 	
 	public ParserRule getExploitationActivityRule() {
 		return getExploitationActivityAccess().getRule();
 	}
 
+	//ActivityResource:
+	//	quantity=INT resourceKind=[ResourceKind];
+	public ActivityResourceElements getActivityResourceAccess() {
+		return pActivityResource;
+	}
+	
+	public ParserRule getActivityResourceRule() {
+		return getActivityResourceAccess().getRule();
+	}
+
 	//Predicate:
 	//	NoRain | TempOfTheDay | DelaySinceActivy | GrainIs;
 	public PredicateElements getPredicateAccess() {
-		return (pPredicate != null) ? pPredicate : (pPredicate = new PredicateElements());
+		return pPredicate;
 	}
 	
 	public ParserRule getPredicateRule() {
@@ -736,7 +826,7 @@ public class ActivitiesDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//NoRain:
 	//	"no rain since" days=INT "days";
 	public NoRainElements getNoRainAccess() {
-		return (pNoRain != null) ? pNoRain : (pNoRain = new NoRainElements());
+		return pNoRain;
 	}
 	
 	public ParserRule getNoRainRule() {
@@ -746,7 +836,7 @@ public class ActivitiesDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//TempOfTheDay:
 	//	"temperature" comparison=Comp lowerTempBound=INT unit=TempUnit;
 	public TempOfTheDayElements getTempOfTheDayAccess() {
-		return (pTempOfTheDay != null) ? pTempOfTheDay : (pTempOfTheDay = new TempOfTheDayElements());
+		return pTempOfTheDay;
 	}
 	
 	public ParserRule getTempOfTheDayRule() {
@@ -756,7 +846,7 @@ public class ActivitiesDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//DelaySinceActivy:
 	//	"after" prerequisite=[ExploitationActivity] ("is done since" days=INT "days")?;
 	public DelaySinceActivyElements getDelaySinceActivyAccess() {
-		return (pDelaySinceActivy != null) ? pDelaySinceActivy : (pDelaySinceActivy = new DelaySinceActivyElements());
+		return pDelaySinceActivy;
 	}
 	
 	public ParserRule getDelaySinceActivyRule() {
@@ -766,7 +856,7 @@ public class ActivitiesDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//GrainIs:
 	//	"grain is" state=STRING;
 	public GrainIsElements getGrainIsAccess() {
-		return (pGrainIs != null) ? pGrainIs : (pGrainIs = new GrainIsElements());
+		return pGrainIs;
 	}
 	
 	public ParserRule getGrainIsRule() {
@@ -776,7 +866,7 @@ public class ActivitiesDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//Date:
 	//	day=INT month=Month;
 	public DateElements getDateAccess() {
-		return (pDate != null) ? pDate : (pDate = new DateElements());
+		return pDate;
 	}
 	
 	public ParserRule getDateRule() {
@@ -786,7 +876,7 @@ public class ActivitiesDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//enum Month:
 	//	jan | feb | mar | apr | may | jun | jul | aug | sept | oct | nov | dec;
 	public MonthElements getMonthAccess() {
-		return (unknownRuleMonth != null) ? unknownRuleMonth : (unknownRuleMonth = new MonthElements());
+		return unknownRuleMonth;
 	}
 	
 	public EnumRule getMonthRule() {
@@ -796,7 +886,7 @@ public class ActivitiesDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//enum Comp:
 	//	moreThan=">" | lessThan="<";
 	public CompElements getCompAccess() {
-		return (unknownRuleComp != null) ? unknownRuleComp : (unknownRuleComp = new CompElements());
+		return unknownRuleComp;
 	}
 	
 	public EnumRule getCompRule() {
@@ -806,7 +896,7 @@ public class ActivitiesDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//enum TempUnit:
 	//	celsius="°C" | farenheit="°F";
 	public TempUnitElements getTempUnitAccess() {
-		return (unknownRuleTempUnit != null) ? unknownRuleTempUnit : (unknownRuleTempUnit = new TempUnitElements());
+		return unknownRuleTempUnit;
 	}
 	
 	public EnumRule getTempUnitRule() {
@@ -816,7 +906,7 @@ public class ActivitiesDSLGrammarAccess extends AbstractGrammarElementFinder {
 	//enum Frequency:
 	//	once | daily | weekly | monthly | quaterly | yearly;
 	public FrequencyElements getFrequencyAccess() {
-		return (unknownRuleFrequency != null) ? unknownRuleFrequency : (unknownRuleFrequency = new FrequencyElements());
+		return unknownRuleFrequency;
 	}
 	
 	public EnumRule getFrequencyRule() {
@@ -836,8 +926,8 @@ public class ActivitiesDSLGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal STRING:
-	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" |
-	//	"n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
+	//	"\"" ("\\" . / * 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' * / | !("\\" | "\""))* "\"" | "\'" ("\\" .
+	//	/ * 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' * / | !("\\" | "\'"))* "\'";
 	public TerminalRule getSTRINGRule() {
 		return gaTerminals.getSTRINGRule();
 	} 

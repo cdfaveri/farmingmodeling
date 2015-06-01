@@ -10,12 +10,12 @@
         eType="#//ClimateData"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="solverSearchSecondsSpentLimit"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="5"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allocations" upperBound="-1"
+        eType="#//ResourceAllocation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActivityWork">
     <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"
         eType="ecore:EClass ../../org.gemoc.agro.activities/model/generated/ActivitiesDSL.ecore#//ExploitationActivity"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceAllocation" lowerBound="1"
-        eType="ecore:EClass ../../org.gemoc.agro.exploitation/model/exploitation.ecore#//Resource"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="scheduledOn" eType="#//Day"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="onSurface" eType="ecore:EClass ../../org.gemoc.agro.exploitation/model/exploitation.ecore#//Surface"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="schedulingFeedback" upperBound="-1"
@@ -47,5 +47,11 @@
     <eLiterals name="info"/>
     <eLiterals name="warning" value="1"/>
     <eLiterals name="error" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceAllocation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="work" lowerBound="1" eType="#//ActivityWork"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
+        eType="ecore:EClass ../../org.gemoc.agro.exploitation/model/exploitation.ecore#//Resource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="kind" lowerBound="1" eType="ecore:EClass ../../org.gemoc.agro.activities/model/generated/ActivitiesDSL.ecore#//ResourceKind"/>
   </eClassifiers>
 </ecore:EPackage>

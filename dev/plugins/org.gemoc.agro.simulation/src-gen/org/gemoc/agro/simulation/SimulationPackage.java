@@ -113,13 +113,22 @@ public interface SimulationPackage extends EPackage {
 	int SCHEDULE__SOLVER_SEARCH_SECONDS_SPENT_LIMIT = 4;
 
 	/**
+	 * The feature id for the '<em><b>Allocations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE__ALLOCATIONS = 5;
+
+	/**
 	 * The number of structural features of the '<em>Schedule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_FEATURE_COUNT = 5;
+	int SCHEDULE_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Schedule</em>' class.
@@ -150,22 +159,13 @@ public interface SimulationPackage extends EPackage {
 	int ACTIVITY_WORK__ACTIVITY = 0;
 
 	/**
-	 * The feature id for the '<em><b>Resource Allocation</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTIVITY_WORK__RESOURCE_ALLOCATION = 1;
-
-	/**
 	 * The feature id for the '<em><b>Scheduled On</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY_WORK__SCHEDULED_ON = 2;
+	int ACTIVITY_WORK__SCHEDULED_ON = 1;
 
 	/**
 	 * The feature id for the '<em><b>On Surface</b></em>' reference.
@@ -174,7 +174,7 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY_WORK__ON_SURFACE = 3;
+	int ACTIVITY_WORK__ON_SURFACE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Scheduling Feedback</b></em>' containment reference list.
@@ -183,7 +183,7 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY_WORK__SCHEDULING_FEEDBACK = 4;
+	int ACTIVITY_WORK__SCHEDULING_FEEDBACK = 3;
 
 	/**
 	 * The number of structural features of the '<em>Activity Work</em>' class.
@@ -192,7 +192,7 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY_WORK_FEATURE_COUNT = 5;
+	int ACTIVITY_WORK_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Activity Work</em>' class.
@@ -378,6 +378,61 @@ public interface SimulationPackage extends EPackage {
 	int SCHEDULING_FEEDBACK_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.gemoc.agro.simulation.impl.ResourceAllocationImpl <em>Resource Allocation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.gemoc.agro.simulation.impl.ResourceAllocationImpl
+	 * @see org.gemoc.agro.simulation.impl.SimulationPackageImpl#getResourceAllocation()
+	 * @generated
+	 */
+	int RESOURCE_ALLOCATION = 5;
+
+	/**
+	 * The feature id for the '<em><b>Work</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_ALLOCATION__WORK = 0;
+
+	/**
+	 * The feature id for the '<em><b>Resource</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_ALLOCATION__RESOURCE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Kind</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_ALLOCATION__KIND = 2;
+
+	/**
+	 * The number of structural features of the '<em>Resource Allocation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_ALLOCATION_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Resource Allocation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_ALLOCATION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.gemoc.agro.simulation.SchedulingStrategy <em>Scheduling Strategy</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -385,7 +440,7 @@ public interface SimulationPackage extends EPackage {
 	 * @see org.gemoc.agro.simulation.impl.SimulationPackageImpl#getSchedulingStrategy()
 	 * @generated
 	 */
-	int SCHEDULING_STRATEGY = 5;
+	int SCHEDULING_STRATEGY = 6;
 
 
 	/**
@@ -396,7 +451,7 @@ public interface SimulationPackage extends EPackage {
 	 * @see org.gemoc.agro.simulation.impl.SimulationPackageImpl#getFeedbackLevel()
 	 * @generated
 	 */
-	int FEEDBACK_LEVEL = 6;
+	int FEEDBACK_LEVEL = 7;
 
 
 	/**
@@ -465,6 +520,17 @@ public interface SimulationPackage extends EPackage {
 	EAttribute getSchedule_SolverSearchSecondsSpentLimit();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.gemoc.agro.simulation.Schedule#getAllocations <em>Allocations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Allocations</em>'.
+	 * @see org.gemoc.agro.simulation.Schedule#getAllocations()
+	 * @see #getSchedule()
+	 * @generated
+	 */
+	EReference getSchedule_Allocations();
+
+	/**
 	 * Returns the meta object for class '{@link org.gemoc.agro.simulation.ActivityWork <em>Activity Work</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -484,17 +550,6 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getActivityWork_Activity();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.gemoc.agro.simulation.ActivityWork#getResourceAllocation <em>Resource Allocation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Resource Allocation</em>'.
-	 * @see org.gemoc.agro.simulation.ActivityWork#getResourceAllocation()
-	 * @see #getActivityWork()
-	 * @generated
-	 */
-	EReference getActivityWork_ResourceAllocation();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.gemoc.agro.simulation.ActivityWork#getScheduledOn <em>Scheduled On</em>}'.
@@ -670,6 +725,49 @@ public interface SimulationPackage extends EPackage {
 	EAttribute getSchedulingFeedback_Message();
 
 	/**
+	 * Returns the meta object for class '{@link org.gemoc.agro.simulation.ResourceAllocation <em>Resource Allocation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Resource Allocation</em>'.
+	 * @see org.gemoc.agro.simulation.ResourceAllocation
+	 * @generated
+	 */
+	EClass getResourceAllocation();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.gemoc.agro.simulation.ResourceAllocation#getWork <em>Work</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Work</em>'.
+	 * @see org.gemoc.agro.simulation.ResourceAllocation#getWork()
+	 * @see #getResourceAllocation()
+	 * @generated
+	 */
+	EReference getResourceAllocation_Work();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.gemoc.agro.simulation.ResourceAllocation#getResource <em>Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Resource</em>'.
+	 * @see org.gemoc.agro.simulation.ResourceAllocation#getResource()
+	 * @see #getResourceAllocation()
+	 * @generated
+	 */
+	EReference getResourceAllocation_Resource();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.gemoc.agro.simulation.ResourceAllocation#getKind <em>Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Kind</em>'.
+	 * @see org.gemoc.agro.simulation.ResourceAllocation#getKind()
+	 * @see #getResourceAllocation()
+	 * @generated
+	 */
+	EReference getResourceAllocation_Kind();
+
+	/**
 	 * Returns the meta object for enum '{@link org.gemoc.agro.simulation.SchedulingStrategy <em>Scheduling Strategy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -763,6 +861,14 @@ public interface SimulationPackage extends EPackage {
 		EAttribute SCHEDULE__SOLVER_SEARCH_SECONDS_SPENT_LIMIT = eINSTANCE.getSchedule_SolverSearchSecondsSpentLimit();
 
 		/**
+		 * The meta object literal for the '<em><b>Allocations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCHEDULE__ALLOCATIONS = eINSTANCE.getSchedule_Allocations();
+
+		/**
 		 * The meta object literal for the '{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl <em>Activity Work</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -779,14 +885,6 @@ public interface SimulationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ACTIVITY_WORK__ACTIVITY = eINSTANCE.getActivityWork_Activity();
-
-		/**
-		 * The meta object literal for the '<em><b>Resource Allocation</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ACTIVITY_WORK__RESOURCE_ALLOCATION = eINSTANCE.getActivityWork_ResourceAllocation();
 
 		/**
 		 * The meta object literal for the '<em><b>Scheduled On</b></em>' reference feature.
@@ -921,6 +1019,40 @@ public interface SimulationPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SCHEDULING_FEEDBACK__MESSAGE = eINSTANCE.getSchedulingFeedback_Message();
+
+		/**
+		 * The meta object literal for the '{@link org.gemoc.agro.simulation.impl.ResourceAllocationImpl <em>Resource Allocation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.gemoc.agro.simulation.impl.ResourceAllocationImpl
+		 * @see org.gemoc.agro.simulation.impl.SimulationPackageImpl#getResourceAllocation()
+		 * @generated
+		 */
+		EClass RESOURCE_ALLOCATION = eINSTANCE.getResourceAllocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Work</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_ALLOCATION__WORK = eINSTANCE.getResourceAllocation_Work();
+
+		/**
+		 * The meta object literal for the '<em><b>Resource</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_ALLOCATION__RESOURCE = eINSTANCE.getResourceAllocation_Resource();
+
+		/**
+		 * The meta object literal for the '<em><b>Kind</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESOURCE_ALLOCATION__KIND = eINSTANCE.getResourceAllocation_Kind();
 
 		/**
 		 * The meta object literal for the '{@link org.gemoc.agro.simulation.SchedulingStrategy <em>Scheduling Strategy</em>}' enum.

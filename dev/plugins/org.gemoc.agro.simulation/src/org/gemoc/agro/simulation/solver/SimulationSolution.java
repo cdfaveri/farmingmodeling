@@ -4,8 +4,10 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.gemoc.agro.exploitation.Resource;
 import org.gemoc.agro.simulation.ActivityWork;
 import org.gemoc.agro.simulation.Day;
+import org.gemoc.agro.simulation.ResourceAllocation;
 import org.gemoc.agro.simulation.Schedule;
 import org.optaplanner.core.api.domain.solution.PlanningEntityCollectionProperty;
 import org.optaplanner.core.api.domain.solution.PlanningSolution;
@@ -37,10 +39,20 @@ public class SimulationSolution implements Solution<HardSoftScore>,
 	public List<ActivityWork> getWorkToSchedule() {
 		return ImmutableList.copyOf(sim.getWorkToDo());
 	}
+	
+	@PlanningEntityCollectionProperty
+	public List<ResourceAllocation> getResourcesToAllocate() {
+		return ImmutableList.copyOf(sim.getAllocations());
+	}
 
 	@ValueRangeProvider(id = "days")
 	public List<Day> getDays() {
 		return ImmutableList.copyOf(sim.getClimateData().getDays());
+	}
+	
+	@ValueRangeProvider(id = "resources")
+	public List<Resource> getResources() {
+		return ImmutableList.copyOf(sim.getExploitation().getResources());
 	}
 
 	@Override
