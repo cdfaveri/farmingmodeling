@@ -244,37 +244,75 @@
   <ownedViewpoints name="Simulation" modelFileExtension="simulation">
     <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Climate Data" domainClass="simulation.ClimateData">
       <metamodel href="http://www.gemoc.org/agro/simulation#/"/>
+      <metamodel href="http://www.gemoc.org/exploitation#/"/>
+      <metamodel href="http://www.gemoc.org/agro/ActivitiesDSL#/"/>
       <ownedLineMappings name="Day Line" domainClass="simulation.Day" headerLabelExpression="[self.month + ' ' + self.day /]"/>
-      <ownedColumnMappings name="Rain column" headerLabelExpression="Rain (mm)" featureName="rain" labelExpression="[self.rain/]"/>
+      <ownedColumnMappings name="Rain column" headerLabelExpression="Rain (mm)" featureName="rain" labelExpression="[self.rain/]">
+        <defaultBackground backgroundColor="//@userColorsPalettes[name='Agro%20Colors']/@entries[name='RainRange']"/>
+      </ownedColumnMappings>
       <ownedColumnMappings name="Temp column" headerLabelExpression="Temperature (°C)" featureName="temperature" labelExpression="[self.temperature/]">
         <defaultBackground backgroundColor="//@userColorsPalettes[name='Agro%20Colors']/@entries[name='TemperatureRange']"/>
       </ownedColumnMappings>
-      <ownedColumnMappings name="Ray column" headerLabelExpression="Ray (Joules/cm²)" featureName="ray" labelExpression="[self.ray/]"/>
+      <ownedColumnMappings name="Ray column" headerLabelExpression="Ray (Joules/cm²)" featureName="ray" labelExpression="[self.ray/]">
+        <defaultBackground backgroundColor="//@userColorsPalettes[name='Agro%20Colors']/@entries[name='RayRange']"/>
+      </ownedColumnMappings>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_3:TreeDescription" name="Schedule" domainClass="simulation.Simulation">
       <metamodel href="http://www.gemoc.org/agro/ActivitiesDSL#/"/>
       <metamodel href="http://www.gemoc.org/agro/simulation#/"/>
-      <subItemMappings name="Work To Do" domainClass="simulation.ActivityWork" semanticCandidatesExpression="feature:workToDo">
-        <defaultStyle labelExpression="[self.activity.eContainer(Culture).name + ' ' + self.activity.name + ' scheduled on ' + self.scheduledOn.day + '/' + self.scheduledOn.month/]">
+      <metamodel href="http://www.gemoc.org/exploitation#/"/>
+      <subItemMappings name="Surface" domainClass="exploitation.Surface" semanticCandidatesExpression="[self.workToDo.onSurface->asOrderedSet()/]">
+        <defaultStyle labelExpression="[self.name + ' ' + self.nbFields + ' fields'/]">
           <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
         </defaultStyle>
-        <subItemMappings name="Day" domainClass="Day" semanticCandidatesExpression="feature:scheduledOn">
-          <defaultStyle labelExpression="[self.day + ' ' + self.month/]">
+        <subItemMappings name="Work To Do" domainClass="simulation.ActivityWork" semanticCandidatesExpression="[self.eInverse()/]">
+          <defaultStyle labelExpression="[self.activity.eContainer(Culture).name + ' ' + self.activity.name + ' scheduled on ' + self.scheduledOn.day + '/' + self.scheduledOn.month/]">
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </defaultStyle>
+          <subItemMappings name="Day" domainClass="Day" semanticCandidatesExpression="feature:scheduledOn">
+            <defaultStyle labelExpression="[self.day + ' ' + self.month/]">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </defaultStyle>
+          </subItemMappings>
         </subItemMappings>
       </subItemMappings>
     </ownedRepresentations>
   </ownedViewpoints>
   <userColorsPalettes name="Agro Colors">
-    <entries xsi:type="description:InterpolatedColor" name="TemperatureRange" colorValueComputationExpression="[self.temperature.floor()/]">
-      <colorSteps associatedValue="[self.eContainer(ClimateData).days.temperature->min().floor()/]">
+    <entries xsi:type="description:InterpolatedColor" name="TemperatureRange" colorValueComputationExpression="[self.temperature->max().floor()/]">
+      <colorSteps associatedValue="-10">
         <associatedColor href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
       </colorSteps>
-      <colorSteps associatedValue="[self.eContainer(ClimateData).days.temperature->max().floor()/]">
-        <associatedColor href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+      <colorSteps associatedValue="18">
+        <associatedColor href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+      </colorSteps>
+      <colorSteps associatedValue="30">
+        <associatedColor href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+      </colorSteps>
+      <colorSteps associatedValue="40">
+        <associatedColor href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+      </colorSteps>
+    </entries>
+    <entries xsi:type="description:InterpolatedColor" name="RainRange" colorValueComputationExpression="[self.rain->max().floor()/]">
+      <colorSteps associatedValue="0">
+        <associatedColor href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+      </colorSteps>
+      <colorSteps associatedValue="5">
+        <associatedColor href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+      </colorSteps>
+      <colorSteps associatedValue="20">
+        <associatedColor href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+      </colorSteps>
+    </entries>
+    <entries xsi:type="description:InterpolatedColor" name="RayRange" colorValueComputationExpression="[self.ray->max().floor()/]">
+      <colorSteps associatedValue="100">
+        <associatedColor href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+      </colorSteps>
+      <colorSteps associatedValue="2000">
+        <associatedColor href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
       </colorSteps>
     </entries>
   </userColorsPalettes>
