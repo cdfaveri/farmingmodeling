@@ -9,7 +9,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="climateData" lowerBound="1"
         eType="#//ClimateData"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="solverSearchSecondsSpentLimit"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Long" defaultValueLiteral="5"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="5"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActivityWork">
     <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"

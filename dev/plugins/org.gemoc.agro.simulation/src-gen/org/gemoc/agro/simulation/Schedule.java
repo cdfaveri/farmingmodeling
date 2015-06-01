@@ -134,12 +134,12 @@ public interface Schedule extends EObject  {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Solver Search Seconds Spent Limit</em>' attribute.
-	 * @see #setSolverSearchSecondsSpentLimit(long)
+	 * @see #setSolverSearchSecondsSpentLimit(int)
 	 * @see org.gemoc.agro.simulation.SimulationPackage#getSchedule_SolverSearchSecondsSpentLimit()
-	 * @model default="5" dataType="org.eclipse.emf.ecore.xml.type.Long"
+	 * @model default="5"
 	 * @generated
 	 */
-	long getSolverSearchSecondsSpentLimit();
+	int getSolverSearchSecondsSpentLimit();
 
 	/**
 	 * Sets the value of the '{@link org.gemoc.agro.simulation.Schedule#getSolverSearchSecondsSpentLimit <em>Solver Search Seconds Spent Limit</em>}' attribute.
@@ -149,6 +149,6 @@ public interface Schedule extends EObject  {
 	 * @see #getSolverSearchSecondsSpentLimit()
 	 * @generated
 	 */
-	void setSolverSearchSecondsSpentLimit(long value);
+	void setSolverSearchSecondsSpentLimit(int value);
 
 } // Schedule

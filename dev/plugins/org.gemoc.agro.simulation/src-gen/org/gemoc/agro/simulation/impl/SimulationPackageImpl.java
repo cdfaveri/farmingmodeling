@@ -7,15 +7,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
-
 import org.gemoc.agro.activitiesDSL.ActivitiesDSLPackage;
-
 import org.gemoc.agro.exploitation.ExploitationPackage;
-
 import org.gemoc.agro.simulation.ActivityWork;
 import org.gemoc.agro.simulation.ClimateData;
 import org.gemoc.agro.simulation.Day;
@@ -130,7 +124,6 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 
 		// Initialize simple dependencies
 		ExploitationPackage.eINSTANCE.eClass();
-		XMLTypePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theSimulationPackage.createPackageContents();
@@ -478,7 +471,6 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 
 		// Obtain other dependent packages
 		ExploitationPackage theExploitationPackage = (ExploitationPackage)EPackage.Registry.INSTANCE.getEPackage(ExploitationPackage.eNS_URI);
-		XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
 		ActivitiesDSLPackage theActivitiesDSLPackage = (ActivitiesDSLPackage)EPackage.Registry.INSTANCE.getEPackage(ActivitiesDSLPackage.eNS_URI);
 
 		// Create type parameters
@@ -493,7 +485,7 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 		initEAttribute(getSchedule_SchedulingStrategy(), this.getSchedulingStrategy(), "schedulingStrategy", null, 0, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchedule_WorkToDo(), this.getActivityWork(), null, "workToDo", null, 0, -1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchedule_ClimateData(), this.getClimateData(), null, "climateData", null, 1, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSchedule_SolverSearchSecondsSpentLimit(), theXMLTypePackage.getLong(), "solverSearchSecondsSpentLimit", "5", 0, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSchedule_SolverSearchSecondsSpentLimit(), ecorePackage.getEInt(), "solverSearchSecondsSpentLimit", "5", 0, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(activityWorkEClass, ActivityWork.class, "ActivityWork", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActivityWork_Activity(), theActivitiesDSLPackage.getExploitationActivity(), null, "activity", null, 1, 1, ActivityWork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

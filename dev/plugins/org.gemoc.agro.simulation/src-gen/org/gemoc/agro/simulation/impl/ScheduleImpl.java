@@ -102,7 +102,7 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 	 * @generated
 	 * @ordered
 	 */
-	protected static final long SOLVER_SEARCH_SECONDS_SPENT_LIMIT_EDEFAULT = 5L;
+	protected static final int SOLVER_SEARCH_SECONDS_SPENT_LIMIT_EDEFAULT = 5;
 
 	/**
 	 * The cached value of the '{@link #getSolverSearchSecondsSpentLimit() <em>Solver Search Seconds Spent Limit</em>}' attribute.
@@ -112,7 +112,7 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 	 * @generated
 	 * @ordered
 	 */
-	protected long solverSearchSecondsSpentLimit = SOLVER_SEARCH_SECONDS_SPENT_LIMIT_EDEFAULT;
+	protected int solverSearchSecondsSpentLimit = SOLVER_SEARCH_SECONDS_SPENT_LIMIT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -247,7 +247,7 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public long getSolverSearchSecondsSpentLimit() {
+	public int getSolverSearchSecondsSpentLimit() {
 		return solverSearchSecondsSpentLimit;
 	}
 
@@ -256,8 +256,8 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSolverSearchSecondsSpentLimit(long newSolverSearchSecondsSpentLimit) {
-		long oldSolverSearchSecondsSpentLimit = solverSearchSecondsSpentLimit;
+	public void setSolverSearchSecondsSpentLimit(int newSolverSearchSecondsSpentLimit) {
+		int oldSolverSearchSecondsSpentLimit = solverSearchSecondsSpentLimit;
 		solverSearchSecondsSpentLimit = newSolverSearchSecondsSpentLimit;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.SCHEDULE__SOLVER_SEARCH_SECONDS_SPENT_LIMIT, oldSolverSearchSecondsSpentLimit, solverSearchSecondsSpentLimit));
@@ -324,7 +324,7 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 				setClimateData((ClimateData)newValue);
 				return;
 			case SimulationPackage.SCHEDULE__SOLVER_SEARCH_SECONDS_SPENT_LIMIT:
-				setSolverSearchSecondsSpentLimit((Long)newValue);
+				setSolverSearchSecondsSpentLimit((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -261,27 +261,33 @@
       <metamodel href="http://www.gemoc.org/agro/ActivitiesDSL#/"/>
       <metamodel href="http://www.gemoc.org/agro/simulation#/"/>
       <metamodel href="http://www.gemoc.org/exploitation#/"/>
-      <subItemMappings name="Surface" domainClass="exploitation.Surface" semanticCandidatesExpression="[self.workToDo.onSurface->asOrderedSet()/]">
-        <defaultStyle labelExpression="[self.name + ' ' + self.nbFields + ' fields'/]">
+      <subItemMappings name="ScheduleRoot" domainClass="simulation.Schedule" semanticCandidatesExpression="var:self">
+        <defaultStyle labelExpression="Schedule">
           <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
         </defaultStyle>
-        <subItemMappings name="Work To Do" domainClass="simulation.ActivityWork" semanticCandidatesExpression="[self.eInverse()/]">
-          <defaultStyle labelExpression="[self.activity.eContainer(Culture).name + ' ' + self.activity.name + ' scheduled on ' + self.scheduledOn.day + '/' + self.scheduledOn.month/]">
+        <subItemMappings name="Surface" domainClass="exploitation.Surface" semanticCandidatesExpression="[self.workToDo.onSurface->asOrderedSet()/]">
+          <defaultStyle labelExpression="[self.name + ' ' + self.nbFields + ' fields'/]">
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </defaultStyle>
-          <subItemMappings name="Day" domainClass="Day" semanticCandidatesExpression="feature:scheduledOn">
-            <defaultStyle labelExpression="[self.day + ' ' + self.month/]">
+          <subItemMappings name="Work To Do" domainClass="simulation.ActivityWork" semanticCandidatesExpression="[self.eInverse()/]">
+            <defaultStyle labelExpression="[self.activity.eContainer(Culture).name + ' ' + self.activity.name + ' scheduled on ' + self.scheduledOn.day + '/' + self.scheduledOn.month/]">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </defaultStyle>
-          </subItemMappings>
-          <subItemMappings name="SchedulingFeedback" domainClass="simulation.SchedulingFeedback" semanticCandidatesExpression="feature:schedulingFeedback">
-            <defaultStyle labelExpression="feature:message">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            </defaultStyle>
+            <subItemMappings name="Day" domainClass="Day" semanticCandidatesExpression="feature:scheduledOn">
+              <defaultStyle labelExpression="[self.day + ' ' + self.month/]">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </defaultStyle>
+            </subItemMappings>
+            <subItemMappings name="SchedulingFeedback" domainClass="simulation.SchedulingFeedback" semanticCandidatesExpression="feature:schedulingFeedback">
+              <defaultStyle labelExpression="feature:message">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </defaultStyle>
+            </subItemMappings>
           </subItemMappings>
         </subItemMappings>
       </subItemMappings>
