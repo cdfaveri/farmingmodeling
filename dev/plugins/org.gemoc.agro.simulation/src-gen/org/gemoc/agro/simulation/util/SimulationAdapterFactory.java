@@ -84,6 +84,10 @@ public class SimulationAdapterFactory extends AdapterFactoryImpl {
 				return createClimateDataAdapter();
 			}
 			@Override
+			public Adapter caseSchedulingFeedback(SchedulingFeedback object) {
+				return createSchedulingFeedbackAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -156,6 +160,20 @@ public class SimulationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createClimateDataAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.gemoc.agro.simulation.SchedulingFeedback <em>Scheduling Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.gemoc.agro.simulation.SchedulingFeedback
+	 * @generated
+	 */
+	public Adapter createSchedulingFeedbackAdapter() {
 		return null;
 	}
 

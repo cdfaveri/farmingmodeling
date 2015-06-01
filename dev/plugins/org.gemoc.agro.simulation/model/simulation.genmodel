@@ -12,6 +12,11 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="simulation.ecore#//SchedulingStrategy">
       <genEnumLiterals ecoreEnumLiteral="simulation.ecore#//SchedulingStrategy/random"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="simulation.ecore#//FeedbackLevel">
+      <genEnumLiterals ecoreEnumLiteral="simulation.ecore#//FeedbackLevel/info"/>
+      <genEnumLiterals ecoreEnumLiteral="simulation.ecore#//FeedbackLevel/warning"/>
+      <genEnumLiterals ecoreEnumLiteral="simulation.ecore#//FeedbackLevel/error"/>
+    </genEnums>
     <genClasses ecoreClass="simulation.ecore#//Simulation">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//Simulation/exploitation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Simulation/schedulingStrategy"/>
@@ -23,6 +28,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//ActivityWork/resourceAllocation"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//ActivityWork/scheduledOn"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//ActivityWork/onSurface"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simulation.ecore#//ActivityWork/schedulingFeedback"/>
     </genClasses>
     <genClasses ecoreClass="simulation.ecore#//Day">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Day/month"/>
@@ -35,6 +41,10 @@
     <genClasses ecoreClass="simulation.ecore#//ClimateData">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//ClimateData/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simulation.ecore#//ClimateData/days"/>
+    </genClasses>
+    <genClasses ecoreClass="simulation.ecore#//SchedulingFeedback">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//SchedulingFeedback/level"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//SchedulingFeedback/message"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

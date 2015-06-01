@@ -2,16 +2,22 @@
  */
 package org.gemoc.agro.simulation.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.gemoc.agro.activitiesDSL.ExploitationActivity;
 import org.gemoc.agro.exploitation.Resource;
 import org.gemoc.agro.exploitation.Surface;
 import org.gemoc.agro.simulation.ActivityWork;
 import org.gemoc.agro.simulation.Day;
+import org.gemoc.agro.simulation.SchedulingFeedback;
 import org.gemoc.agro.simulation.SimulationPackage;
 
 /**
@@ -25,6 +31,7 @@ import org.gemoc.agro.simulation.SimulationPackage;
  *   <li>{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl#getResourceAllocation <em>Resource Allocation</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl#getScheduledOn <em>Scheduled On</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl#getOnSurface <em>On Surface</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl#getSchedulingFeedback <em>Scheduling Feedback</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,6 +77,16 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
 	 * @ordered
 	 */
 	protected Surface onSurface;
+
+	/**
+	 * The cached value of the '{@link #getSchedulingFeedback() <em>Scheduling Feedback</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSchedulingFeedback()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SchedulingFeedback> schedulingFeedback;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -247,6 +264,32 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<SchedulingFeedback> getSchedulingFeedback() {
+		if (schedulingFeedback == null) {
+			schedulingFeedback = new EObjectContainmentEList<SchedulingFeedback>(SchedulingFeedback.class, this, SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK);
+		}
+		return schedulingFeedback;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK:
+				return ((InternalEList<?>)getSchedulingFeedback()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -262,6 +305,8 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
 			case SimulationPackage.ACTIVITY_WORK__ON_SURFACE:
 				if (resolve) return getOnSurface();
 				return basicGetOnSurface();
+			case SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK:
+				return getSchedulingFeedback();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -271,6 +316,7 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -285,6 +331,10 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
 				return;
 			case SimulationPackage.ACTIVITY_WORK__ON_SURFACE:
 				setOnSurface((Surface)newValue);
+				return;
+			case SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK:
+				getSchedulingFeedback().clear();
+				getSchedulingFeedback().addAll((Collection<? extends SchedulingFeedback>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -310,6 +360,9 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
 			case SimulationPackage.ACTIVITY_WORK__ON_SURFACE:
 				setOnSurface((Surface)null);
 				return;
+			case SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK:
+				getSchedulingFeedback().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -330,6 +383,8 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
 				return scheduledOn != null;
 			case SimulationPackage.ACTIVITY_WORK__ON_SURFACE:
 				return onSurface != null;
+			case SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK:
+				return schedulingFeedback != null && !schedulingFeedback.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

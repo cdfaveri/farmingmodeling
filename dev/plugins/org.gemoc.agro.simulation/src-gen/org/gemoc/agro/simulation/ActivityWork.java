@@ -2,6 +2,7 @@
  */
 package org.gemoc.agro.simulation;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.gemoc.agro.activitiesDSL.ExploitationActivity;
 import org.gemoc.agro.exploitation.Resource;
@@ -22,6 +23,7 @@ import org.optaplanner.core.api.domain.variable.PlanningVariable;
  *   <li>{@link org.gemoc.agro.simulation.ActivityWork#getResourceAllocation <em>Resource Allocation</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.ActivityWork#getScheduledOn <em>Scheduled On</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.ActivityWork#getOnSurface <em>On Surface</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.ActivityWork#getSchedulingFeedback <em>Scheduling Feedback</em>}</li>
  * </ul>
  * </p>
  *
@@ -135,5 +137,21 @@ public interface ActivityWork extends EObject {
 	 * @generated
 	 */
 	void setOnSurface(Surface value);
+
+	/**
+	 * Returns the value of the '<em><b>Scheduling Feedback</b></em>' containment reference list.
+	 * The list contents are of type {@link org.gemoc.agro.simulation.SchedulingFeedback}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Scheduling Feedback</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Scheduling Feedback</em>' containment reference list.
+	 * @see org.gemoc.agro.simulation.SimulationPackage#getActivityWork_SchedulingFeedback()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<SchedulingFeedback> getSchedulingFeedback();
 
 } // ActivityWork

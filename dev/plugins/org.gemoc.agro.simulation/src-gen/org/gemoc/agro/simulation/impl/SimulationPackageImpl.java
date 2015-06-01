@@ -17,6 +17,8 @@ import org.gemoc.agro.exploitation.ExploitationPackage;
 import org.gemoc.agro.simulation.ActivityWork;
 import org.gemoc.agro.simulation.ClimateData;
 import org.gemoc.agro.simulation.Day;
+import org.gemoc.agro.simulation.FeedbackLevel;
+import org.gemoc.agro.simulation.SchedulingFeedback;
 import org.gemoc.agro.simulation.SchedulingStrategy;
 import org.gemoc.agro.simulation.Simulation;
 import org.gemoc.agro.simulation.SimulationFactory;
@@ -62,7 +64,21 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass schedulingFeedbackEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum schedulingStrategyEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum feedbackLevelEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -223,6 +239,15 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getActivityWork_SchedulingFeedback() {
+		return (EReference)activityWorkEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDay() {
 		return dayEClass;
 	}
@@ -313,8 +338,44 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSchedulingFeedback() {
+		return schedulingFeedbackEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSchedulingFeedback_Level() {
+		return (EAttribute)schedulingFeedbackEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSchedulingFeedback_Message() {
+		return (EAttribute)schedulingFeedbackEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getSchedulingStrategy() {
 		return schedulingStrategyEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getFeedbackLevel() {
+		return feedbackLevelEEnum;
 	}
 
 	/**
@@ -356,6 +417,7 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 		createEReference(activityWorkEClass, ACTIVITY_WORK__RESOURCE_ALLOCATION);
 		createEReference(activityWorkEClass, ACTIVITY_WORK__SCHEDULED_ON);
 		createEReference(activityWorkEClass, ACTIVITY_WORK__ON_SURFACE);
+		createEReference(activityWorkEClass, ACTIVITY_WORK__SCHEDULING_FEEDBACK);
 
 		dayEClass = createEClass(DAY);
 		createEAttribute(dayEClass, DAY__MONTH);
@@ -369,8 +431,13 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 		createEAttribute(climateDataEClass, CLIMATE_DATA__NAME);
 		createEReference(climateDataEClass, CLIMATE_DATA__DAYS);
 
+		schedulingFeedbackEClass = createEClass(SCHEDULING_FEEDBACK);
+		createEAttribute(schedulingFeedbackEClass, SCHEDULING_FEEDBACK__LEVEL);
+		createEAttribute(schedulingFeedbackEClass, SCHEDULING_FEEDBACK__MESSAGE);
+
 		// Create enums
 		schedulingStrategyEEnum = createEEnum(SCHEDULING_STRATEGY);
+		feedbackLevelEEnum = createEEnum(FEEDBACK_LEVEL);
 	}
 
 	/**
@@ -418,6 +485,7 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 		initEReference(getActivityWork_ResourceAllocation(), theExploitationPackage.getResource(), null, "resourceAllocation", null, 1, 1, ActivityWork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getActivityWork_ScheduledOn(), this.getDay(), null, "scheduledOn", null, 0, 1, ActivityWork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getActivityWork_OnSurface(), theExploitationPackage.getSurface(), null, "onSurface", null, 0, 1, ActivityWork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActivityWork_SchedulingFeedback(), this.getSchedulingFeedback(), null, "schedulingFeedback", null, 0, -1, ActivityWork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dayEClass, Day.class, "Day", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDay_Month(), theActivitiesDSLPackage.getMonth(), "month", null, 0, 1, Day.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -431,9 +499,18 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 		initEAttribute(getClimateData_Name(), ecorePackage.getEString(), "name", null, 0, 1, ClimateData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClimateData_Days(), this.getDay(), null, "days", null, 1, -1, ClimateData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(schedulingFeedbackEClass, SchedulingFeedback.class, "SchedulingFeedback", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSchedulingFeedback_Level(), this.getFeedbackLevel(), "level", "info", 1, 1, SchedulingFeedback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSchedulingFeedback_Message(), ecorePackage.getEString(), "message", null, 0, 1, SchedulingFeedback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(schedulingStrategyEEnum, SchedulingStrategy.class, "SchedulingStrategy");
 		addEEnumLiteral(schedulingStrategyEEnum, SchedulingStrategy.RANDOM);
+
+		initEEnum(feedbackLevelEEnum, FeedbackLevel.class, "FeedbackLevel");
+		addEEnumLiteral(feedbackLevelEEnum, FeedbackLevel.INFO);
+		addEEnumLiteral(feedbackLevelEEnum, FeedbackLevel.WARNING);
+		addEEnumLiteral(feedbackLevelEEnum, FeedbackLevel.ERROR);
 
 		// Create resource
 		createResource(eNS_URI);

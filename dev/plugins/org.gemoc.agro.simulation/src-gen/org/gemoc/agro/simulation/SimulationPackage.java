@@ -168,13 +168,22 @@ public interface SimulationPackage extends EPackage {
 	int ACTIVITY_WORK__ON_SURFACE = 3;
 
 	/**
+	 * The feature id for the '<em><b>Scheduling Feedback</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVITY_WORK__SCHEDULING_FEEDBACK = 4;
+
+	/**
 	 * The number of structural features of the '<em>Activity Work</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTIVITY_WORK_FEATURE_COUNT = 4;
+	int ACTIVITY_WORK_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Activity Work</em>' class.
@@ -314,6 +323,52 @@ public interface SimulationPackage extends EPackage {
 	int CLIMATE_DATA_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.gemoc.agro.simulation.impl.SchedulingFeedbackImpl <em>Scheduling Feedback</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.gemoc.agro.simulation.impl.SchedulingFeedbackImpl
+	 * @see org.gemoc.agro.simulation.impl.SimulationPackageImpl#getSchedulingFeedback()
+	 * @generated
+	 */
+	int SCHEDULING_FEEDBACK = 4;
+
+	/**
+	 * The feature id for the '<em><b>Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_FEEDBACK__LEVEL = 0;
+
+	/**
+	 * The feature id for the '<em><b>Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_FEEDBACK__MESSAGE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Scheduling Feedback</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_FEEDBACK_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Scheduling Feedback</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULING_FEEDBACK_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.gemoc.agro.simulation.SchedulingStrategy <em>Scheduling Strategy</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -321,7 +376,18 @@ public interface SimulationPackage extends EPackage {
 	 * @see org.gemoc.agro.simulation.impl.SimulationPackageImpl#getSchedulingStrategy()
 	 * @generated
 	 */
-	int SCHEDULING_STRATEGY = 4;
+	int SCHEDULING_STRATEGY = 5;
+
+
+	/**
+	 * The meta object id for the '{@link org.gemoc.agro.simulation.FeedbackLevel <em>Feedback Level</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.gemoc.agro.simulation.FeedbackLevel
+	 * @see org.gemoc.agro.simulation.impl.SimulationPackageImpl#getFeedbackLevel()
+	 * @generated
+	 */
+	int FEEDBACK_LEVEL = 6;
 
 
 	/**
@@ -433,6 +499,17 @@ public interface SimulationPackage extends EPackage {
 	EReference getActivityWork_OnSurface();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.gemoc.agro.simulation.ActivityWork#getSchedulingFeedback <em>Scheduling Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Scheduling Feedback</em>'.
+	 * @see org.gemoc.agro.simulation.ActivityWork#getSchedulingFeedback()
+	 * @see #getActivityWork()
+	 * @generated
+	 */
+	EReference getActivityWork_SchedulingFeedback();
+
+	/**
 	 * Returns the meta object for class '{@link org.gemoc.agro.simulation.Day <em>Day</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -541,6 +618,38 @@ public interface SimulationPackage extends EPackage {
 	EReference getClimateData_Days();
 
 	/**
+	 * Returns the meta object for class '{@link org.gemoc.agro.simulation.SchedulingFeedback <em>Scheduling Feedback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Scheduling Feedback</em>'.
+	 * @see org.gemoc.agro.simulation.SchedulingFeedback
+	 * @generated
+	 */
+	EClass getSchedulingFeedback();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.gemoc.agro.simulation.SchedulingFeedback#getLevel <em>Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Level</em>'.
+	 * @see org.gemoc.agro.simulation.SchedulingFeedback#getLevel()
+	 * @see #getSchedulingFeedback()
+	 * @generated
+	 */
+	EAttribute getSchedulingFeedback_Level();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.gemoc.agro.simulation.SchedulingFeedback#getMessage <em>Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Message</em>'.
+	 * @see org.gemoc.agro.simulation.SchedulingFeedback#getMessage()
+	 * @see #getSchedulingFeedback()
+	 * @generated
+	 */
+	EAttribute getSchedulingFeedback_Message();
+
+	/**
 	 * Returns the meta object for enum '{@link org.gemoc.agro.simulation.SchedulingStrategy <em>Scheduling Strategy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -549,6 +658,16 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getSchedulingStrategy();
+
+	/**
+	 * Returns the meta object for enum '{@link org.gemoc.agro.simulation.FeedbackLevel <em>Feedback Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Feedback Level</em>'.
+	 * @see org.gemoc.agro.simulation.FeedbackLevel
+	 * @generated
+	 */
+	EEnum getFeedbackLevel();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -658,6 +777,14 @@ public interface SimulationPackage extends EPackage {
 		EReference ACTIVITY_WORK__ON_SURFACE = eINSTANCE.getActivityWork_OnSurface();
 
 		/**
+		 * The meta object literal for the '<em><b>Scheduling Feedback</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTIVITY_WORK__SCHEDULING_FEEDBACK = eINSTANCE.getActivityWork_SchedulingFeedback();
+
+		/**
 		 * The meta object literal for the '{@link org.gemoc.agro.simulation.impl.DayImpl <em>Day</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -742,6 +869,32 @@ public interface SimulationPackage extends EPackage {
 		EReference CLIMATE_DATA__DAYS = eINSTANCE.getClimateData_Days();
 
 		/**
+		 * The meta object literal for the '{@link org.gemoc.agro.simulation.impl.SchedulingFeedbackImpl <em>Scheduling Feedback</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.gemoc.agro.simulation.impl.SchedulingFeedbackImpl
+		 * @see org.gemoc.agro.simulation.impl.SimulationPackageImpl#getSchedulingFeedback()
+		 * @generated
+		 */
+		EClass SCHEDULING_FEEDBACK = eINSTANCE.getSchedulingFeedback();
+
+		/**
+		 * The meta object literal for the '<em><b>Level</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCHEDULING_FEEDBACK__LEVEL = eINSTANCE.getSchedulingFeedback_Level();
+
+		/**
+		 * The meta object literal for the '<em><b>Message</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCHEDULING_FEEDBACK__MESSAGE = eINSTANCE.getSchedulingFeedback_Message();
+
+		/**
 		 * The meta object literal for the '{@link org.gemoc.agro.simulation.SchedulingStrategy <em>Scheduling Strategy</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -750,6 +903,16 @@ public interface SimulationPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum SCHEDULING_STRATEGY = eINSTANCE.getSchedulingStrategy();
+
+		/**
+		 * The meta object literal for the '{@link org.gemoc.agro.simulation.FeedbackLevel <em>Feedback Level</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.gemoc.agro.simulation.FeedbackLevel
+		 * @see org.gemoc.agro.simulation.impl.SimulationPackageImpl#getFeedbackLevel()
+		 * @generated
+		 */
+		EEnum FEEDBACK_LEVEL = eINSTANCE.getFeedbackLevel();
 
 	}
 

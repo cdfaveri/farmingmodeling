@@ -58,6 +58,15 @@ public interface SimulationFactory extends EFactory {
 	ClimateData createClimateData();
 
 	/**
+	 * Returns a new object of class '<em>Scheduling Feedback</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Scheduling Feedback</em>'.
+	 * @generated
+	 */
+	SchedulingFeedback createSchedulingFeedback();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

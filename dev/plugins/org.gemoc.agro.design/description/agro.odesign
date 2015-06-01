@@ -277,6 +277,12 @@
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </defaultStyle>
           </subItemMappings>
+          <subItemMappings name="SchedulingFeedback" domainClass="simulation.SchedulingFeedback" semanticCandidatesExpression="feature:schedulingFeedback">
+            <defaultStyle labelExpression="feature:message">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </defaultStyle>
+          </subItemMappings>
         </subItemMappings>
       </subItemMappings>
     </ownedRepresentations>

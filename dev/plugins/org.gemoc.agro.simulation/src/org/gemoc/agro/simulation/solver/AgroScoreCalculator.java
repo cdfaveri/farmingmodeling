@@ -11,6 +11,9 @@ import org.gemoc.agro.activitiesDSL.Predicate;
 import org.gemoc.agro.activitiesDSL.TempOfTheDay;
 import org.gemoc.agro.simulation.ActivityWork;
 import org.gemoc.agro.simulation.Day;
+import org.gemoc.agro.simulation.FeedbackLevel;
+import org.gemoc.agro.simulation.SchedulingFeedback;
+import org.gemoc.agro.simulation.SimulationFactory;
 import org.optaplanner.core.api.score.Score;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 import org.optaplanner.core.impl.score.director.easy.EasyScoreCalculator;
@@ -35,11 +38,16 @@ public class AgroScoreCalculator implements
 			}
 		}
 		for (ActivityWork work : arg0.getSimulation().getWorkToDo()) {
+			work.getSchedulingFeedback().clear();
 			/*
 			 * Constraint : All work should be scheduled
 			 */
 			if (work.getScheduledOn() == null) {
+
 				hardScore -= 100;
+				work.getSchedulingFeedback().add(
+						createFeedback(FeedbackLevel.ERROR,
+								"This activity is not scheduled."));
 			} else {
 				scheduledWork.put(work.getScheduledOn(), work);
 				if (work.getActivity() != null) {
@@ -56,6 +64,9 @@ public class AgroScoreCalculator implements
 						 */
 						if (deltaDaysFromIdeal < 0) {
 							hardScore += deltaDaysFromIdeal;
+							work.getSchedulingFeedback()
+									.add(createFeedback(FeedbackLevel.ERROR,
+											"This activity starts before the specified start date."));
 						} else if (deltaDaysFromIdeal != 0) {
 							softScore += -deltaDaysFromIdeal;
 						}
@@ -75,6 +86,9 @@ public class AgroScoreCalculator implements
 						 */
 						if (deltaDaysFromIdeal > 0) {
 							hardScore += -deltaDaysFromIdeal;
+							work.getSchedulingFeedback()
+									.add(createFeedback(FeedbackLevel.ERROR,
+											"This activity starts after the specified end date."));
 						} else if (deltaDaysFromIdeal != 0) {
 							softScore += deltaDaysFromIdeal;
 						}
@@ -99,15 +113,33 @@ public class AgroScoreCalculator implements
 											work.getScheduledOn(),
 											otherWorkOnSameAct.getScheduledOn());
 									/*
-									 * if delta > 0 the scheduled date is later
-									 * than the end date.
+									 * if delta > 0 this activity scheduled date
+									 * is later than the when activity it
+									 * depends on is scheduled.
 									 */
 									if (nbDaysInBetween < 0) {
 										hardScore += nbDaysInBetween;
+										work.getSchedulingFeedback()
+												.add(createFeedback(
+														FeedbackLevel.ERROR,
+														"This activity starts before  "
+																+ otherWorkOnSameAct
+																		.getActivity()
+																		.getName()
+																+ " whereas it should not."));
+
 									} else if (delayConstraint.getDays() != 0
 											&& nbDaysInBetween < delayConstraint
 													.getDays()) {
 										hardScore += -nbDaysInBetween;
+										work.getSchedulingFeedback()
+												.add(createFeedback(
+														FeedbackLevel.ERROR,
+														"The minimum number of days in between this activity and "
+																+ otherWorkOnSameAct
+																		.getActivity()
+																		.getName()
+																+ " is not respected."));
 									}
 								}
 
@@ -120,11 +152,19 @@ public class AgroScoreCalculator implements
 									&& work.getScheduledOn().getTemperature() < tempConstraint
 											.getLowerTempBound()) {
 								hardScore += -100;
+								work.getSchedulingFeedback()
+										.add(createFeedback(
+												FeedbackLevel.ERROR,
+												"The minimum temperature is not respected."));
 							}
 							if (tempConstraint.getComparison() == Comp.LESS_THAN
 									&& work.getScheduledOn().getTemperature() > tempConstraint
 											.getLowerTempBound()) {
 								hardScore += -100;
+								work.getSchedulingFeedback()
+										.add(createFeedback(
+												FeedbackLevel.ERROR,
+												"The minimum temperature is not respected."));
 							}
 
 						}
@@ -147,6 +187,15 @@ public class AgroScoreCalculator implements
 
 		HardSoftScore score = HardSoftScore.valueOf(hardScore, softScore);
 		return score;
+	}
+
+	private SchedulingFeedback createFeedback(FeedbackLevel error,
+			String message) {
+		SchedulingFeedback feedback = SimulationFactory.eINSTANCE
+				.createSchedulingFeedback();
+		feedback.setLevel(error);
+		feedback.setMessage(message);
+		return feedback;
 	}
 
 	/*

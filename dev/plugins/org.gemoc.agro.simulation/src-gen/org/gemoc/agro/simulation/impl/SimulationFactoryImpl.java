@@ -61,6 +61,7 @@ public class SimulationFactoryImpl extends EFactoryImpl implements SimulationFac
 			case SimulationPackage.ACTIVITY_WORK: return createActivityWork();
 			case SimulationPackage.DAY: return createDay();
 			case SimulationPackage.CLIMATE_DATA: return createClimateData();
+			case SimulationPackage.SCHEDULING_FEEDBACK: return createSchedulingFeedback();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -76,6 +77,8 @@ public class SimulationFactoryImpl extends EFactoryImpl implements SimulationFac
 		switch (eDataType.getClassifierID()) {
 			case SimulationPackage.SCHEDULING_STRATEGY:
 				return createSchedulingStrategyFromString(eDataType, initialValue);
+			case SimulationPackage.FEEDBACK_LEVEL:
+				return createFeedbackLevelFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -91,6 +94,8 @@ public class SimulationFactoryImpl extends EFactoryImpl implements SimulationFac
 		switch (eDataType.getClassifierID()) {
 			case SimulationPackage.SCHEDULING_STRATEGY:
 				return convertSchedulingStrategyToString(eDataType, instanceValue);
+			case SimulationPackage.FEEDBACK_LEVEL:
+				return convertFeedbackLevelToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -141,6 +146,16 @@ public class SimulationFactoryImpl extends EFactoryImpl implements SimulationFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SchedulingFeedback createSchedulingFeedback() {
+		SchedulingFeedbackImpl schedulingFeedback = new SchedulingFeedbackImpl();
+		return schedulingFeedback;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SchedulingStrategy createSchedulingStrategyFromString(EDataType eDataType, String initialValue) {
 		SchedulingStrategy result = SchedulingStrategy.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -153,6 +168,26 @@ public class SimulationFactoryImpl extends EFactoryImpl implements SimulationFac
 	 * @generated
 	 */
 	public String convertSchedulingStrategyToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FeedbackLevel createFeedbackLevelFromString(EDataType eDataType, String initialValue) {
+		FeedbackLevel result = FeedbackLevel.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertFeedbackLevelToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

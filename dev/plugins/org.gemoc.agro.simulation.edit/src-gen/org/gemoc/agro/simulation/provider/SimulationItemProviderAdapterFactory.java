@@ -164,6 +164,29 @@ public class SimulationItemProviderAdapterFactory extends SimulationAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.gemoc.agro.simulation.SchedulingFeedback} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SchedulingFeedbackItemProvider schedulingFeedbackItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.gemoc.agro.simulation.SchedulingFeedback}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSchedulingFeedbackAdapter() {
+		if (schedulingFeedbackItemProvider == null) {
+			schedulingFeedbackItemProvider = new SchedulingFeedbackItemProvider(this);
+		}
+
+		return schedulingFeedbackItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -266,6 +289,7 @@ public class SimulationItemProviderAdapterFactory extends SimulationAdapterFacto
 		if (activityWorkItemProvider != null) activityWorkItemProvider.dispose();
 		if (dayItemProvider != null) dayItemProvider.dispose();
 		if (climateDataItemProvider != null) climateDataItemProvider.dispose();
+		if (schedulingFeedbackItemProvider != null) schedulingFeedbackItemProvider.dispose();
 	}
 
 }
