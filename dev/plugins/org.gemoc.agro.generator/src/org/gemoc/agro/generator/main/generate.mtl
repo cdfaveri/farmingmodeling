@@ -17,7 +17,7 @@
 			<ul>
   				[for (work : ActivityWork | d.eInverse(ActivityWork))]
 				<li>
- 				[work.activity.name/] planned with resources : [work.resourceAllocation.name->sep(',')/]
+ 				[work.activity.name/] planned with resources : [work.eInverse(ResourceAllocation).resource.name->sep(',')/]
 				</li>
   				[/for]
 			</ul>
