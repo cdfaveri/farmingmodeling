@@ -31,214 +31,208 @@ import org.gemoc.agro.activitiesDSL.ResourceKind;
 public class ActivityResourceImpl extends MinimalEObjectImpl.Container implements ActivityResource
 {
   /**
-   * The default value of the '{@link #getQuantity() <em>Quantity</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getQuantity() <em>Quantity</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getQuantity()
-   * @generated
-   * @ordered
-   */
+	 * @see #getQuantity()
+	 * @generated
+	 * @ordered
+	 */
   protected static final int QUANTITY_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getQuantity() <em>Quantity</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getQuantity() <em>Quantity</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getQuantity()
-   * @generated
-   * @ordered
-   */
+	 * @see #getQuantity()
+	 * @generated
+	 * @ordered
+	 */
   protected int quantity = QUANTITY_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getResourceKind() <em>Resource Kind</em>}' reference.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getResourceKind() <em>Resource Kind</em>}' reference.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getResourceKind()
-   * @generated
-   * @ordered
-   */
+	 * @see #getResourceKind()
+	 * @generated
+	 * @ordered
+	 */
   protected ResourceKind resourceKind;
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   protected ActivityResourceImpl()
   {
-    super();
-  }
+		super();
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   protected EClass eStaticClass()
   {
-    return ActivitiesDSLPackage.Literals.ACTIVITY_RESOURCE;
-  }
+		return ActivitiesDSLPackage.Literals.ACTIVITY_RESOURCE;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public int getQuantity()
   {
-    return quantity;
-  }
+		return quantity;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setQuantity(int newQuantity)
   {
-    int oldQuantity = quantity;
-    quantity = newQuantity;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ActivitiesDSLPackage.ACTIVITY_RESOURCE__QUANTITY, oldQuantity, quantity));
-  }
+		int oldQuantity = quantity;
+		quantity = newQuantity;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ActivitiesDSLPackage.ACTIVITY_RESOURCE__QUANTITY, oldQuantity, quantity));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public ResourceKind getResourceKind()
   {
-    if (resourceKind != null && resourceKind.eIsProxy())
-    {
-      InternalEObject oldResourceKind = (InternalEObject)resourceKind;
-      resourceKind = (ResourceKind)eResolveProxy(oldResourceKind);
-      if (resourceKind != oldResourceKind)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ActivitiesDSLPackage.ACTIVITY_RESOURCE__RESOURCE_KIND, oldResourceKind, resourceKind));
-      }
-    }
-    return resourceKind;
-  }
+		if (resourceKind != null && resourceKind.eIsProxy()) {
+			InternalEObject oldResourceKind = (InternalEObject)resourceKind;
+			resourceKind = (ResourceKind)eResolveProxy(oldResourceKind);
+			if (resourceKind != oldResourceKind) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ActivitiesDSLPackage.ACTIVITY_RESOURCE__RESOURCE_KIND, oldResourceKind, resourceKind));
+			}
+		}
+		return resourceKind;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public ResourceKind basicGetResourceKind()
   {
-    return resourceKind;
-  }
+		return resourceKind;
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   public void setResourceKind(ResourceKind newResourceKind)
   {
-    ResourceKind oldResourceKind = resourceKind;
-    resourceKind = newResourceKind;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ActivitiesDSLPackage.ACTIVITY_RESOURCE__RESOURCE_KIND, oldResourceKind, resourceKind));
-  }
+		ResourceKind oldResourceKind = resourceKind;
+		resourceKind = newResourceKind;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ActivitiesDSLPackage.ACTIVITY_RESOURCE__RESOURCE_KIND, oldResourceKind, resourceKind));
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
-    switch (featureID)
-    {
-      case ActivitiesDSLPackage.ACTIVITY_RESOURCE__QUANTITY:
-        return getQuantity();
-      case ActivitiesDSLPackage.ACTIVITY_RESOURCE__RESOURCE_KIND:
-        if (resolve) return getResourceKind();
-        return basicGetResourceKind();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
+		switch (featureID) {
+			case ActivitiesDSLPackage.ACTIVITY_RESOURCE__QUANTITY:
+				return getQuantity();
+			case ActivitiesDSLPackage.ACTIVITY_RESOURCE__RESOURCE_KIND:
+				if (resolve) return getResourceKind();
+				return basicGetResourceKind();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eSet(int featureID, Object newValue)
   {
-    switch (featureID)
-    {
-      case ActivitiesDSLPackage.ACTIVITY_RESOURCE__QUANTITY:
-        setQuantity((Integer)newValue);
-        return;
-      case ActivitiesDSLPackage.ACTIVITY_RESOURCE__RESOURCE_KIND:
-        setResourceKind((ResourceKind)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
+		switch (featureID) {
+			case ActivitiesDSLPackage.ACTIVITY_RESOURCE__QUANTITY:
+				setQuantity((Integer)newValue);
+				return;
+			case ActivitiesDSLPackage.ACTIVITY_RESOURCE__RESOURCE_KIND:
+				setResourceKind((ResourceKind)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public void eUnset(int featureID)
   {
-    switch (featureID)
-    {
-      case ActivitiesDSLPackage.ACTIVITY_RESOURCE__QUANTITY:
-        setQuantity(QUANTITY_EDEFAULT);
-        return;
-      case ActivitiesDSLPackage.ACTIVITY_RESOURCE__RESOURCE_KIND:
-        setResourceKind((ResourceKind)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
+		switch (featureID) {
+			case ActivitiesDSLPackage.ACTIVITY_RESOURCE__QUANTITY:
+				setQuantity(QUANTITY_EDEFAULT);
+				return;
+			case ActivitiesDSLPackage.ACTIVITY_RESOURCE__RESOURCE_KIND:
+				setResourceKind((ResourceKind)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public boolean eIsSet(int featureID)
   {
-    switch (featureID)
-    {
-      case ActivitiesDSLPackage.ACTIVITY_RESOURCE__QUANTITY:
-        return quantity != QUANTITY_EDEFAULT;
-      case ActivitiesDSLPackage.ACTIVITY_RESOURCE__RESOURCE_KIND:
-        return resourceKind != null;
-    }
-    return super.eIsSet(featureID);
-  }
+		switch (featureID) {
+			case ActivitiesDSLPackage.ACTIVITY_RESOURCE__QUANTITY:
+				return quantity != QUANTITY_EDEFAULT;
+			case ActivitiesDSLPackage.ACTIVITY_RESOURCE__RESOURCE_KIND:
+				return resourceKind != null;
+		}
+		return super.eIsSet(featureID);
+	}
 
   /**
-   * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   */
+	 * @generated
+	 */
   @Override
   public String toString()
   {
-    if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (quantity: ");
-    result.append(quantity);
-    result.append(')');
-    return result.toString();
-  }
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (quantity: ");
+		result.append(quantity);
+		result.append(')');
+		return result.toString();
+	}
 
 } //ActivityResourceImpl
