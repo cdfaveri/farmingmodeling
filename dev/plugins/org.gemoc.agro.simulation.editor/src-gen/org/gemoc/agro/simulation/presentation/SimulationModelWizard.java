@@ -58,7 +58,7 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 import org.gemoc.agro.activitiesDSL.Month;
 import org.gemoc.agro.simulation.ClimateData;
 import org.gemoc.agro.simulation.Day;
-import org.gemoc.agro.simulation.Simulation;
+import org.gemoc.agro.simulation.Schedule;
 import org.gemoc.agro.simulation.SimulationFactory;
 import org.gemoc.agro.simulation.SimulationPackage;
 import org.gemoc.agro.simulation.provider.SimulationEditPlugin;

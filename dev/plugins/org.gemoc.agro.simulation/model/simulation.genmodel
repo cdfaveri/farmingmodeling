@@ -17,12 +17,12 @@
       <genEnumLiterals ecoreEnumLiteral="simulation.ecore#//FeedbackLevel/warning"/>
       <genEnumLiterals ecoreEnumLiteral="simulation.ecore#//FeedbackLevel/error"/>
     </genEnums>
-    <genClasses ecoreClass="simulation.ecore#//Simulation">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//Simulation/exploitation"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Simulation/schedulingStrategy"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simulation.ecore#//Simulation/workToDo"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//Simulation/climateData"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Simulation/solverSearchSecondsSpentLimit"/>
+    <genClasses ecoreClass="simulation.ecore#//Schedule">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//Schedule/exploitation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Schedule/schedulingStrategy"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simulation.ecore#//Schedule/workToDo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//Schedule/climateData"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Schedule/solverSearchSecondsSpentLimit"/>
     </genClasses>
     <genClasses ecoreClass="simulation.ecore#//ActivityWork">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//ActivityWork/activity"/>

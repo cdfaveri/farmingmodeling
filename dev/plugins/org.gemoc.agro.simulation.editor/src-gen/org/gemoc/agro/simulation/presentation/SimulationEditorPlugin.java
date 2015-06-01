@@ -13,7 +13,7 @@ import org.gemoc.agro.activitiesDSL.provider.ActivitiesDSLEditPlugin;
 import org.gemoc.agro.exploitation.provider.ExploitationEditPlugin;
 
 /**
- * This is the central singleton for the Simulation editor plugin.
+ * This is the central singleton for the Schedule editor plugin.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

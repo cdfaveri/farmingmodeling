@@ -57,7 +57,7 @@ public class SimulationFactoryImpl extends EFactoryImpl implements SimulationFac
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case SimulationPackage.SIMULATION: return createSimulation();
+			case SimulationPackage.SCHEDULE: return createSchedule();
 			case SimulationPackage.ACTIVITY_WORK: return createActivityWork();
 			case SimulationPackage.DAY: return createDay();
 			case SimulationPackage.CLIMATE_DATA: return createClimateData();
@@ -106,9 +106,9 @@ public class SimulationFactoryImpl extends EFactoryImpl implements SimulationFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Simulation createSimulation() {
-		SimulationImpl simulation = new SimulationImpl();
-		return simulation;
+	public Schedule createSchedule() {
+		ScheduleImpl schedule = new ScheduleImpl();
+		return schedule;
 	}
 
 	/**

@@ -22,13 +22,13 @@ public interface SimulationFactory extends EFactory {
 	SimulationFactory eINSTANCE = org.gemoc.agro.simulation.impl.SimulationFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Simulation</em>'.
+	 * Returns a new object of class '<em>Schedule</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Simulation</em>'.
+	 * @return a new object of class '<em>Schedule</em>'.
 	 * @generated
 	 */
-	Simulation createSimulation();
+	Schedule createSchedule();
 
 	/**
 	 * Returns a new object of class '<em>Activity Work</em>'.

@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.util.Diagnostician;
 
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import org.gemoc.agro.simulation.Simulation;
+import org.gemoc.agro.simulation.Schedule;
 import org.gemoc.agro.simulation.SimulationFactory;
 import org.gemoc.agro.simulation.SimulationPackage;
 
@@ -60,7 +60,7 @@ public class SimulationExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.simulation"));
-				Simulation root = SimulationFactory.eINSTANCE.createSimulation();
+				Schedule root = SimulationFactory.eINSTANCE.createSchedule();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

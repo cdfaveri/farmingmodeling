@@ -72,26 +72,26 @@ public class SimulationItemProviderAdapterFactory extends SimulationAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.agro.simulation.Simulation} instances.
+	 * This keeps track of the one adapter used for all {@link org.gemoc.agro.simulation.Schedule} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SimulationItemProvider simulationItemProvider;
+	protected ScheduleItemProvider scheduleItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.agro.simulation.Simulation}.
+	 * This creates an adapter for a {@link org.gemoc.agro.simulation.Schedule}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createSimulationAdapter() {
-		if (simulationItemProvider == null) {
-			simulationItemProvider = new SimulationItemProvider(this);
+	public Adapter createScheduleAdapter() {
+		if (scheduleItemProvider == null) {
+			scheduleItemProvider = new ScheduleItemProvider(this);
 		}
 
-		return simulationItemProvider;
+		return scheduleItemProvider;
 	}
 
 	/**
@@ -285,7 +285,7 @@ public class SimulationItemProviderAdapterFactory extends SimulationAdapterFacto
 	 * @generated
 	 */
 	public void dispose() {
-		if (simulationItemProvider != null) simulationItemProvider.dispose();
+		if (scheduleItemProvider != null) scheduleItemProvider.dispose();
 		if (activityWorkItemProvider != null) activityWorkItemProvider.dispose();
 		if (dayItemProvider != null) dayItemProvider.dispose();
 		if (climateDataItemProvider != null) climateDataItemProvider.dispose();

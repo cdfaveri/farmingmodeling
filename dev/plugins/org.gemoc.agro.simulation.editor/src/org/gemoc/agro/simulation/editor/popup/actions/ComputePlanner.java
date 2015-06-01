@@ -19,7 +19,7 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.progress.IProgressService;
-import org.gemoc.agro.simulation.Simulation;
+import org.gemoc.agro.simulation.Schedule;
 import org.gemoc.agro.simulation.solver.ExploitationActivitiesScheduler;
 
 import com.google.common.collect.Lists;
@@ -28,7 +28,7 @@ public class ComputePlanner implements IObjectActionDelegate {
 
 	private Shell shell;
 
-	private Collection<Simulation> selected = Lists.newArrayList();
+	private Collection<Schedule> selected = Lists.newArrayList();
 
 	/**
 	 * Constructor for Action1.
@@ -55,7 +55,7 @@ public class ComputePlanner implements IObjectActionDelegate {
 			try {
 				ps.busyCursorWhile(new IRunnableWithProgress() {
 					public void run(IProgressMonitor pm) {
-						for (Simulation simulation : selected) {
+						for (Schedule simulation : selected) {
 							Session s = SessionManager.INSTANCE
 									.getSession(simulation);
 							if (s != null) {
@@ -92,8 +92,8 @@ public class ComputePlanner implements IObjectActionDelegate {
 			Iterator<Object> it = ((StructuredSelection) selection).iterator();
 			while (it.hasNext()) {
 				Object n = it.next();
-				if (n instanceof Simulation) {
-					this.selected.add((Simulation) n);
+				if (n instanceof Schedule) {
+					this.selected.add((Schedule) n);
 				}
 
 			}

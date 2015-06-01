@@ -68,8 +68,8 @@ public class SimulationAdapterFactory extends AdapterFactoryImpl {
 	protected SimulationSwitch<Adapter> modelSwitch =
 		new SimulationSwitch<Adapter>() {
 			@Override
-			public Adapter caseSimulation(Simulation object) {
-				return createSimulationAdapter();
+			public Adapter caseSchedule(Schedule object) {
+				return createScheduleAdapter();
 			}
 			@Override
 			public Adapter caseActivityWork(ActivityWork object) {
@@ -108,16 +108,16 @@ public class SimulationAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.agro.simulation.Simulation <em>Simulation</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.gemoc.agro.simulation.Schedule <em>Schedule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.gemoc.agro.simulation.Simulation
+	 * @see org.gemoc.agro.simulation.Schedule
 	 * @generated
 	 */
-	public Adapter createSimulationAdapter() {
+	public Adapter createScheduleAdapter() {
 		return null;
 	}
 

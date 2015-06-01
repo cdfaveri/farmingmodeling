@@ -40,7 +40,7 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 
 /**
- * This is the action bar contributor for the Simulation model editor.
+ * This is the action bar contributor for the Schedule model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

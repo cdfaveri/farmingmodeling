@@ -257,7 +257,7 @@
         <defaultBackground backgroundColor="//@userColorsPalettes[name='Agro%20Colors']/@entries[name='RayRange']"/>
       </ownedColumnMappings>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_3:TreeDescription" name="Schedule" domainClass="simulation.Simulation">
+    <ownedRepresentations xsi:type="description_3:TreeDescription" name="Schedule" domainClass="simulation.Schedule">
       <metamodel href="http://www.gemoc.org/agro/ActivitiesDSL#/"/>
       <metamodel href="http://www.gemoc.org/agro/simulation#/"/>
       <metamodel href="http://www.gemoc.org/exploitation#/"/>

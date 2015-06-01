@@ -6,7 +6,7 @@ import java.util.List;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.gemoc.agro.simulation.ActivityWork;
 import org.gemoc.agro.simulation.Day;
-import org.gemoc.agro.simulation.Simulation;
+import org.gemoc.agro.simulation.Schedule;
 import org.optaplanner.core.api.domain.solution.PlanningEntityCollectionProperty;
 import org.optaplanner.core.api.domain.solution.PlanningSolution;
 import org.optaplanner.core.api.domain.solution.Solution;
@@ -20,11 +20,11 @@ import com.google.common.collect.ImmutableList;
 public class SimulationSolution implements Solution<HardSoftScore>,
 		PlanningCloneable<SimulationSolution> {
 
-	private Simulation sim;
+	private Schedule sim;
 
 	private HardSoftScore score;
 
-	public SimulationSolution(Simulation sim) {
+	public SimulationSolution(Schedule sim) {
 		this.sim = sim;
 	}
 
@@ -53,13 +53,13 @@ public class SimulationSolution implements Solution<HardSoftScore>,
 		this.score = arg0;
 	}
 
-	public Simulation getSimulation() {
+	public Schedule getSimulation() {
 		return this.sim;
 	}
 
 	@Override
 	public SimulationSolution planningClone() {
-		Simulation copy = EcoreUtil.copy(this.sim);		
+		Schedule copy = EcoreUtil.copy(this.sim);		
 		SimulationSolution clone = new SimulationSolution(copy);
 		if (this.score != null)
 			clone.setScore(HardSoftScore.valueOf(this.score.getHardScore(),

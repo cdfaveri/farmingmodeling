@@ -37,7 +37,7 @@
          point="org.eclipse.ui.popupMenus">
       <objectContribution
             id="org.gemoc.agro.simulation.editor.contribution1"
-            objectClass="org.gemoc.agro.simulation.Simulation">
+            objectClass="org.gemoc.agro.simulation.Schedule">
          <menu
                id="org.gemoc.agro.simulation.editor.menu1"
                label="Planner"

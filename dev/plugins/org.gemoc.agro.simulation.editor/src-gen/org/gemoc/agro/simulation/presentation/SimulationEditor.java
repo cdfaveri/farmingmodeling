@@ -164,7 +164,7 @@ import org.gemoc.agro.exploitation.provider.ExploitationItemProviderAdapterFacto
 
 
 /**
- * This is an example of a Simulation model editor.
+ * This is an example of a Schedule model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated

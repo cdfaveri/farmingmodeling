@@ -58,14 +58,14 @@ public interface SimulationPackage extends EPackage {
 	SimulationPackage eINSTANCE = org.gemoc.agro.simulation.impl.SimulationPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link org.gemoc.agro.simulation.impl.SimulationImpl <em>Simulation</em>}' class.
+	 * The meta object id for the '{@link org.gemoc.agro.simulation.impl.ScheduleImpl <em>Schedule</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.gemoc.agro.simulation.impl.SimulationImpl
-	 * @see org.gemoc.agro.simulation.impl.SimulationPackageImpl#getSimulation()
+	 * @see org.gemoc.agro.simulation.impl.ScheduleImpl
+	 * @see org.gemoc.agro.simulation.impl.SimulationPackageImpl#getSchedule()
 	 * @generated
 	 */
-	int SIMULATION = 0;
+	int SCHEDULE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Exploitation</b></em>' reference.
@@ -74,7 +74,7 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMULATION__EXPLOITATION = 0;
+	int SCHEDULE__EXPLOITATION = 0;
 
 	/**
 	 * The feature id for the '<em><b>Scheduling Strategy</b></em>' attribute.
@@ -83,7 +83,7 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMULATION__SCHEDULING_STRATEGY = 1;
+	int SCHEDULE__SCHEDULING_STRATEGY = 1;
 
 	/**
 	 * The feature id for the '<em><b>Work To Do</b></em>' containment reference list.
@@ -92,7 +92,7 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMULATION__WORK_TO_DO = 2;
+	int SCHEDULE__WORK_TO_DO = 2;
 
 	/**
 	 * The feature id for the '<em><b>Climate Data</b></em>' reference.
@@ -101,7 +101,7 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMULATION__CLIMATE_DATA = 3;
+	int SCHEDULE__CLIMATE_DATA = 3;
 
 	/**
 	 * The feature id for the '<em><b>Solver Search Seconds Spent Limit</b></em>' attribute.
@@ -110,25 +110,25 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMULATION__SOLVER_SEARCH_SECONDS_SPENT_LIMIT = 4;
+	int SCHEDULE__SOLVER_SEARCH_SECONDS_SPENT_LIMIT = 4;
 
 	/**
-	 * The number of structural features of the '<em>Simulation</em>' class.
+	 * The number of structural features of the '<em>Schedule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMULATION_FEATURE_COUNT = 5;
+	int SCHEDULE_FEATURE_COUNT = 5;
 
 	/**
-	 * The number of operations of the '<em>Simulation</em>' class.
+	 * The number of operations of the '<em>Schedule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMULATION_OPERATION_COUNT = 0;
+	int SCHEDULE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl <em>Activity Work</em>}' class.
@@ -400,69 +400,69 @@ public interface SimulationPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link org.gemoc.agro.simulation.Simulation <em>Simulation</em>}'.
+	 * Returns the meta object for class '{@link org.gemoc.agro.simulation.Schedule <em>Schedule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Simulation</em>'.
-	 * @see org.gemoc.agro.simulation.Simulation
+	 * @return the meta object for class '<em>Schedule</em>'.
+	 * @see org.gemoc.agro.simulation.Schedule
 	 * @generated
 	 */
-	EClass getSimulation();
+	EClass getSchedule();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.gemoc.agro.simulation.Simulation#getExploitation <em>Exploitation</em>}'.
+	 * Returns the meta object for the reference '{@link org.gemoc.agro.simulation.Schedule#getExploitation <em>Exploitation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Exploitation</em>'.
-	 * @see org.gemoc.agro.simulation.Simulation#getExploitation()
-	 * @see #getSimulation()
+	 * @see org.gemoc.agro.simulation.Schedule#getExploitation()
+	 * @see #getSchedule()
 	 * @generated
 	 */
-	EReference getSimulation_Exploitation();
+	EReference getSchedule_Exploitation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.gemoc.agro.simulation.Simulation#getSchedulingStrategy <em>Scheduling Strategy</em>}'.
+	 * Returns the meta object for the attribute '{@link org.gemoc.agro.simulation.Schedule#getSchedulingStrategy <em>Scheduling Strategy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Scheduling Strategy</em>'.
-	 * @see org.gemoc.agro.simulation.Simulation#getSchedulingStrategy()
-	 * @see #getSimulation()
+	 * @see org.gemoc.agro.simulation.Schedule#getSchedulingStrategy()
+	 * @see #getSchedule()
 	 * @generated
 	 */
-	EAttribute getSimulation_SchedulingStrategy();
+	EAttribute getSchedule_SchedulingStrategy();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.gemoc.agro.simulation.Simulation#getWorkToDo <em>Work To Do</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.gemoc.agro.simulation.Schedule#getWorkToDo <em>Work To Do</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Work To Do</em>'.
-	 * @see org.gemoc.agro.simulation.Simulation#getWorkToDo()
-	 * @see #getSimulation()
+	 * @see org.gemoc.agro.simulation.Schedule#getWorkToDo()
+	 * @see #getSchedule()
 	 * @generated
 	 */
-	EReference getSimulation_WorkToDo();
+	EReference getSchedule_WorkToDo();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.gemoc.agro.simulation.Simulation#getClimateData <em>Climate Data</em>}'.
+	 * Returns the meta object for the reference '{@link org.gemoc.agro.simulation.Schedule#getClimateData <em>Climate Data</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Climate Data</em>'.
-	 * @see org.gemoc.agro.simulation.Simulation#getClimateData()
-	 * @see #getSimulation()
+	 * @see org.gemoc.agro.simulation.Schedule#getClimateData()
+	 * @see #getSchedule()
 	 * @generated
 	 */
-	EReference getSimulation_ClimateData();
+	EReference getSchedule_ClimateData();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.gemoc.agro.simulation.Simulation#getSolverSearchSecondsSpentLimit <em>Solver Search Seconds Spent Limit</em>}'.
+	 * Returns the meta object for the attribute '{@link org.gemoc.agro.simulation.Schedule#getSolverSearchSecondsSpentLimit <em>Solver Search Seconds Spent Limit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Solver Search Seconds Spent Limit</em>'.
-	 * @see org.gemoc.agro.simulation.Simulation#getSolverSearchSecondsSpentLimit()
-	 * @see #getSimulation()
+	 * @see org.gemoc.agro.simulation.Schedule#getSolverSearchSecondsSpentLimit()
+	 * @see #getSchedule()
 	 * @generated
 	 */
-	EAttribute getSimulation_SolverSearchSecondsSpentLimit();
+	EAttribute getSchedule_SolverSearchSecondsSpentLimit();
 
 	/**
 	 * Returns the meta object for class '{@link org.gemoc.agro.simulation.ActivityWork <em>Activity Work</em>}'.
@@ -713,14 +713,14 @@ public interface SimulationPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link org.gemoc.agro.simulation.impl.SimulationImpl <em>Simulation</em>}' class.
+		 * The meta object literal for the '{@link org.gemoc.agro.simulation.impl.ScheduleImpl <em>Schedule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.gemoc.agro.simulation.impl.SimulationImpl
-		 * @see org.gemoc.agro.simulation.impl.SimulationPackageImpl#getSimulation()
+		 * @see org.gemoc.agro.simulation.impl.ScheduleImpl
+		 * @see org.gemoc.agro.simulation.impl.SimulationPackageImpl#getSchedule()
 		 * @generated
 		 */
-		EClass SIMULATION = eINSTANCE.getSimulation();
+		EClass SCHEDULE = eINSTANCE.getSchedule();
 
 		/**
 		 * The meta object literal for the '<em><b>Exploitation</b></em>' reference feature.
@@ -728,7 +728,7 @@ public interface SimulationPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SIMULATION__EXPLOITATION = eINSTANCE.getSimulation_Exploitation();
+		EReference SCHEDULE__EXPLOITATION = eINSTANCE.getSchedule_Exploitation();
 
 		/**
 		 * The meta object literal for the '<em><b>Scheduling Strategy</b></em>' attribute feature.
@@ -736,7 +736,7 @@ public interface SimulationPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SIMULATION__SCHEDULING_STRATEGY = eINSTANCE.getSimulation_SchedulingStrategy();
+		EAttribute SCHEDULE__SCHEDULING_STRATEGY = eINSTANCE.getSchedule_SchedulingStrategy();
 
 		/**
 		 * The meta object literal for the '<em><b>Work To Do</b></em>' containment reference list feature.
@@ -744,7 +744,7 @@ public interface SimulationPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SIMULATION__WORK_TO_DO = eINSTANCE.getSimulation_WorkToDo();
+		EReference SCHEDULE__WORK_TO_DO = eINSTANCE.getSchedule_WorkToDo();
 
 		/**
 		 * The meta object literal for the '<em><b>Climate Data</b></em>' reference feature.
@@ -752,7 +752,7 @@ public interface SimulationPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SIMULATION__CLIMATE_DATA = eINSTANCE.getSimulation_ClimateData();
+		EReference SCHEDULE__CLIMATE_DATA = eINSTANCE.getSchedule_ClimateData();
 
 		/**
 		 * The meta object literal for the '<em><b>Solver Search Seconds Spent Limit</b></em>' attribute feature.
@@ -760,7 +760,7 @@ public interface SimulationPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SIMULATION__SOLVER_SEARCH_SECONDS_SPENT_LIMIT = eINSTANCE.getSimulation_SolverSearchSecondsSpentLimit();
+		EAttribute SCHEDULE__SOLVER_SEARCH_SECONDS_SPENT_LIMIT = eINSTANCE.getSchedule_SolverSearchSecondsSpentLimit();
 
 		/**
 		 * The meta object literal for the '{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl <em>Activity Work</em>}' class.

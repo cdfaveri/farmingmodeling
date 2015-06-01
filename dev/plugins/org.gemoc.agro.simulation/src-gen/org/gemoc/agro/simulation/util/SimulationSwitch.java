@@ -66,9 +66,9 @@ public class SimulationSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case SimulationPackage.SIMULATION: {
-				Simulation simulation = (Simulation)theEObject;
-				T result = caseSimulation(simulation);
+			case SimulationPackage.SCHEDULE: {
+				Schedule schedule = (Schedule)theEObject;
+				T result = caseSchedule(schedule);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -101,17 +101,17 @@ public class SimulationSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Simulation</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Schedule</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Simulation</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Schedule</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSimulation(Simulation object) {
+	public T caseSchedule(Schedule object) {
 		return null;
 	}
 

@@ -3,18 +3,26 @@
 package org.gemoc.agro.simulation.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
 import org.gemoc.agro.activitiesDSL.ExploitationActivity;
+
 import org.gemoc.agro.exploitation.Resource;
 import org.gemoc.agro.exploitation.Surface;
+
 import org.gemoc.agro.simulation.ActivityWork;
 import org.gemoc.agro.simulation.Day;
 import org.gemoc.agro.simulation.SchedulingFeedback;

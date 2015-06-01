@@ -9,7 +9,7 @@ import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test suite for the '<em><b>Simulation</b></em>' model.
+ * A test suite for the '<em><b>Schedule</b></em>' model.
  * <!-- end-user-doc -->
  * @generated
  */
