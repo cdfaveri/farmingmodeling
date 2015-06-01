@@ -67,6 +67,7 @@ public class SimulationItemProvider
 			addExploitationPropertyDescriptor(object);
 			addSchedulingStrategyPropertyDescriptor(object);
 			addClimateDataPropertyDescriptor(object);
+			addSolverSearchSecondsSpentLimitPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -133,6 +134,28 @@ public class SimulationItemProvider
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Solver Search Seconds Spent Limit feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSolverSearchSecondsSpentLimitPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Simulation_solverSearchSecondsSpentLimit_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Simulation_solverSearchSecondsSpentLimit_feature", "_UI_Simulation_type"),
+				 SimulationPackage.Literals.SIMULATION__SOLVER_SEARCH_SECONDS_SPENT_LIMIT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -207,6 +230,7 @@ public class SimulationItemProvider
 
 		switch (notification.getFeatureID(Simulation.class)) {
 			case SimulationPackage.SIMULATION__SCHEDULING_STRATEGY:
+			case SimulationPackage.SIMULATION__SOLVER_SEARCH_SECONDS_SPENT_LIMIT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SimulationPackage.SIMULATION__WORK_TO_DO:

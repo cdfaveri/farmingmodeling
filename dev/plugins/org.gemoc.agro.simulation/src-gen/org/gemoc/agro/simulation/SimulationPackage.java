@@ -104,13 +104,22 @@ public interface SimulationPackage extends EPackage {
 	int SIMULATION__CLIMATE_DATA = 3;
 
 	/**
+	 * The feature id for the '<em><b>Solver Search Seconds Spent Limit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMULATION__SOLVER_SEARCH_SECONDS_SPENT_LIMIT = 4;
+
+	/**
 	 * The number of structural features of the '<em>Simulation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMULATION_FEATURE_COUNT = 4;
+	int SIMULATION_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Simulation</em>' class.
@@ -445,6 +454,17 @@ public interface SimulationPackage extends EPackage {
 	EReference getSimulation_ClimateData();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.gemoc.agro.simulation.Simulation#getSolverSearchSecondsSpentLimit <em>Solver Search Seconds Spent Limit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Solver Search Seconds Spent Limit</em>'.
+	 * @see org.gemoc.agro.simulation.Simulation#getSolverSearchSecondsSpentLimit()
+	 * @see #getSimulation()
+	 * @generated
+	 */
+	EAttribute getSimulation_SolverSearchSecondsSpentLimit();
+
+	/**
 	 * Returns the meta object for class '{@link org.gemoc.agro.simulation.ActivityWork <em>Activity Work</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -733,6 +753,14 @@ public interface SimulationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SIMULATION__CLIMATE_DATA = eINSTANCE.getSimulation_ClimateData();
+
+		/**
+		 * The meta object literal for the '<em><b>Solver Search Seconds Spent Limit</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SIMULATION__SOLVER_SEARCH_SECONDS_SPENT_LIMIT = eINSTANCE.getSimulation_SolverSearchSecondsSpentLimit();
 
 		/**
 		 * The meta object literal for the '{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl <em>Activity Work</em>}' class.

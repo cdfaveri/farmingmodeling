@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.gemoc.agro.activitiesDSL.ActivitiesDSLPackage;
 
 import org.gemoc.agro.exploitation.ExploitationPackage;
@@ -128,6 +129,7 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 
 		// Initialize simple dependencies
 		ExploitationPackage.eINSTANCE.eClass();
+		XMLTypePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theSimulationPackage.createPackageContents();
@@ -187,6 +189,15 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 */
 	public EReference getSimulation_ClimateData() {
 		return (EReference)simulationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSimulation_SolverSearchSecondsSpentLimit() {
+		return (EAttribute)simulationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -411,6 +422,7 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 		createEAttribute(simulationEClass, SIMULATION__SCHEDULING_STRATEGY);
 		createEReference(simulationEClass, SIMULATION__WORK_TO_DO);
 		createEReference(simulationEClass, SIMULATION__CLIMATE_DATA);
+		createEAttribute(simulationEClass, SIMULATION__SOLVER_SEARCH_SECONDS_SPENT_LIMIT);
 
 		activityWorkEClass = createEClass(ACTIVITY_WORK);
 		createEReference(activityWorkEClass, ACTIVITY_WORK__ACTIVITY);
@@ -465,6 +477,7 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 
 		// Obtain other dependent packages
 		ExploitationPackage theExploitationPackage = (ExploitationPackage)EPackage.Registry.INSTANCE.getEPackage(ExploitationPackage.eNS_URI);
+		XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
 		ActivitiesDSLPackage theActivitiesDSLPackage = (ActivitiesDSLPackage)EPackage.Registry.INSTANCE.getEPackage(ActivitiesDSLPackage.eNS_URI);
 
 		// Create type parameters
@@ -479,6 +492,7 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 		initEAttribute(getSimulation_SchedulingStrategy(), this.getSchedulingStrategy(), "schedulingStrategy", null, 0, 1, Simulation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSimulation_WorkToDo(), this.getActivityWork(), null, "workToDo", null, 0, -1, Simulation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSimulation_ClimateData(), this.getClimateData(), null, "climateData", null, 1, 1, Simulation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSimulation_SolverSearchSecondsSpentLimit(), theXMLTypePackage.getLong(), "solverSearchSecondsSpentLimit", "5", 0, 1, Simulation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(activityWorkEClass, ActivityWork.class, "ActivityWork", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActivityWork_Activity(), theActivitiesDSLPackage.getExploitationActivity(), null, "activity", null, 1, 1, ActivityWork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

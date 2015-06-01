@@ -30,6 +30,7 @@ import org.gemoc.agro.simulation.SimulationPackage;
  *   <li>{@link org.gemoc.agro.simulation.impl.SimulationImpl#getSchedulingStrategy <em>Scheduling Strategy</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.SimulationImpl#getWorkToDo <em>Work To Do</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.SimulationImpl#getClimateData <em>Climate Data</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.impl.SimulationImpl#getSolverSearchSecondsSpentLimit <em>Solver Search Seconds Spent Limit</em>}</li>
  * </ul>
  * </p>
  *
@@ -85,6 +86,26 @@ public class SimulationImpl extends MinimalEObjectImpl.Container implements Simu
 	 * @ordered
 	 */
 	protected ClimateData climateData;
+
+	/**
+	 * The default value of the '{@link #getSolverSearchSecondsSpentLimit() <em>Solver Search Seconds Spent Limit</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSolverSearchSecondsSpentLimit()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final long SOLVER_SEARCH_SECONDS_SPENT_LIMIT_EDEFAULT = 5L;
+
+	/**
+	 * The cached value of the '{@link #getSolverSearchSecondsSpentLimit() <em>Solver Search Seconds Spent Limit</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSolverSearchSecondsSpentLimit()
+	 * @generated
+	 * @ordered
+	 */
+	protected long solverSearchSecondsSpentLimit = SOLVER_SEARCH_SECONDS_SPENT_LIMIT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -219,6 +240,27 @@ public class SimulationImpl extends MinimalEObjectImpl.Container implements Simu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public long getSolverSearchSecondsSpentLimit() {
+		return solverSearchSecondsSpentLimit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSolverSearchSecondsSpentLimit(long newSolverSearchSecondsSpentLimit) {
+		long oldSolverSearchSecondsSpentLimit = solverSearchSecondsSpentLimit;
+		solverSearchSecondsSpentLimit = newSolverSearchSecondsSpentLimit;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.SIMULATION__SOLVER_SEARCH_SECONDS_SPENT_LIMIT, oldSolverSearchSecondsSpentLimit, solverSearchSecondsSpentLimit));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -246,6 +288,8 @@ public class SimulationImpl extends MinimalEObjectImpl.Container implements Simu
 			case SimulationPackage.SIMULATION__CLIMATE_DATA:
 				if (resolve) return getClimateData();
 				return basicGetClimateData();
+			case SimulationPackage.SIMULATION__SOLVER_SEARCH_SECONDS_SPENT_LIMIT:
+				return getSolverSearchSecondsSpentLimit();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -272,6 +316,9 @@ public class SimulationImpl extends MinimalEObjectImpl.Container implements Simu
 			case SimulationPackage.SIMULATION__CLIMATE_DATA:
 				setClimateData((ClimateData)newValue);
 				return;
+			case SimulationPackage.SIMULATION__SOLVER_SEARCH_SECONDS_SPENT_LIMIT:
+				setSolverSearchSecondsSpentLimit((Long)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -296,6 +343,9 @@ public class SimulationImpl extends MinimalEObjectImpl.Container implements Simu
 			case SimulationPackage.SIMULATION__CLIMATE_DATA:
 				setClimateData((ClimateData)null);
 				return;
+			case SimulationPackage.SIMULATION__SOLVER_SEARCH_SECONDS_SPENT_LIMIT:
+				setSolverSearchSecondsSpentLimit(SOLVER_SEARCH_SECONDS_SPENT_LIMIT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -316,6 +366,8 @@ public class SimulationImpl extends MinimalEObjectImpl.Container implements Simu
 				return workToDo != null && !workToDo.isEmpty();
 			case SimulationPackage.SIMULATION__CLIMATE_DATA:
 				return climateData != null;
+			case SimulationPackage.SIMULATION__SOLVER_SEARCH_SECONDS_SPENT_LIMIT:
+				return solverSearchSecondsSpentLimit != SOLVER_SEARCH_SECONDS_SPENT_LIMIT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -332,6 +384,8 @@ public class SimulationImpl extends MinimalEObjectImpl.Container implements Simu
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (schedulingStrategy: ");
 		result.append(schedulingStrategy);
+		result.append(", solverSearchSecondsSpentLimit: ");
+		result.append(solverSearchSecondsSpentLimit);
 		result.append(')');
 		return result.toString();
 	}

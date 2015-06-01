@@ -18,6 +18,7 @@ import org.gemoc.agro.exploitation.Exploitation;
  *   <li>{@link org.gemoc.agro.simulation.Simulation#getSchedulingStrategy <em>Scheduling Strategy</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Simulation#getWorkToDo <em>Work To Do</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Simulation#getClimateData <em>Climate Data</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.Simulation#getSolverSearchSecondsSpentLimit <em>Solver Search Seconds Spent Limit</em>}</li>
  * </ul>
  * </p>
  *
@@ -122,5 +123,32 @@ public interface Simulation extends EObject  {
 	 * @generated
 	 */
 	void setClimateData(ClimateData value);
+
+	/**
+	 * Returns the value of the '<em><b>Solver Search Seconds Spent Limit</b></em>' attribute.
+	 * The default value is <code>"5"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Solver Search Seconds Spent Limit</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Solver Search Seconds Spent Limit</em>' attribute.
+	 * @see #setSolverSearchSecondsSpentLimit(long)
+	 * @see org.gemoc.agro.simulation.SimulationPackage#getSimulation_SolverSearchSecondsSpentLimit()
+	 * @model default="5" dataType="org.eclipse.emf.ecore.xml.type.Long"
+	 * @generated
+	 */
+	long getSolverSearchSecondsSpentLimit();
+
+	/**
+	 * Sets the value of the '{@link org.gemoc.agro.simulation.Simulation#getSolverSearchSecondsSpentLimit <em>Solver Search Seconds Spent Limit</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Solver Search Seconds Spent Limit</em>' attribute.
+	 * @see #getSolverSearchSecondsSpentLimit()
+	 * @generated
+	 */
+	void setSolverSearchSecondsSpentLimit(long value);
 
 } // Simulation
