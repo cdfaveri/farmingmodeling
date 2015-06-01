@@ -20,6 +20,7 @@ import org.gemoc.agro.exploitation.Exploitation;
  *   <li>{@link org.gemoc.agro.simulation.Schedule#getClimateData <em>Climate Data</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Schedule#getSolverSearchSecondsSpentLimit <em>Solver Search Seconds Spent Limit</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Schedule#getAllocations <em>Allocations</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.Schedule#getCurrentDay <em>Current Day</em>}</li>
  * </ul>
  * </p>
  *
@@ -167,5 +168,31 @@ public interface Schedule extends EObject  {
 	 * @generated
 	 */
 	EList<ResourceAllocation> getAllocations();
+
+	/**
+	 * Returns the value of the '<em><b>Current Day</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Current Day</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Current Day</em>' reference.
+	 * @see #setCurrentDay(Day)
+	 * @see org.gemoc.agro.simulation.SimulationPackage#getSchedule_CurrentDay()
+	 * @model transient="true"
+	 * @generated
+	 */
+	Day getCurrentDay();
+
+	/**
+	 * Sets the value of the '{@link org.gemoc.agro.simulation.Schedule#getCurrentDay <em>Current Day</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Current Day</em>' reference.
+	 * @see #getCurrentDay()
+	 * @generated
+	 */
+	void setCurrentDay(Day value);
 
 } // Schedule

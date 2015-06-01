@@ -22,6 +22,7 @@ import org.gemoc.agro.exploitation.Exploitation;
 
 import org.gemoc.agro.simulation.ActivityWork;
 import org.gemoc.agro.simulation.ClimateData;
+import org.gemoc.agro.simulation.Day;
 import org.gemoc.agro.simulation.ResourceAllocation;
 import org.gemoc.agro.simulation.Schedule;
 import org.gemoc.agro.simulation.SchedulingStrategy;
@@ -40,6 +41,7 @@ import org.gemoc.agro.simulation.SimulationPackage;
  *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getClimateData <em>Climate Data</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getSolverSearchSecondsSpentLimit <em>Solver Search Seconds Spent Limit</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getAllocations <em>Allocations</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getCurrentDay <em>Current Day</em>}</li>
  * </ul>
  * </p>
  *
@@ -125,6 +127,16 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 	 * @ordered
 	 */
 	protected EList<ResourceAllocation> allocations;
+
+	/**
+	 * The cached value of the '{@link #getCurrentDay() <em>Current Day</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentDay()
+	 * @generated
+	 * @ordered
+	 */
+	protected Day currentDay;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -292,6 +304,44 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Day getCurrentDay() {
+		if (currentDay != null && currentDay.eIsProxy()) {
+			InternalEObject oldCurrentDay = (InternalEObject)currentDay;
+			currentDay = (Day)eResolveProxy(oldCurrentDay);
+			if (currentDay != oldCurrentDay) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimulationPackage.SCHEDULE__CURRENT_DAY, oldCurrentDay, currentDay));
+			}
+		}
+		return currentDay;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Day basicGetCurrentDay() {
+		return currentDay;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCurrentDay(Day newCurrentDay) {
+		Day oldCurrentDay = currentDay;
+		currentDay = newCurrentDay;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.SCHEDULE__CURRENT_DAY, oldCurrentDay, currentDay));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -325,6 +375,9 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 				return getSolverSearchSecondsSpentLimit();
 			case SimulationPackage.SCHEDULE__ALLOCATIONS:
 				return getAllocations();
+			case SimulationPackage.SCHEDULE__CURRENT_DAY:
+				if (resolve) return getCurrentDay();
+				return basicGetCurrentDay();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -358,6 +411,9 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 				getAllocations().clear();
 				getAllocations().addAll((Collection<? extends ResourceAllocation>)newValue);
 				return;
+			case SimulationPackage.SCHEDULE__CURRENT_DAY:
+				setCurrentDay((Day)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -388,6 +444,9 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 			case SimulationPackage.SCHEDULE__ALLOCATIONS:
 				getAllocations().clear();
 				return;
+			case SimulationPackage.SCHEDULE__CURRENT_DAY:
+				setCurrentDay((Day)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -412,6 +471,8 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 				return solverSearchSecondsSpentLimit != SOLVER_SEARCH_SECONDS_SPENT_LIMIT_EDEFAULT;
 			case SimulationPackage.SCHEDULE__ALLOCATIONS:
 				return allocations != null && !allocations.isEmpty();
+			case SimulationPackage.SCHEDULE__CURRENT_DAY:
+				return currentDay != null;
 		}
 		return super.eIsSet(featureID);
 	}

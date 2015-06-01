@@ -68,6 +68,7 @@ public class ScheduleItemProvider
 			addSchedulingStrategyPropertyDescriptor(object);
 			addClimateDataPropertyDescriptor(object);
 			addSolverSearchSecondsSpentLimitPropertyDescriptor(object);
+			addCurrentDayPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -156,6 +157,28 @@ public class ScheduleItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Current Day feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCurrentDayPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Schedule_currentDay_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Schedule_currentDay_feature", "_UI_Schedule_type"),
+				 SimulationPackage.Literals.SCHEDULE__CURRENT_DAY,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

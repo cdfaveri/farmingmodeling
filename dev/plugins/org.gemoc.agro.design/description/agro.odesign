@@ -47,6 +47,21 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
+        <nodeMappings name="Schedule" semanticCandidatesExpression="[self.eInverse(simulation::Schedule)/]" doubleClickDescription="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@toolSections.0/@ownedTools[name='']" domainClass="simulation.Schedule">
+          <style xsi:type="style:GaugeCompositeStyleDescription" showIcon="false" labelExpression="['current day : ' +  self.currentDay.day + '  ' +self.currentDay.month /]" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <sections maxValueExpression="20" valueExpression="[self.currentDay.temperature->max().floor()/]" foregroundColor="//@userColorsPalettes[name='Agro%20Colors']/@entries[name='TemperatureRange']" label="T°">
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </sections>
+            <sections maxValueExpression="40" valueExpression="[self.currentDay.rain->max().floor()/]" foregroundColor="//@userColorsPalettes[name='Agro%20Colors']/@entries[name='RainRange']" label="mm">
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </sections>
+            <sections maxValueExpression="2000" valueExpression="[self.currentDay.rain->max().floor()/]" foregroundColor="//@userColorsPalettes[name='Agro%20Colors']/@entries[name='RayRange']" label="J/cm²">
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </sections>
+          </style>
+        </nodeMappings>
         <edgeMappings name="WorkGroup to Culture" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='WorkGroup']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='From%20Xtext%20dsl']/@subNodeMappings[name='CultureNode']" targetFinderExpression="feature:cultures">
           <style sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -188,6 +203,15 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" mappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Schedule']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:moveToNextDay()"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
@@ -240,6 +264,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.gemoc.agro.design.services.Services"/>
   </ownedViewpoints>
   <ownedViewpoints name="Simulation" modelFileExtension="simulation">
     <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Climate Data" domainClass="simulation.ClimateData">
@@ -298,6 +323,7 @@
         </subItemMappings>
       </subItemMappings>
     </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.gemoc.agro.design.services.Services"/>
   </ownedViewpoints>
   <userColorsPalettes name="Agro Colors">
     <entries xsi:type="description:InterpolatedColor" name="TemperatureRange" colorValueComputationExpression="[self.temperature->max().floor()/]">

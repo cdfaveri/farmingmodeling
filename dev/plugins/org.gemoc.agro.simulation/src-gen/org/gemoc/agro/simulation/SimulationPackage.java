@@ -122,13 +122,22 @@ public interface SimulationPackage extends EPackage {
 	int SCHEDULE__ALLOCATIONS = 5;
 
 	/**
+	 * The feature id for the '<em><b>Current Day</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE__CURRENT_DAY = 6;
+
+	/**
 	 * The number of structural features of the '<em>Schedule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_FEATURE_COUNT = 6;
+	int SCHEDULE_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Schedule</em>' class.
@@ -531,6 +540,17 @@ public interface SimulationPackage extends EPackage {
 	EReference getSchedule_Allocations();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.gemoc.agro.simulation.Schedule#getCurrentDay <em>Current Day</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Current Day</em>'.
+	 * @see org.gemoc.agro.simulation.Schedule#getCurrentDay()
+	 * @see #getSchedule()
+	 * @generated
+	 */
+	EReference getSchedule_CurrentDay();
+
+	/**
 	 * Returns the meta object for class '{@link org.gemoc.agro.simulation.ActivityWork <em>Activity Work</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -867,6 +887,14 @@ public interface SimulationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SCHEDULE__ALLOCATIONS = eINSTANCE.getSchedule_Allocations();
+
+		/**
+		 * The meta object literal for the '<em><b>Current Day</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCHEDULE__CURRENT_DAY = eINSTANCE.getSchedule_CurrentDay();
 
 		/**
 		 * The meta object literal for the '{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl <em>Activity Work</em>}' class.
