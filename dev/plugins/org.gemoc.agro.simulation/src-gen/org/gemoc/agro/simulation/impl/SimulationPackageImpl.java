@@ -17,7 +17,6 @@ import org.gemoc.agro.simulation.FeedbackLevel;
 import org.gemoc.agro.simulation.ResourceAllocation;
 import org.gemoc.agro.simulation.Schedule;
 import org.gemoc.agro.simulation.SchedulingFeedback;
-import org.gemoc.agro.simulation.SchedulingStrategy;
 import org.gemoc.agro.simulation.SimulationFactory;
 import org.gemoc.agro.simulation.SimulationPackage;
 
@@ -69,13 +68,6 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * @generated
 	 */
 	private EClass resourceAllocationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum schedulingStrategyEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -171,17 +163,8 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSchedule_SchedulingStrategy() {
-		return (EAttribute)scheduleEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getSchedule_WorkToDo() {
-		return (EReference)scheduleEClass.getEStructuralFeatures().get(2);
+		return (EReference)scheduleEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -190,7 +173,7 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * @generated
 	 */
 	public EReference getSchedule_ClimateData() {
-		return (EReference)scheduleEClass.getEStructuralFeatures().get(3);
+		return (EReference)scheduleEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -199,7 +182,7 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * @generated
 	 */
 	public EAttribute getSchedule_SolverSearchSecondsSpentLimit() {
-		return (EAttribute)scheduleEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)scheduleEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -208,7 +191,7 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * @generated
 	 */
 	public EReference getSchedule_Allocations() {
-		return (EReference)scheduleEClass.getEStructuralFeatures().get(5);
+		return (EReference)scheduleEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -217,7 +200,7 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * @generated
 	 */
 	public EReference getSchedule_CurrentDay() {
-		return (EReference)scheduleEClass.getEStructuralFeatures().get(6);
+		return (EReference)scheduleEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -423,15 +406,6 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getSchedulingStrategy() {
-		return schedulingStrategyEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getFeedbackLevel() {
 		return feedbackLevelEEnum;
 	}
@@ -466,7 +440,6 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 		// Create classes and their features
 		scheduleEClass = createEClass(SCHEDULE);
 		createEReference(scheduleEClass, SCHEDULE__EXPLOITATION);
-		createEAttribute(scheduleEClass, SCHEDULE__SCHEDULING_STRATEGY);
 		createEReference(scheduleEClass, SCHEDULE__WORK_TO_DO);
 		createEReference(scheduleEClass, SCHEDULE__CLIMATE_DATA);
 		createEAttribute(scheduleEClass, SCHEDULE__SOLVER_SEARCH_SECONDS_SPENT_LIMIT);
@@ -501,7 +474,6 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 		createEReference(resourceAllocationEClass, RESOURCE_ALLOCATION__KIND);
 
 		// Create enums
-		schedulingStrategyEEnum = createEEnum(SCHEDULING_STRATEGY);
 		feedbackLevelEEnum = createEEnum(FEEDBACK_LEVEL);
 	}
 
@@ -541,7 +513,6 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 		// Initialize classes, features, and operations; add parameters
 		initEClass(scheduleEClass, Schedule.class, "Schedule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSchedule_Exploitation(), theExploitationPackage.getExploitation(), null, "exploitation", null, 0, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSchedule_SchedulingStrategy(), this.getSchedulingStrategy(), "schedulingStrategy", null, 0, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchedule_WorkToDo(), this.getActivityWork(), null, "workToDo", null, 0, -1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchedule_ClimateData(), this.getClimateData(), null, "climateData", null, 1, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSchedule_SolverSearchSecondsSpentLimit(), ecorePackage.getEInt(), "solverSearchSecondsSpentLimit", "5", 0, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -576,9 +547,6 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 		initEReference(getResourceAllocation_Kind(), theActivitiesDSLPackage.getResourceKind(), null, "kind", null, 1, 1, ResourceAllocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(schedulingStrategyEEnum, SchedulingStrategy.class, "SchedulingStrategy");
-		addEEnumLiteral(schedulingStrategyEEnum, SchedulingStrategy.RANDOM);
-
 		initEEnum(feedbackLevelEEnum, FeedbackLevel.class, "FeedbackLevel");
 		addEEnumLiteral(feedbackLevelEEnum, FeedbackLevel.INFO);
 		addEEnumLiteral(feedbackLevelEEnum, FeedbackLevel.WARNING);

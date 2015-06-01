@@ -76,8 +76,6 @@ public class SimulationFactoryImpl extends EFactoryImpl implements SimulationFac
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case SimulationPackage.SCHEDULING_STRATEGY:
-				return createSchedulingStrategyFromString(eDataType, initialValue);
 			case SimulationPackage.FEEDBACK_LEVEL:
 				return createFeedbackLevelFromString(eDataType, initialValue);
 			default:
@@ -93,8 +91,6 @@ public class SimulationFactoryImpl extends EFactoryImpl implements SimulationFac
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case SimulationPackage.SCHEDULING_STRATEGY:
-				return convertSchedulingStrategyToString(eDataType, instanceValue);
 			case SimulationPackage.FEEDBACK_LEVEL:
 				return convertFeedbackLevelToString(eDataType, instanceValue);
 			default:
@@ -160,26 +156,6 @@ public class SimulationFactoryImpl extends EFactoryImpl implements SimulationFac
 	public ResourceAllocation createResourceAllocation() {
 		ResourceAllocationImpl resourceAllocation = new ResourceAllocationImpl();
 		return resourceAllocation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SchedulingStrategy createSchedulingStrategyFromString(EDataType eDataType, String initialValue) {
-		SchedulingStrategy result = SchedulingStrategy.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertSchedulingStrategyToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

@@ -5,14 +5,10 @@ package org.gemoc.agro.simulation.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -23,9 +19,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
 import org.gemoc.agro.simulation.Schedule;
-import org.gemoc.agro.simulation.SchedulingStrategy;
 import org.gemoc.agro.simulation.SimulationFactory;
 import org.gemoc.agro.simulation.SimulationPackage;
 
@@ -65,7 +59,6 @@ public class ScheduleItemProvider
 			super.getPropertyDescriptors(object);
 
 			addExploitationPropertyDescriptor(object);
-			addSchedulingStrategyPropertyDescriptor(object);
 			addClimateDataPropertyDescriptor(object);
 			addSolverSearchSecondsSpentLimitPropertyDescriptor(object);
 			addCurrentDayPropertyDescriptor(object);
@@ -91,28 +84,6 @@ public class ScheduleItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Scheduling Strategy feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSchedulingStrategyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Schedule_schedulingStrategy_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Schedule_schedulingStrategy_feature", "_UI_Schedule_type"),
-				 SimulationPackage.Literals.SCHEDULE__SCHEDULING_STRATEGY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -233,11 +204,8 @@ public class ScheduleItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		SchedulingStrategy labelValue = ((Schedule)object).getSchedulingStrategy();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Schedule_type") :
-			getString("_UI_Schedule_type") + " " + label;
+		Schedule schedule = (Schedule)object;
+		return getString("_UI_Schedule_type") + " " + schedule.getSolverSearchSecondsSpentLimit();
 	}
 	
 
@@ -253,7 +221,6 @@ public class ScheduleItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Schedule.class)) {
-			case SimulationPackage.SCHEDULE__SCHEDULING_STRATEGY:
 			case SimulationPackage.SCHEDULE__SOLVER_SEARCH_SECONDS_SPENT_LIMIT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

@@ -3,7 +3,6 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="simulation" nsURI="http://www.gemoc.org/agro/simulation" nsPrefix="simulation">
   <eClassifiers xsi:type="ecore:EClass" name="Schedule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exploitation" eType="ecore:EClass ../../org.gemoc.agro.exploitation/model/exploitation.ecore#//Exploitation"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="schedulingStrategy" eType="#//SchedulingStrategy"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="workToDo" upperBound="-1"
         eType="#//ActivityWork" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="climateData" lowerBound="1"
@@ -31,9 +30,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ray" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ETp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="temperature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="SchedulingStrategy">
-    <eLiterals name="random"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ClimateData">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

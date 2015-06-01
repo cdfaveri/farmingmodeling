@@ -15,7 +15,6 @@ import org.gemoc.agro.exploitation.Exploitation;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.gemoc.agro.simulation.Schedule#getExploitation <em>Exploitation</em>}</li>
- *   <li>{@link org.gemoc.agro.simulation.Schedule#getSchedulingStrategy <em>Scheduling Strategy</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Schedule#getWorkToDo <em>Work To Do</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Schedule#getClimateData <em>Climate Data</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Schedule#getSolverSearchSecondsSpentLimit <em>Solver Search Seconds Spent Limit</em>}</li>
@@ -54,35 +53,6 @@ public interface Schedule extends EObject  {
 	 * @generated
 	 */
 	void setExploitation(Exploitation value);
-
-	/**
-	 * Returns the value of the '<em><b>Scheduling Strategy</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.gemoc.agro.simulation.SchedulingStrategy}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Scheduling Strategy</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Scheduling Strategy</em>' attribute.
-	 * @see org.gemoc.agro.simulation.SchedulingStrategy
-	 * @see #setSchedulingStrategy(SchedulingStrategy)
-	 * @see org.gemoc.agro.simulation.SimulationPackage#getSchedule_SchedulingStrategy()
-	 * @model
-	 * @generated
-	 */
-	SchedulingStrategy getSchedulingStrategy();
-
-	/**
-	 * Sets the value of the '{@link org.gemoc.agro.simulation.Schedule#getSchedulingStrategy <em>Scheduling Strategy</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Scheduling Strategy</em>' attribute.
-	 * @see org.gemoc.agro.simulation.SchedulingStrategy
-	 * @see #getSchedulingStrategy()
-	 * @generated
-	 */
-	void setSchedulingStrategy(SchedulingStrategy value);
 
 	/**
 	 * Returns the value of the '<em><b>Work To Do</b></em>' containment reference list.

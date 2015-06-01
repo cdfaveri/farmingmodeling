@@ -3,29 +3,21 @@
 package org.gemoc.agro.simulation.impl;
 
 import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.gemoc.agro.exploitation.Exploitation;
-
 import org.gemoc.agro.simulation.ActivityWork;
 import org.gemoc.agro.simulation.ClimateData;
 import org.gemoc.agro.simulation.Day;
 import org.gemoc.agro.simulation.ResourceAllocation;
 import org.gemoc.agro.simulation.Schedule;
-import org.gemoc.agro.simulation.SchedulingStrategy;
 import org.gemoc.agro.simulation.SimulationPackage;
 
 /**
@@ -36,7 +28,6 @@ import org.gemoc.agro.simulation.SimulationPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getExploitation <em>Exploitation</em>}</li>
- *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getSchedulingStrategy <em>Scheduling Strategy</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getWorkToDo <em>Work To Do</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getClimateData <em>Climate Data</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getSolverSearchSecondsSpentLimit <em>Solver Search Seconds Spent Limit</em>}</li>
@@ -57,26 +48,6 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 	 * @ordered
 	 */
 	protected Exploitation exploitation;
-
-	/**
-	 * The default value of the '{@link #getSchedulingStrategy() <em>Scheduling Strategy</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSchedulingStrategy()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final SchedulingStrategy SCHEDULING_STRATEGY_EDEFAULT = SchedulingStrategy.RANDOM;
-
-	/**
-	 * The cached value of the '{@link #getSchedulingStrategy() <em>Scheduling Strategy</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSchedulingStrategy()
-	 * @generated
-	 * @ordered
-	 */
-	protected SchedulingStrategy schedulingStrategy = SCHEDULING_STRATEGY_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getWorkToDo() <em>Work To Do</em>}' containment reference list.
@@ -193,27 +164,6 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 		exploitation = newExploitation;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.SCHEDULE__EXPLOITATION, oldExploitation, exploitation));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SchedulingStrategy getSchedulingStrategy() {
-		return schedulingStrategy;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSchedulingStrategy(SchedulingStrategy newSchedulingStrategy) {
-		SchedulingStrategy oldSchedulingStrategy = schedulingStrategy;
-		schedulingStrategy = newSchedulingStrategy == null ? SCHEDULING_STRATEGY_EDEFAULT : newSchedulingStrategy;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.SCHEDULE__SCHEDULING_STRATEGY, oldSchedulingStrategy, schedulingStrategy));
 	}
 
 	/**
@@ -364,8 +314,6 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 			case SimulationPackage.SCHEDULE__EXPLOITATION:
 				if (resolve) return getExploitation();
 				return basicGetExploitation();
-			case SimulationPackage.SCHEDULE__SCHEDULING_STRATEGY:
-				return getSchedulingStrategy();
 			case SimulationPackage.SCHEDULE__WORK_TO_DO:
 				return getWorkToDo();
 			case SimulationPackage.SCHEDULE__CLIMATE_DATA:
@@ -393,9 +341,6 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 		switch (featureID) {
 			case SimulationPackage.SCHEDULE__EXPLOITATION:
 				setExploitation((Exploitation)newValue);
-				return;
-			case SimulationPackage.SCHEDULE__SCHEDULING_STRATEGY:
-				setSchedulingStrategy((SchedulingStrategy)newValue);
 				return;
 			case SimulationPackage.SCHEDULE__WORK_TO_DO:
 				getWorkToDo().clear();
@@ -429,9 +374,6 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 			case SimulationPackage.SCHEDULE__EXPLOITATION:
 				setExploitation((Exploitation)null);
 				return;
-			case SimulationPackage.SCHEDULE__SCHEDULING_STRATEGY:
-				setSchedulingStrategy(SCHEDULING_STRATEGY_EDEFAULT);
-				return;
 			case SimulationPackage.SCHEDULE__WORK_TO_DO:
 				getWorkToDo().clear();
 				return;
@@ -461,8 +403,6 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 		switch (featureID) {
 			case SimulationPackage.SCHEDULE__EXPLOITATION:
 				return exploitation != null;
-			case SimulationPackage.SCHEDULE__SCHEDULING_STRATEGY:
-				return schedulingStrategy != SCHEDULING_STRATEGY_EDEFAULT;
 			case SimulationPackage.SCHEDULE__WORK_TO_DO:
 				return workToDo != null && !workToDo.isEmpty();
 			case SimulationPackage.SCHEDULE__CLIMATE_DATA:
@@ -487,9 +427,7 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (schedulingStrategy: ");
-		result.append(schedulingStrategy);
-		result.append(", solverSearchSecondsSpentLimit: ");
+		result.append(" (solverSearchSecondsSpentLimit: ");
 		result.append(solverSearchSecondsSpentLimit);
 		result.append(')');
 		return result.toString();

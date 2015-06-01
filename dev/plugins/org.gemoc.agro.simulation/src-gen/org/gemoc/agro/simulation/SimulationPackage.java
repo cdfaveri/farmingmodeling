@@ -77,22 +77,13 @@ public interface SimulationPackage extends EPackage {
 	int SCHEDULE__EXPLOITATION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Scheduling Strategy</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCHEDULE__SCHEDULING_STRATEGY = 1;
-
-	/**
 	 * The feature id for the '<em><b>Work To Do</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE__WORK_TO_DO = 2;
+	int SCHEDULE__WORK_TO_DO = 1;
 
 	/**
 	 * The feature id for the '<em><b>Climate Data</b></em>' reference.
@@ -101,7 +92,7 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE__CLIMATE_DATA = 3;
+	int SCHEDULE__CLIMATE_DATA = 2;
 
 	/**
 	 * The feature id for the '<em><b>Solver Search Seconds Spent Limit</b></em>' attribute.
@@ -110,7 +101,7 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE__SOLVER_SEARCH_SECONDS_SPENT_LIMIT = 4;
+	int SCHEDULE__SOLVER_SEARCH_SECONDS_SPENT_LIMIT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Allocations</b></em>' containment reference list.
@@ -119,7 +110,7 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE__ALLOCATIONS = 5;
+	int SCHEDULE__ALLOCATIONS = 4;
 
 	/**
 	 * The feature id for the '<em><b>Current Day</b></em>' reference.
@@ -128,7 +119,7 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE__CURRENT_DAY = 6;
+	int SCHEDULE__CURRENT_DAY = 5;
 
 	/**
 	 * The number of structural features of the '<em>Schedule</em>' class.
@@ -137,7 +128,7 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_FEATURE_COUNT = 7;
+	int SCHEDULE_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Schedule</em>' class.
@@ -442,17 +433,6 @@ public interface SimulationPackage extends EPackage {
 	int RESOURCE_ALLOCATION_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.gemoc.agro.simulation.SchedulingStrategy <em>Scheduling Strategy</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.gemoc.agro.simulation.SchedulingStrategy
-	 * @see org.gemoc.agro.simulation.impl.SimulationPackageImpl#getSchedulingStrategy()
-	 * @generated
-	 */
-	int SCHEDULING_STRATEGY = 6;
-
-
-	/**
 	 * The meta object id for the '{@link org.gemoc.agro.simulation.FeedbackLevel <em>Feedback Level</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -460,7 +440,7 @@ public interface SimulationPackage extends EPackage {
 	 * @see org.gemoc.agro.simulation.impl.SimulationPackageImpl#getFeedbackLevel()
 	 * @generated
 	 */
-	int FEEDBACK_LEVEL = 7;
+	int FEEDBACK_LEVEL = 6;
 
 
 	/**
@@ -483,17 +463,6 @@ public interface SimulationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSchedule_Exploitation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.gemoc.agro.simulation.Schedule#getSchedulingStrategy <em>Scheduling Strategy</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Scheduling Strategy</em>'.
-	 * @see org.gemoc.agro.simulation.Schedule#getSchedulingStrategy()
-	 * @see #getSchedule()
-	 * @generated
-	 */
-	EAttribute getSchedule_SchedulingStrategy();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.gemoc.agro.simulation.Schedule#getWorkToDo <em>Work To Do</em>}'.
@@ -788,16 +757,6 @@ public interface SimulationPackage extends EPackage {
 	EReference getResourceAllocation_Kind();
 
 	/**
-	 * Returns the meta object for enum '{@link org.gemoc.agro.simulation.SchedulingStrategy <em>Scheduling Strategy</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Scheduling Strategy</em>'.
-	 * @see org.gemoc.agro.simulation.SchedulingStrategy
-	 * @generated
-	 */
-	EEnum getSchedulingStrategy();
-
-	/**
 	 * Returns the meta object for enum '{@link org.gemoc.agro.simulation.FeedbackLevel <em>Feedback Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -847,14 +806,6 @@ public interface SimulationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SCHEDULE__EXPLOITATION = eINSTANCE.getSchedule_Exploitation();
-
-		/**
-		 * The meta object literal for the '<em><b>Scheduling Strategy</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCHEDULE__SCHEDULING_STRATEGY = eINSTANCE.getSchedule_SchedulingStrategy();
 
 		/**
 		 * The meta object literal for the '<em><b>Work To Do</b></em>' containment reference list feature.
@@ -1081,16 +1032,6 @@ public interface SimulationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RESOURCE_ALLOCATION__KIND = eINSTANCE.getResourceAllocation_Kind();
-
-		/**
-		 * The meta object literal for the '{@link org.gemoc.agro.simulation.SchedulingStrategy <em>Scheduling Strategy</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.gemoc.agro.simulation.SchedulingStrategy
-		 * @see org.gemoc.agro.simulation.impl.SimulationPackageImpl#getSchedulingStrategy()
-		 * @generated
-		 */
-		EEnum SCHEDULING_STRATEGY = eINSTANCE.getSchedulingStrategy();
 
 		/**
 		 * The meta object literal for the '{@link org.gemoc.agro.simulation.FeedbackLevel <em>Feedback Level</em>}' enum.
