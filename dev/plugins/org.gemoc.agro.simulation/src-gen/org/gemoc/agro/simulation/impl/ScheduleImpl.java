@@ -33,6 +33,8 @@ import org.gemoc.agro.simulation.SimulationPackage;
  *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getSolverSearchSecondsSpentLimit <em>Solver Search Seconds Spent Limit</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getAllocations <em>Allocations</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getCurrentDay <em>Current Day</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getHardScore <em>Hard Score</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getSoftScore <em>Soft Score</em>}</li>
  * </ul>
  * </p>
  *
@@ -108,6 +110,46 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 	 * @ordered
 	 */
 	protected Day currentDay;
+
+	/**
+	 * The default value of the '{@link #getHardScore() <em>Hard Score</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHardScore()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int HARD_SCORE_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getHardScore() <em>Hard Score</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHardScore()
+	 * @generated
+	 * @ordered
+	 */
+	protected int hardScore = HARD_SCORE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSoftScore() <em>Soft Score</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSoftScore()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int SOFT_SCORE_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getSoftScore() <em>Soft Score</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSoftScore()
+	 * @generated
+	 * @ordered
+	 */
+	protected int softScore = SOFT_SCORE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -292,6 +334,48 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getHardScore() {
+		return hardScore;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHardScore(int newHardScore) {
+		int oldHardScore = hardScore;
+		hardScore = newHardScore;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.SCHEDULE__HARD_SCORE, oldHardScore, hardScore));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getSoftScore() {
+		return softScore;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSoftScore(int newSoftScore) {
+		int oldSoftScore = softScore;
+		softScore = newSoftScore;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.SCHEDULE__SOFT_SCORE, oldSoftScore, softScore));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -326,6 +410,10 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 			case SimulationPackage.SCHEDULE__CURRENT_DAY:
 				if (resolve) return getCurrentDay();
 				return basicGetCurrentDay();
+			case SimulationPackage.SCHEDULE__HARD_SCORE:
+				return getHardScore();
+			case SimulationPackage.SCHEDULE__SOFT_SCORE:
+				return getSoftScore();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -359,6 +447,12 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 			case SimulationPackage.SCHEDULE__CURRENT_DAY:
 				setCurrentDay((Day)newValue);
 				return;
+			case SimulationPackage.SCHEDULE__HARD_SCORE:
+				setHardScore((Integer)newValue);
+				return;
+			case SimulationPackage.SCHEDULE__SOFT_SCORE:
+				setSoftScore((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -389,6 +483,12 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 			case SimulationPackage.SCHEDULE__CURRENT_DAY:
 				setCurrentDay((Day)null);
 				return;
+			case SimulationPackage.SCHEDULE__HARD_SCORE:
+				setHardScore(HARD_SCORE_EDEFAULT);
+				return;
+			case SimulationPackage.SCHEDULE__SOFT_SCORE:
+				setSoftScore(SOFT_SCORE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -413,6 +513,10 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 				return allocations != null && !allocations.isEmpty();
 			case SimulationPackage.SCHEDULE__CURRENT_DAY:
 				return currentDay != null;
+			case SimulationPackage.SCHEDULE__HARD_SCORE:
+				return hardScore != HARD_SCORE_EDEFAULT;
+			case SimulationPackage.SCHEDULE__SOFT_SCORE:
+				return softScore != SOFT_SCORE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -429,6 +533,10 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (solverSearchSecondsSpentLimit: ");
 		result.append(solverSearchSecondsSpentLimit);
+		result.append(", hardScore: ");
+		result.append(hardScore);
+		result.append(", softScore: ");
+		result.append(softScore);
 		result.append(')');
 		return result.toString();
 	}

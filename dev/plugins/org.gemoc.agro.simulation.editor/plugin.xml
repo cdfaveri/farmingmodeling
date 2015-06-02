@@ -50,7 +50,7 @@
                class="org.gemoc.agro.simulation.editor.popup.actions.ComputePlanner"
                enablesFor="1"
                id="org.gemoc.agro.simulation.editor.newAction"
-               label="Compute Plan"
+               label="Compute Schedule"
                menubarPath="org.gemoc.agro.simulation.editor.menu1/group1">
          </action>
       </objectContribution>

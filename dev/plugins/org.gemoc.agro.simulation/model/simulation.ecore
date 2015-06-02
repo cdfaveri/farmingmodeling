@@ -13,6 +13,8 @@
         eType="#//ResourceAllocation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="currentDay" eType="#//Day"
         transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hardScore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="softScore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ActivityWork">
     <eStructuralFeatures xsi:type="ecore:EReference" name="activity" lowerBound="1"

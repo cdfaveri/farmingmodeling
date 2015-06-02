@@ -20,6 +20,8 @@ import org.gemoc.agro.exploitation.Exploitation;
  *   <li>{@link org.gemoc.agro.simulation.Schedule#getSolverSearchSecondsSpentLimit <em>Solver Search Seconds Spent Limit</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Schedule#getAllocations <em>Allocations</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Schedule#getCurrentDay <em>Current Day</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.Schedule#getHardScore <em>Hard Score</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.Schedule#getSoftScore <em>Soft Score</em>}</li>
  * </ul>
  * </p>
  *
@@ -164,5 +166,57 @@ public interface Schedule extends EObject  {
 	 * @generated
 	 */
 	void setCurrentDay(Day value);
+
+	/**
+	 * Returns the value of the '<em><b>Hard Score</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Hard Score</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Hard Score</em>' attribute.
+	 * @see #setHardScore(int)
+	 * @see org.gemoc.agro.simulation.SimulationPackage#getSchedule_HardScore()
+	 * @model
+	 * @generated
+	 */
+	int getHardScore();
+
+	/**
+	 * Sets the value of the '{@link org.gemoc.agro.simulation.Schedule#getHardScore <em>Hard Score</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Hard Score</em>' attribute.
+	 * @see #getHardScore()
+	 * @generated
+	 */
+	void setHardScore(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Soft Score</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Soft Score</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Soft Score</em>' attribute.
+	 * @see #setSoftScore(int)
+	 * @see org.gemoc.agro.simulation.SimulationPackage#getSchedule_SoftScore()
+	 * @model
+	 * @generated
+	 */
+	int getSoftScore();
+
+	/**
+	 * Sets the value of the '{@link org.gemoc.agro.simulation.Schedule#getSoftScore <em>Soft Score</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Soft Score</em>' attribute.
+	 * @see #getSoftScore()
+	 * @generated
+	 */
+	void setSoftScore(int value);
 
 } // Schedule

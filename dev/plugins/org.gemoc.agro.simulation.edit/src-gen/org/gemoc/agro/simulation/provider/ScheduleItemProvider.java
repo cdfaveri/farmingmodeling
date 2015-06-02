@@ -62,6 +62,8 @@ public class ScheduleItemProvider
 			addClimateDataPropertyDescriptor(object);
 			addSolverSearchSecondsSpentLimitPropertyDescriptor(object);
 			addCurrentDayPropertyDescriptor(object);
+			addHardScorePropertyDescriptor(object);
+			addSoftScorePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -155,6 +157,50 @@ public class ScheduleItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Hard Score feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addHardScorePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Schedule_hardScore_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Schedule_hardScore_feature", "_UI_Schedule_type"),
+				 SimulationPackage.Literals.SCHEDULE__HARD_SCORE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Soft Score feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSoftScorePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Schedule_softScore_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Schedule_softScore_feature", "_UI_Schedule_type"),
+				 SimulationPackage.Literals.SCHEDULE__SOFT_SCORE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -222,6 +268,8 @@ public class ScheduleItemProvider
 
 		switch (notification.getFeatureID(Schedule.class)) {
 			case SimulationPackage.SCHEDULE__SOLVER_SEARCH_SECONDS_SPENT_LIMIT:
+			case SimulationPackage.SCHEDULE__HARD_SCORE:
+			case SimulationPackage.SCHEDULE__SOFT_SCORE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SimulationPackage.SCHEDULE__WORK_TO_DO:

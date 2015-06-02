@@ -21,6 +21,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Schedule/solverSearchSecondsSpentLimit"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simulation.ecore#//Schedule/allocations"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//Schedule/currentDay"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Schedule/hardScore"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Schedule/softScore"/>
     </genClasses>
     <genClasses ecoreClass="simulation.ecore#//ActivityWork">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//ActivityWork/activity"/>

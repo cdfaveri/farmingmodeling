@@ -48,19 +48,26 @@
           </conditionnalStyles>
         </nodeMappings>
         <nodeMappings name="Schedule" semanticCandidatesExpression="[self.eInverse(simulation::Schedule)/]" doubleClickDescription="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@toolSections.0/@ownedTools[name='']" domainClass="simulation.Schedule">
-          <style xsi:type="style:GaugeCompositeStyleDescription" showIcon="false" labelExpression="['current day : ' +  self.currentDay.day + '  ' +self.currentDay.month /]" resizeKind="NSEW">
+          <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="No current date is set" resizeKind="NSEW">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <sections maxValueExpression="20" valueExpression="[self.currentDay.temperature->max().floor()/]" foregroundColor="//@userColorsPalettes[name='Agro%20Colors']/@entries[name='TemperatureRange']" label="T°">
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </sections>
-            <sections maxValueExpression="40" valueExpression="[self.currentDay.rain->max().floor()/]" foregroundColor="//@userColorsPalettes[name='Agro%20Colors']/@entries[name='RainRange']" label="mm">
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </sections>
-            <sections maxValueExpression="2000" valueExpression="[self.currentDay.rain->max().floor()/]" foregroundColor="//@userColorsPalettes[name='Agro%20Colors']/@entries[name='RayRange']" label="J/cm²">
-              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </sections>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
+          <conditionnalStyles predicateExpression="[not self.currentDay.oclIsUndefined()/]">
+            <style xsi:type="style:GaugeCompositeStyleDescription" showIcon="false" labelExpression="['current day : ' +  self.currentDay.day + '  ' +self.currentDay.month /]" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <sections maxValueExpression="20" valueExpression="[self.currentDay.temperature->max().floor()/]" foregroundColor="//@userColorsPalettes[name='Agro%20Colors']/@entries[name='TemperatureRange']" label="T°">
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </sections>
+              <sections maxValueExpression="40" valueExpression="[self.currentDay.rain->max().floor()/]" foregroundColor="//@userColorsPalettes[name='Agro%20Colors']/@entries[name='RainRange']" label="mm">
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </sections>
+              <sections maxValueExpression="2000" valueExpression="[self.currentDay.rain->max().floor()/]" foregroundColor="//@userColorsPalettes[name='Agro%20Colors']/@entries[name='RayRange']" label="J/cm²">
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </sections>
+            </style>
+          </conditionnalStyles>
         </nodeMappings>
         <edgeMappings name="WorkGroup to Culture" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='WorkGroup']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='From%20Xtext%20dsl']/@subNodeMappings[name='CultureNode']" targetFinderExpression="feature:cultures">
           <style sizeComputationExpression="1">
@@ -271,8 +278,24 @@
       <metamodel href="http://www.gemoc.org/agro/simulation#/"/>
       <metamodel href="http://www.gemoc.org/exploitation#/"/>
       <metamodel href="http://www.gemoc.org/agro/ActivitiesDSL#/"/>
-      <ownedLineMappings name="Day Line" domainClass="simulation.Day" headerLabelExpression="[self.month + ' ' + self.day /]"/>
+      <ownedLineMappings name="Day Line" domainClass="simulation.Day" headerLabelExpression="[self.month + ' ' + self.day /]">
+        <foregroundConditionalStyle predicateExpression="[self.eInverse(simulation::Schedule)->size() > 0/]">
+          <style>
+            <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+          </style>
+        </foregroundConditionalStyle>
+        <backgroundConditionalStyle predicateExpression="[self.eInverse(simulation::Schedule)->size() > 0/]">
+          <style>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </backgroundConditionalStyle>
+      </ownedLineMappings>
       <ownedColumnMappings name="Rain column" headerLabelExpression="Rain (mm)" featureName="rain" labelExpression="[self.rain/]">
+        <foregroundConditionalStyle predicateExpression="[self.eInverse(simulation::Schedule)->size() > 0/]">
+          <style>
+            <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+          </style>
+        </foregroundConditionalStyle>
         <defaultBackground backgroundColor="//@userColorsPalettes[name='Agro%20Colors']/@entries[name='RainRange']"/>
       </ownedColumnMappings>
       <ownedColumnMappings name="Temp column" headerLabelExpression="Temperature (°C)" featureName="temperature" labelExpression="[self.temperature/]">
@@ -301,6 +324,12 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </defaultStyle>
+            <conditionalStyles predicateExpression="[self.schedulingFeedback->size() > 0/]">
+              <style labelExpression="[self.activity.eContainer(Culture).name + ' ' + self.activity.name + ' scheduled on ' + self.scheduledOn.day + '/' + self.scheduledOn.month/]">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </style>
+            </conditionalStyles>
             <subItemMappings name="Day" domainClass="Day" semanticCandidatesExpression="feature:scheduledOn">
               <defaultStyle labelExpression="[self.day + ' ' + self.month/]">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>

@@ -208,6 +208,24 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSchedule_HardScore() {
+		return (EAttribute)scheduleEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSchedule_SoftScore() {
+		return (EAttribute)scheduleEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getActivityWork() {
 		return activityWorkEClass;
 	}
@@ -445,6 +463,8 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 		createEAttribute(scheduleEClass, SCHEDULE__SOLVER_SEARCH_SECONDS_SPENT_LIMIT);
 		createEReference(scheduleEClass, SCHEDULE__ALLOCATIONS);
 		createEReference(scheduleEClass, SCHEDULE__CURRENT_DAY);
+		createEAttribute(scheduleEClass, SCHEDULE__HARD_SCORE);
+		createEAttribute(scheduleEClass, SCHEDULE__SOFT_SCORE);
 
 		activityWorkEClass = createEClass(ACTIVITY_WORK);
 		createEReference(activityWorkEClass, ACTIVITY_WORK__ACTIVITY);
@@ -518,6 +538,8 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 		initEAttribute(getSchedule_SolverSearchSecondsSpentLimit(), ecorePackage.getEInt(), "solverSearchSecondsSpentLimit", "5", 0, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchedule_Allocations(), this.getResourceAllocation(), null, "allocations", null, 0, -1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchedule_CurrentDay(), this.getDay(), null, "currentDay", null, 0, 1, Schedule.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSchedule_HardScore(), ecorePackage.getEInt(), "hardScore", null, 0, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSchedule_SoftScore(), ecorePackage.getEInt(), "softScore", null, 0, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(activityWorkEClass, ActivityWork.class, "ActivityWork", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActivityWork_Activity(), theActivitiesDSLPackage.getExploitationActivity(), null, "activity", null, 1, 1, ActivityWork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

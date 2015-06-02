@@ -24,8 +24,6 @@ public class SimulationSolution implements Solution<HardSoftScore>,
 
 	private Schedule sim;
 
-	private HardSoftScore score;
-
 	public SimulationSolution(Schedule sim) {
 		this.sim = sim;
 	}
@@ -37,32 +35,34 @@ public class SimulationSolution implements Solution<HardSoftScore>,
 
 	@PlanningEntityCollectionProperty
 	public List<ActivityWork> getWorkToSchedule() {
-		return ImmutableList.copyOf(sim.getWorkToDo());
+		return sim.getWorkToDo();
 	}
-	
+
 	@PlanningEntityCollectionProperty
 	public List<ResourceAllocation> getResourcesToAllocate() {
-		return ImmutableList.copyOf(sim.getAllocations());
+		return sim.getAllocations();
 	}
 
 	@ValueRangeProvider(id = "days")
 	public List<Day> getDays() {
-		return ImmutableList.copyOf(sim.getClimateData().getDays());
+		return sim.getClimateData().getDays();
 	}
-	
+
 	@ValueRangeProvider(id = "resources")
 	public List<Resource> getResources() {
-		return ImmutableList.copyOf(sim.getExploitation().getResources());
+		return sim.getExploitation().getResources();
 	}
 
 	@Override
 	public HardSoftScore getScore() {
-		return score;
+		return HardSoftScore.valueOf(this.sim.getHardScore(),
+				this.sim.getSoftScore());
 	}
 
 	@Override
 	public void setScore(HardSoftScore arg0) {
-		this.score = arg0;
+		this.sim.setHardScore(arg0.getHardScore());
+		this.sim.setSoftScore(arg0.getSoftScore());
 	}
 
 	public Schedule getSimulation() {
@@ -71,11 +71,9 @@ public class SimulationSolution implements Solution<HardSoftScore>,
 
 	@Override
 	public SimulationSolution planningClone() {
-		Schedule copy = EcoreUtil.copy(this.sim);		
+		Schedule copy = EcoreUtil.copy(this.sim);
+		EcoreUtil.resolveAll(copy);
 		SimulationSolution clone = new SimulationSolution(copy);
-		if (this.score != null)
-			clone.setScore(HardSoftScore.valueOf(this.score.getHardScore(),
-					this.score.getSoftScore()));
 		return clone;
 	}
 }

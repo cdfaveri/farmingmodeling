@@ -122,13 +122,31 @@ public interface SimulationPackage extends EPackage {
 	int SCHEDULE__CURRENT_DAY = 5;
 
 	/**
+	 * The feature id for the '<em><b>Hard Score</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE__HARD_SCORE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Soft Score</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEDULE__SOFT_SCORE = 7;
+
+	/**
 	 * The number of structural features of the '<em>Schedule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEDULE_FEATURE_COUNT = 6;
+	int SCHEDULE_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Schedule</em>' class.
@@ -520,6 +538,28 @@ public interface SimulationPackage extends EPackage {
 	EReference getSchedule_CurrentDay();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.gemoc.agro.simulation.Schedule#getHardScore <em>Hard Score</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Hard Score</em>'.
+	 * @see org.gemoc.agro.simulation.Schedule#getHardScore()
+	 * @see #getSchedule()
+	 * @generated
+	 */
+	EAttribute getSchedule_HardScore();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.gemoc.agro.simulation.Schedule#getSoftScore <em>Soft Score</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Soft Score</em>'.
+	 * @see org.gemoc.agro.simulation.Schedule#getSoftScore()
+	 * @see #getSchedule()
+	 * @generated
+	 */
+	EAttribute getSchedule_SoftScore();
+
+	/**
 	 * Returns the meta object for class '{@link org.gemoc.agro.simulation.ActivityWork <em>Activity Work</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -846,6 +886,22 @@ public interface SimulationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SCHEDULE__CURRENT_DAY = eINSTANCE.getSchedule_CurrentDay();
+
+		/**
+		 * The meta object literal for the '<em><b>Hard Score</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCHEDULE__HARD_SCORE = eINSTANCE.getSchedule_HardScore();
+
+		/**
+		 * The meta object literal for the '<em><b>Soft Score</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCHEDULE__SOFT_SCORE = eINSTANCE.getSchedule_SoftScore();
 
 		/**
 		 * The meta object literal for the '{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl <em>Activity Work</em>}' class.
