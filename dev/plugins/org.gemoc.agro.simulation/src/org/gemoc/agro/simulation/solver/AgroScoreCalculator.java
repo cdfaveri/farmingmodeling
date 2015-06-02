@@ -82,14 +82,22 @@ public class AgroScoreCalculator implements
 		}
 
 		Multimap<Day, Resource> dayToResource = HashMultimap.create();
+		Set<Day> daysUsed = Sets.newLinkedHashSet();
 		for (ResourceAllocation alloc : solution.getSimulation()
 				.getAllocations()) {
 			if (alloc.getResource() != null && alloc.getWork() != null
 					&& alloc.getWork().getScheduledOn() != null) {
 				dayToResource.put(alloc.getWork().getScheduledOn(),
 						alloc.getResource());
+				daysUsed.add(alloc.getWork().getScheduledOn());
 			}
 		}
+		
+		/*
+		 * the more different days we use, the better
+		 */
+		softScore += daysUsed.size() * 10;
+		
 		/*
 		 * Constraint : a given resource can only be used for a given activity
 		 * on a given day.
@@ -101,8 +109,8 @@ public class AgroScoreCalculator implements
 			int delta = allResourcesForThisDay.size() - uniqueResources.size();
 			if (delta > 0) {
 				hardScore += mediumPenalty(delta);
+				System.out.println("Several uses of the same resource for the same day.");
 			}
-
 		}
 
 		for (ResourceAllocation alloc : solution.getSimulation()
