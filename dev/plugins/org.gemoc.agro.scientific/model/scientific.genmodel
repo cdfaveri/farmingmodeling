@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.gemoc.agro.scientific/src-gen" editDirectory="/org.gemoc.agro.scientific.edit/src-gen"
+    editorDirectory="/org.gemoc.agro.scientific.editor/src-gen" modelPluginID="org.gemoc.agro.scientific"
+    modelName="Scientific" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="../../org.gemoc.agro.activities/model/generated/ActivitiesDSL.genmodel#//activitiesDSL ../../org.gemoc.agro.exploitation/model/exploitation.genmodel#//exploitation"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>scientific.ecore</foreignModel>
+  <genPackages prefix="Scientific" basePackage="org.gemoc.agro" disposableProviderFactory="true"
+      ecorePackage="scientific.ecore#/">
+    <genClasses ecoreClass="scientific.ecore#//SurfaceData">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scientific.ecore#//SurfaceData/hydroDeficit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scientific.ecore#//SurfaceData/extraWater"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scientific.ecore#//SurfaceData/surface"/>
+    </genClasses>
+    <genClasses ecoreClass="scientific.ecore#//BiomassModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scientific.ecore#//BiomassModel/Eb"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scientific.ecore#//BiomassModel/Eimax"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scientific.ecore#//BiomassModel/K"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scientific.ecore#//BiomassModel/Lmax"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scientific.ecore#//BiomassModel/TI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scientific.ecore#//BiomassModel/A"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute scientific.ecore#//BiomassModel/B"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scientific.ecore#//BiomassModel/activity"/>
+    </genClasses>
+    <genClasses ecoreClass="scientific.ecore#//ExploitationAnalysis">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scientific.ecore#//ExploitationAnalysis/biomassModels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference scientific.ecore#//ExploitationAnalysis/surfaceDatas"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference scientific.ecore#//ExploitationAnalysis/exploitation"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

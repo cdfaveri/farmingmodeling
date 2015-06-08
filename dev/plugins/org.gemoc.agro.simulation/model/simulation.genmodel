@@ -4,9 +4,8 @@
     editorDirectory="/org.gemoc.agro.simulation.editor/src-gen" modelPluginID="org.gemoc.agro.simulation"
     modelName="Simulation" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    usedGenPackages="../../org.gemoc.agro.activities/model/generated/ActivitiesDSL.genmodel#//activitiesDSL ../../org.gemoc.agro.exploitation/model/exploitation.genmodel#//exploitation"
+    usedGenPackages="platform:/plugin/org.gemoc.agro.activities/model/generated/ActivitiesDSL.genmodel#//activitiesDSL platform:/plugin/org.gemoc.agro.exploitation/model/exploitation.genmodel#//exploitation"
     operationReflection="true" importOrganizing="true">
-  <foreignModel>simulation.ecore</foreignModel>
   <genPackages prefix="Simulation" basePackage="org.gemoc.agro" disposableProviderFactory="true"
       ecorePackage="simulation.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="simulation.ecore#//FeedbackLevel">
