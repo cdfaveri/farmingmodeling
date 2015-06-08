@@ -203,7 +203,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.computeSchedule()"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:OperationAction" name="Compute Water Analysis" precondition="[self.oclIsKindOf(ExploitationAnalysis)/]">
+          <ownedTools xsi:type="tool_1:OperationAction" name="Compute Irrigation Analysis" precondition="[self.oclIsKindOf(ExploitationAnalysis)/]">
             <view name="views"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.computeWaterAnalysis()"/>

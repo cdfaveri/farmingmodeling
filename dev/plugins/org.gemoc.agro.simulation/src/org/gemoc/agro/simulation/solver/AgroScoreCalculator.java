@@ -96,7 +96,7 @@ public class AgroScoreCalculator implements
 		/*
 		 * the more different days we use, the better
 		 */
-		softScore += daysUsed.size() * 10;
+		softScore += daysUsed.size() * 100;
 		
 		/*
 		 * Constraint : a given resource can only be used for a given activity
@@ -279,7 +279,7 @@ public class AgroScoreCalculator implements
 									} else if (delayConstraint.getDays() != 0
 											&& nbDaysInBetween < delayConstraint
 													.getDays()) {
-										hardScore += mediumPenalty(nbDaysInBetween);
+										hardScore += mediumPenalty(nbDaysInBetween*5);
 										work.getSchedulingFeedback()
 												.add(createFeedback(
 														FeedbackLevel.ERROR,
