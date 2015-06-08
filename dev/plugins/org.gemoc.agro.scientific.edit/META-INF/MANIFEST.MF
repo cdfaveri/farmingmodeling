@@ -15,5 +15,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.gemoc.agro.activities;visibility:=reexport,
  org.gemoc.agro.activities.edit;visibility:=reexport,
  org.gemoc.agro.exploitation;visibility:=reexport,
- org.gemoc.agro.exploitation.edit;visibility:=reexport
+ org.gemoc.agro.exploitation.edit;visibility:=reexport,
+ org.gemoc.agro.simulation;visibility:=reexport,
+ org.gemoc.agro.simulation.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

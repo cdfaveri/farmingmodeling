@@ -14,6 +14,7 @@ import org.gemoc.agro.exploitation.Surface;
 
 import org.gemoc.agro.scientific.ScientificPackage;
 import org.gemoc.agro.scientific.SurfaceData;
+import org.gemoc.agro.simulation.Day;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +26,7 @@ import org.gemoc.agro.scientific.SurfaceData;
  *   <li>{@link org.gemoc.agro.scientific.impl.SurfaceDataImpl#getHydroDeficit <em>Hydro Deficit</em>}</li>
  *   <li>{@link org.gemoc.agro.scientific.impl.SurfaceDataImpl#getExtraWater <em>Extra Water</em>}</li>
  *   <li>{@link org.gemoc.agro.scientific.impl.SurfaceDataImpl#getSurface <em>Surface</em>}</li>
+ *   <li>{@link org.gemoc.agro.scientific.impl.SurfaceDataImpl#getDay <em>Day</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,6 +82,16 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	 * @ordered
 	 */
 	protected Surface surface;
+
+	/**
+	 * The cached value of the '{@link #getDay() <em>Day</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDay()
+	 * @generated
+	 * @ordered
+	 */
+	protected Day day;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -185,6 +197,44 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Day getDay() {
+		if (day != null && day.eIsProxy()) {
+			InternalEObject oldDay = (InternalEObject)day;
+			day = (Day)eResolveProxy(oldDay);
+			if (day != oldDay) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ScientificPackage.SURFACE_DATA__DAY, oldDay, day));
+			}
+		}
+		return day;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Day basicGetDay() {
+		return day;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDay(Day newDay) {
+		Day oldDay = day;
+		day = newDay;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ScientificPackage.SURFACE_DATA__DAY, oldDay, day));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -195,6 +245,9 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 			case ScientificPackage.SURFACE_DATA__SURFACE:
 				if (resolve) return getSurface();
 				return basicGetSurface();
+			case ScientificPackage.SURFACE_DATA__DAY:
+				if (resolve) return getDay();
+				return basicGetDay();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -215,6 +268,9 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 				return;
 			case ScientificPackage.SURFACE_DATA__SURFACE:
 				setSurface((Surface)newValue);
+				return;
+			case ScientificPackage.SURFACE_DATA__DAY:
+				setDay((Day)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -237,6 +293,9 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 			case ScientificPackage.SURFACE_DATA__SURFACE:
 				setSurface((Surface)null);
 				return;
+			case ScientificPackage.SURFACE_DATA__DAY:
+				setDay((Day)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -255,6 +314,8 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 				return extraWater != EXTRA_WATER_EDEFAULT;
 			case ScientificPackage.SURFACE_DATA__SURFACE:
 				return surface != null;
+			case ScientificPackage.SURFACE_DATA__DAY:
+				return day != null;
 		}
 		return super.eIsSet(featureID);
 	}

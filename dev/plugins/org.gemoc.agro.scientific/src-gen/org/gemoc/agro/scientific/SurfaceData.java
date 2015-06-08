@@ -5,6 +5,7 @@ package org.gemoc.agro.scientific;
 import org.eclipse.emf.ecore.EObject;
 
 import org.gemoc.agro.exploitation.Surface;
+import org.gemoc.agro.simulation.Day;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,6 +18,7 @@ import org.gemoc.agro.exploitation.Surface;
  *   <li>{@link org.gemoc.agro.scientific.SurfaceData#getHydroDeficit <em>Hydro Deficit</em>}</li>
  *   <li>{@link org.gemoc.agro.scientific.SurfaceData#getExtraWater <em>Extra Water</em>}</li>
  *   <li>{@link org.gemoc.agro.scientific.SurfaceData#getSurface <em>Surface</em>}</li>
+ *   <li>{@link org.gemoc.agro.scientific.SurfaceData#getDay <em>Day</em>}</li>
  * </ul>
  * </p>
  *
@@ -102,5 +104,31 @@ public interface SurfaceData extends EObject {
 	 * @generated
 	 */
 	void setSurface(Surface value);
+
+	/**
+	 * Returns the value of the '<em><b>Day</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Day</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Day</em>' reference.
+	 * @see #setDay(Day)
+	 * @see org.gemoc.agro.scientific.ScientificPackage#getSurfaceData_Day()
+	 * @model
+	 * @generated
+	 */
+	Day getDay();
+
+	/**
+	 * Sets the value of the '{@link org.gemoc.agro.scientific.SurfaceData#getDay <em>Day</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Day</em>' reference.
+	 * @see #getDay()
+	 * @generated
+	 */
+	void setDay(Day value);
 
 } // SurfaceData

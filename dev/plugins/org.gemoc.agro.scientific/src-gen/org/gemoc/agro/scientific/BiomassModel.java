@@ -3,8 +3,7 @@
 package org.gemoc.agro.scientific;
 
 import org.eclipse.emf.ecore.EObject;
-
-import org.gemoc.agro.activitiesDSL.ExploitationActivity;
+import org.gemoc.agro.activitiesDSL.Culture;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +20,7 @@ import org.gemoc.agro.activitiesDSL.ExploitationActivity;
  *   <li>{@link org.gemoc.agro.scientific.BiomassModel#getTI <em>TI</em>}</li>
  *   <li>{@link org.gemoc.agro.scientific.BiomassModel#getA <em>A</em>}</li>
  *   <li>{@link org.gemoc.agro.scientific.BiomassModel#getB <em>B</em>}</li>
- *   <li>{@link org.gemoc.agro.scientific.BiomassModel#getActivity <em>Activity</em>}</li>
+ *   <li>{@link org.gemoc.agro.scientific.BiomassModel#getCulture <em>Culture</em>}</li>
  * </ul>
  * </p>
  *
@@ -213,29 +212,29 @@ public interface BiomassModel extends EObject {
 	void setB(float value);
 
 	/**
-	 * Returns the value of the '<em><b>Activity</b></em>' reference.
+	 * Returns the value of the '<em><b>Culture</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Activity</em>' reference isn't clear,
+	 * If the meaning of the '<em>Culture</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Activity</em>' reference.
-	 * @see #setActivity(ExploitationActivity)
-	 * @see org.gemoc.agro.scientific.ScientificPackage#getBiomassModel_Activity()
+	 * @return the value of the '<em>Culture</em>' reference.
+	 * @see #setCulture(Culture)
+	 * @see org.gemoc.agro.scientific.ScientificPackage#getBiomassModel_Culture()
 	 * @model
 	 * @generated
 	 */
-	ExploitationActivity getActivity();
+	Culture getCulture();
 
 	/**
-	 * Sets the value of the '{@link org.gemoc.agro.scientific.BiomassModel#getActivity <em>Activity</em>}' reference.
+	 * Sets the value of the '{@link org.gemoc.agro.scientific.BiomassModel#getCulture <em>Culture</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Activity</em>' reference.
-	 * @see #getActivity()
+	 * @param value the new value of the '<em>Culture</em>' reference.
+	 * @see #getCulture()
 	 * @generated
 	 */
-	void setActivity(ExploitationActivity value);
+	void setCulture(Culture value);
 
 } // BiomassModel

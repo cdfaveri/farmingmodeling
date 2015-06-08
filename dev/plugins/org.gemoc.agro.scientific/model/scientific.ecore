@@ -5,6 +5,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hydroDeficit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="extraWater" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="surface" eType="ecore:EClass ../../org.gemoc.agro.exploitation/model/exploitation.ecore#//Surface"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="day" eType="ecore:EClass ../../org.gemoc.agro.simulation/model/simulation.ecore#//Day"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BiomassModel">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Eb" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
@@ -14,13 +15,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="TI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="A" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="B" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="activity" eType="ecore:EClass ../../org.gemoc.agro.activities/model/generated/ActivitiesDSL.ecore#//ExploitationActivity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="culture" eType="ecore:EClass ../../org.gemoc.agro.activities/model/generated/ActivitiesDSL.ecore#//Culture"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExploitationAnalysis">
     <eStructuralFeatures xsi:type="ecore:EReference" name="biomassModels" lowerBound="1"
-        upperBound="-1" eType="#//BiomassModel"/>
+        upperBound="-1" eType="#//BiomassModel" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="surfaceDatas" upperBound="-1"
         eType="#//SurfaceData" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="exploitation" eType="ecore:EClass ../../org.gemoc.agro.exploitation/model/exploitation.ecore#//Exploitation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schedule" eType="ecore:EClass ../../org.gemoc.agro.simulation/model/simulation.ecore#//Schedule"/>
   </eClassifiers>
 </ecore:EPackage>

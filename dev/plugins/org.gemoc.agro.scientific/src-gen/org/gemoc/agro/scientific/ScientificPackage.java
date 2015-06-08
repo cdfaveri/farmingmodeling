@@ -94,13 +94,22 @@ public interface ScientificPackage extends EPackage {
 	int SURFACE_DATA__SURFACE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Day</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SURFACE_DATA__DAY = 3;
+
+	/**
 	 * The number of structural features of the '<em>Surface Data</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SURFACE_DATA_FEATURE_COUNT = 3;
+	int SURFACE_DATA_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Surface Data</em>' class.
@@ -185,13 +194,13 @@ public interface ScientificPackage extends EPackage {
 	int BIOMASS_MODEL__B = 6;
 
 	/**
-	 * The feature id for the '<em><b>Activity</b></em>' reference.
+	 * The feature id for the '<em><b>Culture</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BIOMASS_MODEL__ACTIVITY = 7;
+	int BIOMASS_MODEL__CULTURE = 7;
 
 	/**
 	 * The number of structural features of the '<em>Biomass Model</em>' class.
@@ -222,7 +231,7 @@ public interface ScientificPackage extends EPackage {
 	int EXPLOITATION_ANALYSIS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Biomass Models</b></em>' reference list.
+	 * The feature id for the '<em><b>Biomass Models</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -240,13 +249,13 @@ public interface ScientificPackage extends EPackage {
 	int EXPLOITATION_ANALYSIS__SURFACE_DATAS = 1;
 
 	/**
-	 * The feature id for the '<em><b>Exploitation</b></em>' reference.
+	 * The feature id for the '<em><b>Schedule</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPLOITATION_ANALYSIS__EXPLOITATION = 2;
+	int EXPLOITATION_ANALYSIS__SCHEDULE = 2;
 
 	/**
 	 * The number of structural features of the '<em>Exploitation Analysis</em>' class.
@@ -309,6 +318,17 @@ public interface ScientificPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSurfaceData_Surface();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.gemoc.agro.scientific.SurfaceData#getDay <em>Day</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Day</em>'.
+	 * @see org.gemoc.agro.scientific.SurfaceData#getDay()
+	 * @see #getSurfaceData()
+	 * @generated
+	 */
+	EReference getSurfaceData_Day();
 
 	/**
 	 * Returns the meta object for class '{@link org.gemoc.agro.scientific.BiomassModel <em>Biomass Model</em>}'.
@@ -398,15 +418,15 @@ public interface ScientificPackage extends EPackage {
 	EAttribute getBiomassModel_B();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.gemoc.agro.scientific.BiomassModel#getActivity <em>Activity</em>}'.
+	 * Returns the meta object for the reference '{@link org.gemoc.agro.scientific.BiomassModel#getCulture <em>Culture</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Activity</em>'.
-	 * @see org.gemoc.agro.scientific.BiomassModel#getActivity()
+	 * @return the meta object for the reference '<em>Culture</em>'.
+	 * @see org.gemoc.agro.scientific.BiomassModel#getCulture()
 	 * @see #getBiomassModel()
 	 * @generated
 	 */
-	EReference getBiomassModel_Activity();
+	EReference getBiomassModel_Culture();
 
 	/**
 	 * Returns the meta object for class '{@link org.gemoc.agro.scientific.ExploitationAnalysis <em>Exploitation Analysis</em>}'.
@@ -419,10 +439,10 @@ public interface ScientificPackage extends EPackage {
 	EClass getExploitationAnalysis();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.gemoc.agro.scientific.ExploitationAnalysis#getBiomassModels <em>Biomass Models</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.gemoc.agro.scientific.ExploitationAnalysis#getBiomassModels <em>Biomass Models</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Biomass Models</em>'.
+	 * @return the meta object for the containment reference list '<em>Biomass Models</em>'.
 	 * @see org.gemoc.agro.scientific.ExploitationAnalysis#getBiomassModels()
 	 * @see #getExploitationAnalysis()
 	 * @generated
@@ -441,15 +461,15 @@ public interface ScientificPackage extends EPackage {
 	EReference getExploitationAnalysis_SurfaceDatas();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.gemoc.agro.scientific.ExploitationAnalysis#getExploitation <em>Exploitation</em>}'.
+	 * Returns the meta object for the reference '{@link org.gemoc.agro.scientific.ExploitationAnalysis#getSchedule <em>Schedule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Exploitation</em>'.
-	 * @see org.gemoc.agro.scientific.ExploitationAnalysis#getExploitation()
+	 * @return the meta object for the reference '<em>Schedule</em>'.
+	 * @see org.gemoc.agro.scientific.ExploitationAnalysis#getSchedule()
 	 * @see #getExploitationAnalysis()
 	 * @generated
 	 */
-	EReference getExploitationAnalysis_Exploitation();
+	EReference getExploitationAnalysis_Schedule();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -507,6 +527,14 @@ public interface ScientificPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SURFACE_DATA__SURFACE = eINSTANCE.getSurfaceData_Surface();
+
+		/**
+		 * The meta object literal for the '<em><b>Day</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SURFACE_DATA__DAY = eINSTANCE.getSurfaceData_Day();
 
 		/**
 		 * The meta object literal for the '{@link org.gemoc.agro.scientific.impl.BiomassModelImpl <em>Biomass Model</em>}' class.
@@ -575,12 +603,12 @@ public interface ScientificPackage extends EPackage {
 		EAttribute BIOMASS_MODEL__B = eINSTANCE.getBiomassModel_B();
 
 		/**
-		 * The meta object literal for the '<em><b>Activity</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Culture</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BIOMASS_MODEL__ACTIVITY = eINSTANCE.getBiomassModel_Activity();
+		EReference BIOMASS_MODEL__CULTURE = eINSTANCE.getBiomassModel_Culture();
 
 		/**
 		 * The meta object literal for the '{@link org.gemoc.agro.scientific.impl.ExploitationAnalysisImpl <em>Exploitation Analysis</em>}' class.
@@ -593,7 +621,7 @@ public interface ScientificPackage extends EPackage {
 		EClass EXPLOITATION_ANALYSIS = eINSTANCE.getExploitationAnalysis();
 
 		/**
-		 * The meta object literal for the '<em><b>Biomass Models</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Biomass Models</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -609,12 +637,12 @@ public interface ScientificPackage extends EPackage {
 		EReference EXPLOITATION_ANALYSIS__SURFACE_DATAS = eINSTANCE.getExploitationAnalysis_SurfaceDatas();
 
 		/**
-		 * The meta object literal for the '<em><b>Exploitation</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Schedule</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EXPLOITATION_ANALYSIS__EXPLOITATION = eINSTANCE.getExploitationAnalysis_Exploitation();
+		EReference EXPLOITATION_ANALYSIS__SCHEDULE = eINSTANCE.getExploitationAnalysis_Schedule();
 
 	}
 

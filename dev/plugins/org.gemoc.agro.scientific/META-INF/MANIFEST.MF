@@ -13,5 +13,6 @@ Export-Package: org.gemoc.agro.scientific,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.gemoc.agro.activities;visibility:=reexport,
- org.gemoc.agro.exploitation;visibility:=reexport
+ org.gemoc.agro.exploitation;visibility:=reexport,
+ org.gemoc.agro.simulation;visibility:=reexport
 Bundle-ActivationPolicy: lazy

@@ -9,6 +9,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.gemoc.agro.activitiesDSL.provider.ActivitiesDSLEditPlugin;
 
 import org.gemoc.agro.exploitation.provider.ExploitationEditPlugin;
+import org.gemoc.agro.simulation.provider.SimulationEditPlugin;
 
 /**
  * This is the central singleton for the Scientific edit plugin.
@@ -44,6 +45,7 @@ public final class ScientificEditPlugin extends EMFPlugin {
 		  (new ResourceLocator [] {
 		     ActivitiesDSLEditPlugin.INSTANCE,
 		     ExploitationEditPlugin.INSTANCE,
+		     SimulationEditPlugin.INSTANCE,
 		   });
 	}
 

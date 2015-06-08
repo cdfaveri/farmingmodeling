@@ -18,6 +18,7 @@ import org.gemoc.agro.scientific.ExploitationAnalysis;
 import org.gemoc.agro.scientific.ScientificFactory;
 import org.gemoc.agro.scientific.ScientificPackage;
 import org.gemoc.agro.scientific.SurfaceData;
+import org.gemoc.agro.simulation.SimulationPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -94,7 +95,7 @@ public class ScientificPackageImpl extends EPackageImpl implements ScientificPac
 		isInited = true;
 
 		// Initialize simple dependencies
-		ExploitationPackage.eINSTANCE.eClass();
+		SimulationPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theScientificPackage.createPackageContents();
@@ -145,6 +146,15 @@ public class ScientificPackageImpl extends EPackageImpl implements ScientificPac
 	 */
 	public EReference getSurfaceData_Surface() {
 		return (EReference)surfaceDataEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSurfaceData_Day() {
+		return (EReference)surfaceDataEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -224,7 +234,7 @@ public class ScientificPackageImpl extends EPackageImpl implements ScientificPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBiomassModel_Activity() {
+	public EReference getBiomassModel_Culture() {
 		return (EReference)biomassModelEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -260,7 +270,7 @@ public class ScientificPackageImpl extends EPackageImpl implements ScientificPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExploitationAnalysis_Exploitation() {
+	public EReference getExploitationAnalysis_Schedule() {
 		return (EReference)exploitationAnalysisEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -296,6 +306,7 @@ public class ScientificPackageImpl extends EPackageImpl implements ScientificPac
 		createEAttribute(surfaceDataEClass, SURFACE_DATA__HYDRO_DEFICIT);
 		createEAttribute(surfaceDataEClass, SURFACE_DATA__EXTRA_WATER);
 		createEReference(surfaceDataEClass, SURFACE_DATA__SURFACE);
+		createEReference(surfaceDataEClass, SURFACE_DATA__DAY);
 
 		biomassModelEClass = createEClass(BIOMASS_MODEL);
 		createEAttribute(biomassModelEClass, BIOMASS_MODEL__EB);
@@ -305,12 +316,12 @@ public class ScientificPackageImpl extends EPackageImpl implements ScientificPac
 		createEAttribute(biomassModelEClass, BIOMASS_MODEL__TI);
 		createEAttribute(biomassModelEClass, BIOMASS_MODEL__A);
 		createEAttribute(biomassModelEClass, BIOMASS_MODEL__B);
-		createEReference(biomassModelEClass, BIOMASS_MODEL__ACTIVITY);
+		createEReference(biomassModelEClass, BIOMASS_MODEL__CULTURE);
 
 		exploitationAnalysisEClass = createEClass(EXPLOITATION_ANALYSIS);
 		createEReference(exploitationAnalysisEClass, EXPLOITATION_ANALYSIS__BIOMASS_MODELS);
 		createEReference(exploitationAnalysisEClass, EXPLOITATION_ANALYSIS__SURFACE_DATAS);
-		createEReference(exploitationAnalysisEClass, EXPLOITATION_ANALYSIS__EXPLOITATION);
+		createEReference(exploitationAnalysisEClass, EXPLOITATION_ANALYSIS__SCHEDULE);
 	}
 
 	/**
@@ -338,6 +349,7 @@ public class ScientificPackageImpl extends EPackageImpl implements ScientificPac
 
 		// Obtain other dependent packages
 		ExploitationPackage theExploitationPackage = (ExploitationPackage)EPackage.Registry.INSTANCE.getEPackage(ExploitationPackage.eNS_URI);
+		SimulationPackage theSimulationPackage = (SimulationPackage)EPackage.Registry.INSTANCE.getEPackage(SimulationPackage.eNS_URI);
 		ActivitiesDSLPackage theActivitiesDSLPackage = (ActivitiesDSLPackage)EPackage.Registry.INSTANCE.getEPackage(ActivitiesDSLPackage.eNS_URI);
 
 		// Create type parameters
@@ -351,6 +363,7 @@ public class ScientificPackageImpl extends EPackageImpl implements ScientificPac
 		initEAttribute(getSurfaceData_HydroDeficit(), ecorePackage.getEFloat(), "hydroDeficit", null, 0, 1, SurfaceData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSurfaceData_ExtraWater(), ecorePackage.getEFloat(), "extraWater", null, 0, 1, SurfaceData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSurfaceData_Surface(), theExploitationPackage.getSurface(), null, "surface", null, 0, 1, SurfaceData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSurfaceData_Day(), theSimulationPackage.getDay(), null, "day", null, 0, 1, SurfaceData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(biomassModelEClass, BiomassModel.class, "BiomassModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBiomassModel_Eb(), ecorePackage.getEFloat(), "Eb", null, 0, 1, BiomassModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -360,12 +373,12 @@ public class ScientificPackageImpl extends EPackageImpl implements ScientificPac
 		initEAttribute(getBiomassModel_TI(), ecorePackage.getEFloat(), "TI", null, 0, 1, BiomassModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBiomassModel_A(), ecorePackage.getEFloat(), "A", null, 0, 1, BiomassModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBiomassModel_B(), ecorePackage.getEFloat(), "B", null, 0, 1, BiomassModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBiomassModel_Activity(), theActivitiesDSLPackage.getExploitationActivity(), null, "activity", null, 0, 1, BiomassModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBiomassModel_Culture(), theActivitiesDSLPackage.getCulture(), null, "culture", null, 0, 1, BiomassModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(exploitationAnalysisEClass, ExploitationAnalysis.class, "ExploitationAnalysis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getExploitationAnalysis_BiomassModels(), this.getBiomassModel(), null, "biomassModels", null, 1, -1, ExploitationAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExploitationAnalysis_BiomassModels(), this.getBiomassModel(), null, "biomassModels", null, 1, -1, ExploitationAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getExploitationAnalysis_SurfaceDatas(), this.getSurfaceData(), null, "surfaceDatas", null, 0, -1, ExploitationAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getExploitationAnalysis_Exploitation(), theExploitationPackage.getExploitation(), null, "exploitation", null, 0, 1, ExploitationAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExploitationAnalysis_Schedule(), theSimulationPackage.getSchedule(), null, "schedule", null, 0, 1, ExploitationAnalysis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

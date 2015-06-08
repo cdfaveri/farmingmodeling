@@ -33,5 +33,28 @@
             contributorClass="org.gemoc.agro.scientific.presentation.ScientificActionBarContributor">
       </editor>
    </extension>
+   
+    <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="org.gemoc.agro.scientific.editor.contribution1"
+            objectClass="org.gemoc.agro.scientific.ExploitationAnalysis">
+         <menu
+               id="org.gemoc.agro.scientific.editor.menu1"
+               label="Resources Analyzer"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="org.gemoc.agro.scientific.editor.popup.actions.ComputeAnalysis"
+               enablesFor="1"
+               id="org.gemoc.agro.scientific.editor.newAction"
+               label="Biomass and irrigation analysis"
+               menubarPath="org.gemoc.agro.scientific.editor.menu1/group1">
+         </action>
+      </objectContribution>
+   </extension>
 
 </plugin>

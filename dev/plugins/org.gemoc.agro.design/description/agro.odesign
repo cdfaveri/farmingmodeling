@@ -258,6 +258,19 @@
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
+            <ownedTools xsi:type="tool:EdgeCreationDescription" name="Assign Culture" edgeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@edgeMappings[name='WorkGroup%20to%20Culture']">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                  <subModelOperations xsi:type="tool_1:Unset" featureName="cultures" elementExpression="feature:cultures">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="cultures" valueExpression="var:target"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
           </subSections>
         </toolSections>
       </defaultLayer>
@@ -397,6 +410,13 @@
           </subItemMappings>
         </subItemMappings>
       </subItemMappings>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Biomass" domainClass="scientific.ExploitationAnalysis">
+      <ownedLineMappings name="Biomass Surface" domainClass="exploitation.Surface" semanticCandidatesExpression="[self.surfaceDatas.surface->asOrderedSet()/]">
+        <ownedSubLines name="Surface Data" domainClass="scientific.SurfaceData" semanticCandidatesExpression="[self.eInverse(scientific::SurfaceData)/]"/>
+      </ownedLineMappings>
+      <ownedColumnMappings name="extra water" headerLabelExpression="Extra Water" featureName="extraWater" labelExpression="feature:extraWater"/>
+      <ownedColumnMappings name="hydro deficit" headerLabelExpression="Hydro Deficit" featureName="hydroDeficit" labelExpression="feature:hydroDeficit"/>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.gemoc.agro.design.services.Services"/>
   </ownedViewpoints>

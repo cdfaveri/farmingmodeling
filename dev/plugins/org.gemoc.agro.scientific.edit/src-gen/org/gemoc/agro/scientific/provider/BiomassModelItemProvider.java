@@ -67,7 +67,7 @@ public class BiomassModelItemProvider
 			addTIPropertyDescriptor(object);
 			addAPropertyDescriptor(object);
 			addBPropertyDescriptor(object);
-			addActivityPropertyDescriptor(object);
+			addCulturePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -227,19 +227,19 @@ public class BiomassModelItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Activity feature.
+	 * This adds a property descriptor for the Culture feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addActivityPropertyDescriptor(Object object) {
+	protected void addCulturePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BiomassModel_activity_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BiomassModel_activity_feature", "_UI_BiomassModel_type"),
-				 ScientificPackage.Literals.BIOMASS_MODEL__ACTIVITY,
+				 getString("_UI_BiomassModel_culture_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BiomassModel_culture_feature", "_UI_BiomassModel_type"),
+				 ScientificPackage.Literals.BIOMASS_MODEL__CULTURE,
 				 true,
 				 false,
 				 true,

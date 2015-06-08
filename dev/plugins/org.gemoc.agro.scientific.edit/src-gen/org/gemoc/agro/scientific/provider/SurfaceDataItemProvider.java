@@ -63,6 +63,7 @@ public class SurfaceDataItemProvider
 			addHydroDeficitPropertyDescriptor(object);
 			addExtraWaterPropertyDescriptor(object);
 			addSurfacePropertyDescriptor(object);
+			addDayPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -134,6 +135,28 @@ public class SurfaceDataItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Day feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDayPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SurfaceData_day_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SurfaceData_day_feature", "_UI_SurfaceData_type"),
+				 ScientificPackage.Literals.SURFACE_DATA__DAY,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns SurfaceData.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,11 +171,14 @@ public class SurfaceDataItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @not-generated
 	 */
 	@Override
 	public String getText(Object object) {
 		SurfaceData surfaceData = (SurfaceData)object;
+		if (surfaceData.getDay()!=null) {
+			return surfaceData.getDay().getDay() + " " + surfaceData.getDay().getMonth();
+		}
 		return getString("_UI_SurfaceData_type") + " " + surfaceData.getHydroDeficit();
 	}
 	

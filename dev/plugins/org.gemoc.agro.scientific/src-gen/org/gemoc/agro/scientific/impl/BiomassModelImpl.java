@@ -3,15 +3,11 @@
 package org.gemoc.agro.scientific.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.gemoc.agro.activitiesDSL.ExploitationActivity;
-
+import org.gemoc.agro.activitiesDSL.Culture;
 import org.gemoc.agro.scientific.BiomassModel;
 import org.gemoc.agro.scientific.ScientificPackage;
 
@@ -29,7 +25,7 @@ import org.gemoc.agro.scientific.ScientificPackage;
  *   <li>{@link org.gemoc.agro.scientific.impl.BiomassModelImpl#getTI <em>TI</em>}</li>
  *   <li>{@link org.gemoc.agro.scientific.impl.BiomassModelImpl#getA <em>A</em>}</li>
  *   <li>{@link org.gemoc.agro.scientific.impl.BiomassModelImpl#getB <em>B</em>}</li>
- *   <li>{@link org.gemoc.agro.scientific.impl.BiomassModelImpl#getActivity <em>Activity</em>}</li>
+ *   <li>{@link org.gemoc.agro.scientific.impl.BiomassModelImpl#getCulture <em>Culture</em>}</li>
  * </ul>
  * </p>
  *
@@ -177,14 +173,14 @@ public class BiomassModelImpl extends MinimalEObjectImpl.Container implements Bi
 	protected float b = B_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getActivity() <em>Activity</em>}' reference.
+	 * The cached value of the '{@link #getCulture() <em>Culture</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getActivity()
+	 * @see #getCulture()
 	 * @generated
 	 * @ordered
 	 */
-	protected ExploitationActivity activity;
+	protected Culture culture;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -357,16 +353,16 @@ public class BiomassModelImpl extends MinimalEObjectImpl.Container implements Bi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExploitationActivity getActivity() {
-		if (activity != null && activity.eIsProxy()) {
-			InternalEObject oldActivity = (InternalEObject)activity;
-			activity = (ExploitationActivity)eResolveProxy(oldActivity);
-			if (activity != oldActivity) {
+	public Culture getCulture() {
+		if (culture != null && culture.eIsProxy()) {
+			InternalEObject oldCulture = (InternalEObject)culture;
+			culture = (Culture)eResolveProxy(oldCulture);
+			if (culture != oldCulture) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ScientificPackage.BIOMASS_MODEL__ACTIVITY, oldActivity, activity));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ScientificPackage.BIOMASS_MODEL__CULTURE, oldCulture, culture));
 			}
 		}
-		return activity;
+		return culture;
 	}
 
 	/**
@@ -374,8 +370,8 @@ public class BiomassModelImpl extends MinimalEObjectImpl.Container implements Bi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExploitationActivity basicGetActivity() {
-		return activity;
+	public Culture basicGetCulture() {
+		return culture;
 	}
 
 	/**
@@ -383,11 +379,11 @@ public class BiomassModelImpl extends MinimalEObjectImpl.Container implements Bi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setActivity(ExploitationActivity newActivity) {
-		ExploitationActivity oldActivity = activity;
-		activity = newActivity;
+	public void setCulture(Culture newCulture) {
+		Culture oldCulture = culture;
+		culture = newCulture;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ScientificPackage.BIOMASS_MODEL__ACTIVITY, oldActivity, activity));
+			eNotify(new ENotificationImpl(this, Notification.SET, ScientificPackage.BIOMASS_MODEL__CULTURE, oldCulture, culture));
 	}
 
 	/**
@@ -412,9 +408,9 @@ public class BiomassModelImpl extends MinimalEObjectImpl.Container implements Bi
 				return getA();
 			case ScientificPackage.BIOMASS_MODEL__B:
 				return getB();
-			case ScientificPackage.BIOMASS_MODEL__ACTIVITY:
-				if (resolve) return getActivity();
-				return basicGetActivity();
+			case ScientificPackage.BIOMASS_MODEL__CULTURE:
+				if (resolve) return getCulture();
+				return basicGetCulture();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -448,8 +444,8 @@ public class BiomassModelImpl extends MinimalEObjectImpl.Container implements Bi
 			case ScientificPackage.BIOMASS_MODEL__B:
 				setB((Float)newValue);
 				return;
-			case ScientificPackage.BIOMASS_MODEL__ACTIVITY:
-				setActivity((ExploitationActivity)newValue);
+			case ScientificPackage.BIOMASS_MODEL__CULTURE:
+				setCulture((Culture)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -484,8 +480,8 @@ public class BiomassModelImpl extends MinimalEObjectImpl.Container implements Bi
 			case ScientificPackage.BIOMASS_MODEL__B:
 				setB(B_EDEFAULT);
 				return;
-			case ScientificPackage.BIOMASS_MODEL__ACTIVITY:
-				setActivity((ExploitationActivity)null);
+			case ScientificPackage.BIOMASS_MODEL__CULTURE:
+				setCulture((Culture)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -513,8 +509,8 @@ public class BiomassModelImpl extends MinimalEObjectImpl.Container implements Bi
 				return a != A_EDEFAULT;
 			case ScientificPackage.BIOMASS_MODEL__B:
 				return b != B_EDEFAULT;
-			case ScientificPackage.BIOMASS_MODEL__ACTIVITY:
-				return activity != null;
+			case ScientificPackage.BIOMASS_MODEL__CULTURE:
+				return culture != null;
 		}
 		return super.eIsSet(featureID);
 	}
