@@ -276,13 +276,40 @@ public interface ScientificPackage extends EPackage {
 	int EXPLOITATION_ANALYSIS__SCHEDULE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Limit Before Watering</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPLOITATION_ANALYSIS__LIMIT_BEFORE_WATERING = 3;
+
+	/**
+	 * The feature id for the '<em><b>Watering Quantity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPLOITATION_ANALYSIS__WATERING_QUANTITY = 4;
+
+	/**
+	 * The feature id for the '<em><b>KDays To Consider</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXPLOITATION_ANALYSIS__KDAYS_TO_CONSIDER = 5;
+
+	/**
 	 * The number of structural features of the '<em>Exploitation Analysis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXPLOITATION_ANALYSIS_FEATURE_COUNT = 3;
+	int EXPLOITATION_ANALYSIS_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Exploitation Analysis</em>' class.
@@ -512,6 +539,39 @@ public interface ScientificPackage extends EPackage {
 	EReference getExploitationAnalysis_Schedule();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.gemoc.agro.scientific.ExploitationAnalysis#getLimitBeforeWatering <em>Limit Before Watering</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Limit Before Watering</em>'.
+	 * @see org.gemoc.agro.scientific.ExploitationAnalysis#getLimitBeforeWatering()
+	 * @see #getExploitationAnalysis()
+	 * @generated
+	 */
+	EAttribute getExploitationAnalysis_LimitBeforeWatering();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.gemoc.agro.scientific.ExploitationAnalysis#getWateringQuantity <em>Watering Quantity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Watering Quantity</em>'.
+	 * @see org.gemoc.agro.scientific.ExploitationAnalysis#getWateringQuantity()
+	 * @see #getExploitationAnalysis()
+	 * @generated
+	 */
+	EAttribute getExploitationAnalysis_WateringQuantity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.gemoc.agro.scientific.ExploitationAnalysis#getKDaysToConsider <em>KDays To Consider</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>KDays To Consider</em>'.
+	 * @see org.gemoc.agro.scientific.ExploitationAnalysis#getKDaysToConsider()
+	 * @see #getExploitationAnalysis()
+	 * @generated
+	 */
+	EAttribute getExploitationAnalysis_KDaysToConsider();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -699,6 +759,30 @@ public interface ScientificPackage extends EPackage {
 		 * @generated
 		 */
 		EReference EXPLOITATION_ANALYSIS__SCHEDULE = eINSTANCE.getExploitationAnalysis_Schedule();
+
+		/**
+		 * The meta object literal for the '<em><b>Limit Before Watering</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXPLOITATION_ANALYSIS__LIMIT_BEFORE_WATERING = eINSTANCE.getExploitationAnalysis_LimitBeforeWatering();
+
+		/**
+		 * The meta object literal for the '<em><b>Watering Quantity</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXPLOITATION_ANALYSIS__WATERING_QUANTITY = eINSTANCE.getExploitationAnalysis_WateringQuantity();
+
+		/**
+		 * The meta object literal for the '<em><b>KDays To Consider</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXPLOITATION_ANALYSIS__KDAYS_TO_CONSIDER = eINSTANCE.getExploitationAnalysis_KDaysToConsider();
 
 	}
 

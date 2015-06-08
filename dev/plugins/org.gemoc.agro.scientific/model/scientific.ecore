@@ -2,8 +2,8 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="scientific" nsURI="http://www.gemoc.org/scientific" nsPrefix="scientific">
   <eClassifiers xsi:type="ecore:EClass" name="SurfaceData">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="biomass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LAI" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="biomass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LAI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hydroDeficit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="extraWater" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="surface" eType="ecore:EClass ../../org.gemoc.agro.exploitation/model/exploitation.ecore#//Surface"/>
@@ -25,5 +25,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="surfaceDatas" upperBound="-1"
         eType="#//SurfaceData" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="schedule" eType="ecore:EClass ../../org.gemoc.agro.simulation/model/simulation.ecore#//Schedule"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="limitBeforeWatering" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="-60"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wateringQuantity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="40"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kDaysToConsider" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="15"/>
   </eClassifiers>
 </ecore:EPackage>

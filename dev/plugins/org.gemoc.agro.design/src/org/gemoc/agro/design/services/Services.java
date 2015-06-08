@@ -1,11 +1,23 @@
 package org.gemoc.agro.design.services;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
 
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.progress.IProgressService;
+import org.gemoc.agro.scientific.ExploitationAnalysis;
+import org.gemoc.agro.scientific.WaterAnalysis;
 import org.gemoc.agro.simulation.ActivityWork;
 import org.gemoc.agro.simulation.Day;
 import org.gemoc.agro.simulation.Schedule;
+import org.gemoc.agro.simulation.solver.ExploitationActivitiesScheduler;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -75,6 +87,20 @@ public class Services {
 			}
 		}
 		return schedule;
+	}
+
+	public EObject computeSchedule(EObject ctx) {
+		if (ctx instanceof Schedule) {
+			new ExploitationActivitiesScheduler().createSchedule((Schedule) ctx);
+		}
+		return ctx;
+	}
+	
+	public EObject computeWaterAnalysis(EObject ctx) {
+		if (ctx instanceof ExploitationAnalysis) {
+			new WaterAnalysis().compute((ExploitationAnalysis) ctx);
+		}
+		return ctx;
 	}
 
 }

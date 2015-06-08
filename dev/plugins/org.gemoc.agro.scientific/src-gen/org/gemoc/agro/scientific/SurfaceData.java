@@ -2,6 +2,7 @@
  */
 package org.gemoc.agro.scientific;
 
+import java.math.BigDecimal;
 import org.eclipse.emf.ecore.EObject;
 
 import org.gemoc.agro.exploitation.Surface;
@@ -38,12 +39,12 @@ public interface SurfaceData extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Biomass</em>' attribute.
-	 * @see #setBiomass(double)
+	 * @see #setBiomass(BigDecimal)
 	 * @see org.gemoc.agro.scientific.ScientificPackage#getSurfaceData_Biomass()
 	 * @model
 	 * @generated
 	 */
-	double getBiomass();
+	BigDecimal getBiomass();
 
 	/**
 	 * Sets the value of the '{@link org.gemoc.agro.scientific.SurfaceData#getBiomass <em>Biomass</em>}' attribute.
@@ -53,7 +54,7 @@ public interface SurfaceData extends EObject {
 	 * @see #getBiomass()
 	 * @generated
 	 */
-	void setBiomass(double value);
+	void setBiomass(BigDecimal value);
 
 	/**
 	 * Returns the value of the '<em><b>LAI</b></em>' attribute.
@@ -64,12 +65,12 @@ public interface SurfaceData extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>LAI</em>' attribute.
-	 * @see #setLAI(double)
+	 * @see #setLAI(BigDecimal)
 	 * @see org.gemoc.agro.scientific.ScientificPackage#getSurfaceData_LAI()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.Double"
+	 * @model
 	 * @generated
 	 */
-	double getLAI();
+	BigDecimal getLAI();
 
 	/**
 	 * Sets the value of the '{@link org.gemoc.agro.scientific.SurfaceData#getLAI <em>LAI</em>}' attribute.
@@ -79,7 +80,7 @@ public interface SurfaceData extends EObject {
 	 * @see #getLAI()
 	 * @generated
 	 */
-	void setLAI(double value);
+	void setLAI(BigDecimal value);
 
 	/**
 	 * Returns the value of the '<em><b>Hydro Deficit</b></em>' attribute.

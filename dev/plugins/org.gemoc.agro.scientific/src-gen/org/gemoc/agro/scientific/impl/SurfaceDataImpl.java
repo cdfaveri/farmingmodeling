@@ -2,6 +2,7 @@
  */
 package org.gemoc.agro.scientific.impl;
 
+import java.math.BigDecimal;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -43,7 +44,7 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double BIOMASS_EDEFAULT = 0.0;
+	protected static final BigDecimal BIOMASS_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getBiomass() <em>Biomass</em>}' attribute.
@@ -53,7 +54,7 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	 * @generated
 	 * @ordered
 	 */
-	protected double biomass = BIOMASS_EDEFAULT;
+	protected BigDecimal biomass = BIOMASS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getLAI() <em>LAI</em>}' attribute.
@@ -63,7 +64,7 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double LAI_EDEFAULT = 0.0;
+	protected static final BigDecimal LAI_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getLAI() <em>LAI</em>}' attribute.
@@ -73,7 +74,7 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	 * @generated
 	 * @ordered
 	 */
-	protected double lai = LAI_EDEFAULT;
+	protected BigDecimal lai = LAI_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getHydroDeficit() <em>Hydro Deficit</em>}' attribute.
@@ -159,7 +160,7 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getBiomass() {
+	public BigDecimal getBiomass() {
 		return biomass;
 	}
 
@@ -168,8 +169,8 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBiomass(double newBiomass) {
-		double oldBiomass = biomass;
+	public void setBiomass(BigDecimal newBiomass) {
+		BigDecimal oldBiomass = biomass;
 		biomass = newBiomass;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ScientificPackage.SURFACE_DATA__BIOMASS, oldBiomass, biomass));
@@ -180,7 +181,7 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getLAI() {
+	public BigDecimal getLAI() {
 		return lai;
 	}
 
@@ -189,8 +190,8 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLAI(double newLAI) {
-		double oldLAI = lai;
+	public void setLAI(BigDecimal newLAI) {
+		BigDecimal oldLAI = lai;
 		lai = newLAI;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ScientificPackage.SURFACE_DATA__LAI, oldLAI, lai));
@@ -349,10 +350,10 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ScientificPackage.SURFACE_DATA__BIOMASS:
-				setBiomass((Double)newValue);
+				setBiomass((BigDecimal)newValue);
 				return;
 			case ScientificPackage.SURFACE_DATA__LAI:
-				setLAI((Double)newValue);
+				setLAI((BigDecimal)newValue);
 				return;
 			case ScientificPackage.SURFACE_DATA__HYDRO_DEFICIT:
 				setHydroDeficit((Double)newValue);
@@ -409,9 +410,9 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ScientificPackage.SURFACE_DATA__BIOMASS:
-				return biomass != BIOMASS_EDEFAULT;
+				return BIOMASS_EDEFAULT == null ? biomass != null : !BIOMASS_EDEFAULT.equals(biomass);
 			case ScientificPackage.SURFACE_DATA__LAI:
-				return lai != LAI_EDEFAULT;
+				return LAI_EDEFAULT == null ? lai != null : !LAI_EDEFAULT.equals(lai);
 			case ScientificPackage.SURFACE_DATA__HYDRO_DEFICIT:
 				return hydroDeficit != HYDRO_DEFICIT_EDEFAULT;
 			case ScientificPackage.SURFACE_DATA__EXTRA_WATER:

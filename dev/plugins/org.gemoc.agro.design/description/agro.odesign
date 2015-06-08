@@ -4,6 +4,8 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Structure" domainClass="exploitation.Exploitation" enablePopupBars="true">
       <metamodel href="http://www.gemoc.org/agro/ActivitiesDSL#/"/>
       <metamodel href="http://www.gemoc.org/exploitation#/"/>
+      <metamodel href="http://www.gemoc.org/scientific#/"/>
+      <metamodel href="http://www.gemoc.org/agro/simulation#/"/>
       <defaultLayer name="Default">
         <nodeMappings name="ExploitationSurface" semanticCandidatesExpression="var:self" domainClass="exploitation.Exploitation">
           <style xsi:type="style:GaugeCompositeStyleDescription" showIcon="false" labelExpression="surfaces ratios" sizeComputationExpression="8" resizeKind="NSEW">
@@ -65,25 +67,34 @@
           </conditionnalStyles>
         </nodeMappings>
         <nodeMappings name="Schedule" semanticCandidatesExpression="[self.eInverse(simulation::Schedule)/]" doubleClickDescription="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@toolSections.0/@ownedTools[name='']" domainClass="simulation.Schedule">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="no current date is set" sizeComputationExpression="14" workspacePath="/org.gemoc.agro.simulation.edit/icons/full/obj16/Schedule_128.png">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['solver search limit :' + self.solverSearchSecondsSpentLimit + ' secs'/]" sizeComputationExpression="14" workspacePath="/org.gemoc.agro.simulation.edit/icons/full/obj16/Schedule_128.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
           <conditionnalStyles predicateExpression="[not self.currentDay.oclIsUndefined()/]">
-            <style xsi:type="style:GaugeCompositeStyleDescription" showIcon="false" labelExpression="['current day : ' +  self.currentDay.day + '  ' +self.currentDay.month /]" sizeComputationExpression="14" resizeKind="NSEW">
+            <style xsi:type="style:GaugeCompositeStyleDescription" labelExpression="['current day : ' +  self.currentDay.day + '  ' +self.currentDay.month /]" sizeComputationExpression="14" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <sections maxValueExpression="20" valueExpression="[self.currentDay.temperature->max().floor()/]" foregroundColor="//@userColorsPalettes[name='Agro%20Colors']/@entries[name='TemperatureRange']" label="T°">
+              <sections maxValueExpression="20" valueExpression="[self.currentDay.temperature->max().floor()/]" label="T°">
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
               </sections>
-              <sections maxValueExpression="40" valueExpression="[self.currentDay.rain->max().floor()/]" foregroundColor="//@userColorsPalettes[name='Agro%20Colors']/@entries[name='RainRange']" label="mm">
+              <sections maxValueExpression="40" valueExpression="[self.currentDay.rain->max().floor()/]" label="mm">
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
               </sections>
-              <sections maxValueExpression="2000" valueExpression="[self.currentDay.rain->max().floor()/]" foregroundColor="//@userColorsPalettes[name='Agro%20Colors']/@entries[name='RayRange']" label="J/cm²">
+              <sections maxValueExpression="2000" valueExpression="[self.currentDay.rain->max().floor()/]" label="J/cm²">
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
               </sections>
             </style>
           </conditionnalStyles>
+        </nodeMappings>
+        <nodeMappings name="Analysis" semanticCandidatesExpression="[self.eInverse(simulation::Schedule).eInverse(scientific::ExploitationAnalysis)/]" domainClass="scientific.ExploitationAnalysis">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['Extra Water needed : ' + self.eAllContents(SurfaceData).extraWater->sum() / 1000/]" sizeComputationExpression="14" workspacePath="/org.gemoc.agro.scientific.edit/icons/full/obj16/BiomassModel_128.png">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
         </nodeMappings>
         <edgeMappings name="WorkGroup to Culture" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='WorkGroup']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='From%20Xtext%20dsl']/@subNodeMappings[name='CultureNode']" targetFinderExpression="feature:cultures">
           <style sizeComputationExpression="1">
@@ -94,8 +105,8 @@
           </style>
         </edgeMappings>
         <edgeMappings name="Resource to its kind" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Resource']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='From%20Xtext%20dsl']/@subNodeMappings[name='ResourceKind']" targetFinderExpression="feature:kind">
-          <style lineStyle="dash" sizeComputationExpression="2" routingStyle="tree">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          <style lineStyle="dot" sizeComputationExpression="2" routingStyle="tree">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription showIcon="false">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
@@ -103,7 +114,7 @@
         </edgeMappings>
         <edgeMappings name="Surface Dedicated to Workgroup" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Surface']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='WorkGroup']" targetFinderExpression="feature:dedicatedto">
           <style lineStyle="dash" sizeComputationExpression="1" routingStyle="manhattan">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription showIcon="false">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
@@ -186,6 +197,18 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:OperationAction" name="Compute Schedule" precondition="[self.oclIsKindOf(Schedule)/]">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.computeSchedule()"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:OperationAction" name="Compute Water Analysis" precondition="[self.oclIsKindOf(ExploitationAnalysis)/]">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.computeWaterAnalysis()"/>
+            </initialOperation>
+          </ownedTools>
           <subSections name="WorkGroup">
             <ownedTools xsi:type="tool:ContainerCreationDescription" name="Daily" containerMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='WorkGroup']" iconPath="/org.gemoc.agro.exploitation.edit/icons/full/obj16/Daily_32.png">
               <variable name="container"/>
@@ -247,7 +270,7 @@
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
-            <ownedTools xsi:type="tool:EdgeCreationDescription" name="Assign Surface" edgeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@edgeMappings[name='Surface%20Dedicated%20to%20Workgroup']">
+            <ownedTools xsi:type="tool:EdgeCreationDescription" name="Assign Surface" edgeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@edgeMappings[name='Surface%20Dedicated%20to%20Workgroup']" iconPath="/org.gemoc.agro.design/images/web/Dependency.gif">
               <sourceVariable name="source"/>
               <targetVariable name="target"/>
               <sourceViewVariable name="sourceView"/>
@@ -258,7 +281,7 @@
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
-            <ownedTools xsi:type="tool:EdgeCreationDescription" name="Assign Culture" edgeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@edgeMappings[name='WorkGroup%20to%20Culture']">
+            <ownedTools xsi:type="tool:EdgeCreationDescription" name="Assign Culture" edgeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@edgeMappings[name='WorkGroup%20to%20Culture']" iconPath="/org.gemoc.agro.design/images/web/ControlFlow.gif">
               <sourceVariable name="source"/>
               <targetVariable name="target"/>
               <sourceViewVariable name="sourceView"/>
@@ -411,14 +434,16 @@
         </subItemMappings>
       </subItemMappings>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Biomass" domainClass="scientific.ExploitationAnalysis">
-      <ownedLineMappings name="Biomass Surface" domainClass="exploitation.Surface" semanticCandidatesExpression="[self.surfaceDatas.surface->asOrderedSet()/]">
-        <ownedSubLines name="Surface Data" domainClass="scientific.SurfaceData" semanticCandidatesExpression="[self.eInverse(scientific::SurfaceData)/]"/>
+    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Hydro Analysis" domainClass="scientific.ExploitationAnalysis">
+      <ownedLineMappings name="Analysis Root" domainClass="scientific.ExploitationAnalysis" semanticCandidatesExpression="var:self" headerLabelExpression="[self.schedule.exploitation.name/]">
+        <ownedSubLines name="Biomass Surface" domainClass="exploitation.Surface" semanticCandidatesExpression="[self.surfaceDatas.surface->asOrderedSet()/]">
+          <ownedSubLines name="Surface Data" domainClass="scientific.SurfaceData" semanticCandidatesExpression="[self.eInverse(scientific::SurfaceData)/]"/>
+        </ownedSubLines>
       </ownedLineMappings>
-      <ownedColumnMappings name="bio mass" headerLabelExpression="Biomass" featureName="biomass" labelExpression="feature:biomass"/>
-      <ownedColumnMappings name="LAI" headerLabelExpression="LAI" featureName="LAI" labelExpression="feature:LAI"/>
       <ownedColumnMappings name="extra water" headerLabelExpression="Extra Water" featureName="extraWater" labelExpression="feature:extraWater"/>
       <ownedColumnMappings name="hydro deficit" headerLabelExpression="Hydro Deficit" featureName="hydroDeficit" labelExpression="feature:hydroDeficit"/>
+      <ownedColumnMappings name="bio mass" headerLabelExpression="Biomass" featureName="biomass" labelExpression="feature:biomass"/>
+      <ownedColumnMappings name="LAI" headerLabelExpression="LAI" featureName="LAI" labelExpression="feature:LAI"/>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.gemoc.agro.design.services.Services"/>
   </ownedViewpoints>
