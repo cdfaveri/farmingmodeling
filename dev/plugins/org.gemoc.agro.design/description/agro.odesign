@@ -415,6 +415,8 @@
       <ownedLineMappings name="Biomass Surface" domainClass="exploitation.Surface" semanticCandidatesExpression="[self.surfaceDatas.surface->asOrderedSet()/]">
         <ownedSubLines name="Surface Data" domainClass="scientific.SurfaceData" semanticCandidatesExpression="[self.eInverse(scientific::SurfaceData)/]"/>
       </ownedLineMappings>
+      <ownedColumnMappings name="bio mass" headerLabelExpression="Biomass" featureName="biomass" labelExpression="feature:biomass"/>
+      <ownedColumnMappings name="LAI" headerLabelExpression="LAI" featureName="LAI" labelExpression="feature:LAI"/>
       <ownedColumnMappings name="extra water" headerLabelExpression="Extra Water" featureName="extraWater" labelExpression="feature:extraWater"/>
       <ownedColumnMappings name="hydro deficit" headerLabelExpression="Hydro Deficit" featureName="hydroDeficit" labelExpression="feature:hydroDeficit"/>
     </ownedRepresentations>

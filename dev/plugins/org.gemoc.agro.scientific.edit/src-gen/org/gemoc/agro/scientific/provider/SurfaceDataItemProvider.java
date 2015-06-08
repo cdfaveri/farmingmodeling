@@ -60,12 +60,58 @@ public class SurfaceDataItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addBiomassPropertyDescriptor(object);
+			addLAIPropertyDescriptor(object);
 			addHydroDeficitPropertyDescriptor(object);
 			addExtraWaterPropertyDescriptor(object);
 			addSurfacePropertyDescriptor(object);
 			addDayPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Biomass feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBiomassPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SurfaceData_biomass_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SurfaceData_biomass_feature", "_UI_SurfaceData_type"),
+				 ScientificPackage.Literals.SURFACE_DATA__BIOMASS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the LAI feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLAIPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SurfaceData_LAI_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SurfaceData_LAI_feature", "_UI_SurfaceData_type"),
+				 ScientificPackage.Literals.SURFACE_DATA__LAI,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -195,6 +241,8 @@ public class SurfaceDataItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SurfaceData.class)) {
+			case ScientificPackage.SURFACE_DATA__BIOMASS:
+			case ScientificPackage.SURFACE_DATA__LAI:
 			case ScientificPackage.SURFACE_DATA__HYDRO_DEFICIT:
 			case ScientificPackage.SURFACE_DATA__EXTRA_WATER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

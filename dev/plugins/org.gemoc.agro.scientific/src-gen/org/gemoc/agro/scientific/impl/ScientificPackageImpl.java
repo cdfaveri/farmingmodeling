@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.gemoc.agro.activitiesDSL.ActivitiesDSLPackage;
 
 import org.gemoc.agro.exploitation.ExploitationPackage;
@@ -96,6 +97,7 @@ public class ScientificPackageImpl extends EPackageImpl implements ScientificPac
 
 		// Initialize simple dependencies
 		SimulationPackage.eINSTANCE.eClass();
+		XMLTypePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theScientificPackage.createPackageContents();
@@ -126,7 +128,7 @@ public class ScientificPackageImpl extends EPackageImpl implements ScientificPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSurfaceData_HydroDeficit() {
+	public EAttribute getSurfaceData_Biomass() {
 		return (EAttribute)surfaceDataEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -135,7 +137,7 @@ public class ScientificPackageImpl extends EPackageImpl implements ScientificPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSurfaceData_ExtraWater() {
+	public EAttribute getSurfaceData_LAI() {
 		return (EAttribute)surfaceDataEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -144,8 +146,26 @@ public class ScientificPackageImpl extends EPackageImpl implements ScientificPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSurfaceData_HydroDeficit() {
+		return (EAttribute)surfaceDataEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSurfaceData_ExtraWater() {
+		return (EAttribute)surfaceDataEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getSurfaceData_Surface() {
-		return (EReference)surfaceDataEClass.getEStructuralFeatures().get(2);
+		return (EReference)surfaceDataEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -154,7 +174,7 @@ public class ScientificPackageImpl extends EPackageImpl implements ScientificPac
 	 * @generated
 	 */
 	public EReference getSurfaceData_Day() {
-		return (EReference)surfaceDataEClass.getEStructuralFeatures().get(3);
+		return (EReference)surfaceDataEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -303,6 +323,8 @@ public class ScientificPackageImpl extends EPackageImpl implements ScientificPac
 
 		// Create classes and their features
 		surfaceDataEClass = createEClass(SURFACE_DATA);
+		createEAttribute(surfaceDataEClass, SURFACE_DATA__BIOMASS);
+		createEAttribute(surfaceDataEClass, SURFACE_DATA__LAI);
 		createEAttribute(surfaceDataEClass, SURFACE_DATA__HYDRO_DEFICIT);
 		createEAttribute(surfaceDataEClass, SURFACE_DATA__EXTRA_WATER);
 		createEReference(surfaceDataEClass, SURFACE_DATA__SURFACE);
@@ -348,6 +370,7 @@ public class ScientificPackageImpl extends EPackageImpl implements ScientificPac
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
 		ExploitationPackage theExploitationPackage = (ExploitationPackage)EPackage.Registry.INSTANCE.getEPackage(ExploitationPackage.eNS_URI);
 		SimulationPackage theSimulationPackage = (SimulationPackage)EPackage.Registry.INSTANCE.getEPackage(SimulationPackage.eNS_URI);
 		ActivitiesDSLPackage theActivitiesDSLPackage = (ActivitiesDSLPackage)EPackage.Registry.INSTANCE.getEPackage(ActivitiesDSLPackage.eNS_URI);
@@ -360,8 +383,10 @@ public class ScientificPackageImpl extends EPackageImpl implements ScientificPac
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(surfaceDataEClass, SurfaceData.class, "SurfaceData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSurfaceData_HydroDeficit(), ecorePackage.getEFloat(), "hydroDeficit", null, 0, 1, SurfaceData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSurfaceData_ExtraWater(), ecorePackage.getEFloat(), "extraWater", null, 0, 1, SurfaceData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSurfaceData_Biomass(), ecorePackage.getEDouble(), "biomass", null, 0, 1, SurfaceData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSurfaceData_LAI(), theXMLTypePackage.getDouble(), "LAI", null, 0, 1, SurfaceData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSurfaceData_HydroDeficit(), ecorePackage.getEDouble(), "hydroDeficit", null, 0, 1, SurfaceData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSurfaceData_ExtraWater(), ecorePackage.getEDouble(), "extraWater", null, 0, 1, SurfaceData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSurfaceData_Surface(), theExploitationPackage.getSurface(), null, "surface", null, 0, 1, SurfaceData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSurfaceData_Day(), theSimulationPackage.getDay(), null, "day", null, 0, 1, SurfaceData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

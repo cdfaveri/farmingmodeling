@@ -67,13 +67,31 @@ public interface ScientificPackage extends EPackage {
 	int SURFACE_DATA = 0;
 
 	/**
+	 * The feature id for the '<em><b>Biomass</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SURFACE_DATA__BIOMASS = 0;
+
+	/**
+	 * The feature id for the '<em><b>LAI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SURFACE_DATA__LAI = 1;
+
+	/**
 	 * The feature id for the '<em><b>Hydro Deficit</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SURFACE_DATA__HYDRO_DEFICIT = 0;
+	int SURFACE_DATA__HYDRO_DEFICIT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Extra Water</b></em>' attribute.
@@ -82,7 +100,7 @@ public interface ScientificPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SURFACE_DATA__EXTRA_WATER = 1;
+	int SURFACE_DATA__EXTRA_WATER = 3;
 
 	/**
 	 * The feature id for the '<em><b>Surface</b></em>' reference.
@@ -91,7 +109,7 @@ public interface ScientificPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SURFACE_DATA__SURFACE = 2;
+	int SURFACE_DATA__SURFACE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Day</b></em>' reference.
@@ -100,7 +118,7 @@ public interface ScientificPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SURFACE_DATA__DAY = 3;
+	int SURFACE_DATA__DAY = 5;
 
 	/**
 	 * The number of structural features of the '<em>Surface Data</em>' class.
@@ -109,7 +127,7 @@ public interface ScientificPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SURFACE_DATA_FEATURE_COUNT = 4;
+	int SURFACE_DATA_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Surface Data</em>' class.
@@ -285,6 +303,28 @@ public interface ScientificPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSurfaceData();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.gemoc.agro.scientific.SurfaceData#getBiomass <em>Biomass</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Biomass</em>'.
+	 * @see org.gemoc.agro.scientific.SurfaceData#getBiomass()
+	 * @see #getSurfaceData()
+	 * @generated
+	 */
+	EAttribute getSurfaceData_Biomass();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.gemoc.agro.scientific.SurfaceData#getLAI <em>LAI</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>LAI</em>'.
+	 * @see org.gemoc.agro.scientific.SurfaceData#getLAI()
+	 * @see #getSurfaceData()
+	 * @generated
+	 */
+	EAttribute getSurfaceData_LAI();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.gemoc.agro.scientific.SurfaceData#getHydroDeficit <em>Hydro Deficit</em>}'.
@@ -503,6 +543,22 @@ public interface ScientificPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SURFACE_DATA = eINSTANCE.getSurfaceData();
+
+		/**
+		 * The meta object literal for the '<em><b>Biomass</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SURFACE_DATA__BIOMASS = eINSTANCE.getSurfaceData_Biomass();
+
+		/**
+		 * The meta object literal for the '<em><b>LAI</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SURFACE_DATA__LAI = eINSTANCE.getSurfaceData_LAI();
 
 		/**
 		 * The meta object literal for the '<em><b>Hydro Deficit</b></em>' attribute feature.

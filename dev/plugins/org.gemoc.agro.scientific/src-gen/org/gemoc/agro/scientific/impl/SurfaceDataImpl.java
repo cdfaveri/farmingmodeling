@@ -23,6 +23,8 @@ import org.gemoc.agro.simulation.Day;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.gemoc.agro.scientific.impl.SurfaceDataImpl#getBiomass <em>Biomass</em>}</li>
+ *   <li>{@link org.gemoc.agro.scientific.impl.SurfaceDataImpl#getLAI <em>LAI</em>}</li>
  *   <li>{@link org.gemoc.agro.scientific.impl.SurfaceDataImpl#getHydroDeficit <em>Hydro Deficit</em>}</li>
  *   <li>{@link org.gemoc.agro.scientific.impl.SurfaceDataImpl#getExtraWater <em>Extra Water</em>}</li>
  *   <li>{@link org.gemoc.agro.scientific.impl.SurfaceDataImpl#getSurface <em>Surface</em>}</li>
@@ -34,6 +36,46 @@ import org.gemoc.agro.simulation.Day;
  */
 public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements SurfaceData {
 	/**
+	 * The default value of the '{@link #getBiomass() <em>Biomass</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBiomass()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double BIOMASS_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getBiomass() <em>Biomass</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBiomass()
+	 * @generated
+	 * @ordered
+	 */
+	protected double biomass = BIOMASS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLAI() <em>LAI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLAI()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double LAI_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getLAI() <em>LAI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLAI()
+	 * @generated
+	 * @ordered
+	 */
+	protected double lai = LAI_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getHydroDeficit() <em>Hydro Deficit</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -41,7 +83,7 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float HYDRO_DEFICIT_EDEFAULT = 0.0F;
+	protected static final double HYDRO_DEFICIT_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getHydroDeficit() <em>Hydro Deficit</em>}' attribute.
@@ -51,7 +93,7 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	 * @generated
 	 * @ordered
 	 */
-	protected float hydroDeficit = HYDRO_DEFICIT_EDEFAULT;
+	protected double hydroDeficit = HYDRO_DEFICIT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getExtraWater() <em>Extra Water</em>}' attribute.
@@ -61,7 +103,7 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float EXTRA_WATER_EDEFAULT = 0.0F;
+	protected static final double EXTRA_WATER_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getExtraWater() <em>Extra Water</em>}' attribute.
@@ -71,7 +113,7 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	 * @generated
 	 * @ordered
 	 */
-	protected float extraWater = EXTRA_WATER_EDEFAULT;
+	protected double extraWater = EXTRA_WATER_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getSurface() <em>Surface</em>}' reference.
@@ -117,7 +159,49 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getHydroDeficit() {
+	public double getBiomass() {
+		return biomass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBiomass(double newBiomass) {
+		double oldBiomass = biomass;
+		biomass = newBiomass;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ScientificPackage.SURFACE_DATA__BIOMASS, oldBiomass, biomass));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getLAI() {
+		return lai;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLAI(double newLAI) {
+		double oldLAI = lai;
+		lai = newLAI;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ScientificPackage.SURFACE_DATA__LAI, oldLAI, lai));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getHydroDeficit() {
 		return hydroDeficit;
 	}
 
@@ -126,8 +210,8 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setHydroDeficit(float newHydroDeficit) {
-		float oldHydroDeficit = hydroDeficit;
+	public void setHydroDeficit(double newHydroDeficit) {
+		double oldHydroDeficit = hydroDeficit;
 		hydroDeficit = newHydroDeficit;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ScientificPackage.SURFACE_DATA__HYDRO_DEFICIT, oldHydroDeficit, hydroDeficit));
@@ -138,7 +222,7 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public float getExtraWater() {
+	public double getExtraWater() {
 		return extraWater;
 	}
 
@@ -147,8 +231,8 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExtraWater(float newExtraWater) {
-		float oldExtraWater = extraWater;
+	public void setExtraWater(double newExtraWater) {
+		double oldExtraWater = extraWater;
 		extraWater = newExtraWater;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ScientificPackage.SURFACE_DATA__EXTRA_WATER, oldExtraWater, extraWater));
@@ -238,6 +322,10 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ScientificPackage.SURFACE_DATA__BIOMASS:
+				return getBiomass();
+			case ScientificPackage.SURFACE_DATA__LAI:
+				return getLAI();
 			case ScientificPackage.SURFACE_DATA__HYDRO_DEFICIT:
 				return getHydroDeficit();
 			case ScientificPackage.SURFACE_DATA__EXTRA_WATER:
@@ -260,11 +348,17 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ScientificPackage.SURFACE_DATA__BIOMASS:
+				setBiomass((Double)newValue);
+				return;
+			case ScientificPackage.SURFACE_DATA__LAI:
+				setLAI((Double)newValue);
+				return;
 			case ScientificPackage.SURFACE_DATA__HYDRO_DEFICIT:
-				setHydroDeficit((Float)newValue);
+				setHydroDeficit((Double)newValue);
 				return;
 			case ScientificPackage.SURFACE_DATA__EXTRA_WATER:
-				setExtraWater((Float)newValue);
+				setExtraWater((Double)newValue);
 				return;
 			case ScientificPackage.SURFACE_DATA__SURFACE:
 				setSurface((Surface)newValue);
@@ -284,6 +378,12 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ScientificPackage.SURFACE_DATA__BIOMASS:
+				setBiomass(BIOMASS_EDEFAULT);
+				return;
+			case ScientificPackage.SURFACE_DATA__LAI:
+				setLAI(LAI_EDEFAULT);
+				return;
 			case ScientificPackage.SURFACE_DATA__HYDRO_DEFICIT:
 				setHydroDeficit(HYDRO_DEFICIT_EDEFAULT);
 				return;
@@ -308,6 +408,10 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ScientificPackage.SURFACE_DATA__BIOMASS:
+				return biomass != BIOMASS_EDEFAULT;
+			case ScientificPackage.SURFACE_DATA__LAI:
+				return lai != LAI_EDEFAULT;
 			case ScientificPackage.SURFACE_DATA__HYDRO_DEFICIT:
 				return hydroDeficit != HYDRO_DEFICIT_EDEFAULT;
 			case ScientificPackage.SURFACE_DATA__EXTRA_WATER:
@@ -330,7 +434,11 @@ public class SurfaceDataImpl extends MinimalEObjectImpl.Container implements Sur
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (hydroDeficit: ");
+		result.append(" (biomass: ");
+		result.append(biomass);
+		result.append(", LAI: ");
+		result.append(lai);
+		result.append(", hydroDeficit: ");
 		result.append(hydroDeficit);
 		result.append(", extraWater: ");
 		result.append(extraWater);

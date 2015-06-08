@@ -15,6 +15,8 @@ import org.gemoc.agro.simulation.Day;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.gemoc.agro.scientific.SurfaceData#getBiomass <em>Biomass</em>}</li>
+ *   <li>{@link org.gemoc.agro.scientific.SurfaceData#getLAI <em>LAI</em>}</li>
  *   <li>{@link org.gemoc.agro.scientific.SurfaceData#getHydroDeficit <em>Hydro Deficit</em>}</li>
  *   <li>{@link org.gemoc.agro.scientific.SurfaceData#getExtraWater <em>Extra Water</em>}</li>
  *   <li>{@link org.gemoc.agro.scientific.SurfaceData#getSurface <em>Surface</em>}</li>
@@ -28,6 +30,58 @@ import org.gemoc.agro.simulation.Day;
  */
 public interface SurfaceData extends EObject {
 	/**
+	 * Returns the value of the '<em><b>Biomass</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Biomass</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Biomass</em>' attribute.
+	 * @see #setBiomass(double)
+	 * @see org.gemoc.agro.scientific.ScientificPackage#getSurfaceData_Biomass()
+	 * @model
+	 * @generated
+	 */
+	double getBiomass();
+
+	/**
+	 * Sets the value of the '{@link org.gemoc.agro.scientific.SurfaceData#getBiomass <em>Biomass</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Biomass</em>' attribute.
+	 * @see #getBiomass()
+	 * @generated
+	 */
+	void setBiomass(double value);
+
+	/**
+	 * Returns the value of the '<em><b>LAI</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>LAI</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>LAI</em>' attribute.
+	 * @see #setLAI(double)
+	 * @see org.gemoc.agro.scientific.ScientificPackage#getSurfaceData_LAI()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Double"
+	 * @generated
+	 */
+	double getLAI();
+
+	/**
+	 * Sets the value of the '{@link org.gemoc.agro.scientific.SurfaceData#getLAI <em>LAI</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>LAI</em>' attribute.
+	 * @see #getLAI()
+	 * @generated
+	 */
+	void setLAI(double value);
+
+	/**
 	 * Returns the value of the '<em><b>Hydro Deficit</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -36,12 +90,12 @@ public interface SurfaceData extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Hydro Deficit</em>' attribute.
-	 * @see #setHydroDeficit(float)
+	 * @see #setHydroDeficit(double)
 	 * @see org.gemoc.agro.scientific.ScientificPackage#getSurfaceData_HydroDeficit()
 	 * @model
 	 * @generated
 	 */
-	float getHydroDeficit();
+	double getHydroDeficit();
 
 	/**
 	 * Sets the value of the '{@link org.gemoc.agro.scientific.SurfaceData#getHydroDeficit <em>Hydro Deficit</em>}' attribute.
@@ -51,7 +105,7 @@ public interface SurfaceData extends EObject {
 	 * @see #getHydroDeficit()
 	 * @generated
 	 */
-	void setHydroDeficit(float value);
+	void setHydroDeficit(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Extra Water</b></em>' attribute.
@@ -62,12 +116,12 @@ public interface SurfaceData extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Extra Water</em>' attribute.
-	 * @see #setExtraWater(float)
+	 * @see #setExtraWater(double)
 	 * @see org.gemoc.agro.scientific.ScientificPackage#getSurfaceData_ExtraWater()
 	 * @model
 	 * @generated
 	 */
-	float getExtraWater();
+	double getExtraWater();
 
 	/**
 	 * Sets the value of the '{@link org.gemoc.agro.scientific.SurfaceData#getExtraWater <em>Extra Water</em>}' attribute.
@@ -77,7 +131,7 @@ public interface SurfaceData extends EObject {
 	 * @see #getExtraWater()
 	 * @generated
 	 */
-	void setExtraWater(float value);
+	void setExtraWater(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Surface</b></em>' reference.

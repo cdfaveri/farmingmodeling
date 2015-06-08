@@ -44,13 +44,13 @@ public class WaterAnalysis {
 				}
 			}
 
-			Map<Surface, BiomassModel> modelsToApply = Maps.newLinkedHashMap();
 			analysis.getSurfaceDatas().clear();
 			for (Surface s : exp.getSurfaces()) {
 				if (s.getDedicatedto() != null) {
 					for (Culture culture : s.getDedicatedto().getCultures()) {
 						ExploitationActivity plantingActivity = activityPlanting
 								.get(culture);
+						
 						ExploitationActivity harvestingActivity = activityHarvest
 								.get(culture);
 						Day plantingDay = null;
@@ -70,16 +70,34 @@ public class WaterAnalysis {
 							}
 						}
 						if (plantingDay != null && harvestingDay != null) {
+							SurfaceData previousData = null;
 							Day currentDay = plantingDay;
-							while (currentDay!=null && currentDay!= harvestingDay) {
-								SurfaceData data = ScientificFactory.eINSTANCE.createSurfaceData();
+							BiomassModel bioModel = null;
+							for (BiomassModel model : analysis.getBiomassModels()) {
+								if (model.getCulture() == culture) {
+									bioModel = model;
+								}
+							}
+							while (currentDay != null
+									&& currentDay != harvestingDay) {
+								SurfaceData data = ScientificFactory.eINSTANCE
+										.createSurfaceData();
 								data.setSurface(s);
 								data.setDay(currentDay);
 								analysis.getSurfaceDatas().add(data);
-								currentDay = getNextDay(analysis.getSchedule(), currentDay);
-								if (currentDay == harvestingDay) {
-									System.out.println("Found harvest");
+								if (previousData != null && bioModel != null) {
+									/*
+									 * compute the biomass growth
+									 */
+									data.setBiomass(Calculator
+											.calculateBiomass(
+													previousData.getBiomass(),
+													currentDay, bioModel));
+									data.setLAI(Calculator.calculateLAI(currentDay, previousData.getLAI(), bioModel));
 								}
+								currentDay = getNextDay(analysis.getSchedule(),
+										currentDay);
+								previousData = data;
 							}
 						}
 
