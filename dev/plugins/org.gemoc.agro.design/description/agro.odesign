@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_3="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="agro" version="8.1.0">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_3="http://www.eclipse.org/sirius/tree/description/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="agro" version="9.0.0">
   <ownedViewpoints name="Design" modelFileExtension="exploitation">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Structure" domainClass="exploitation.Exploitation" enablePopupBars="true">
       <metamodel href="http://www.gemoc.org/agro/ActivitiesDSL#/"/>
@@ -20,27 +20,44 @@
           </style>
         </nodeMappings>
         <nodeMappings name="Resource" labelDirectEdit="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Activities']/@defaultLayer/@toolSections.0/@ownedTools[name='Set%20name']" domainClass="exploitation.Resource">
-          <style xsi:type="style:BundledImageDescription" showIcon="false" resizeKind="NSEW" shape="triangle">
+          <style xsi:type="style:WorkspaceImageDescription" labelFormat="bold" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.gemoc.agro.exploitation.edit/icons/full/obj16/Resource_32.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
           </style>
+          <conditionnalStyles predicateExpression="[self.kind.name &lt;> 'People' and self.eContainer(Exploitation).eInverse(simulation::Schedule).currentDay.eInverse(ActivityWork).eInverse(ResourceAllocation).resource->includes(self)/]">
+            <style xsi:type="style:WorkspaceImageDescription" borderSizeComputationExpression="1" labelFormat="bold" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.gemoc.agro.exploitation.edit/icons/full/obj16/Resource_32.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.eContainer(Exploitation).eInverse(simulation::Schedule).currentDay.eInverse(ActivityWork).eInverse(ResourceAllocation).resource->includes(self)/]">
+            <style xsi:type="style:WorkspaceImageDescription" borderSizeComputationExpression="1" labelFormat="bold" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.gemoc.agro.exploitation.edit/icons/full/obj16/Resource_people_32.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.kind.name = 'People'/]">
+            <style xsi:type="style:WorkspaceImageDescription" labelFormat="bold" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.gemoc.agro.exploitation.edit/icons/full/obj16/Resource_people_32.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
         </nodeMappings>
         <nodeMappings name="Surface" domainClass="exploitation.Surface">
-          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="[self.total + 'ha : ' + self.nbFields + ' fields' /]" sizeComputationExpression="[(self.total / 5).floor()/]">
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="[self.total + 'ha : ' + self.nbFields + ' fields' /]" sizeComputationExpression="[(self.total / 5).floor()/]" labelPosition="node">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='chocolate']"/>
           </style>
           <conditionnalStyles predicateExpression="[watered/]">
-            <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="[self.total + 'ha : ' + self.nbFields + ' fields' /]" sizeComputationExpression="[(self.total / 5).floor()/]">
+            <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="[self.total + 'ha : ' + self.nbFields + ' fields' /]" sizeComputationExpression="[(self.total / 5).floor()/]" labelPosition="node">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="[fodder/]">
-            <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="[self.total + 'ha : ' + self.nbFields + ' fields' /]" sizeComputationExpression="[(self.total / 5).floor()/]">
+            <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="[self.total + 'ha : ' + self.nbFields + ' fields' /]" sizeComputationExpression="[(self.total / 5).floor()/]" labelPosition="node">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
@@ -48,13 +65,12 @@
           </conditionnalStyles>
         </nodeMappings>
         <nodeMappings name="Schedule" semanticCandidatesExpression="[self.eInverse(simulation::Schedule)/]" doubleClickDescription="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@toolSections.0/@ownedTools[name='']" domainClass="simulation.Schedule">
-          <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="No current date is set" resizeKind="NSEW">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="no current date is set" sizeComputationExpression="14" workspacePath="/org.gemoc.agro.simulation.edit/icons/full/obj16/Schedule_128.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
-            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
           <conditionnalStyles predicateExpression="[not self.currentDay.oclIsUndefined()/]">
-            <style xsi:type="style:GaugeCompositeStyleDescription" showIcon="false" labelExpression="['current day : ' +  self.currentDay.day + '  ' +self.currentDay.month /]" resizeKind="NSEW">
+            <style xsi:type="style:GaugeCompositeStyleDescription" showIcon="false" labelExpression="['current day : ' +  self.currentDay.day + '  ' +self.currentDay.month /]" sizeComputationExpression="14" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <sections maxValueExpression="20" valueExpression="[self.currentDay.temperature->max().floor()/]" foregroundColor="//@userColorsPalettes[name='Agro%20Colors']/@entries[name='TemperatureRange']" label="T°">
@@ -86,9 +102,17 @@
           </style>
         </edgeMappings>
         <edgeMappings name="Surface Dedicated to Workgroup" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Surface']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='WorkGroup']" targetFinderExpression="feature:dedicatedto">
-          <style lineStyle="dash" sizeComputationExpression="1">
+          <style lineStyle="dash" sizeComputationExpression="1" routingStyle="manhattan">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription showIcon="false">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="ResourceToCurrentUsage" semanticCandidatesExpression="[self.eInverse(simulation::Schedule).currentDay.eInverse(ActivityWork).eInverse(ResourceAllocation)/]" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Resource']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Surface']" targetFinderExpression="[self.work.onSurface->asOrderedSet()/]" sourceFinderExpression="feature:resource" domainClass="simulation.ResourceAllocation" useDomainElement="true">
+          <style sizeComputationExpression="1">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+            <centerLabelStyleDescription>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
@@ -134,20 +158,18 @@
         </containerMappings>
         <containerMappings name="From Xtext dsl" semanticCandidatesExpression="var:self" domainClass="exploitation.Exploitation">
           <subNodeMappings name="ResourceKind" domainClass="activitiesDSL.ResourceKind">
-            <style xsi:type="style:BundledImageDescription" labelFormat="bold" showIcon="false" resizeKind="NSEW" shape="triangle">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.gemoc.agro.activities.edit/icons/full/obj16/ResourceKind_32.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="CultureNode" domainClass="activitiesDSL.Culture">
-            <style xsi:type="style:BundledImageDescription" labelFormat="bold" showIcon="false" sizeComputationExpression="[self.activities->size()/]" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.gemoc.agro.activities.edit/icons/full/obj16/Culture_32.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="6" arcHeight="6" showIcon="false" labelExpression="" roundedCorner="true">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="6" arcHeight="6" labelExpression="" roundedCorner="true">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -155,70 +177,88 @@
           </style>
         </containerMappings>
         <toolSections name="tools">
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Daily" containerMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='WorkGroup']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="exploitation.Daily" referenceName="groups">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Daily"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Crop" containerMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='WorkGroup']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="exploitation.Crop" referenceName="groups">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Crop"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Ewe" containerMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='WorkGroup']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="exploitation.Ewe" referenceName="groups">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Ewe"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Surface" nodeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Surface']">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="exploitation.Surface" referenceName="surfaces">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="total" valueExpression="20"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Assign Surface" edgeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@edgeMappings[name='Surface%20Dedicated%20to%20Workgroup']">
-            <sourceVariable name="source"/>
-            <targetVariable name="target"/>
-            <sourceViewVariable name="sourceView"/>
-            <targetViewVariable name="targetView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool_1:SetValue" featureName="dedicatedto" valueExpression="var:target"/>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool:DoubleClickDescription" mappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Schedule']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:moveToNextDay()"/>
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:moveToNextDayWithWork()"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <subSections name="WorkGroup">
+            <ownedTools xsi:type="tool:ContainerCreationDescription" name="Daily" containerMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='WorkGroup']" iconPath="/org.gemoc.agro.exploitation.edit/icons/full/obj16/Daily_32.png">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="exploitation.Daily" referenceName="groups">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Daily"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool:ContainerCreationDescription" name="Crop" containerMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='WorkGroup']" iconPath="/org.gemoc.agro.exploitation.edit/icons/full/obj16/Crop_32.png">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="exploitation.Crop" referenceName="groups">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Crop"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool:ContainerCreationDescription" name="Ewe" containerMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='WorkGroup']" iconPath="/org.gemoc.agro.exploitation.edit/icons/full/obj16/Ewe_32.png">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="exploitation.Ewe" referenceName="groups">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Ewe"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+          </subSections>
+          <subSections name="Exploitation">
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="Resource" nodeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Resource']" iconPath="/org.gemoc.agro.exploitation.edit/icons/full/obj16/Resource_32.png">
+              <variable name="container">
+                <subVariables xsi:type="tool_1:SelectModelElementVariable" name="rKind" candidatesExpression="[self.groups.cultures.eContainer().eContents()->filter(activitiesDSL::ResourceKind)/]" message="Select the resource kind to create."/>
+              </variable>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="exploitation.Resource" referenceName="resources">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="var:rKind"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool:NodeCreationDescription" name="Surface" nodeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Surface']" iconPath="/org.gemoc.agro.exploitation.edit/icons/full/obj16/Surface_32.png">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="exploitation.Surface" referenceName="surfaces">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="total" valueExpression="20"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="nbfields" valueExpression="1"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+            <ownedTools xsi:type="tool:EdgeCreationDescription" name="Assign Surface" edgeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@edgeMappings[name='Surface%20Dedicated%20to%20Workgroup']">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="dedicatedto" valueExpression="var:target"/>
+                </firstModelOperations>
+              </initialOperation>
+            </ownedTools>
+          </subSections>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
