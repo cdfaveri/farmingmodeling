@@ -91,7 +91,7 @@
           </conditionnalStyles>
         </nodeMappings>
         <nodeMappings name="Analysis" semanticCandidatesExpression="[self.eInverse(simulation::Schedule).eInverse(scientific::ExploitationAnalysis)/]" domainClass="scientific.ExploitationAnalysis">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['Extra Water needed : ' + self.eAllContents(SurfaceData).extraWater->sum() / 1000/]" sizeComputationExpression="14" workspacePath="/org.gemoc.agro.scientific.edit/icons/full/obj16/BiomassModel_128.png">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['Extra Water needed : ' + self.totalExtraWater() + 'm³'/]" sizeComputationExpression="14" workspacePath="/org.gemoc.agro.scientific.edit/icons/full/obj16/BiomassModel_128.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -440,7 +440,14 @@
           <ownedSubLines name="Surface Data" domainClass="scientific.SurfaceData" semanticCandidatesExpression="[self.eInverse(scientific::SurfaceData)/]"/>
         </ownedSubLines>
       </ownedLineMappings>
-      <ownedColumnMappings name="extra water" headerLabelExpression="Extra Water" featureName="extraWater" labelExpression="feature:extraWater"/>
+      <ownedColumnMappings name="extra water" headerLabelExpression="Extra Water" featureName="extraWater" labelExpression="feature:extraWater">
+        <foregroundConditionalStyle predicateExpression="[self.extraWater > 0/]">
+          <style labelSize="10" labelFormat="bold">
+            <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+          </style>
+        </foregroundConditionalStyle>
+      </ownedColumnMappings>
+      <ownedColumnMappings name="rain" headerLabelExpression="Rain" featureName="rain" labelExpression="feature:rain" featureParentExpression="feature:day"/>
       <ownedColumnMappings name="hydro deficit" headerLabelExpression="Hydro Deficit" featureName="hydroDeficit" labelExpression="feature:hydroDeficit"/>
       <ownedColumnMappings name="bio mass" headerLabelExpression="Biomass" featureName="biomass" labelExpression="feature:biomass"/>
       <ownedColumnMappings name="LAI" headerLabelExpression="LAI" featureName="LAI" labelExpression="feature:LAI"/>

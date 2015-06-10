@@ -14,6 +14,7 @@ import org.gemoc.agro.activitiesDSL.ResourceKind;
 import org.gemoc.agro.activitiesDSL.TempOfTheDay;
 import org.gemoc.agro.exploitation.Resource;
 import org.gemoc.agro.simulation.ActivityWork;
+import org.gemoc.agro.simulation.ClimateData;
 import org.gemoc.agro.simulation.Day;
 import org.gemoc.agro.simulation.FeedbackLevel;
 import org.gemoc.agro.simulation.ResourceAllocation;
@@ -249,7 +250,7 @@ public class AgroScoreCalculator implements
 										.getOnSurface()
 										&& otherWorkOnSameAct.getScheduledOn() != null) {
 
-									int nbDaysInBetween = delta(
+									int nbDaysInBetween = absoluteDelta(
 											work.getScheduledOn(),
 											otherWorkOnSameAct.getScheduledOn());
 									/*
@@ -324,6 +325,13 @@ public class AgroScoreCalculator implements
 
 		HardSoftScore score = HardSoftScore.valueOf(hardScore, softScore);
 		return score;
+	}
+
+	private int absoluteDelta(Day a, Day b) {
+		ClimateData container = (ClimateData) a.eContainer();
+		int aDay = container.getDays().indexOf(a);
+		int bDay = container.getDays().indexOf(b);
+		return aDay - bDay;
 	}
 
 	private int mediumPenalty(int ratio) {

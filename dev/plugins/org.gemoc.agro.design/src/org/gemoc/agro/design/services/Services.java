@@ -13,6 +13,7 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.progress.IProgressService;
 import org.gemoc.agro.scientific.ExploitationAnalysis;
+import org.gemoc.agro.scientific.SurfaceData;
 import org.gemoc.agro.scientific.WaterAnalysis;
 import org.gemoc.agro.simulation.ActivityWork;
 import org.gemoc.agro.simulation.Day;
@@ -91,16 +92,27 @@ public class Services {
 
 	public EObject computeSchedule(EObject ctx) {
 		if (ctx instanceof Schedule) {
-			new ExploitationActivitiesScheduler().createSchedule((Schedule) ctx);
+			new ExploitationActivitiesScheduler()
+					.createSchedule((Schedule) ctx);
 		}
 		return ctx;
 	}
-	
+
 	public EObject computeWaterAnalysis(EObject ctx) {
 		if (ctx instanceof ExploitationAnalysis) {
 			new WaterAnalysis().compute((ExploitationAnalysis) ctx);
 		}
 		return ctx;
+	}
+
+	public int totalExtraWater(ExploitationAnalysis analysis) {
+		int total = 0;
+		for (SurfaceData data : analysis.getSurfaceDatas()) {
+			if (data.getSurface() != null) {
+				total += data.getExtraWater()/1000 * data.getSurface().getTotal() * 10000;
+			}
+		}
+		return total;
 	}
 
 }

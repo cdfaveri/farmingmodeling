@@ -21,7 +21,10 @@ public class Calculator {
 	 * CALCUL DE LA BIOMASS
 	 */	
 	public static double calculateBiomass(double eveValue, Day dday, double eB, double eImax, double K, double LAI){
-		double PAR = dday.getRay();
+		/*
+		 * this divide is here to change unit and avoid double overflow.
+		 */
+		double PAR = dday.getRay() / 100;
 		return eveValue+(eImax*(1-Math.exp(-K*LAI))*eB*PAR);
 	}
 	

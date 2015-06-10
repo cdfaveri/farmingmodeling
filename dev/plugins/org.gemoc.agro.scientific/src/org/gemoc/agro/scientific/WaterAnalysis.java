@@ -85,31 +85,43 @@ public class WaterAnalysis {
 									bioModel = model;
 								}
 							}
+
+							Map<Day, SurfaceData> dayToData = Maps
+									.newLinkedHashMap();
+
 							while (currentDay != null
 									&& currentDay != harvestingDay) {
 								SurfaceData data = ScientificFactory.eINSTANCE
 										.createSurfaceData();
 								data.setSurface(s);
 								data.setDay(currentDay);
+								dayToData.put(currentDay, data);
 								analysis.getSurfaceDatas().add(data);
 								if (bioModel != null) {
 									double hydroDeficit = 0;
-									for (Day pastDay : getPreviousDays(
+									Collection<Day> previousDays = getPreviousDays(
 											analysis.getSchedule(), currentDay,
-											analysis.getKDaysToConsider())) {
-										double evaporation = getDaylyEvaporation(pastDay);
-										hydroDeficit += evaporation
-												- pastDay.getRain();
+											analysis.getKDaysToConsider());
+									for (Day pastDay : previousDays) {
+										double evaporation = getDailyEvaporation(pastDay);
+										double addedWater = pastDay.getRain();										
+										SurfaceData previousDayData = dayToData
+												.get(pastDay);
+										if (previousDayData != null) {
+											addedWater += previousDayData
+													.getExtraWater();
+										}
+										hydroDeficit += (evaporation - addedWater);
 									}
 									data.setHydroDeficit(hydroDeficit);
 
-									if (hydroDeficit <= analysis
+									if (hydroDeficit >= analysis
 											.getLimitBeforeWatering()) {
 										/*
 										 * total is the size of the surface in
 										 * ares (which equals 100m*m)
 										 */
-										data.setExtraWater(40d * s.getTotal() * 100);
+										data.setExtraWater(40d);
 									}
 									if (previousData != null) {
 										/*
@@ -168,8 +180,10 @@ public class WaterAnalysis {
 			.put(Month.NOV, Double.valueOf(0.82 / 12))
 			.put(Month.DEC, Double.valueOf(0.79 / 12)).build();
 
-	private double getDaylyEvaporation(Day pastDay) {
-		return dailyEvaporation.get(pastDay.getMonth());
+	private double getDailyEvaporation(Day pastDay) {
+		return 4.5d;
+//		return 3.9999999999999d;
+		// retun dailyEvaporation.get(pastDay.getMonth());
 	}
 
 	private Collection<Day> getPreviousDays(Schedule s, Day start, int n) {
