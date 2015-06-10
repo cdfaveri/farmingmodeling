@@ -7,6 +7,7 @@ import java.util.Iterator;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
@@ -22,6 +23,9 @@ import org.eclipse.ui.progress.IProgressService;
 import org.gemoc.agro.simulation.Schedule;
 import org.gemoc.agro.simulation.solver.ExploitationActivitiesScheduler;
 
+import com.google.common.base.Function;
+import com.google.common.base.Joiner;
+import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 
 public class ComputePlanner implements IObjectActionDelegate {
@@ -75,6 +79,27 @@ public class ComputePlanner implements IObjectActionDelegate {
 						}
 					}
 				});
+
+				MessageDialog
+						.openInformation(
+								shell,
+								"Scheduling complete",
+								"Scheduling is complete, best score found are  :\n"
+										+ Joiner.on("\n")
+												.join(Iterables
+														.transform(
+																this.selected,
+																new Function<Schedule, String>() {
+
+																	@Override
+																	public String apply(
+																			Schedule input) {
+																		return "hard constraints : "
+																				+ input.getHardScore()
+																				+ " soft constraints :"
+																				+ input.getSoftScore();
+																	}
+																})));
 			} catch (InvocationTargetException | InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

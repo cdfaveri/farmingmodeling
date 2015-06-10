@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.Set;
 
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.gemoc.agro.activitiesDSL.ActivityResource;
 import org.gemoc.agro.activitiesDSL.Comp;
 import org.gemoc.agro.activitiesDSL.Date;
@@ -31,6 +32,8 @@ import com.google.common.collect.Sets;
 public class AgroScoreCalculator implements
 		EasyScoreCalculator<SimulationSolution> {
 
+	private static final Calendar CAL_INSTANCE = Calendar.getInstance();
+
 	@Override
 	public Score calculateScore(SimulationSolution solution) {
 		int hardScore = 0;
@@ -41,8 +44,7 @@ public class AgroScoreCalculator implements
 		Multimap<Day, ActivityWork> scheduledWork = HashMultimap.create();
 		for (ActivityWork work : solution.getSimulation().getWorkToDo()) {
 			work.getSchedulingFeedback().clear();
-			
-			
+
 			if (work.getActivity() != null) {
 				activityToWork.put(work.getActivity(), work);
 			}
@@ -62,9 +64,9 @@ public class AgroScoreCalculator implements
 			for (ResourceAllocation alloc : allocations) {
 				if (usedResource.contains(alloc.getResource())) {
 					hardScore += mediumPenalty(1);
-					alloc.getWork()
-							.getSchedulingFeedback()
-							.add(createFeedback(
+					addFeedback(
+							alloc.getWork(),
+							createFeedback(
 									FeedbackLevel.ERROR,
 									"Resource "
 											+ alloc.getResource().getName()
@@ -93,12 +95,12 @@ public class AgroScoreCalculator implements
 				daysUsed.add(alloc.getWork().getScheduledOn());
 			}
 		}
-		
+
 		/*
 		 * the more different days we use, the better
 		 */
 		softScore += daysUsed.size() * 100;
-		
+
 		/*
 		 * Constraint : a given resource can only be used for a given activity
 		 * on a given day.
@@ -110,7 +112,8 @@ public class AgroScoreCalculator implements
 			int delta = allResourcesForThisDay.size() - uniqueResources.size();
 			if (delta > 0) {
 				hardScore += mediumPenalty(delta);
-				System.out.println("Several uses of the same resource for the same day.");
+				System.out
+						.println("Several uses of the same resource for the same day.");
 			}
 		}
 
@@ -120,9 +123,9 @@ public class AgroScoreCalculator implements
 
 				if (alloc.getResource().getKind() != alloc.getKind()) {
 					hardScore += mediumPenalty(10);
-					alloc.getWork()
-							.getSchedulingFeedback()
-							.add(createFeedback(FeedbackLevel.ERROR, "Resource"
+					addFeedback(
+							alloc.getWork(),
+							createFeedback(FeedbackLevel.ERROR, "Resource"
 									+ alloc.getResource().getName()
 									+ " is not of kind "
 									+ alloc.getKind().getName() + "."));
@@ -130,12 +133,12 @@ public class AgroScoreCalculator implements
 
 			} else {
 				hardScore += mediumPenalty(1);
-				alloc.getWork()
-						.getSchedulingFeedback()
-						.add(createFeedback(FeedbackLevel.ERROR,
+				addFeedback(
+						alloc.getWork(),
+						(createFeedback(FeedbackLevel.ERROR,
 								"A required resource of kind "
 										+ alloc.getKind().getName()
-										+ " is missing."));
+										+ " is missing.")));
 			}
 		}
 
@@ -165,7 +168,8 @@ public class AgroScoreCalculator implements
 						 * we are missing at least an allocation of this type.
 						 */
 						hardScore += mediumPenalty(delta);
-						work.getSchedulingFeedback().add(
+						addFeedback(
+								work,
 								createFeedback(FeedbackLevel.ERROR,
 										"This activity is missing "
 												+ delta
@@ -182,57 +186,18 @@ public class AgroScoreCalculator implements
 			if (work.getScheduledOn() == null) {
 
 				hardScore += mediumPenalty(1);
-				work.getSchedulingFeedback().add(
+				addFeedback(
+						work,
 						createFeedback(FeedbackLevel.ERROR,
 								"This activity is not scheduled."));
 			} else {
 				scheduledWork.put(work.getScheduledOn(), work);
 				if (work.getActivity() != null) {
 					/*
-					 * start date is in range
+					 * This is no longer needed as the ScheduledDateMove will
+					 * filter right away impossible dates.
 					 */
-
-					int scheduledDay = numberOfDayInYear(work.getScheduledOn());
-					Date minimumDayToStart = work.getActivity().getStartDate();
-					if (minimumDayToStart != null) {
-						int minDayToStart = numberOfDayInYear(work
-								.getActivity().getStartDate());
-						if (scheduledDay < minDayToStart) {
-							hardScore += mediumPenalty(2);
-							work.getSchedulingFeedback().add(
-									createFeedback(
-											FeedbackLevel.ERROR,
-											"This activity starts before the specified start date :"
-													+ minimumDayToStart
-															.getDay()
-													+ " "
-													+ minimumDayToStart
-															.getMonth()));
-						}
-					}
-					Date maximumDayToStart = work.getActivity().getEndDate();
-					if (maximumDayToStart != null) {
-						int maxDayToStart = numberOfDayInYear(work
-								.getActivity().getEndDate());
-						if (scheduledDay > maxDayToStart) {
-							hardScore += mediumPenalty(1);
-							work.getSchedulingFeedback()
-									.add(createFeedback(
-											FeedbackLevel.ERROR,
-											"This activity starts "
-													+ work.getScheduledOn()
-															.getDay()
-													+ " "
-													+ work.getScheduledOn()
-															.getMonth()
-													+ " which is after the specified end date:"
-													+ maximumDayToStart
-															.getDay()
-													+ " "
-													+ maximumDayToStart
-															.getMonth()));
-						}
-					}
+					// hardScore = checkDateRange(hardScore, work);
 
 					/*
 					 * predicates are valid
@@ -260,8 +225,9 @@ public class AgroScoreCalculator implements
 									 */
 									if (nbDaysInBetween < 0) {
 										hardScore += mediumPenalty(2);
-										work.getSchedulingFeedback()
-												.add(createFeedback(
+										addFeedback(
+												work,
+												createFeedback(
 														FeedbackLevel.ERROR,
 														"This activity starts before  "
 																+ otherWorkOnSameAct
@@ -280,9 +246,10 @@ public class AgroScoreCalculator implements
 									} else if (delayConstraint.getDays() != 0
 											&& nbDaysInBetween < delayConstraint
 													.getDays()) {
-										hardScore += mediumPenalty(nbDaysInBetween*5);
-										work.getSchedulingFeedback()
-												.add(createFeedback(
+										hardScore += mediumPenalty(nbDaysInBetween * 5);
+										addFeedback(
+												work,
+												createFeedback(
 														FeedbackLevel.ERROR,
 														"The minimum number of days in between this activity and "
 																+ otherWorkOnSameAct
@@ -301,18 +268,18 @@ public class AgroScoreCalculator implements
 									&& work.getScheduledOn().getTemperature() < tempConstraint
 											.getLowerTempBound()) {
 								hardScore += mediumPenalty(1);
-								work.getSchedulingFeedback()
-										.add(createFeedback(
-												FeedbackLevel.ERROR,
+								addFeedback(
+										work,
+										createFeedback(FeedbackLevel.ERROR,
 												"The minimum temperature is not respected."));
 							}
 							if (tempConstraint.getComparison() == Comp.LESS_THAN
 									&& work.getScheduledOn().getTemperature() > tempConstraint
 											.getLowerTempBound()) {
 								hardScore += mediumPenalty(1);
-								work.getSchedulingFeedback()
-										.add(createFeedback(
-												FeedbackLevel.ERROR,
+								addFeedback(
+										work,
+										createFeedback(FeedbackLevel.ERROR,
 												"The minimum temperature is not respected."));
 							}
 
@@ -325,6 +292,50 @@ public class AgroScoreCalculator implements
 
 		HardSoftScore score = HardSoftScore.valueOf(hardScore, softScore);
 		return score;
+	}
+
+	private int checkDateRange(int hardScore, ActivityWork work) {
+		int scheduledDay = numberOfDayInYear(work.getScheduledOn());
+		Date minimumDayToStart = work.getActivity().getStartDate();
+		Date maximumDayToStart = work.getActivity().getEndDate();
+		if (minimumDayToStart != null) {
+			int minDayToStart = numberOfDayInYear(work.getActivity()
+					.getStartDate());
+			if (scheduledDay < minDayToStart) {
+				hardScore += mediumPenalty(2);
+				addFeedback(
+						work,
+						createFeedback(FeedbackLevel.ERROR,
+								"This activity starts before the specified start date :"
+										+ minimumDayToStart.getDay() + " "
+										+ minimumDayToStart.getMonth()));
+			}
+		}
+		if (maximumDayToStart != null) {
+			int maxDayToStart = numberOfDayInYear(work.getActivity()
+					.getEndDate());
+			if (scheduledDay > maxDayToStart) {
+				hardScore += mediumPenalty(1);
+				addFeedback(
+						work,
+						createFeedback(
+								FeedbackLevel.ERROR,
+								"This activity starts "
+										+ work.getScheduledOn().getDay()
+										+ " "
+										+ work.getScheduledOn().getMonth()
+										+ " which is after the specified end date:"
+										+ maximumDayToStart.getDay() + " "
+										+ maximumDayToStart.getMonth()));
+			}
+		}
+		return hardScore;
+	}
+
+	private void addFeedback(ActivityWork work,
+			SchedulingFeedback createFeedback) {
+		((InternalEList) work.getSchedulingFeedback())
+				.addUnique(createFeedback);
 	}
 
 	private int absoluteDelta(Day a, Day b) {
@@ -347,15 +358,15 @@ public class AgroScoreCalculator implements
 		return feedback;
 	}
 
-	private int numberOfDayInYear(Day day) {
-		Calendar cal = Calendar.getInstance();
+	public static int numberOfDayInYear(Day day) {
+		Calendar cal = CAL_INSTANCE;
 		cal.set(Calendar.DAY_OF_MONTH, day.getDay());
 		cal.set(Calendar.MONTH, day.getMonth().getValue());
 		return cal.get(Calendar.DAY_OF_YEAR);
 	}
 
-	private int numberOfDayInYear(Date day) {
-		Calendar cal = Calendar.getInstance();
+	public static int numberOfDayInYear(Date day) {
+		Calendar cal = CAL_INSTANCE;
 		cal.set(Calendar.DAY_OF_MONTH, day.getDay());
 		cal.set(Calendar.MONTH, day.getMonth().getValue());
 		return cal.get(Calendar.DAY_OF_YEAR);
@@ -365,7 +376,7 @@ public class AgroScoreCalculator implements
 	 * return the nb days between the dates.
 	 */
 	private int delta(Day scheduledOn, Date date) {
-		Calendar cal = Calendar.getInstance();
+		Calendar cal = CAL_INSTANCE;
 		cal.set(Calendar.DAY_OF_MONTH, date.getDay());
 		cal.set(Calendar.MONTH, date.getMonth().getValue());
 		int dateDayOfYear = cal.get(Calendar.DAY_OF_YEAR);
@@ -380,7 +391,7 @@ public class AgroScoreCalculator implements
 	 * return the nb days between the dates.
 	 */
 	private int delta(Day scheduledOn, Day date) {
-		Calendar cal = Calendar.getInstance();
+		Calendar cal = CAL_INSTANCE;
 		cal.set(Calendar.DAY_OF_MONTH, date.getDay());
 		cal.set(Calendar.MONTH, date.getMonth().getValue());
 		int dateDayOfYear = cal.get(Calendar.DAY_OF_YEAR);

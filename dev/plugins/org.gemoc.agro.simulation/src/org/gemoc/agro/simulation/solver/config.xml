@@ -52,6 +52,7 @@
         </entitySelector>
       </changeMoveSelector>
       <changeMoveSelector>
+      <filterClass>org.gemoc.agro.simulation.solver.ScheduledDateMoveFilter</filterClass>
         <entitySelector>
           <entityClass>org.gemoc.agro.simulation.ActivityWork</entityClass>
         </entitySelector>
