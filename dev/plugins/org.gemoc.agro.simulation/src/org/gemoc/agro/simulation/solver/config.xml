@@ -47,6 +47,7 @@
     </acceptor>
     <unionMoveSelector>
      <changeMoveSelector>
+     <filterClass>org.gemoc.agro.simulation.solver.ResourceAllocationMoveFilter</filterClass>
         <entitySelector>
           <entityClass>org.gemoc.agro.simulation.ResourceAllocation</entityClass>
         </entitySelector>

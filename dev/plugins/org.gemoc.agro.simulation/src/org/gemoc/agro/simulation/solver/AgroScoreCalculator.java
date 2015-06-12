@@ -120,16 +120,11 @@ public class AgroScoreCalculator implements
 		for (ResourceAllocation alloc : solution.getSimulation()
 				.getAllocations()) {
 			if (alloc.getResource() != null) {
-
-				if (alloc.getResource().getKind() != alloc.getKind()) {
-					hardScore += mediumPenalty(10);
-					addFeedback(
-							alloc.getWork(),
-							createFeedback(FeedbackLevel.ERROR, "Resource"
-									+ alloc.getResource().getName()
-									+ " is not of kind "
-									+ alloc.getKind().getName() + "."));
-				}
+				/*
+				 * This is no longer necessary as ResourceAllocationMoveFilter
+				 * makes sure such an option is not even considered. hardScore =
+				 * checkAllocationIsRightKind(hardScore, alloc);
+				 */
 
 			} else {
 				hardScore += mediumPenalty(1);
@@ -292,6 +287,20 @@ public class AgroScoreCalculator implements
 
 		HardSoftScore score = HardSoftScore.valueOf(hardScore, softScore);
 		return score;
+	}
+
+	private int checkAllocationIsRightKind(int hardScore,
+			ResourceAllocation alloc) {
+		if (alloc.getResource().getKind() != alloc.getKind()) {
+			hardScore += mediumPenalty(10);
+			addFeedback(
+					alloc.getWork(),
+					createFeedback(FeedbackLevel.ERROR, "Resource"
+							+ alloc.getResource().getName()
+							+ " is not of kind " + alloc.getKind().getName()
+							+ "."));
+		}
+		return hardScore;
 	}
 
 	private int checkDateRange(int hardScore, ActivityWork work) {
