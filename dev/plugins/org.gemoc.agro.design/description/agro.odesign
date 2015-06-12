@@ -123,7 +123,7 @@
         <edgeMappings name="ResourceToCurrentUsage" semanticCandidatesExpression="[self.eInverse(simulation::Schedule)->select(not currentDay.oclIsUndefined()).currentDay.eInverse(ActivityWork).eInverse(ResourceAllocation)/]" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Resource']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Surface']" targetFinderExpression="[self.work.onSurface->asOrderedSet()/]" sourceFinderExpression="feature:resource" domainClass="simulation.ResourceAllocation" useDomainElement="true">
           <style sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
-            <centerLabelStyleDescription>
+            <centerLabelStyleDescription showIcon="false" labelExpression="[self.work.activity.name/]">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
