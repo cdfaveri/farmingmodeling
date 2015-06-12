@@ -26,13 +26,13 @@
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
-          <conditionnalStyles predicateExpression="[self.kind.name &lt;> 'People' and self.eContainer(Exploitation).eInverse(simulation::Schedule).currentDay.eInverse(ActivityWork).eInverse(ResourceAllocation).resource->includes(self)/]">
+          <conditionnalStyles predicateExpression="[self.kind.name &lt;> 'People' and self.eContainer(Exploitation).eInverse(simulation::Schedule)->select(not currentDay.oclIsUndefined()).currentDay.eInverse(ActivityWork).eInverse(ResourceAllocation).resource->includes(self)/]">
             <style xsi:type="style:WorkspaceImageDescription" borderSizeComputationExpression="1" labelFormat="bold" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.gemoc.agro.exploitation.edit/icons/full/obj16/Resource_32.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
             </style>
           </conditionnalStyles>
-          <conditionnalStyles predicateExpression="[self.eContainer(Exploitation).eInverse(simulation::Schedule).currentDay.eInverse(ActivityWork).eInverse(ResourceAllocation).resource->includes(self)/]">
+          <conditionnalStyles predicateExpression="[self.eContainer(Exploitation).eInverse(simulation::Schedule)->select(not currentDay.oclIsUndefined()).currentDay.eInverse(ActivityWork).eInverse(ResourceAllocation).resource->includes(self)/]">
             <style xsi:type="style:WorkspaceImageDescription" borderSizeComputationExpression="1" labelFormat="bold" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.gemoc.agro.exploitation.edit/icons/full/obj16/Resource_people_32.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
@@ -120,7 +120,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="ResourceToCurrentUsage" semanticCandidatesExpression="[self.eInverse(simulation::Schedule).currentDay.eInverse(ActivityWork).eInverse(ResourceAllocation)/]" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Resource']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Surface']" targetFinderExpression="[self.work.onSurface->asOrderedSet()/]" sourceFinderExpression="feature:resource" domainClass="simulation.ResourceAllocation" useDomainElement="true">
+        <edgeMappings name="ResourceToCurrentUsage" semanticCandidatesExpression="[self.eInverse(simulation::Schedule)->select(not currentDay.oclIsUndefined()).currentDay.eInverse(ActivityWork).eInverse(ResourceAllocation)/]" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Resource']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Surface']" targetFinderExpression="[self.work.onSurface->asOrderedSet()/]" sourceFinderExpression="feature:resource" domainClass="simulation.ResourceAllocation" useDomainElement="true">
           <style sizeComputationExpression="1">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
             <centerLabelStyleDescription>
@@ -351,9 +351,10 @@
   </ownedViewpoints>
   <ownedViewpoints name="Simulation" modelFileExtension="simulation">
     <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Climate Data" domainClass="simulation.ClimateData">
-      <metamodel href="http://www.gemoc.org/agro/simulation#/"/>
-      <metamodel href="http://www.gemoc.org/exploitation#/"/>
       <metamodel href="http://www.gemoc.org/agro/ActivitiesDSL#/"/>
+      <metamodel href="http://www.gemoc.org/exploitation#/"/>
+      <metamodel href="http://www.gemoc.org/scientific#/"/>
+      <metamodel href="http://www.gemoc.org/agro/simulation#/"/>
       <ownedLineMappings name="Day Line" domainClass="simulation.Day" headerLabelExpression="[self.month + ' ' + self.day /]">
         <foregroundConditionalStyle predicateExpression="[self.eInverse(simulation::Schedule)->size() > 0/]">
           <style>
@@ -435,6 +436,10 @@
       </subItemMappings>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Hydro Analysis" domainClass="scientific.ExploitationAnalysis">
+      <metamodel href="http://www.gemoc.org/agro/ActivitiesDSL#/"/>
+      <metamodel href="http://www.gemoc.org/exploitation#/"/>
+      <metamodel href="http://www.gemoc.org/scientific#/"/>
+      <metamodel href="http://www.gemoc.org/agro/simulation#/"/>
       <ownedLineMappings name="Analysis Root" domainClass="scientific.ExploitationAnalysis" semanticCandidatesExpression="var:self" headerLabelExpression="[self.schedule.exploitation.name/]">
         <ownedSubLines name="Biomass Surface" domainClass="exploitation.Surface" semanticCandidatesExpression="[self.surfaceDatas.surface->asOrderedSet()/]">
           <ownedSubLines name="Surface Data" domainClass="scientific.SurfaceData" semanticCandidatesExpression="[self.eInverse(scientific::SurfaceData)/]"/>
