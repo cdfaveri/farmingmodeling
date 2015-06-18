@@ -59,7 +59,7 @@ public class ComputePlanner implements IObjectActionDelegate {
 			try {
 				ps.busyCursorWhile(new IRunnableWithProgress() {
 					public void run(IProgressMonitor pm) {
-						for (Schedule simulation : selected) {
+						for (final Schedule simulation : selected) {
 							Session s = SessionManager.INSTANCE
 									.getSession(simulation);
 							if (s != null) {
