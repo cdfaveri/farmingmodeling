@@ -387,17 +387,17 @@
       <metamodel href="http://www.gemoc.org/agro/simulation#/"/>
       <metamodel href="http://www.gemoc.org/exploitation#/"/>
       <subItemMappings name="ScheduleRoot" domainClass="simulation.Schedule" semanticCandidatesExpression="var:self">
-        <defaultStyle labelExpression="Schedule">
+        <defaultStyle labelSize="12" labelExpression="Schedule">
           <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
         </defaultStyle>
         <subItemMappings name="Surface" domainClass="exploitation.Surface" semanticCandidatesExpression="[self.workToDo.onSurface->asOrderedSet()/]">
-          <defaultStyle labelExpression="[self.name + ' ' + self.nbFields + ' fields'/]">
+          <defaultStyle labelSize="12" labelExpression="[self.name + ' ' + self.nbFields + ' fields'/]">
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </defaultStyle>
           <subItemMappings name="Work To Do" domainClass="simulation.ActivityWork" semanticCandidatesExpression="[self.eInverse()/]">
-            <defaultStyle labelExpression="[self.activity.eContainer(Culture).name + ' ' + self.activity.name + ' scheduled on ' + self.scheduledOn.day + '/' + self.scheduledOn.month/]">
+            <defaultStyle labelSize="12" labelExpression="[self.activity.eContainer(Culture).name + ' ' + self.activity.name + ' scheduled on ' + self.scheduledOn.day + '/' + self.scheduledOn.month/]">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </defaultStyle>
