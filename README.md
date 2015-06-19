@@ -4,14 +4,14 @@ This repository provides domain-specific languages and associated tools for farm
 
 # Structure
 
-* [./dev](https://github.com/gemoc/farmingmodeling/tree/master/dev): tool-supported DSLs based on EMF, Sirius, Xtend and GEMOC (see [README](https://github.com/gemoc/farmingmodeling/tree/master/dev))
+* [./dev](https://github.com/gemoc/farmingmodeling/tree/master/dev): tool-supported DSLs based on EMF, Sirius, Xtext, Xtend and GEMOC (see [README](https://github.com/gemoc/farmingmodeling/tree/master/dev))
 * [./materials](https://github.com/gemoc/farmingmodeling/tree/master/materials): further documents and slides about the project
 
 # Further Materials
 
-* [MDE in Practice for Computational Science](https://hal.inria.fr/hal-01141393) (Jean-Michel Bruel, Benoit Combemale, Ileana Ober, Hélène Raynal), In International Conference on Computational Science (ICCS), 2015. 
-* [L'IDM par la pratique dans le contexte des modèles agronomiques autour d'une étude de cas](http://videotheque.univ-tlse3.fr/media/devlog-benoit-combernale-idm-par-la-pratique-dans-) (Benoit Combemale, DEVLOG-IDM2014, Oct. 2014) *French*
-* [Composition and concurrent execution of heterogeneous domain-specific models](http://videotheque.univ-tlse3.fr/media/composition-and-concurrent-execution-of-heterogene) (Benoit Combemale, DEVLOG-IDM2013, Oct. 2013) *French*
+* [paper] [MDE in Practice for Computational Science](https://hal.inria.fr/hal-01141393) (Jean-Michel Bruel, Benoit Combemale, Ileana Ober, Hélène Raynal), In International Conference on Computational Science (ICCS), 2015. 
+* [video, french] [L'IDM par la pratique dans le contexte des modèles agronomiques autour d'une étude de cas](http://videotheque.univ-tlse3.fr/media/devlog-benoit-combernale-idm-par-la-pratique-dans-) (Benoit Combemale, DEVLOG-IDM2014, Oct. 2014) *French*
+* [video, french] [Composition and concurrent execution of heterogeneous domain-specific models](http://videotheque.univ-tlse3.fr/media/composition-and-concurrent-execution-of-heterogene) (Benoit Combemale, DEVLOG-IDM2013, Oct. 2013) *French*
 
 # Further References
 
