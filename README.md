@@ -10,8 +10,8 @@ This repository provides domain-specific languages and associated tools for farm
 # Further Materials
 
 * [paper] [MDE in Practice for Computational Science](https://hal.inria.fr/hal-01141393) (Jean-Michel Bruel, Benoit Combemale, Ileana Ober, Hélène Raynal), In International Conference on Computational Science (ICCS), 2015. 
-* [video, french] [L'IDM par la pratique dans le contexte des modèles agronomiques autour d'une étude de cas](http://videotheque.univ-tlse3.fr/media/devlog-benoit-combernale-idm-par-la-pratique-dans-) (Benoit Combemale, DEVLOG-IDM2014, Oct. 2014) *French*
-* [video, french] [Composition and concurrent execution of heterogeneous domain-specific models](http://videotheque.univ-tlse3.fr/media/composition-and-concurrent-execution-of-heterogene) (Benoit Combemale, DEVLOG-IDM2013, Oct. 2013) *French*
+* [video, french] [L'IDM par la pratique dans le contexte des modèles agronomiques autour d'une étude de cas](http://videotheque.univ-tlse3.fr/media/devlog-benoit-combernale-idm-par-la-pratique-dans-) (Benoit Combemale, DEVLOG-IDM2014, Oct. 2014)
+* [video, french] [Composition and concurrent execution of heterogeneous domain-specific models](http://videotheque.univ-tlse3.fr/media/composition-and-concurrent-execution-of-heterogene) (Benoit Combemale, DEVLOG-IDM2013, Oct. 2013)
 
 # Further References
 
