@@ -1,0 +1,3 @@
+Export-Package: org.gemoc.agro.activitiesDSL,
+org.gemoc.agro.activities.k3dsa,
+ org.gemoc.agro.exploitation
