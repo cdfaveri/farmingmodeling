@@ -9,7 +9,7 @@ This repository provides domain-specific languages and associated tools for farm
 
 # Further Materials
 
-* [slides] [Modeling for Smart CPS](http://fr.slideshare.net/BenotCombemale/modeling-for-smart-cyberphysical-systems) (Benoit Combemale), CPS Seminar, 2016
+* [slides] [Modeling for Smart CPS](http://fr.slideshare.net/BenotCombemale/modeling-for-smart-cyberphysical-systems) (Benoit Combemale and Jean-Michel Bruel), CPS Seminar, 2016
 * [slides] [Modeling for Sustainability](https://github.com/gemoc/farmingmodeling/blob/master/materials/2015-06-Modeling-for-Sustainability-INRASeminar-combemale.pdf) (Benoit Combemale), INRA Seminar, 2015
 * [paper] [MDE in Practice for Computational Science](https://hal.inria.fr/hal-01141393) (Jean-Michel Bruel, Benoit Combemale, Ileana Ober, Hélène Raynal), In International Conference on Computational Science (ICCS), 2015. 
 * [video, french] [L'IDM par la pratique dans le contexte des modèles agronomiques autour d'une étude de cas](http://videotheque.univ-tlse3.fr/media/devlog-benoit-combernale-idm-par-la-pratique-dans-) (Benoit Combemale, DEVLOG-IDM2014, Oct. 2014)
