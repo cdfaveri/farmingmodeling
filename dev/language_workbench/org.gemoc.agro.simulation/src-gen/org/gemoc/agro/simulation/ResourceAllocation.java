@@ -30,82 +30,82 @@ import org.optaplanner.core.api.domain.variable.PlanningVariable;
 @PlanningEntity(difficultyComparatorClass = ResourceAllocationDifficultyComparator.class)
 public interface ResourceAllocation extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Work</b></em>' reference.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Work</b></em>' reference.
+   * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Work</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Work</em>' reference.
-	 * @see #setWork(ActivityWork)
-	 * @see org.gemoc.agro.simulation.SimulationPackage#getResourceAllocation_Work()
-	 * @model required="true"
-	 * @generated
-	 */
+   * @return the value of the '<em>Work</em>' reference.
+   * @see #setWork(ActivityWork)
+   * @see org.gemoc.agro.simulation.SimulationPackage#getResourceAllocation_Work()
+   * @model required="true"
+   * @generated
+   */
 	ActivityWork getWork();
 
 	/**
-	 * Sets the value of the '{@link org.gemoc.agro.simulation.ResourceAllocation#getWork <em>Work</em>}' reference.
-	 * <!-- begin-user-doc -->
+   * Sets the value of the '{@link org.gemoc.agro.simulation.ResourceAllocation#getWork <em>Work</em>}' reference.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Work</em>' reference.
-	 * @see #getWork()
-	 * @generated
-	 */
+   * @param value the new value of the '<em>Work</em>' reference.
+   * @see #getWork()
+   * @generated
+   */
 	void setWork(ActivityWork value);
 
 	/**
-	 * Returns the value of the '<em><b>Resource</b></em>' reference.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Resource</b></em>' reference.
+   * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Resource</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Resource</em>' reference.
-	 * @see #setResource(Resource)
-	 * @see org.gemoc.agro.simulation.SimulationPackage#getResourceAllocation_Resource()
-	 * @model required="true"
-	 * @generated
-	 */
+   * @return the value of the '<em>Resource</em>' reference.
+   * @see #setResource(Resource)
+   * @see org.gemoc.agro.simulation.SimulationPackage#getResourceAllocation_Resource()
+   * @model required="true"
+   * @generated
+   */
 	@PlanningVariable(valueRangeProviderRefs = {"resources"})
 	Resource getResource();
 
 	/**
-	 * Sets the value of the '{@link org.gemoc.agro.simulation.ResourceAllocation#getResource <em>Resource</em>}' reference.
-	 * <!-- begin-user-doc -->
+   * Sets the value of the '{@link org.gemoc.agro.simulation.ResourceAllocation#getResource <em>Resource</em>}' reference.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Resource</em>' reference.
-	 * @see #getResource()
-	 * @generated
-	 */
+   * @param value the new value of the '<em>Resource</em>' reference.
+   * @see #getResource()
+   * @generated
+   */
 	void setResource(Resource value);
 
 	/**
-	 * Returns the value of the '<em><b>Kind</b></em>' reference.
-	 * <!-- begin-user-doc -->
+   * Returns the value of the '<em><b>Kind</b></em>' reference.
+   * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Kind</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Kind</em>' reference.
-	 * @see #setKind(ResourceKind)
-	 * @see org.gemoc.agro.simulation.SimulationPackage#getResourceAllocation_Kind()
-	 * @model required="true"
-	 * @generated
-	 */
+   * @return the value of the '<em>Kind</em>' reference.
+   * @see #setKind(ResourceKind)
+   * @see org.gemoc.agro.simulation.SimulationPackage#getResourceAllocation_Kind()
+   * @model required="true"
+   * @generated
+   */
 	ResourceKind getKind();
 
 	/**
-	 * Sets the value of the '{@link org.gemoc.agro.simulation.ResourceAllocation#getKind <em>Kind</em>}' reference.
-	 * <!-- begin-user-doc -->
+   * Sets the value of the '{@link org.gemoc.agro.simulation.ResourceAllocation#getKind <em>Kind</em>}' reference.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Kind</em>' reference.
-	 * @see #getKind()
-	 * @generated
-	 */
+   * @param value the new value of the '<em>Kind</em>' reference.
+   * @see #getKind()
+   * @generated
+   */
 	void setKind(ResourceKind value);
 
 } // ResourceAllocation

@@ -21,190 +21,190 @@ import org.gemoc.agro.simulation.*;
  */
 public class SimulationAdapterFactory extends AdapterFactoryImpl {
 	/**
-	 * The cached model package.
-	 * <!-- begin-user-doc -->
+   * The cached model package.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected static SimulationPackage modelPackage;
 
 	/**
-	 * Creates an instance of the adapter factory.
-	 * <!-- begin-user-doc -->
+   * Creates an instance of the adapter factory.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public SimulationAdapterFactory() {
-		if (modelPackage == null) {
-			modelPackage = SimulationPackage.eINSTANCE;
-		}
-	}
+    if (modelPackage == null) {
+      modelPackage = SimulationPackage.eINSTANCE;
+    }
+  }
 
 	/**
-	 * Returns whether this factory is applicable for the type of the object.
-	 * <!-- begin-user-doc -->
+   * Returns whether this factory is applicable for the type of the object.
+   * <!-- begin-user-doc -->
 	 * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
 	 * <!-- end-user-doc -->
-	 * @return whether this factory is applicable for the type of the object.
-	 * @generated
-	 */
+   * @return whether this factory is applicable for the type of the object.
+   * @generated
+   */
 	@Override
 	public boolean isFactoryForType(Object object) {
-		if (object == modelPackage) {
-			return true;
-		}
-		if (object instanceof EObject) {
-			return ((EObject)object).eClass().getEPackage() == modelPackage;
-		}
-		return false;
-	}
+    if (object == modelPackage) {
+      return true;
+    }
+    if (object instanceof EObject) {
+      return ((EObject)object).eClass().getEPackage() == modelPackage;
+    }
+    return false;
+  }
 
 	/**
-	 * The switch that delegates to the <code>createXXX</code> methods.
-	 * <!-- begin-user-doc -->
+   * The switch that delegates to the <code>createXXX</code> methods.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected SimulationSwitch<Adapter> modelSwitch =
 		new SimulationSwitch<Adapter>() {
-			@Override
-			public Adapter caseSchedule(Schedule object) {
-				return createScheduleAdapter();
-			}
-			@Override
-			public Adapter caseActivityWork(ActivityWork object) {
-				return createActivityWorkAdapter();
-			}
-			@Override
-			public Adapter caseDay(Day object) {
-				return createDayAdapter();
-			}
-			@Override
-			public Adapter caseClimateData(ClimateData object) {
-				return createClimateDataAdapter();
-			}
-			@Override
-			public Adapter caseSchedulingFeedback(SchedulingFeedback object) {
-				return createSchedulingFeedbackAdapter();
-			}
-			@Override
-			public Adapter caseResourceAllocation(ResourceAllocation object) {
-				return createResourceAllocationAdapter();
-			}
-			@Override
-			public Adapter defaultCase(EObject object) {
-				return createEObjectAdapter();
-			}
-		};
+      @Override
+      public Adapter caseSchedule(Schedule object) {
+        return createScheduleAdapter();
+      }
+      @Override
+      public Adapter caseActivityWork(ActivityWork object) {
+        return createActivityWorkAdapter();
+      }
+      @Override
+      public Adapter caseDay(Day object) {
+        return createDayAdapter();
+      }
+      @Override
+      public Adapter caseClimateData(ClimateData object) {
+        return createClimateDataAdapter();
+      }
+      @Override
+      public Adapter caseSchedulingFeedback(SchedulingFeedback object) {
+        return createSchedulingFeedbackAdapter();
+      }
+      @Override
+      public Adapter caseResourceAllocation(ResourceAllocation object) {
+        return createResourceAllocationAdapter();
+      }
+      @Override
+      public Adapter defaultCase(EObject object) {
+        return createEObjectAdapter();
+      }
+    };
 
 	/**
-	 * Creates an adapter for the <code>target</code>.
-	 * <!-- begin-user-doc -->
+   * Creates an adapter for the <code>target</code>.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param target the object to adapt.
-	 * @return the adapter for the <code>target</code>.
-	 * @generated
-	 */
+   * @param target the object to adapt.
+   * @return the adapter for the <code>target</code>.
+   * @generated
+   */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject)target);
-	}
+    return modelSwitch.doSwitch((EObject)target);
+  }
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.agro.simulation.Schedule <em>Schedule</em>}'.
-	 * <!-- begin-user-doc -->
+   * Creates a new adapter for an object of class '{@link org.gemoc.agro.simulation.Schedule <em>Schedule</em>}'.
+   * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.gemoc.agro.simulation.Schedule
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see org.gemoc.agro.simulation.Schedule
+   * @generated
+   */
 	public Adapter createScheduleAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.agro.simulation.ActivityWork <em>Activity Work</em>}'.
-	 * <!-- begin-user-doc -->
+   * Creates a new adapter for an object of class '{@link org.gemoc.agro.simulation.ActivityWork <em>Activity Work</em>}'.
+   * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.gemoc.agro.simulation.ActivityWork
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see org.gemoc.agro.simulation.ActivityWork
+   * @generated
+   */
 	public Adapter createActivityWorkAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.agro.simulation.Day <em>Day</em>}'.
-	 * <!-- begin-user-doc -->
+   * Creates a new adapter for an object of class '{@link org.gemoc.agro.simulation.Day <em>Day</em>}'.
+   * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.gemoc.agro.simulation.Day
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see org.gemoc.agro.simulation.Day
+   * @generated
+   */
 	public Adapter createDayAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.agro.simulation.ClimateData <em>Climate Data</em>}'.
-	 * <!-- begin-user-doc -->
+   * Creates a new adapter for an object of class '{@link org.gemoc.agro.simulation.ClimateData <em>Climate Data</em>}'.
+   * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.gemoc.agro.simulation.ClimateData
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see org.gemoc.agro.simulation.ClimateData
+   * @generated
+   */
 	public Adapter createClimateDataAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.agro.simulation.SchedulingFeedback <em>Scheduling Feedback</em>}'.
-	 * <!-- begin-user-doc -->
+   * Creates a new adapter for an object of class '{@link org.gemoc.agro.simulation.SchedulingFeedback <em>Scheduling Feedback</em>}'.
+   * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.gemoc.agro.simulation.SchedulingFeedback
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see org.gemoc.agro.simulation.SchedulingFeedback
+   * @generated
+   */
 	public Adapter createSchedulingFeedbackAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.gemoc.agro.simulation.ResourceAllocation <em>Resource Allocation</em>}'.
-	 * <!-- begin-user-doc -->
+   * Creates a new adapter for an object of class '{@link org.gemoc.agro.simulation.ResourceAllocation <em>Resource Allocation</em>}'.
+   * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.gemoc.agro.simulation.ResourceAllocation
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @see org.gemoc.agro.simulation.ResourceAllocation
+   * @generated
+   */
 	public Adapter createResourceAllocationAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * Creates a new adapter for the default case.
-	 * <!-- begin-user-doc -->
+   * Creates a new adapter for the default case.
+   * <!-- begin-user-doc -->
 	 * This default implementation returns null.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @generated
-	 */
+   * @return the new adapter.
+   * @generated
+   */
 	public Adapter createEObjectAdapter() {
-		return null;
-	}
+    return null;
+  }
 
 } //SimulationAdapterFactory

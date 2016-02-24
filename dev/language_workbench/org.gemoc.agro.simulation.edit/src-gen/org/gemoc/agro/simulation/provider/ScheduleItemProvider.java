@@ -37,246 +37,246 @@ public class ScheduleItemProvider
 		IItemLabelProvider,
 		IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc -->
+   * This constructs an instance from a factory and a notifier.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public ScheduleItemProvider(AdapterFactory adapterFactory) {
-		super(adapterFactory);
-	}
+    super(adapterFactory);
+  }
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc -->
+   * This returns the property descriptors for the adapted class.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
+    if (itemPropertyDescriptors == null) {
+      super.getPropertyDescriptors(object);
 
-			addExploitationPropertyDescriptor(object);
-			addClimateDataPropertyDescriptor(object);
-			addSolverSearchSecondsSpentLimitPropertyDescriptor(object);
-			addCurrentDayPropertyDescriptor(object);
-			addHardScorePropertyDescriptor(object);
-			addSoftScorePropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
+      addExploitationPropertyDescriptor(object);
+      addClimateDataPropertyDescriptor(object);
+      addSolverSearchSecondsSpentLimitPropertyDescriptor(object);
+      addCurrentDayPropertyDescriptor(object);
+      addHardScorePropertyDescriptor(object);
+      addSoftScorePropertyDescriptor(object);
+    }
+    return itemPropertyDescriptors;
+  }
 
 	/**
-	 * This adds a property descriptor for the Exploitation feature.
-	 * <!-- begin-user-doc -->
+   * This adds a property descriptor for the Exploitation feature.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected void addExploitationPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Schedule_exploitation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Schedule_exploitation_feature", "_UI_Schedule_type"),
-				 SimulationPackage.Literals.SCHEDULE__EXPLOITATION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Schedule_exploitation_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Schedule_exploitation_feature", "_UI_Schedule_type"),
+         SimulationPackage.Literals.SCHEDULE__EXPLOITATION,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
 
 	/**
-	 * This adds a property descriptor for the Climate Data feature.
-	 * <!-- begin-user-doc -->
+   * This adds a property descriptor for the Climate Data feature.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected void addClimateDataPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Schedule_climateData_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Schedule_climateData_feature", "_UI_Schedule_type"),
-				 SimulationPackage.Literals.SCHEDULE__CLIMATE_DATA,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Schedule_climateData_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Schedule_climateData_feature", "_UI_Schedule_type"),
+         SimulationPackage.Literals.SCHEDULE__CLIMATE_DATA,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
 
 	/**
-	 * This adds a property descriptor for the Solver Search Seconds Spent Limit feature.
-	 * <!-- begin-user-doc -->
+   * This adds a property descriptor for the Solver Search Seconds Spent Limit feature.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected void addSolverSearchSecondsSpentLimitPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Schedule_solverSearchSecondsSpentLimit_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Schedule_solverSearchSecondsSpentLimit_feature", "_UI_Schedule_type"),
-				 SimulationPackage.Literals.SCHEDULE__SOLVER_SEARCH_SECONDS_SPENT_LIMIT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Schedule_solverSearchSecondsSpentLimit_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Schedule_solverSearchSecondsSpentLimit_feature", "_UI_Schedule_type"),
+         SimulationPackage.Literals.SCHEDULE__SOLVER_SEARCH_SECONDS_SPENT_LIMIT,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+         null,
+         null));
+  }
 
 	/**
-	 * This adds a property descriptor for the Current Day feature.
-	 * <!-- begin-user-doc -->
+   * This adds a property descriptor for the Current Day feature.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected void addCurrentDayPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Schedule_currentDay_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Schedule_currentDay_feature", "_UI_Schedule_type"),
-				 SimulationPackage.Literals.SCHEDULE__CURRENT_DAY,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Schedule_currentDay_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Schedule_currentDay_feature", "_UI_Schedule_type"),
+         SimulationPackage.Literals.SCHEDULE__CURRENT_DAY,
+         true,
+         false,
+         true,
+         null,
+         null,
+         null));
+  }
 
 	/**
-	 * This adds a property descriptor for the Hard Score feature.
-	 * <!-- begin-user-doc -->
+   * This adds a property descriptor for the Hard Score feature.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected void addHardScorePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Schedule_hardScore_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Schedule_hardScore_feature", "_UI_Schedule_type"),
-				 SimulationPackage.Literals.SCHEDULE__HARD_SCORE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Schedule_hardScore_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Schedule_hardScore_feature", "_UI_Schedule_type"),
+         SimulationPackage.Literals.SCHEDULE__HARD_SCORE,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+         null,
+         null));
+  }
 
 	/**
-	 * This adds a property descriptor for the Soft Score feature.
-	 * <!-- begin-user-doc -->
+   * This adds a property descriptor for the Soft Score feature.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected void addSoftScorePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Schedule_softScore_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Schedule_softScore_feature", "_UI_Schedule_type"),
-				 SimulationPackage.Literals.SCHEDULE__SOFT_SCORE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
+    itemPropertyDescriptors.add
+      (createItemPropertyDescriptor
+        (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+         getResourceLocator(),
+         getString("_UI_Schedule_softScore_feature"),
+         getString("_UI_PropertyDescriptor_description", "_UI_Schedule_softScore_feature", "_UI_Schedule_type"),
+         SimulationPackage.Literals.SCHEDULE__SOFT_SCORE,
+         true,
+         false,
+         false,
+         ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+         null,
+         null));
+  }
 
 	/**
-	 * This returns Schedule.gif.
-	 * <!-- begin-user-doc -->
+   * This returns Schedule.gif.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Schedule"));
-	}
+    return overlayImage(object, getResourceLocator().getImage("full/obj16/Schedule"));
+  }
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc -->
+   * This returns the label text for the adapted class.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public String getText(Object object) {
-		Schedule schedule = (Schedule)object;
-		return getString("_UI_Schedule_type") + " " + schedule.getSolverSearchSecondsSpentLimit();
-	}
+    Schedule schedule = (Schedule)object;
+    return getString("_UI_Schedule_type") + " " + schedule.getSolverSearchSecondsSpentLimit();
+  }
 	
 
 	/**
-	 * This handles model notifications by calling {@link #updateChildren} to update any cached
-	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-	 * <!-- begin-user-doc -->
+   * This handles model notifications by calling {@link #updateChildren} to update any cached
+   * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public void notifyChanged(Notification notification) {
-		updateChildren(notification);
+    updateChildren(notification);
 
-		switch (notification.getFeatureID(Schedule.class)) {
-			case SimulationPackage.SCHEDULE__WORK_TO_DO:
-			case SimulationPackage.SCHEDULE__SOLVER_SEARCH_SECONDS_SPENT_LIMIT:
-			case SimulationPackage.SCHEDULE__ALLOCATIONS:
-			case SimulationPackage.SCHEDULE__HARD_SCORE:
-			case SimulationPackage.SCHEDULE__SOFT_SCORE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
-		super.notifyChanged(notification);
-	}
+    switch (notification.getFeatureID(Schedule.class)) {
+      case SimulationPackage.SCHEDULE__WORK_TO_DO:
+      case SimulationPackage.SCHEDULE__SOLVER_SEARCH_SECONDS_SPENT_LIMIT:
+      case SimulationPackage.SCHEDULE__ALLOCATIONS:
+      case SimulationPackage.SCHEDULE__HARD_SCORE:
+      case SimulationPackage.SCHEDULE__SOFT_SCORE:
+        fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+        return;
+    }
+    super.notifyChanged(notification);
+  }
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc -->
+   * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+   * that can be created under this object.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);
+    super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SimulationPackage.Literals.SCHEDULE__WORK_TO_DO,
-				 SimulationFactory.eINSTANCE.createActivityWork()));
+    newChildDescriptors.add
+      (createChildParameter
+        (SimulationPackage.Literals.SCHEDULE__WORK_TO_DO,
+         SimulationFactory.eINSTANCE.createActivityWork()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(SimulationPackage.Literals.SCHEDULE__ALLOCATIONS,
-				 SimulationFactory.eINSTANCE.createResourceAllocation()));
-	}
+    newChildDescriptors.add
+      (createChildParameter
+        (SimulationPackage.Literals.SCHEDULE__ALLOCATIONS,
+         SimulationFactory.eINSTANCE.createResourceAllocation()));
+  }
 
 	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
+   * Return the resource locator for this item provider's resources.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return SimulationEditPlugin.INSTANCE;
-	}
+    return SimulationEditPlugin.INSTANCE;
+  }
 
 }

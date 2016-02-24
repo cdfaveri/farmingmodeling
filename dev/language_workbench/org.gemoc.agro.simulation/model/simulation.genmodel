@@ -6,6 +6,7 @@
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
     usedGenPackages="../../org.gemoc.agro.activities/model/generated/ActivitiesDSL.genmodel#//activitiesDSL ../../org.gemoc.agro.exploitation/model/exploitation.genmodel#//exploitation"
     operationReflection="true" importOrganizing="true">
+  <foreignModel>simulation.ecore</foreignModel>
   <genPackages prefix="Simulation" basePackage="org.gemoc.agro" disposableProviderFactory="true"
       ecorePackage="simulation.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="simulation.ecore#//FeedbackLevel">
@@ -30,6 +31,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simulation.ecore#//ActivityWork/schedulingFeedback"/>
     </genClasses>
     <genClasses ecoreClass="simulation.ecore#//Day">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Day/year"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Day/month"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Day/day"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Day/rain"/>
@@ -40,6 +42,8 @@
     <genClasses ecoreClass="simulation.ecore#//ClimateData">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//ClimateData/name"/>
       <genFeatures property="None" createChild="false" ecoreFeature="ecore:EReference simulation.ecore#//ClimateData/days"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//ClimateData/start"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//ClimateData/end"/>
     </genClasses>
     <genClasses ecoreClass="simulation.ecore#//SchedulingFeedback">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//SchedulingFeedback/level"/>

@@ -37,295 +37,295 @@ import org.gemoc.agro.simulation.SimulationPackage;
  */
 public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements ActivityWork {
 	/**
-	 * The cached value of the '{@link #getActivity() <em>Activity</em>}' reference.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getActivity() <em>Activity</em>}' reference.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getActivity()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getActivity()
+   * @generated
+   * @ordered
+   */
 	protected ExploitationActivity activity;
 
 	/**
-	 * The cached value of the '{@link #getScheduledOn() <em>Scheduled On</em>}' reference.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getScheduledOn() <em>Scheduled On</em>}' reference.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getScheduledOn()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getScheduledOn()
+   * @generated
+   * @ordered
+   */
 	protected Day scheduledOn;
 
 	/**
-	 * The cached value of the '{@link #getOnSurface() <em>On Surface</em>}' reference.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getOnSurface() <em>On Surface</em>}' reference.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOnSurface()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getOnSurface()
+   * @generated
+   * @ordered
+   */
 	protected Surface onSurface;
 
 	/**
-	 * The cached value of the '{@link #getSchedulingFeedback() <em>Scheduling Feedback</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getSchedulingFeedback() <em>Scheduling Feedback</em>}' containment reference list.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSchedulingFeedback()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getSchedulingFeedback()
+   * @generated
+   * @ordered
+   */
 	protected EList<SchedulingFeedback> schedulingFeedback;
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected ActivityWorkImpl() {
-		super();
-	}
+    super();
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	protected EClass eStaticClass() {
-		return SimulationPackage.Literals.ACTIVITY_WORK;
-	}
+    return SimulationPackage.Literals.ACTIVITY_WORK;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public ExploitationActivity getActivity() {
-		if (activity != null && activity.eIsProxy()) {
-			InternalEObject oldActivity = (InternalEObject)activity;
-			activity = (ExploitationActivity)eResolveProxy(oldActivity);
-			if (activity != oldActivity) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimulationPackage.ACTIVITY_WORK__ACTIVITY, oldActivity, activity));
-			}
-		}
-		return activity;
-	}
+    if (activity != null && activity.eIsProxy()) {
+      InternalEObject oldActivity = (InternalEObject)activity;
+      activity = (ExploitationActivity)eResolveProxy(oldActivity);
+      if (activity != oldActivity) {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimulationPackage.ACTIVITY_WORK__ACTIVITY, oldActivity, activity));
+      }
+    }
+    return activity;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public ExploitationActivity basicGetActivity() {
-		return activity;
-	}
+    return activity;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public void setActivity(ExploitationActivity newActivity) {
-		ExploitationActivity oldActivity = activity;
-		activity = newActivity;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.ACTIVITY_WORK__ACTIVITY, oldActivity, activity));
-	}
+    ExploitationActivity oldActivity = activity;
+    activity = newActivity;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.ACTIVITY_WORK__ACTIVITY, oldActivity, activity));
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public Day getScheduledOn() {
-		if (scheduledOn != null && scheduledOn.eIsProxy()) {
-			InternalEObject oldScheduledOn = (InternalEObject)scheduledOn;
-			scheduledOn = (Day)eResolveProxy(oldScheduledOn);
-			if (scheduledOn != oldScheduledOn) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON, oldScheduledOn, scheduledOn));
-			}
-		}
-		return scheduledOn;
-	}
+    if (scheduledOn != null && scheduledOn.eIsProxy()) {
+      InternalEObject oldScheduledOn = (InternalEObject)scheduledOn;
+      scheduledOn = (Day)eResolveProxy(oldScheduledOn);
+      if (scheduledOn != oldScheduledOn) {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON, oldScheduledOn, scheduledOn));
+      }
+    }
+    return scheduledOn;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public Day basicGetScheduledOn() {
-		return scheduledOn;
-	}
+    return scheduledOn;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public void setScheduledOn(Day newScheduledOn) {
-		Day oldScheduledOn = scheduledOn;
-		scheduledOn = newScheduledOn;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON, oldScheduledOn, scheduledOn));
-	}
+    Day oldScheduledOn = scheduledOn;
+    scheduledOn = newScheduledOn;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON, oldScheduledOn, scheduledOn));
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public Surface getOnSurface() {
-		if (onSurface != null && onSurface.eIsProxy()) {
-			InternalEObject oldOnSurface = (InternalEObject)onSurface;
-			onSurface = (Surface)eResolveProxy(oldOnSurface);
-			if (onSurface != oldOnSurface) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimulationPackage.ACTIVITY_WORK__ON_SURFACE, oldOnSurface, onSurface));
-			}
-		}
-		return onSurface;
-	}
+    if (onSurface != null && onSurface.eIsProxy()) {
+      InternalEObject oldOnSurface = (InternalEObject)onSurface;
+      onSurface = (Surface)eResolveProxy(oldOnSurface);
+      if (onSurface != oldOnSurface) {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SimulationPackage.ACTIVITY_WORK__ON_SURFACE, oldOnSurface, onSurface));
+      }
+    }
+    return onSurface;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public Surface basicGetOnSurface() {
-		return onSurface;
-	}
+    return onSurface;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public void setOnSurface(Surface newOnSurface) {
-		Surface oldOnSurface = onSurface;
-		onSurface = newOnSurface;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.ACTIVITY_WORK__ON_SURFACE, oldOnSurface, onSurface));
-	}
+    Surface oldOnSurface = onSurface;
+    onSurface = newOnSurface;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.ACTIVITY_WORK__ON_SURFACE, oldOnSurface, onSurface));
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public EList<SchedulingFeedback> getSchedulingFeedback() {
-		if (schedulingFeedback == null) {
-			schedulingFeedback = new EObjectContainmentEList<SchedulingFeedback>(SchedulingFeedback.class, this, SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK);
-		}
-		return schedulingFeedback;
-	}
+    if (schedulingFeedback == null) {
+      schedulingFeedback = new EObjectContainmentEList<SchedulingFeedback>(SchedulingFeedback.class, this, SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK);
+    }
+    return schedulingFeedback;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK:
-				return ((InternalEList<?>)getSchedulingFeedback()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+    switch (featureID) {
+      case SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK:
+        return ((InternalEList<?>)getSchedulingFeedback()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case SimulationPackage.ACTIVITY_WORK__ACTIVITY:
-				if (resolve) return getActivity();
-				return basicGetActivity();
-			case SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON:
-				if (resolve) return getScheduledOn();
-				return basicGetScheduledOn();
-			case SimulationPackage.ACTIVITY_WORK__ON_SURFACE:
-				if (resolve) return getOnSurface();
-				return basicGetOnSurface();
-			case SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK:
-				return getSchedulingFeedback();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    switch (featureID) {
+      case SimulationPackage.ACTIVITY_WORK__ACTIVITY:
+        if (resolve) return getActivity();
+        return basicGetActivity();
+      case SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON:
+        if (resolve) return getScheduledOn();
+        return basicGetScheduledOn();
+      case SimulationPackage.ACTIVITY_WORK__ON_SURFACE:
+        if (resolve) return getOnSurface();
+        return basicGetOnSurface();
+      case SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK:
+        return getSchedulingFeedback();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case SimulationPackage.ACTIVITY_WORK__ACTIVITY:
-				setActivity((ExploitationActivity)newValue);
-				return;
-			case SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON:
-				setScheduledOn((Day)newValue);
-				return;
-			case SimulationPackage.ACTIVITY_WORK__ON_SURFACE:
-				setOnSurface((Surface)newValue);
-				return;
-			case SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK:
-				getSchedulingFeedback().clear();
-				getSchedulingFeedback().addAll((Collection<? extends SchedulingFeedback>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    switch (featureID) {
+      case SimulationPackage.ACTIVITY_WORK__ACTIVITY:
+        setActivity((ExploitationActivity)newValue);
+        return;
+      case SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON:
+        setScheduledOn((Day)newValue);
+        return;
+      case SimulationPackage.ACTIVITY_WORK__ON_SURFACE:
+        setOnSurface((Surface)newValue);
+        return;
+      case SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK:
+        getSchedulingFeedback().clear();
+        getSchedulingFeedback().addAll((Collection<? extends SchedulingFeedback>)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case SimulationPackage.ACTIVITY_WORK__ACTIVITY:
-				setActivity((ExploitationActivity)null);
-				return;
-			case SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON:
-				setScheduledOn((Day)null);
-				return;
-			case SimulationPackage.ACTIVITY_WORK__ON_SURFACE:
-				setOnSurface((Surface)null);
-				return;
-			case SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK:
-				getSchedulingFeedback().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    switch (featureID) {
+      case SimulationPackage.ACTIVITY_WORK__ACTIVITY:
+        setActivity((ExploitationActivity)null);
+        return;
+      case SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON:
+        setScheduledOn((Day)null);
+        return;
+      case SimulationPackage.ACTIVITY_WORK__ON_SURFACE:
+        setOnSurface((Surface)null);
+        return;
+      case SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK:
+        getSchedulingFeedback().clear();
+        return;
+    }
+    super.eUnset(featureID);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case SimulationPackage.ACTIVITY_WORK__ACTIVITY:
-				return activity != null;
-			case SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON:
-				return scheduledOn != null;
-			case SimulationPackage.ACTIVITY_WORK__ON_SURFACE:
-				return onSurface != null;
-			case SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK:
-				return schedulingFeedback != null && !schedulingFeedback.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+    switch (featureID) {
+      case SimulationPackage.ACTIVITY_WORK__ACTIVITY:
+        return activity != null;
+      case SimulationPackage.ACTIVITY_WORK__SCHEDULED_ON:
+        return scheduledOn != null;
+      case SimulationPackage.ACTIVITY_WORK__ON_SURFACE:
+        return onSurface != null;
+      case SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK:
+        return schedulingFeedback != null && !schedulingFeedback.isEmpty();
+    }
+    return super.eIsSet(featureID);
+  }
 
 } //ActivityWorkImpl

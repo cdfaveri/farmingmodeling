@@ -31,6 +31,8 @@ import org.gemoc.agro.simulation.SimulationPackage;
  * <ul>
  *   <li>{@link org.gemoc.agro.simulation.impl.ClimateDataImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.ClimateDataImpl#getDays <em>Days</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.impl.ClimateDataImpl#getStart <em>Start</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.impl.ClimateDataImpl#getEnd <em>End</em>}</li>
  * </ul>
  * </p>
  *
@@ -38,185 +40,291 @@ import org.gemoc.agro.simulation.SimulationPackage;
  */
 public class ClimateDataImpl extends MinimalEObjectImpl.Container implements ClimateData {
 	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getDays() <em>Days</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+   * The cached value of the '{@link #getDays() <em>Days</em>}' containment reference list.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDays()
-	 * @generated
-	 * @ordered
-	 */
+   * @see #getDays()
+   * @generated
+   * @ordered
+   */
 	protected EList<Day> days;
 
 	/**
-	 * <!-- begin-user-doc -->
+   * The default value of the '{@link #getStart() <em>Start</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStart()
+   * @generated
+   * @ordered
+   */
+  protected static final String START_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getStart() <em>Start</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getStart()
+   * @generated
+   * @ordered
+   */
+  protected String start = START_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getEnd() <em>End</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEnd()
+   * @generated
+   * @ordered
+   */
+  protected static final String END_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getEnd() <em>End</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEnd()
+   * @generated
+   * @ordered
+   */
+  protected String end = END_EDEFAULT;
+
+  /**
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected ClimateDataImpl() {
-		super();
-	}
+    super();
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	protected EClass eStaticClass() {
-		return SimulationPackage.Literals.CLIMATE_DATA;
-	}
+    return SimulationPackage.Literals.CLIMATE_DATA;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public String getName() {
-		return name;
-	}
+    return name;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.CLIMATE_DATA__NAME, oldName, name));
-	}
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.CLIMATE_DATA__NAME, oldName, name));
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public EList<Day> getDays() {
-		if (days == null) {
-			days = new EObjectContainmentEList<Day>(Day.class, this, SimulationPackage.CLIMATE_DATA__DAYS);
-		}
-		return days;
-	}
+    if (days == null) {
+      days = new EObjectContainmentEList<Day>(Day.class, this, SimulationPackage.CLIMATE_DATA__DAYS);
+    }
+    return days;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getStart() {
+    return start;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setStart(String newStart) {
+    String oldStart = start;
+    start = newStart;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.CLIMATE_DATA__START, oldStart, start));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getEnd() {
+    return end;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setEnd(String newEnd) {
+    String oldEnd = end;
+    end = newEnd;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.CLIMATE_DATA__END, oldEnd, end));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SimulationPackage.CLIMATE_DATA__DAYS:
-				return ((InternalEList<?>)getDays()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+    switch (featureID) {
+      case SimulationPackage.CLIMATE_DATA__DAYS:
+        return ((InternalEList<?>)getDays()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case SimulationPackage.CLIMATE_DATA__NAME:
-				return getName();
-			case SimulationPackage.CLIMATE_DATA__DAYS:
-				return getDays();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    switch (featureID) {
+      case SimulationPackage.CLIMATE_DATA__NAME:
+        return getName();
+      case SimulationPackage.CLIMATE_DATA__DAYS:
+        return getDays();
+      case SimulationPackage.CLIMATE_DATA__START:
+        return getStart();
+      case SimulationPackage.CLIMATE_DATA__END:
+        return getEnd();
+    }
+    return super.eGet(featureID, resolve, coreType);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case SimulationPackage.CLIMATE_DATA__NAME:
-				setName((String)newValue);
-				return;
-			case SimulationPackage.CLIMATE_DATA__DAYS:
-				getDays().clear();
-				getDays().addAll((Collection<? extends Day>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    switch (featureID) {
+      case SimulationPackage.CLIMATE_DATA__NAME:
+        setName((String)newValue);
+        return;
+      case SimulationPackage.CLIMATE_DATA__DAYS:
+        getDays().clear();
+        getDays().addAll((Collection<? extends Day>)newValue);
+        return;
+      case SimulationPackage.CLIMATE_DATA__START:
+        setStart((String)newValue);
+        return;
+      case SimulationPackage.CLIMATE_DATA__END:
+        setEnd((String)newValue);
+        return;
+    }
+    super.eSet(featureID, newValue);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case SimulationPackage.CLIMATE_DATA__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case SimulationPackage.CLIMATE_DATA__DAYS:
-				getDays().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+    switch (featureID) {
+      case SimulationPackage.CLIMATE_DATA__NAME:
+        setName(NAME_EDEFAULT);
+        return;
+      case SimulationPackage.CLIMATE_DATA__DAYS:
+        getDays().clear();
+        return;
+      case SimulationPackage.CLIMATE_DATA__START:
+        setStart(START_EDEFAULT);
+        return;
+      case SimulationPackage.CLIMATE_DATA__END:
+        setEnd(END_EDEFAULT);
+        return;
+    }
+    super.eUnset(featureID);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case SimulationPackage.CLIMATE_DATA__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case SimulationPackage.CLIMATE_DATA__DAYS:
-				return days != null && !days.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+    switch (featureID) {
+      case SimulationPackage.CLIMATE_DATA__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case SimulationPackage.CLIMATE_DATA__DAYS:
+        return days != null && !days.isEmpty();
+      case SimulationPackage.CLIMATE_DATA__START:
+        return START_EDEFAULT == null ? start != null : !START_EDEFAULT.equals(start);
+      case SimulationPackage.CLIMATE_DATA__END:
+        return END_EDEFAULT == null ? end != null : !END_EDEFAULT.equals(end);
+    }
+    return super.eIsSet(featureID);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+    if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(')');
-		return result.toString();
-	}
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(", start: ");
+    result.append(start);
+    result.append(", end: ");
+    result.append(end);
+    result.append(')');
+    return result.toString();
+  }
 
 } //ClimateDataImpl

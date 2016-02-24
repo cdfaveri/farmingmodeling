@@ -34,286 +34,286 @@ import org.gemoc.agro.simulation.util.SimulationAdapterFactory;
  */
 public class SimulationItemProviderAdapterFactory extends SimulationAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
-	 * This keeps track of the root adapter factory that delegates to this adapter factory.
-	 * <!-- begin-user-doc -->
+   * This keeps track of the root adapter factory that delegates to this adapter factory.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected ComposedAdapterFactory parentAdapterFactory;
 
 	/**
-	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
-	 * <!-- begin-user-doc -->
+   * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
 	/**
-	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
-	 * <!-- begin-user-doc -->
+   * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
-	 * This constructs an instance.
-	 * <!-- begin-user-doc -->
+   * This constructs an instance.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public SimulationItemProviderAdapterFactory() {
-		supportedTypes.add(IEditingDomainItemProvider.class);
-		supportedTypes.add(IStructuredItemContentProvider.class);
-		supportedTypes.add(ITreeItemContentProvider.class);
-		supportedTypes.add(IItemLabelProvider.class);
-		supportedTypes.add(IItemPropertySource.class);
-	}
+    supportedTypes.add(IEditingDomainItemProvider.class);
+    supportedTypes.add(IStructuredItemContentProvider.class);
+    supportedTypes.add(ITreeItemContentProvider.class);
+    supportedTypes.add(IItemLabelProvider.class);
+    supportedTypes.add(IItemPropertySource.class);
+  }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.agro.simulation.Schedule} instances.
-	 * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link org.gemoc.agro.simulation.Schedule} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected ScheduleItemProvider scheduleItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.agro.simulation.Schedule}.
-	 * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link org.gemoc.agro.simulation.Schedule}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Adapter createScheduleAdapter() {
-		if (scheduleItemProvider == null) {
-			scheduleItemProvider = new ScheduleItemProvider(this);
-		}
+    if (scheduleItemProvider == null) {
+      scheduleItemProvider = new ScheduleItemProvider(this);
+    }
 
-		return scheduleItemProvider;
-	}
+    return scheduleItemProvider;
+  }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.agro.simulation.ActivityWork} instances.
-	 * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link org.gemoc.agro.simulation.ActivityWork} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected ActivityWorkItemProvider activityWorkItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.agro.simulation.ActivityWork}.
-	 * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link org.gemoc.agro.simulation.ActivityWork}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Adapter createActivityWorkAdapter() {
-		if (activityWorkItemProvider == null) {
-			activityWorkItemProvider = new ActivityWorkItemProvider(this);
-		}
+    if (activityWorkItemProvider == null) {
+      activityWorkItemProvider = new ActivityWorkItemProvider(this);
+    }
 
-		return activityWorkItemProvider;
-	}
+    return activityWorkItemProvider;
+  }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.agro.simulation.Day} instances.
-	 * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link org.gemoc.agro.simulation.Day} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected DayItemProvider dayItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.agro.simulation.Day}.
-	 * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link org.gemoc.agro.simulation.Day}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Adapter createDayAdapter() {
-		if (dayItemProvider == null) {
-			dayItemProvider = new DayItemProvider(this);
-		}
+    if (dayItemProvider == null) {
+      dayItemProvider = new DayItemProvider(this);
+    }
 
-		return dayItemProvider;
-	}
+    return dayItemProvider;
+  }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.agro.simulation.ClimateData} instances.
-	 * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link org.gemoc.agro.simulation.ClimateData} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected ClimateDataItemProvider climateDataItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.agro.simulation.ClimateData}.
-	 * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link org.gemoc.agro.simulation.ClimateData}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Adapter createClimateDataAdapter() {
-		if (climateDataItemProvider == null) {
-			climateDataItemProvider = new ClimateDataItemProvider(this);
-		}
+    if (climateDataItemProvider == null) {
+      climateDataItemProvider = new ClimateDataItemProvider(this);
+    }
 
-		return climateDataItemProvider;
-	}
+    return climateDataItemProvider;
+  }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.agro.simulation.SchedulingFeedback} instances.
-	 * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link org.gemoc.agro.simulation.SchedulingFeedback} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected SchedulingFeedbackItemProvider schedulingFeedbackItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.agro.simulation.SchedulingFeedback}.
-	 * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link org.gemoc.agro.simulation.SchedulingFeedback}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Adapter createSchedulingFeedbackAdapter() {
-		if (schedulingFeedbackItemProvider == null) {
-			schedulingFeedbackItemProvider = new SchedulingFeedbackItemProvider(this);
-		}
+    if (schedulingFeedbackItemProvider == null) {
+      schedulingFeedbackItemProvider = new SchedulingFeedbackItemProvider(this);
+    }
 
-		return schedulingFeedbackItemProvider;
-	}
+    return schedulingFeedbackItemProvider;
+  }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.gemoc.agro.simulation.ResourceAllocation} instances.
-	 * <!-- begin-user-doc -->
+   * This keeps track of the one adapter used for all {@link org.gemoc.agro.simulation.ResourceAllocation} instances.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	protected ResourceAllocationItemProvider resourceAllocationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.gemoc.agro.simulation.ResourceAllocation}.
-	 * <!-- begin-user-doc -->
+   * This creates an adapter for a {@link org.gemoc.agro.simulation.ResourceAllocation}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Adapter createResourceAllocationAdapter() {
-		if (resourceAllocationItemProvider == null) {
-			resourceAllocationItemProvider = new ResourceAllocationItemProvider(this);
-		}
+    if (resourceAllocationItemProvider == null) {
+      resourceAllocationItemProvider = new ResourceAllocationItemProvider(this);
+    }
 
-		return resourceAllocationItemProvider;
-	}
+    return resourceAllocationItemProvider;
+  }
 
 	/**
-	 * This returns the root adapter factory that contains this factory.
-	 * <!-- begin-user-doc -->
+   * This returns the root adapter factory that contains this factory.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public ComposeableAdapterFactory getRootAdapterFactory() {
-		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
-	}
+    return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+  }
 
 	/**
-	 * This sets the composed adapter factory that contains this factory.
-	 * <!-- begin-user-doc -->
+   * This sets the composed adapter factory that contains this factory.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
-		this.parentAdapterFactory = parentAdapterFactory;
-	}
+    this.parentAdapterFactory = parentAdapterFactory;
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public boolean isFactoryForType(Object type) {
-		return supportedTypes.contains(type) || super.isFactoryForType(type);
-	}
+    return supportedTypes.contains(type) || super.isFactoryForType(type);
+  }
 
 	/**
-	 * This implementation substitutes the factory itself as the key for the adapter.
-	 * <!-- begin-user-doc -->
+   * This implementation substitutes the factory itself as the key for the adapter.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Adapter adapt(Notifier notifier, Object type) {
-		return super.adapt(notifier, this);
-	}
+    return super.adapt(notifier, this);
+  }
 
 	/**
-	 * <!-- begin-user-doc -->
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	@Override
 	public Object adapt(Object object, Object type) {
-		if (isFactoryForType(type)) {
-			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
-				return adapter;
-			}
-		}
+    if (isFactoryForType(type)) {
+      Object adapter = super.adapt(object, type);
+      if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
+        return adapter;
+      }
+    }
 
-		return null;
-	}
+    return null;
+  }
 
 	/**
-	 * This adds a listener.
-	 * <!-- begin-user-doc -->
+   * This adds a listener.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public void addListener(INotifyChangedListener notifyChangedListener) {
-		changeNotifier.addListener(notifyChangedListener);
-	}
+    changeNotifier.addListener(notifyChangedListener);
+  }
 
 	/**
-	 * This removes a listener.
-	 * <!-- begin-user-doc -->
+   * This removes a listener.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
-		changeNotifier.removeListener(notifyChangedListener);
-	}
+    changeNotifier.removeListener(notifyChangedListener);
+  }
 
 	/**
-	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
-	 * <!-- begin-user-doc -->
+   * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public void fireNotifyChanged(Notification notification) {
-		changeNotifier.fireNotifyChanged(notification);
+    changeNotifier.fireNotifyChanged(notification);
 
-		if (parentAdapterFactory != null) {
-			parentAdapterFactory.fireNotifyChanged(notification);
-		}
-	}
+    if (parentAdapterFactory != null) {
+      parentAdapterFactory.fireNotifyChanged(notification);
+    }
+  }
 
 	/**
-	 * This disposes all of the item providers created by this factory. 
-	 * <!-- begin-user-doc -->
+   * This disposes all of the item providers created by this factory. 
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+   * @generated
+   */
 	public void dispose() {
-		if (scheduleItemProvider != null) scheduleItemProvider.dispose();
-		if (activityWorkItemProvider != null) activityWorkItemProvider.dispose();
-		if (dayItemProvider != null) dayItemProvider.dispose();
-		if (climateDataItemProvider != null) climateDataItemProvider.dispose();
-		if (schedulingFeedbackItemProvider != null) schedulingFeedbackItemProvider.dispose();
-		if (resourceAllocationItemProvider != null) resourceAllocationItemProvider.dispose();
-	}
+    if (scheduleItemProvider != null) scheduleItemProvider.dispose();
+    if (activityWorkItemProvider != null) activityWorkItemProvider.dispose();
+    if (dayItemProvider != null) dayItemProvider.dispose();
+    if (climateDataItemProvider != null) climateDataItemProvider.dispose();
+    if (schedulingFeedbackItemProvider != null) schedulingFeedbackItemProvider.dispose();
+    if (resourceAllocationItemProvider != null) resourceAllocationItemProvider.dispose();
+  }
 
 }
