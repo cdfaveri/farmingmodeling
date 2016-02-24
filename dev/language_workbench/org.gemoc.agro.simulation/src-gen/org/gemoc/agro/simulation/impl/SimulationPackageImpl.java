@@ -223,6 +223,15 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
 
 	/**
    * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSchedule_Solutions() {
+    return (EAttribute)scheduleEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    */
@@ -267,6 +276,15 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
   }
 
 	/**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getActivityWork_Duration() {
+    return (EAttribute)activityWorkEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
@@ -492,12 +510,14 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
     createEReference(scheduleEClass, SCHEDULE__CURRENT_DAY);
     createEAttribute(scheduleEClass, SCHEDULE__HARD_SCORE);
     createEAttribute(scheduleEClass, SCHEDULE__SOFT_SCORE);
+    createEAttribute(scheduleEClass, SCHEDULE__SOLUTIONS);
 
     activityWorkEClass = createEClass(ACTIVITY_WORK);
     createEReference(activityWorkEClass, ACTIVITY_WORK__ACTIVITY);
     createEReference(activityWorkEClass, ACTIVITY_WORK__SCHEDULED_ON);
     createEReference(activityWorkEClass, ACTIVITY_WORK__ON_SURFACE);
     createEReference(activityWorkEClass, ACTIVITY_WORK__SCHEDULING_FEEDBACK);
+    createEAttribute(activityWorkEClass, ACTIVITY_WORK__DURATION);
 
     dayEClass = createEClass(DAY);
     createEAttribute(dayEClass, DAY__YEAR);
@@ -570,12 +590,14 @@ public class SimulationPackageImpl extends EPackageImpl implements SimulationPac
     initEReference(getSchedule_CurrentDay(), this.getDay(), null, "currentDay", null, 0, 1, Schedule.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSchedule_HardScore(), ecorePackage.getEInt(), "hardScore", null, 0, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSchedule_SoftScore(), ecorePackage.getEInt(), "softScore", null, 0, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSchedule_Solutions(), ecorePackage.getEInt(), "solutions", null, 0, 1, Schedule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(activityWorkEClass, ActivityWork.class, "ActivityWork", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getActivityWork_Activity(), theActivitiesDSLPackage.getExploitationActivity(), null, "activity", null, 1, 1, ActivityWork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getActivityWork_ScheduledOn(), this.getDay(), null, "scheduledOn", null, 0, 1, ActivityWork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getActivityWork_OnSurface(), theExploitationPackage.getSurface(), null, "onSurface", null, 0, 1, ActivityWork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getActivityWork_SchedulingFeedback(), this.getSchedulingFeedback(), null, "schedulingFeedback", null, 0, -1, ActivityWork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getActivityWork_Duration(), ecorePackage.getEInt(), "duration", "1", 0, 1, ActivityWork.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dayEClass, Day.class, "Day", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDay_Year(), ecorePackage.getEInt(), "year", null, 0, 1, Day.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

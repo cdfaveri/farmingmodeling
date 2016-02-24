@@ -22,6 +22,7 @@ import org.gemoc.agro.exploitation.Exploitation;
  *   <li>{@link org.gemoc.agro.simulation.Schedule#getCurrentDay <em>Current Day</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Schedule#getHardScore <em>Hard Score</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.Schedule#getSoftScore <em>Soft Score</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.Schedule#getSolutions <em>Solutions</em>}</li>
  * </ul>
  * </p>
  *
@@ -218,5 +219,31 @@ public interface Schedule extends EObject  {
    * @generated
    */
 	void setSoftScore(int value);
+
+  /**
+   * Returns the value of the '<em><b>Solutions</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Solutions</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Solutions</em>' attribute.
+   * @see #setSolutions(int)
+   * @see org.gemoc.agro.simulation.SimulationPackage#getSchedule_Solutions()
+   * @model
+   * @generated
+   */
+  int getSolutions();
+
+  /**
+   * Sets the value of the '{@link org.gemoc.agro.simulation.Schedule#getSolutions <em>Solutions</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Solutions</em>' attribute.
+   * @see #getSolutions()
+   * @generated
+   */
+  void setSolutions(int value);
 
 } // Schedule

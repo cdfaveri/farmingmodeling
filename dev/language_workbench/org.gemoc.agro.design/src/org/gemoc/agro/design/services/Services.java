@@ -88,7 +88,9 @@ public class Services {
 
   public EObject computeSchedule(EObject ctx) {
     if (ctx instanceof Schedule) {
-      new ExploitationActivitiesScheduler().createSchedule((Schedule) ctx);
+      Schedule schedule = (Schedule) ctx;
+      ((Schedule) ctx).setCurrentDay(null);
+      new ExploitationActivitiesScheduler().createSchedule(schedule);
     }
     return ctx;
   }

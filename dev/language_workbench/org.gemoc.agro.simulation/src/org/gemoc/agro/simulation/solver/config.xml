@@ -43,7 +43,7 @@
   </constructionHeuristic>
   <localSearch>
     <acceptor>
-      <entityTabuSize>7</entityTabuSize>
+      <simulatedAnnealingStartingTemperature>0hard/400soft</simulatedAnnealingStartingTemperature>
     </acceptor>
     <unionMoveSelector>
      <changeMoveSelector>
@@ -60,7 +60,7 @@
       </changeMoveSelector>
       </unionMoveSelector>
     <forager>
-      <acceptedCountLimit>10000</acceptedCountLimit>
+      <acceptedCountLimit>4</acceptedCountLimit>
     </forager>
   </localSearch>
 </solver>

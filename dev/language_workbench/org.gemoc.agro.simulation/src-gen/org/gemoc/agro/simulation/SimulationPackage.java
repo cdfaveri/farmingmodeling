@@ -140,13 +140,22 @@ public interface SimulationPackage extends EPackage {
 	int SCHEDULE__SOFT_SCORE = 7;
 
 	/**
+   * The feature id for the '<em><b>Solutions</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEDULE__SOLUTIONS = 8;
+
+  /**
    * The number of structural features of the '<em>Schedule</em>' class.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-	int SCHEDULE_FEATURE_COUNT = 8;
+	int SCHEDULE_FEATURE_COUNT = 9;
 
 	/**
    * The number of operations of the '<em>Schedule</em>' class.
@@ -204,13 +213,22 @@ public interface SimulationPackage extends EPackage {
 	int ACTIVITY_WORK__SCHEDULING_FEEDBACK = 3;
 
 	/**
+   * The feature id for the '<em><b>Duration</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTIVITY_WORK__DURATION = 4;
+
+  /**
    * The number of structural features of the '<em>Activity Work</em>' class.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-	int ACTIVITY_WORK_FEATURE_COUNT = 4;
+	int ACTIVITY_WORK_FEATURE_COUNT = 5;
 
 	/**
    * The number of operations of the '<em>Activity Work</em>' class.
@@ -587,6 +605,17 @@ public interface SimulationPackage extends EPackage {
 	EAttribute getSchedule_SoftScore();
 
 	/**
+   * Returns the meta object for the attribute '{@link org.gemoc.agro.simulation.Schedule#getSolutions <em>Solutions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Solutions</em>'.
+   * @see org.gemoc.agro.simulation.Schedule#getSolutions()
+   * @see #getSchedule()
+   * @generated
+   */
+  EAttribute getSchedule_Solutions();
+
+  /**
    * Returns the meta object for class '{@link org.gemoc.agro.simulation.ActivityWork <em>Activity Work</em>}'.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -641,6 +670,17 @@ public interface SimulationPackage extends EPackage {
 	EReference getActivityWork_SchedulingFeedback();
 
 	/**
+   * Returns the meta object for the attribute '{@link org.gemoc.agro.simulation.ActivityWork#getDuration <em>Duration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Duration</em>'.
+   * @see org.gemoc.agro.simulation.ActivityWork#getDuration()
+   * @see #getActivityWork()
+   * @generated
+   */
+  EAttribute getActivityWork_Duration();
+
+  /**
    * Returns the meta object for class '{@link org.gemoc.agro.simulation.Day <em>Day</em>}'.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -964,6 +1004,14 @@ public interface SimulationPackage extends EPackage {
 		EAttribute SCHEDULE__SOFT_SCORE = eINSTANCE.getSchedule_SoftScore();
 
 		/**
+     * The meta object literal for the '<em><b>Solutions</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCHEDULE__SOLUTIONS = eINSTANCE.getSchedule_Solutions();
+
+    /**
      * The meta object literal for the '{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl <em>Activity Work</em>}' class.
      * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1006,6 +1054,14 @@ public interface SimulationPackage extends EPackage {
 		EReference ACTIVITY_WORK__SCHEDULING_FEEDBACK = eINSTANCE.getActivityWork_SchedulingFeedback();
 
 		/**
+     * The meta object literal for the '<em><b>Duration</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTIVITY_WORK__DURATION = eINSTANCE.getActivityWork_Duration();
+
+    /**
      * The meta object literal for the '{@link org.gemoc.agro.simulation.impl.DayImpl <em>Day</em>}' class.
      * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

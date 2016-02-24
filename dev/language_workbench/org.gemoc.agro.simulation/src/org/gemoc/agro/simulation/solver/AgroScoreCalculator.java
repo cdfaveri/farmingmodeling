@@ -34,10 +34,13 @@ public class AgroScoreCalculator implements
 
   private static final Calendar CAL_INSTANCE = Calendar.getInstance();
 
+  public static int nbSolutions = 0;
+
   @Override
   public Score calculateScore(SimulationSolution solution) {
     int hardScore = 0;
     int softScore = 0;
+    AgroScoreCalculator.nbSolutions++;
 
     Multimap<ExploitationActivity, ActivityWork> activityToWork = HashMultimap
         .create();
@@ -62,7 +65,8 @@ public class AgroScoreCalculator implements
           .get(allocatedWork);
       Set<Resource> usedResource = Sets.newLinkedHashSet();
       for (ResourceAllocation alloc : allocations) {
-        if (usedResource.contains(alloc.getResource())) {
+        if (usedResource.contains(alloc.getResource())
+            && alloc.getWork().getScheduledOn() != null) {
           hardScore += mediumPenalty(1);
           addFeedback(
               alloc.getWork(),
@@ -197,7 +201,7 @@ public class AgroScoreCalculator implements
                     addFeedback(
                         work,
                         createFeedback(FeedbackLevel.ERROR,
-                            "This activity starts before  "
+                            "This activity (" + work.getActivity().getName() + ") starts before  "
                                 + otherWorkOnSameAct.getActivity().getName()
                                 + " ("
                                 + otherWorkOnSameAct.getScheduledOn().getDay()
@@ -210,10 +214,15 @@ public class AgroScoreCalculator implements
                     hardScore += mediumPenalty(nbDaysInBetween * 5);
                     addFeedback(
                         work,
-                        createFeedback(FeedbackLevel.ERROR,
-                            "The minimum number of days in between this activity and "
+                        createFeedback(
+                            FeedbackLevel.ERROR,
+                            "The minimum number of days ("
+                                + delayConstraint.getDays()
+                                + ") in between this activity ("
+                                + work.getActivity().getName() + ") and "
                                 + otherWorkOnSameAct.getActivity().getName()
-                                + " is not respected."));
+                                + " is not respected : " + nbDaysInBetween
+                                + "."));
                   }
                 }
 

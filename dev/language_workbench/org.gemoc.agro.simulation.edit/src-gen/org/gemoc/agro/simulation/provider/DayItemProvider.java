@@ -236,12 +236,12 @@ public class DayItemProvider
    * This returns the label text for the adapted class.
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-   * @generated
+   * @not-generated
    */
 	@Override
 	public String getText(Object object) {
     Day day = (Day)object;
-    return getString("_UI_Day_type") + " " + day.getYear();
+    return getString("_UI_Day_type") + " " + day.getYear() + "/" + day.getMonth() + "/" + day.getDay();
   }
 	
 

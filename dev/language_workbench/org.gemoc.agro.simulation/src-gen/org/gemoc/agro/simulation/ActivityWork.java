@@ -22,6 +22,7 @@ import org.optaplanner.core.api.domain.variable.PlanningVariable;
  *   <li>{@link org.gemoc.agro.simulation.ActivityWork#getScheduledOn <em>Scheduled On</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.ActivityWork#getOnSurface <em>On Surface</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.ActivityWork#getSchedulingFeedback <em>Scheduling Feedback</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.ActivityWork#getDuration <em>Duration</em>}</li>
  * </ul>
  * </p>
  *
@@ -125,5 +126,32 @@ public interface ActivityWork extends EObject {
    * @generated
    */
 	EList<SchedulingFeedback> getSchedulingFeedback();
+
+  /**
+   * Returns the value of the '<em><b>Duration</b></em>' attribute.
+   * The default value is <code>"1"</code>.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Duration</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Duration</em>' attribute.
+   * @see #setDuration(int)
+   * @see org.gemoc.agro.simulation.SimulationPackage#getActivityWork_Duration()
+   * @model default="1"
+   * @generated
+   */
+  int getDuration();
+
+  /**
+   * Sets the value of the '{@link org.gemoc.agro.simulation.ActivityWork#getDuration <em>Duration</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Duration</em>' attribute.
+   * @see #getDuration()
+   * @generated
+   */
+  void setDuration(int value);
 
 } // ActivityWork

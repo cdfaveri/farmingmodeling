@@ -23,12 +23,14 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//Schedule/currentDay"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Schedule/hardScore"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Schedule/softScore"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Schedule/solutions"/>
     </genClasses>
     <genClasses ecoreClass="simulation.ecore#//ActivityWork">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//ActivityWork/activity"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//ActivityWork/scheduledOn"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simulation.ecore#//ActivityWork/onSurface"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simulation.ecore#//ActivityWork/schedulingFeedback"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//ActivityWork/duration"/>
     </genClasses>
     <genClasses ecoreClass="simulation.ecore#//Day">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simulation.ecore#//Day/year"/>

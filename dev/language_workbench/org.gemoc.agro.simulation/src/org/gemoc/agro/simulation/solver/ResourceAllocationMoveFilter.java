@@ -6,15 +6,16 @@ import org.optaplanner.core.impl.heuristic.selector.common.decorator.SelectionFi
 import org.optaplanner.core.impl.heuristic.selector.move.generic.ChangeMove;
 import org.optaplanner.core.impl.score.director.ScoreDirector;
 
-public class ResourceAllocationMoveFilter implements SelectionFilter<ChangeMove> {
+public class ResourceAllocationMoveFilter implements
+    SelectionFilter<ChangeMove> {
 
-	public boolean accept(ScoreDirector scoreDirector, ChangeMove move) {
+  public boolean accept(ScoreDirector scoreDirector, ChangeMove move) {
 
-		ResourceAllocation allocation = (ResourceAllocation) move.getEntity();
-		Resource resource = (Resource) move.getToPlanningValue();
+    ResourceAllocation allocation = (ResourceAllocation) move.getEntity();
+    Resource resource = (Resource) move.getToPlanningValue();
 
-		return allocation.getKind() == resource.getKind();
+    return allocation.getKind() == resource.getKind();
 
-	}
+  }
 
 }

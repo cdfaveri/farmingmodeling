@@ -35,6 +35,7 @@ import org.gemoc.agro.simulation.SimulationPackage;
  *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getCurrentDay <em>Current Day</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getHardScore <em>Hard Score</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getSoftScore <em>Soft Score</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.impl.ScheduleImpl#getSolutions <em>Solutions</em>}</li>
  * </ul>
  * </p>
  *
@@ -152,6 +153,26 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 	protected int softScore = SOFT_SCORE_EDEFAULT;
 
 	/**
+   * The default value of the '{@link #getSolutions() <em>Solutions</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSolutions()
+   * @generated
+   * @ordered
+   */
+  protected static final int SOLUTIONS_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getSolutions() <em>Solutions</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSolutions()
+   * @generated
+   * @ordered
+   */
+  protected int solutions = SOLUTIONS_EDEFAULT;
+
+  /**
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
@@ -373,6 +394,27 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
 
 	/**
    * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public int getSolutions() {
+    return solutions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSolutions(int newSolutions) {
+    int oldSolutions = solutions;
+    solutions = newSolutions;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.SCHEDULE__SOLUTIONS, oldSolutions, solutions));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    */
@@ -414,6 +456,8 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
         return getHardScore();
       case SimulationPackage.SCHEDULE__SOFT_SCORE:
         return getSoftScore();
+      case SimulationPackage.SCHEDULE__SOLUTIONS:
+        return getSolutions();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -453,6 +497,9 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
       case SimulationPackage.SCHEDULE__SOFT_SCORE:
         setSoftScore((Integer)newValue);
         return;
+      case SimulationPackage.SCHEDULE__SOLUTIONS:
+        setSolutions((Integer)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -489,6 +536,9 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
       case SimulationPackage.SCHEDULE__SOFT_SCORE:
         setSoftScore(SOFT_SCORE_EDEFAULT);
         return;
+      case SimulationPackage.SCHEDULE__SOLUTIONS:
+        setSolutions(SOLUTIONS_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -517,6 +567,8 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
         return hardScore != HARD_SCORE_EDEFAULT;
       case SimulationPackage.SCHEDULE__SOFT_SCORE:
         return softScore != SOFT_SCORE_EDEFAULT;
+      case SimulationPackage.SCHEDULE__SOLUTIONS:
+        return solutions != SOLUTIONS_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -537,6 +589,8 @@ public class ScheduleImpl extends MinimalEObjectImpl.Container implements Schedu
     result.append(hardScore);
     result.append(", softScore: ");
     result.append(softScore);
+    result.append(", solutions: ");
+    result.append(solutions);
     result.append(')');
     return result.toString();
   }

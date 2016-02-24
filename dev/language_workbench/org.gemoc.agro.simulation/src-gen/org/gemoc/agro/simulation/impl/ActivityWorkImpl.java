@@ -30,6 +30,7 @@ import org.gemoc.agro.simulation.SimulationPackage;
  *   <li>{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl#getScheduledOn <em>Scheduled On</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl#getOnSurface <em>On Surface</em>}</li>
  *   <li>{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl#getSchedulingFeedback <em>Scheduling Feedback</em>}</li>
+ *   <li>{@link org.gemoc.agro.simulation.impl.ActivityWorkImpl#getDuration <em>Duration</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,6 +78,26 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
 	protected EList<SchedulingFeedback> schedulingFeedback;
 
 	/**
+   * The default value of the '{@link #getDuration() <em>Duration</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDuration()
+   * @generated
+   * @ordered
+   */
+  protected static final int DURATION_EDEFAULT = 1;
+
+  /**
+   * The cached value of the '{@link #getDuration() <em>Duration</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDuration()
+   * @generated
+   * @ordered
+   */
+  protected int duration = DURATION_EDEFAULT;
+
+  /**
    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
@@ -223,6 +244,27 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
 
 	/**
    * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public int getDuration() {
+    return duration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDuration(int newDuration) {
+    int oldDuration = duration;
+    duration = newDuration;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SimulationPackage.ACTIVITY_WORK__DURATION, oldDuration, duration));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
    * @generated
    */
@@ -254,6 +296,8 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
         return basicGetOnSurface();
       case SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK:
         return getSchedulingFeedback();
+      case SimulationPackage.ACTIVITY_WORK__DURATION:
+        return getDuration();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -280,6 +324,9 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
         getSchedulingFeedback().clear();
         getSchedulingFeedback().addAll((Collection<? extends SchedulingFeedback>)newValue);
         return;
+      case SimulationPackage.ACTIVITY_WORK__DURATION:
+        setDuration((Integer)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -304,6 +351,9 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
       case SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK:
         getSchedulingFeedback().clear();
         return;
+      case SimulationPackage.ACTIVITY_WORK__DURATION:
+        setDuration(DURATION_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -324,8 +374,26 @@ public class ActivityWorkImpl extends MinimalEObjectImpl.Container implements Ac
         return onSurface != null;
       case SimulationPackage.ACTIVITY_WORK__SCHEDULING_FEEDBACK:
         return schedulingFeedback != null && !schedulingFeedback.isEmpty();
+      case SimulationPackage.ACTIVITY_WORK__DURATION:
+        return duration != DURATION_EDEFAULT;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString() {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (duration: ");
+    result.append(duration);
+    result.append(')');
+    return result.toString();
   }
 
 } //ActivityWorkImpl
