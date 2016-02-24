@@ -46,27 +46,39 @@
           </conditionnalStyles>
         </nodeMappings>
         <nodeMappings name="Surface" domainClass="exploitation.Surface">
-          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="[self.total + 'ha : ' + self.nbFields + ' fields' /]" sizeComputationExpression="[(self.total / 5).floor()/]" labelPosition="node">
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="[self.total + 'ha : ' + self.nbFields + ' fields' /]" sizeComputationExpression="service:getFieldWidth" labelPosition="node">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='chocolate']"/>
           </style>
           <conditionnalStyles predicateExpression="[watered/]">
-            <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="[self.total + 'ha : ' + self.nbFields + ' fields' /]" sizeComputationExpression="[(self.total / 5).floor()/]" labelPosition="node">
+            <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="[self.total + 'ha : ' + self.nbFields + ' fields' /]" sizeComputationExpression="service:getFieldWidth" labelPosition="node">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="[fodder/]">
-            <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="[self.total + 'ha : ' + self.nbFields + ' fields' /]" sizeComputationExpression="[(self.total / 5).floor()/]" labelPosition="node">
+            <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="[self.total + 'ha : ' + self.nbFields + ' fields' /]" sizeComputationExpression="service:getFieldWidth" labelPosition="node">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="Schedule" semanticCandidatesExpression="[self.eInverse(simulation::Schedule)/]" doubleClickDescription="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@toolSections.0/@ownedTools[name='']" domainClass="simulation.Schedule">
+        <nodeMappings name="Schedule" semanticCandidatesExpression="[self.eInverse(simulation::Schedule)/]" domainClass="simulation.Schedule">
+          <borderedNodeMappings name="RunSchedule" semanticCandidatesExpression="[self->select(workToDo->size() > 0)/]" doubleClickDescription="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@toolSections.0/@ownedTools[name='']" domainClass="simulation.Schedule">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression=".. " sizeComputationExpression="-1" hideLabelByDefault="true" resizeKind="NSEW" workspacePath="/org.gemoc.agro.design/images/lrun_obj48.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </borderedNodeMappings>
+          <borderedNodeMappings name="StopSchedule" preconditionExpression="[not self.currentDay.oclIsUndefined()/]" semanticCandidatesExpression="var:self" doubleClickDescription="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@toolSections.0/@ownedTools[name='Terminate']" domainClass="simulation.Schedule">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['current day : ' +  self.currentDay.day + '  ' +self.currentDay.month /]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.gemoc.agro.design/images/terminatedlaunch_obj48.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </borderedNodeMappings>
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['solver search limit :' + self.solverSearchSecondsSpentLimit + ' secs'/]" sizeComputationExpression="14" workspacePath="/org.gemoc.agro.simulation.edit/icons/full/obj16/Schedule_128.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -188,7 +200,7 @@
           </style>
         </containerMappings>
         <toolSections name="tools">
-          <ownedTools xsi:type="tool:DoubleClickDescription" mappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Schedule']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" mappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Schedule']/@borderedNodeMappings[name='RunSchedule']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -207,6 +219,15 @@
             <view name="views"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.computeWaterAnalysis()"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Terminate" mappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Schedule']/@borderedNodeMappings[name='StopSchedule']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:reset()"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <subSections name="WorkGroup">
@@ -402,31 +423,31 @@
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </defaultStyle>
             <conditionalStyles predicateExpression="[self.schedulingFeedback->size() > 0/]">
-              <style labelExpression="[self.activity.eContainer(Culture).name + ' ' + self.activity.name + ' scheduled on ' + self.scheduledOn.day + '/' + self.scheduledOn.month/]">
+              <style labelSize="10" labelExpression="[self.activity.eContainer(Culture).name + ' ' + self.activity.name + ' scheduled on ' + self.scheduledOn.day + '/' + self.scheduledOn.month/]">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               </style>
             </conditionalStyles>
             <subItemMappings name="Day" domainClass="Day" semanticCandidatesExpression="feature:scheduledOn">
-              <defaultStyle labelExpression="[self.day + ' ' + self.month/]">
+              <defaultStyle labelSize="10" labelExpression="[self.day + ' ' + self.month/]">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               </defaultStyle>
             </subItemMappings>
             <subItemMappings name="Activity" domainClass="ExploitationActivity" semanticCandidatesExpression="feature:activity">
-              <defaultStyle>
+              <defaultStyle labelSize="10">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               </defaultStyle>
             </subItemMappings>
             <subItemMappings name="SchedulingFeedback" domainClass="simulation.SchedulingFeedback" semanticCandidatesExpression="feature:schedulingFeedback">
-              <defaultStyle labelExpression="feature:message">
+              <defaultStyle labelSize="10" labelExpression="feature:message">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               </defaultStyle>
             </subItemMappings>
             <subItemMappings name="Allocated Resources" domainClass="simulation.ResourceAllocation" semanticCandidatesExpression="[self.eInverse(ResourceAllocation)/]">
-              <defaultStyle labelExpression="[self.kind.name + ' ' + self.resource.name/]">
+              <defaultStyle labelSize="10" labelExpression="[self.kind.name + ' ' + self.resource.name/]">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               </defaultStyle>

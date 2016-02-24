@@ -4,9 +4,9 @@ import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
-import org.eclipse.emf.ecore.util.ECrossReferenceAdapter;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.gemoc.agro.exploitation.Surface;
 import org.gemoc.agro.scientific.ExploitationAnalysis;
 import org.gemoc.agro.scientific.SurfaceData;
 import org.gemoc.agro.scientific.WaterAnalysis;
@@ -49,6 +49,11 @@ public class Services {
     }
     Day next = schedule.getClimateData().getDays().get(index);
     return next;
+  }
+
+  public EObject reset(Schedule schedule) {
+    schedule.setCurrentDay(null);
+    return schedule;
   }
 
   public EObject moveToNextDayWithWork(Schedule schedule) {
@@ -126,6 +131,11 @@ public class Services {
 
     }
     return false;
+  }
+
+  public int getFieldWidth(Surface s) {
+    return Double.valueOf(Math.sqrt(s.getTotal())).intValue();
+    // return s.getTotal() / 5;
   }
 
 }
