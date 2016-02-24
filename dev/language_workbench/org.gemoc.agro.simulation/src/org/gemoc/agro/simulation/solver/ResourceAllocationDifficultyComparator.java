@@ -6,10 +6,10 @@ import java.util.Comparator;
 import org.gemoc.agro.simulation.ResourceAllocation;
 
 public class ResourceAllocationDifficultyComparator implements
-		Comparator<ResourceAllocation>, Serializable {
+    Comparator<ResourceAllocation>, Serializable {
 
-	public int compare(ResourceAllocation a, ResourceAllocation b) {
-		return 0;
-	}
+  public int compare(ResourceAllocation a, ResourceAllocation b) {
+    return 0;
+  }
 
 }
