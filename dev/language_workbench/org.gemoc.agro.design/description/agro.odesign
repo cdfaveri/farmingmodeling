@@ -349,7 +349,7 @@
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.gemoc.agro.design.services.Services"/>
   </ownedViewpoints>
-  <ownedViewpoints name="Simulation" modelFileExtension="simulation">
+  <ownedViewpoints name="Simulation" modelFileExtension="simulation csv">
     <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Climate Data" domainClass="simulation.ClimateData">
       <metamodel href="http://www.gemoc.org/agro/ActivitiesDSL#/"/>
       <metamodel href="http://www.gemoc.org/exploitation#/"/>
