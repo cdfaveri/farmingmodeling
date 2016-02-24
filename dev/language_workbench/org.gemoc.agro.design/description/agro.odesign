@@ -356,19 +356,19 @@
       <metamodel href="http://www.gemoc.org/scientific#/"/>
       <metamodel href="http://www.gemoc.org/agro/simulation#/"/>
       <ownedLineMappings name="Day Line" domainClass="simulation.Day" headerLabelExpression="[self.month + ' ' + self.day /]">
-        <foregroundConditionalStyle predicateExpression="[self.eInverse(simulation::Schedule)->size() > 0/]">
+        <foregroundConditionalStyle predicateExpression="service:isCurrentDay">
           <style>
             <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
           </style>
         </foregroundConditionalStyle>
-        <backgroundConditionalStyle predicateExpression="[self.eInverse(simulation::Schedule)->size() > 0/]">
+        <backgroundConditionalStyle predicateExpression="service:isCurrentDay">
           <style>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
           </style>
         </backgroundConditionalStyle>
       </ownedLineMappings>
       <ownedColumnMappings name="Rain column" headerLabelExpression="Rain (mm)" featureName="rain" labelExpression="[self.rain/]">
-        <foregroundConditionalStyle predicateExpression="[self.eInverse(simulation::Schedule)->size() > 0/]">
+        <foregroundConditionalStyle predicateExpression="service:isCurrentDay">
           <style>
             <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
           </style>
