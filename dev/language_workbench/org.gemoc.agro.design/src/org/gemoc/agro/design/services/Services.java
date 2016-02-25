@@ -8,6 +8,7 @@ import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.gemoc.agro.exploitation.Surface;
 import org.gemoc.agro.scientific.ExploitationAnalysis;
+import org.gemoc.agro.scientific.ScientificPackage;
 import org.gemoc.agro.scientific.SurfaceData;
 import org.gemoc.agro.scientific.WaterAnalysis;
 import org.gemoc.agro.simulation.ActivityWork;
@@ -96,6 +97,22 @@ public class Services {
       Schedule schedule = (Schedule) ctx;
       ((Schedule) ctx).setCurrentDay(null);
       new ExploitationActivitiesScheduler().createSchedule(schedule);
+
+      Session session = SessionManager.INSTANCE.getSession(schedule);
+      if (session != null) {
+        for (Setting xRef : session.getSemanticCrossReferencer()
+            .getNonNavigableInverseReferences(schedule)) {
+          if (xRef.getEStructuralFeature() == ScientificPackage.eINSTANCE
+              .getExploitationAnalysis_Schedule()) {
+            EObject eObj = xRef.getEObject();
+            if (eObj instanceof ExploitationAnalysis) {
+              ((ExploitationAnalysis) eObj).getSurfaceDatas().clear();
+            }
+          }
+        }
+
+      }
+
     }
     return ctx;
   }
