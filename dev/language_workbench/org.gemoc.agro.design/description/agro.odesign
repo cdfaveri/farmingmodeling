@@ -103,10 +103,46 @@
           </conditionnalStyles>
         </nodeMappings>
         <nodeMappings name="Analysis" semanticCandidatesExpression="[self.eInverse(simulation::Schedule).eInverse(scientific::ExploitationAnalysis)/]" domainClass="scientific.ExploitationAnalysis">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['Extra Water needed : ' + self.totalExtraWater() + 'm³'/]" sizeComputationExpression="14" workspacePath="/org.gemoc.agro.scientific.edit/icons/full/obj16/BiomassModel_128.png">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['Extra Water needed : ' + self.totalExtraWater() + 'm³'/]" sizeComputationExpression="14" workspacePath="/org.gemoc.agro.scientific.edit/icons/full/obj16/BiomassModel_128_gray.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
+          <conditionnalStyles predicateExpression="[self.totalExtraWater() > 500000/]">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['Extra Water needed : ' + self.totalExtraWater() + 'm³'/]" sizeComputationExpression="14" workspacePath="/org.gemoc.agro.scientific.edit/icons/full/obj16/BiomassModel_128_lev8.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.totalExtraWater() > 400000/]">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['Extra Water needed : ' + self.totalExtraWater() + 'm³'/]" sizeComputationExpression="14" workspacePath="/org.gemoc.agro.scientific.edit/icons/full/obj16/BiomassModel_128_lev7.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.totalExtraWater() > 300000/]">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['Extra Water needed : ' + self.totalExtraWater() + 'm³'/]" sizeComputationExpression="14" workspacePath="/org.gemoc.agro.scientific.edit/icons/full/obj16/BiomassModel_128_lev6.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.totalExtraWater() > 200000/]">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['Extra Water needed : ' + self.totalExtraWater() + 'm³'/]" sizeComputationExpression="14" workspacePath="/org.gemoc.agro.scientific.edit/icons/full/obj16/BiomassModel_128_lev5.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.totalExtraWater() > 100000/]">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['Extra Water needed : ' + self.totalExtraWater() + 'm³'/]" sizeComputationExpression="14" workspacePath="/org.gemoc.agro.scientific.edit/icons/full/obj16/BiomassModel_128_lev4.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.totalExtraWater() > 50000/]">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['Extra Water needed : ' + self.totalExtraWater() + 'm³'/]" sizeComputationExpression="14" workspacePath="/org.gemoc.agro.scientific.edit/icons/full/obj16/BiomassModel_128_lev2.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
         </nodeMappings>
         <edgeMappings name="WorkGroup to Culture" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='WorkGroup']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='From%20Xtext%20dsl']/@subNodeMappings[name='CultureNode']" targetFinderExpression="feature:cultures">
           <style sizeComputationExpression="1">
