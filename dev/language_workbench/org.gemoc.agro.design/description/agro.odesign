@@ -67,40 +67,10 @@
           </conditionnalStyles>
         </nodeMappings>
         <nodeMappings name="Schedule" semanticCandidatesExpression="[self.eInverse(simulation::Schedule)/]" domainClass="simulation.Schedule">
-          <borderedNodeMappings name="RunSchedule" semanticCandidatesExpression="[self->select(workToDo->size() > 0)/]" doubleClickDescription="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@toolSections.0/@ownedTools[name='']" domainClass="simulation.Schedule">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression=".. " sizeComputationExpression="-1" hideLabelByDefault="true" resizeKind="NSEW" workspacePath="/org.gemoc.agro.design/images/lrun_obj48.png">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </style>
-          </borderedNodeMappings>
-          <borderedNodeMappings name="StopSchedule" preconditionExpression="[not self.currentDay.oclIsUndefined()/]" semanticCandidatesExpression="var:self" doubleClickDescription="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@toolSections.0/@ownedTools[name='Terminate']" domainClass="simulation.Schedule">
-            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['current day : ' +  self.currentDay.day + '  ' +self.currentDay.month /]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.gemoc.agro.design/images/terminatedlaunch_obj48.png">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            </style>
-          </borderedNodeMappings>
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['solver search limit :' + self.solverSearchSecondsSpentLimit + ' secs'/]" sizeComputationExpression="14" workspacePath="/org.gemoc.agro.simulation.edit/icons/full/obj16/Schedule_128.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
-          <conditionnalStyles predicateExpression="[not self.currentDay.oclIsUndefined()/]">
-            <style xsi:type="style:GaugeCompositeStyleDescription" labelExpression="['current day : ' +  self.currentDay.day + '  ' +self.currentDay.month /]" sizeComputationExpression="14" resizeKind="NSEW">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <sections maxValueExpression="20" valueExpression="[self.currentDay.temperature->max().floor()/]" label="T°">
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
-              </sections>
-              <sections maxValueExpression="40" valueExpression="[self.currentDay.rain->max().floor()/]" label="mm">
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
-              </sections>
-              <sections maxValueExpression="2000" valueExpression="[self.currentDay.rain->max().floor()/]" label="J/cm²">
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
-              </sections>
-            </style>
-          </conditionnalStyles>
         </nodeMappings>
         <nodeMappings name="Analysis" semanticCandidatesExpression="[self.eInverse(simulation::Schedule).eInverse(scientific::ExploitationAnalysis)/]" domainClass="scientific.ExploitationAnalysis">
           <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['Extra Water needed : ' + self.totalExtraWater() + 'm³'/]" sizeComputationExpression="14" workspacePath="/org.gemoc.agro.scientific.edit/icons/full/obj16/BiomassModel_128_gray.png">
@@ -141,6 +111,60 @@
             <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['Extra Water needed : ' + self.totalExtraWater() + 'm³'/]" sizeComputationExpression="14" workspacePath="/org.gemoc.agro.scientific.edit/icons/full/obj16/BiomassModel_128_lev2.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+        <nodeMappings name="AnimationController" semanticCandidatesExpression="[self.eInverse(simulation::Schedule)/]" domainClass="simulation.Schedule">
+          <borderedNodeMappings name="RunSchedule" semanticCandidatesExpression="[self->select(workToDo->size() > 0)/]" doubleClickDescription="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@toolSections.0/@ownedTools[name='OneStep']" domainClass="simulation.Schedule">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression=".. " sizeComputationExpression="-1" hideLabelByDefault="true" resizeKind="NSEW" workspacePath="/org.gemoc.agro.design/images/lrun_obj48.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </borderedNodeMappings>
+          <borderedNodeMappings name="StopSchedule" semanticCandidatesExpression="var:self" domainClass="simulation.Schedule">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['current day : ' +  self.currentDay.day + '  ' +self.currentDay.month /]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.gemoc.agro.design/images/terminatedlaunch_obj48.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+            <conditionnalStyles predicateExpression="[not self.currentDay.oclIsUndefined()/]">
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="['current day : ' +  self.currentDay.day + '  ' +self.currentDay.month /]" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.gemoc.agro.design/images/terminatedlaunch_obj48.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </conditionnalStyles>
+          </borderedNodeMappings>
+          <style xsi:type="style:GaugeCompositeStyleDescription" labelExpression="['current day : ' +  self.currentDay.day + '  ' +self.currentDay.month /]" sizeComputationExpression="14" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <sections maxValueExpression="20" label="T°">
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+            </sections>
+            <sections maxValueExpression="40" label="mm">
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            </sections>
+            <sections maxValueExpression="2000" label="J/cm²">
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
+            </sections>
+          </style>
+          <conditionnalStyles predicateExpression="[not self.currentDay.oclIsUndefined()/]">
+            <style xsi:type="style:GaugeCompositeStyleDescription" labelExpression="['current day : ' +  self.currentDay.day + '  ' +self.currentDay.month /]" sizeComputationExpression="14" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <sections maxValueExpression="20" valueExpression="[self.currentDay.temperature->max().floor()/]" label="T°">
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+              </sections>
+              <sections maxValueExpression="40" valueExpression="[self.currentDay.rain->max().floor()/]" label="mm">
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+              </sections>
+              <sections maxValueExpression="2000" valueExpression="[self.currentDay.rain->max().floor()/]" label="J/cm²">
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
+              </sections>
             </style>
           </conditionnalStyles>
         </nodeMappings>
@@ -236,7 +260,7 @@
           </style>
         </containerMappings>
         <toolSections name="tools">
-          <ownedTools xsi:type="tool:DoubleClickDescription" mappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Schedule']/@borderedNodeMappings[name='RunSchedule']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="OneStep" mappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='AnimationController']/@borderedNodeMappings[name='RunSchedule']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -257,7 +281,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.computeWaterAnalysis()"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="Terminate" mappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Schedule']/@borderedNodeMappings[name='StopSchedule']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Terminate">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
