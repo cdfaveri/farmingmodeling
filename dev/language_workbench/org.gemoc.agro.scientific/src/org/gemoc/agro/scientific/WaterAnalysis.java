@@ -37,11 +37,11 @@ public class WaterAnalysis {
 
 					for (ExploitationActivity activity : bioModel.getCulture()
 							.getActivities()) {
-						if (activity.getName().equals("SEMIS")) {
+						if (activity.getName().equals("SOW")) {
 							activityPlanting.put(bioModel.getCulture(),
 									activity);
 						}
-						if (activity.getName().equals("RECOLTE")) {
+						if (activity.getName().equals("HARVEST")) {
 							activityHarvest
 									.put(bioModel.getCulture(), activity);
 						}
