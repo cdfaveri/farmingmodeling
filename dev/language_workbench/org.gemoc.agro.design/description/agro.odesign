@@ -45,7 +45,7 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="Surface" domainClass="exploitation.Surface">
+        <nodeMappings name="Surface" labelDirectEdit="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@toolSections.0/@ownedTools[name='EditSurface']" domainClass="exploitation.Surface">
           <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="[self.total + 'ha : ' + self.nbFields + ' fields' /]" sizeComputationExpression="service:getFieldWidth" labelPosition="node">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -290,6 +290,12 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="EditSurface">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="total" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
           <subSections name="WorkGroup">
             <ownedTools xsi:type="tool:ContainerCreationDescription" name="Daily" containerMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='WorkGroup']" iconPath="/org.gemoc.agro.exploitation.edit/icons/full/obj16/Daily_32.png">
               <variable name="container"/>
@@ -346,7 +352,7 @@
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="exploitation.Surface" referenceName="surfaces">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="total" valueExpression="20"/>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="nbfields" valueExpression="1"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="nbFields" valueExpression="1"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
