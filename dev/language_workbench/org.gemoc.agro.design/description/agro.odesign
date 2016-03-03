@@ -357,26 +357,23 @@
                 </firstModelOperations>
               </initialOperation>
             </ownedTools>
-            <ownedTools xsi:type="tool:EdgeCreationDescription" name="Assign Surface" edgeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@edgeMappings[name='Surface%20Dedicated%20to%20Workgroup']" iconPath="/org.gemoc.agro.design/images/web/Dependency.gif">
+            <ownedTools xsi:type="tool:EdgeCreationDescription" name="Assign" edgeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@edgeMappings[name='WorkGroup%20to%20Culture']" iconPath="/org.gemoc.agro.design/images/web/ControlFlow.gif" extraSourceMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Surface'] //@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Resource']" extraTargetMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='From%20Xtext%20dsl']/@subNodeMappings[name='ResourceKind'] //@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='WorkGroup']">
               <sourceVariable name="source"/>
               <targetVariable name="target"/>
               <sourceViewVariable name="sourceView"/>
               <targetViewVariable name="targetView"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="dedicatedto" valueExpression="var:target"/>
-                </firstModelOperations>
-              </initialOperation>
-            </ownedTools>
-            <ownedTools xsi:type="tool:EdgeCreationDescription" name="Assign Culture" edgeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@edgeMappings[name='WorkGroup%20to%20Culture']" iconPath="/org.gemoc.agro.design/images/web/ControlFlow.gif">
-              <sourceVariable name="source"/>
-              <targetVariable name="target"/>
-              <sourceViewVariable name="sourceView"/>
-              <targetViewVariable name="targetView"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                  <subModelOperations xsi:type="tool_1:Unset" featureName="cultures" elementExpression="feature:cultures">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="cultures" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[self.oclIsKindOf(exploitation::Surface)/]">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="dedicatedto" valueExpression="var:target"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[self.oclIsKindOf(exploitation::WorkGroup)/]">
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="cultures" elementExpression="feature:cultures">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="cultures" valueExpression="var:target"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="[self.oclIsKindOf(exploitation::Resource)/]">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="kind" valueExpression="var:target"/>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
