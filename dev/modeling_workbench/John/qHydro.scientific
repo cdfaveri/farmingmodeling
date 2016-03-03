@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scientific:ExploitationAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:scientific="http://www.gemoc.org/scientific" limitBeforeWatering="60.0">
+  <biomassModels Eb="1.85" Eimax="0.94" K="0.5" Lmax="5.0" TI="900.0" A="0.0065" B="0.00205">
+    <culture href="definitions.activities#//@cultures[name='corn']"/>
+  </biomassModels>
+  <biomassModels Eb="1.85" Eimax="0.94" K="0.5" Lmax="6.5" TI="900.0" A="0.0065" B="0.00205">
+    <culture href="definitions.activities#//@cultures[name='wheat']"/>
+  </biomassModels>
+  <biomassModels Eb="1.85" Eimax="0.94" K="0.5" Lmax="4.5" TI="900.0" A="0.0065" B="0.00205">
+    <culture href="definitions.activities#//@cultures[name='sorgho']"/>
+  </biomassModels>
+  <schedule href="plan.simulation#/"/>
+</scientific:ExploitationAnalysis>
