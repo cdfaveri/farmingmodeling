@@ -239,14 +239,14 @@
             </style>
           </conditionnalStyles>
         </containerMappings>
-        <containerMappings name="From Xtext dsl" semanticCandidatesExpression="var:self" domainClass="exploitation.Exploitation">
-          <subNodeMappings name="ResourceKind" domainClass="activitiesDSL.ResourceKind">
+        <containerMappings name="From Xtext dsl" semanticCandidatesExpression="var:self" doubleClickDescription="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@toolSections.0/@ownedTools[name='OpenInTextEditor']" domainClass="exploitation.Exploitation">
+          <subNodeMappings name="ResourceKind" doubleClickDescription="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@toolSections.0/@ownedTools[name='OpenInTextEditor']" domainClass="activitiesDSL.ResourceKind">
             <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.gemoc.agro.activities.edit/icons/full/obj16/ResourceKind_32.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="CultureNode" domainClass="activitiesDSL.Culture">
+          <subNodeMappings name="CultureNode" doubleClickDescription="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@toolSections.0/@ownedTools[name='OpenInTextEditor']" domainClass="activitiesDSL.Culture">
             <style xsi:type="style:WorkspaceImageDescription" showIcon="false" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/org.gemoc.agro.activities.edit/icons/full/obj16/Culture_32.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -294,6 +294,15 @@
             <mask mask="{0}"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:SetValue" featureName="total" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="OpenInTextEditor" mappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='From%20Xtext%20dsl']/@subNodeMappings[name='CultureNode'] //@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='From%20Xtext%20dsl']/@subNodeMappings[name='ResourceKind'] //@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='From%20Xtext%20dsl']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:openTextEditor"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <subSections name="WorkGroup">
