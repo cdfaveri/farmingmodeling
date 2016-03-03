@@ -4,6 +4,7 @@ import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature.Setting;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.gemoc.agro.exploitation.Surface;
@@ -153,6 +154,15 @@ public class Services {
   public int getFieldWidth(Surface s) {
     return Double.valueOf(Math.sqrt(s.getTotal())).intValue();
     // return s.getTotal() / 5;
+  }
+
+  public String eResourceName(EObject e) {
+    Resource res = e.eResource();
+    if (res != null && res.getURI() != null
+        && res.getURI().lastSegment() != null) {
+      return res.getURI().lastSegment();
+    }
+    return "";
   }
 
 }
