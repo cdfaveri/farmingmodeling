@@ -185,7 +185,7 @@
           </style>
         </edgeMappings>
         <edgeMappings name="Surface Dedicated to Workgroup" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@nodeMappings[name='Surface']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Structure']/@defaultLayer/@containerMappings[name='WorkGroup']" targetFinderExpression="feature:dedicatedto">
-          <style lineStyle="dash" sizeComputationExpression="1" routingStyle="manhattan">
+          <style lineStyle="dash" sizeComputationExpression="1" routingStyle="tree">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription showIcon="false">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
