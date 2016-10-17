@@ -1,210 +1,35 @@
 <?xml version="1.0" encoding="ASCII"?>
-<simulation:Schedule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:simulation="http://www.gemoc.org/agro/simulation" softScore="4100" solutions="33942">
+<simulation:Schedule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:simulation="http://www.gemoc.org/agro/simulation" softScore="600" solutions="257359">
   <exploitation href="estate.exploitation#/"/>
   <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='SOW']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.92"/>
-    <onSurface href="estate.exploitation#//@surfaces.0"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.222"/>
-    <onSurface href="estate.exploitation#//@surfaces.0"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.558"/>
-    <onSurface href="estate.exploitation#//@surfaces.0"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.544"/>
-    <onSurface href="estate.exploitation#//@surfaces.0"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.562"/>
-    <onSurface href="estate.exploitation#//@surfaces.0"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.574"/>
-    <onSurface href="estate.exploitation#//@surfaces.0"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.220"/>
-    <onSurface href="estate.exploitation#//@surfaces.0"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.171"/>
-    <onSurface href="estate.exploitation#//@surfaces.0"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.179"/>
-    <onSurface href="estate.exploitation#//@surfaces.0"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='FERTILIZATION']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.129"/>
-    <onSurface href="estate.exploitation#//@surfaces.0"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='HARVEST']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.254"/>
-    <onSurface href="estate.exploitation#//@surfaces.0"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='wheat']/@activities[name='PLOUGH']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.271"/>
+    <activity href="definitions.activities#//@cultures[name='sorgho']/@activities[name='PLOUGH']"/>
+    <scheduledOn href="INRA_STATION_31035002.csv#//@days.89"/>
     <onSurface href="estate.exploitation#//@surfaces.1"/>
   </workToDo>
   <workToDo>
-    <activity href="definitions.activities#//@cultures[name='wheat']/@activities[name='SOW']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.286"/>
+    <activity href="definitions.activities#//@cultures[name='sorgho']/@activities[name='SOW']"/>
+    <scheduledOn href="INRA_STATION_31035002.csv#//@days.121"/>
     <onSurface href="estate.exploitation#//@surfaces.1"/>
   </workToDo>
   <workToDo>
-    <activity href="definitions.activities#//@cultures[name='wheat']/@activities[name='FERTILIZATION']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.401"/>
+    <activity href="definitions.activities#//@cultures[name='sorgho']/@activities[name='HARVEST']"/>
+    <scheduledOn href="INRA_STATION_31035002.csv#//@days.274"/>
     <onSurface href="estate.exploitation#//@surfaces.1"/>
   </workToDo>
   <workToDo>
-    <activity href="definitions.activities#//@cultures[name='wheat']/@activities[name='HARVEST']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.546"/>
-    <onSurface href="estate.exploitation#//@surfaces.1"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='SOW']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.88"/>
-    <onSurface href="estate.exploitation#//@surfaces.2"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.202"/>
-    <onSurface href="estate.exploitation#//@surfaces.2"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.203"/>
-    <onSurface href="estate.exploitation#//@surfaces.2"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.168"/>
-    <onSurface href="estate.exploitation#//@surfaces.2"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.187"/>
-    <onSurface href="estate.exploitation#//@surfaces.2"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.542"/>
-    <onSurface href="estate.exploitation#//@surfaces.2"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.196"/>
-    <onSurface href="estate.exploitation#//@surfaces.2"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.177"/>
-    <onSurface href="estate.exploitation#//@surfaces.2"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.208"/>
-    <onSurface href="estate.exploitation#//@surfaces.2"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='FERTILIZATION']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.123"/>
-    <onSurface href="estate.exploitation#//@surfaces.2"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='HARVEST']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.256"/>
-    <onSurface href="estate.exploitation#//@surfaces.2"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='wheat']/@activities[name='PLOUGH']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.244"/>
+    <activity href="definitions.activities#//@cultures[name='sorgho']/@activities[name='PLOUGH']"/>
+    <scheduledOn href="INRA_STATION_31035002.csv#//@days.62"/>
     <onSurface href="estate.exploitation#//@surfaces.3"/>
   </workToDo>
   <workToDo>
-    <activity href="definitions.activities#//@cultures[name='wheat']/@activities[name='SOW']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.299"/>
+    <activity href="definitions.activities#//@cultures[name='sorgho']/@activities[name='SOW']"/>
+    <scheduledOn href="INRA_STATION_31035002.csv#//@days.486"/>
     <onSurface href="estate.exploitation#//@surfaces.3"/>
   </workToDo>
   <workToDo>
-    <activity href="definitions.activities#//@cultures[name='wheat']/@activities[name='FERTILIZATION']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.407"/>
+    <activity href="definitions.activities#//@cultures[name='sorgho']/@activities[name='HARVEST']"/>
+    <scheduledOn href="INRA_STATION_31035002.csv#//@days.287"/>
     <onSurface href="estate.exploitation#//@surfaces.3"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='wheat']/@activities[name='HARVEST']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.526"/>
-    <onSurface href="estate.exploitation#//@surfaces.3"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='SOW']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.74"/>
-    <onSurface href="estate.exploitation#//@surfaces.4"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.569"/>
-    <onSurface href="estate.exploitation#//@surfaces.4"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.190"/>
-    <onSurface href="estate.exploitation#//@surfaces.4"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.188"/>
-    <onSurface href="estate.exploitation#//@surfaces.4"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.556"/>
-    <onSurface href="estate.exploitation#//@surfaces.4"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.215"/>
-    <onSurface href="estate.exploitation#//@surfaces.4"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.178"/>
-    <onSurface href="estate.exploitation#//@surfaces.4"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.195"/>
-    <onSurface href="estate.exploitation#//@surfaces.4"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='WEED']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.549"/>
-    <onSurface href="estate.exploitation#//@surfaces.4"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='FERTILIZATION']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.489"/>
-    <onSurface href="estate.exploitation#//@surfaces.4"/>
-  </workToDo>
-  <workToDo>
-    <activity href="definitions.activities#//@cultures[name='corn']/@activities[name='HARVEST']"/>
-    <scheduledOn href="INRA_STATION_31035002.csv#//@days.245"/>
-    <onSurface href="estate.exploitation#//@surfaces.4"/>
   </workToDo>
   <climateData href="INRA_STATION_31035002.csv#/"/>
   <allocations work="//@workToDo.0">
@@ -215,20 +40,16 @@
     <resource href="estate.exploitation#//@resources.0"/>
     <kind href="definitions.activities#//@resourceKinds[name='People']"/>
   </allocations>
-  <allocations work="//@workToDo.0">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
   <allocations work="//@workToDo.1">
     <resource href="estate.exploitation#//@resources.1"/>
     <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
   </allocations>
   <allocations work="//@workToDo.1">
-    <resource href="estate.exploitation#//@resources.2"/>
+    <resource href="estate.exploitation#//@resources.0"/>
     <kind href="definitions.activities#//@resourceKinds[name='People']"/>
   </allocations>
   <allocations work="//@workToDo.2">
-    <resource href="estate.exploitation#//@resources.1"/>
+    <resource href="estate.exploitation#//@resources.0"/>
     <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
   </allocations>
   <allocations work="//@workToDo.2">
@@ -236,15 +57,15 @@
     <kind href="definitions.activities#//@resourceKinds[name='People']"/>
   </allocations>
   <allocations work="//@workToDo.3">
-    <resource href="estate.exploitation#//@resources.0"/>
+    <resource href="estate.exploitation#//@resources.1"/>
     <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
   </allocations>
   <allocations work="//@workToDo.3">
-    <resource href="estate.exploitation#//@resources.2"/>
+    <resource href="estate.exploitation#//@resources.0"/>
     <kind href="definitions.activities#//@resourceKinds[name='People']"/>
   </allocations>
   <allocations work="//@workToDo.4">
-    <resource href="estate.exploitation#//@resources.1"/>
+    <resource href="estate.exploitation#//@resources.0"/>
     <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
   </allocations>
   <allocations work="//@workToDo.4">
@@ -252,311 +73,11 @@
     <kind href="definitions.activities#//@resourceKinds[name='People']"/>
   </allocations>
   <allocations work="//@workToDo.5">
-    <resource href="estate.exploitation#//@resources.1"/>
+    <resource href="estate.exploitation#//@resources.0"/>
     <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
   </allocations>
   <allocations work="//@workToDo.5">
     <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.6">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.6">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.7">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.7">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.8">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.8">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.9">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.9">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.10">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.10">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.10">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.11">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.11">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.12">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.12">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.13">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.13">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.14">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.14">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.15">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.15">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.15">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.16">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.16">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.17">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.17">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.18">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.18">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.19">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.19">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.20">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.20">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.21">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.21">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.22">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.22">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.23">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.23">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.24">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.24">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.25">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.25">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.25">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.26">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.26">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.27">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.27">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.28">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.28">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.29">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.29">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.30">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.30">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.30">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.31">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.31">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.32">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.32">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.33">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.33">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.34">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.34">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.35">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.35">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.36">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.36">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.37">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.37">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.38">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.38">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.39">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.39">
-    <resource href="estate.exploitation#//@resources.0"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.40">
-    <resource href="estate.exploitation#//@resources.1"/>
-    <kind href="definitions.activities#//@resourceKinds[name='Tractor']"/>
-  </allocations>
-  <allocations work="//@workToDo.40">
-    <resource href="estate.exploitation#//@resources.2"/>
-    <kind href="definitions.activities#//@resourceKinds[name='People']"/>
-  </allocations>
-  <allocations work="//@workToDo.40">
-    <resource href="estate.exploitation#//@resources.0"/>
     <kind href="definitions.activities#//@resourceKinds[name='People']"/>
   </allocations>
 </simulation:Schedule>

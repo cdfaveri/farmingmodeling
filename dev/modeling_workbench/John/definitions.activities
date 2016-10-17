@@ -1,5 +1,5 @@
 culture corn { 
-
+	
 	activity SOW from 15 mar to 15 apr [
 		no rain since 3 days 	&& 
 		temperature > 10 °C
@@ -20,6 +20,7 @@ culture corn {
 	] using 1 Tractor and 2 People
 
 }
+
 
 culture wheat {
  
@@ -50,7 +51,7 @@ culture sorgho {
 		no rain since 3 days
 	] using 1 Tractor and 1 People
 	
-	activity SEMIS from 1 may to 15 may [
+	activity SOW from 1 may to 15 may [
 		after PLOUGH &&
 		no rain since 5 days &&
 		temperature > 5 °C
